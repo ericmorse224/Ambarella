@@ -1,0 +1,28 @@
+{
+  "name": "meeting-summary-dashboard",
+  "version": "1.0.0",
+  "description": "AI Meeting Summarizer using React and Flask",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^5.0.1"
+  ***REMOVED***,
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  ***REMOVED***,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  ***REMOVED***,
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "meeting",
+    "summary"
+  ]
+***REMOVED***

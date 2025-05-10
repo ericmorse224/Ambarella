@@ -1,0 +1,7 @@
+flask
+flask-cors
+deepgram-sdk
+sumy
+nltk
+python-dotenv
+gunicorn

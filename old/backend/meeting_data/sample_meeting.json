@@ -1,0 +1,13 @@
+{
+  "meeting_id": "mtg_123456",
+  "title": "Weekly Sync",
+  "start_time": "2025-05-10T09:00:00",
+  "attendees": [
+    { "name": "Alice", "email": "alice@example.com" ***REMOVED***,
+    { "name": "Bob", "email": "bob@example.com" ***REMOVED***
+  ],
+  "transcript": [
+    { "timestamp": "00:00:01", "speaker": "Alice", "text": "We decided to ship the MVP next week." ***REMOVED***,
+    { "timestamp": "00:00:12", "speaker": "Bob", "text": "I'll write the release notes and prepare the deployment." ***REMOVED***
+  ]
+***REMOVED***

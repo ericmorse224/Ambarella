@@ -10,7 +10,7 @@
     "react-scripts": "^5.0.1"
   ***REMOVED***,
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^9.26.0"
   ***REMOVED***,
   "scripts": {
     "start": "react-scripts start",

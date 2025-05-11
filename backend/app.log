@@ -1,0 +1,190 @@
+2025-05-11 11:53:34 WARNING:  * Debugger is active!
+2025-05-11 11:53:34 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 11:53:50 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 11:53:50 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 11:53:50 INFO:  * Restarting with stat
+2025-05-11 11:53:51 WARNING:  * Debugger is active!
+2025-05-11 11:53:51 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 11:55:06 INFO: Received audio upload request
+2025-05-11 11:55:06 INFO: Saved file: original_audio.wav
+2025-05-11 11:55:06 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 11:55:07 ERROR: Deepgram error: 400
+2025-05-11 11:55:07 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"3ca8b732-3bc3-4b5d-a411-dad90d62b729"***REMOVED***
+2025-05-11 11:55:07 INFO: 127.0.0.1 - - [11/May/2025 11:55:07] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 11:55:47 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 11:55:47 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 11:55:47 INFO:  * Restarting with stat
+2025-05-11 11:55:48 WARNING:  * Debugger is active!
+2025-05-11 11:55:48 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 11:56:32 INFO: Received audio upload request
+2025-05-11 11:56:32 INFO: Saved file: original_audio.wav
+2025-05-11 11:56:32 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 11:56:32 ERROR: Deepgram error: 400
+2025-05-11 11:56:32 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"c47ed868-4a22-4bcc-87ef-0f78a744a5f6"***REMOVED***
+2025-05-11 11:56:32 INFO: 127.0.0.1 - - [11/May/2025 11:56:32] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 12:01:47 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 12:01:48 INFO:  * Restarting with stat
+2025-05-11 12:01:49 WARNING:  * Debugger is active!
+2025-05-11 12:01:49 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 12:01:58 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 12:01:58 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 12:01:58 INFO:  * Restarting with stat
+2025-05-11 12:02:00 WARNING:  * Debugger is active!
+2025-05-11 12:02:00 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 12:02:50 INFO: Received audio upload request
+2025-05-11 12:02:50 INFO: Saved file: original_audio.wav
+2025-05-11 12:02:51 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 12:02:51 ERROR: Deepgram error: 400
+2025-05-11 12:02:51 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"89edc293-6f00-4fb1-bc2a-55ce914e6bf6"***REMOVED***
+2025-05-11 12:02:51 INFO: 127.0.0.1 - - [11/May/2025 12:02:51] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 12:05:23 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 12:05:23 INFO:  * Restarting with stat
+2025-05-11 12:05:25 WARNING:  * Debugger is active!
+2025-05-11 12:05:25 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 12:05:32 INFO: Received audio upload request
+2025-05-11 12:05:32 INFO: Saved file: original_audio.wav
+2025-05-11 12:05:32 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 12:05:32 INFO: Sending audio to Deepgram...
+2025-05-11 12:05:32 INFO: Deepgram response received
+2025-05-11 12:05:32 ERROR: Deepgram error: 400
+2025-05-11 12:05:32 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"f940eca1-a8bc-446a-bd88-733712bdfc95"***REMOVED***
+2025-05-11 12:05:32 INFO: 127.0.0.1 - - [11/May/2025 12:05:32] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 12:06:56 ERROR: No transcript found in the request data.
+2025-05-11 12:06:56 INFO: Received audio upload request
+2025-05-11 12:06:56 ERROR: No file uploaded
+2025-05-11 12:06:56 INFO: Full transcript received: We decided to launch next week. John will prepare slides....
+2025-05-11 12:06:56 INFO: Extracted summary: []
+2025-05-11 12:06:56 INFO: Extracted actions: ['John will prepare slides.']
+2025-05-11 12:06:56 INFO: Extracted decisions: ['We decided to launch next week.']
+2025-05-11 12:12:21 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 12:12:21 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 12:12:21 INFO:  * Restarting with stat
+2025-05-11 12:12:22 WARNING:  * Debugger is active!
+2025-05-11 12:12:22 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 12:13:47 INFO: Received audio upload request
+2025-05-11 12:13:47 INFO: Saved file: original_audio.wav
+2025-05-11 12:13:47 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 12:13:47 INFO: Sending audio to Deepgram...
+2025-05-11 12:13:48 INFO: Deepgram response received
+2025-05-11 12:13:48 ERROR: Deepgram error: 400
+2025-05-11 12:13:48 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"ab670133-95d1-497a-a8ae-f3f8bbbea07c"***REMOVED***
+2025-05-11 12:13:48 INFO: 127.0.0.1 - - [11/May/2025 12:13:48] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 14:38:01 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 14:38:01 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 14:38:01 INFO:  * Restarting with stat
+2025-05-11 14:38:02 WARNING:  * Debugger is active!
+2025-05-11 14:38:02 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 14:38:50 INFO: Received audio upload request
+2025-05-11 14:38:50 INFO: Saved file: original_audio.wav
+2025-05-11 14:38:50 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 14:38:50 INFO: Sending audio to Deepgram...
+2025-05-11 14:38:51 INFO: Deepgram response received
+2025-05-11 14:38:51 ERROR: Deepgram error: 400
+2025-05-11 14:38:51 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"7b534668-eed8-4399-bf81-102b05f33ca9"***REMOVED***
+2025-05-11 14:38:51 INFO: 127.0.0.1 - - [11/May/2025 14:38:51] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 14:48:53 INFO: Received audio upload request
+2025-05-11 14:48:53 INFO: Saved file: original_audio.wav
+2025-05-11 14:48:53 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 14:48:53 INFO: Sending audio to Deepgram...
+2025-05-11 14:48:53 INFO: Deepgram response received
+2025-05-11 14:48:53 ERROR: Deepgram error: 400
+2025-05-11 14:48:53 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"470b93a2-e902-486c-b711-55f7bc8f5975"***REMOVED***
+2025-05-11 14:48:53 INFO: 127.0.0.1 - - [11/May/2025 14:48:53] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 14:54:27 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 14:54:27 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 14:54:27 INFO:  * Restarting with stat
+2025-05-11 14:54:28 WARNING:  * Debugger is active!
+2025-05-11 14:54:28 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 14:56:15 INFO: Received audio upload request
+2025-05-11 14:56:15 INFO: Saved file: original_audio.wav
+2025-05-11 14:56:15 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 14:56:16 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/3a4ee6b6-1a9f-445c-9afb-30f4d10cd9eb
+2025-05-11 14:56:16 INFO: Transcription requested, ID: a6edc9cf-f129-4d6c-9a65-a5f8d430a153
+2025-05-11 14:56:18 ERROR: Transcription error: Transcoding failed. File does not appear to contain audio. File type is application/octet-stream (data).
+2025-05-11 14:56:18 INFO: 127.0.0.1 - - [11/May/2025 14:56:18] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 14:59:09 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 14:59:09 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 14:59:09 INFO:  * Restarting with stat
+2025-05-11 14:59:10 WARNING:  * Debugger is active!
+2025-05-11 14:59:10 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 14:59:21 INFO: Received audio upload request
+2025-05-11 14:59:21 INFO: Saved file: original_audio.wav
+2025-05-11 14:59:21 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 14:59:22 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/b5e062ed-8d7b-4314-80e6-047fd5b7a2ec
+2025-05-11 14:59:22 INFO: Transcription requested, ID: 0586180e-9177-4e7a-aa05-dad9fd6de8b3
+2025-05-11 14:59:25 ERROR: Transcription error: Transcoding failed. File does not appear to contain audio. File type is application/octet-stream (data).
+2025-05-11 14:59:25 INFO: 127.0.0.1 - - [11/May/2025 14:59:25] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-11 15:10:36 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 15:10:36 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 15:10:36 INFO:  * Restarting with stat
+2025-05-11 15:10:37 WARNING:  * Debugger is active!
+2025-05-11 15:10:38 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 15:10:44 INFO: Received audio upload request
+2025-05-11 15:10:44 INFO: Saved file: original_audio.wav
+2025-05-11 15:10:45 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 15:10:45 WARNING: Likely silent or unreadable audio.
+2025-05-11 15:10:45 INFO: Silence trimmed from audio.
+2025-05-11 15:10:45 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/9452f6a5-a480-472d-865d-8b54044fbfe6
+2025-05-11 15:10:46 INFO: Transcription requested, ID: d13b082c-b556-4f86-9197-371eafc9d6dc
+2025-05-11 15:10:49 INFO: Transcript logged to transcripts\transcript_2025-05-11_15-10-49.txt
+2025-05-11 15:10:49 INFO: 127.0.0.1 - - [11/May/2025 15:10:49] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 15:10:49 INFO: 127.0.0.1 - - [11/May/2025 15:10:49] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 15:10:49 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 15:10:49 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 15:10:49 INFO: Extracted actions: []
+2025-05-11 15:10:49 INFO: Extracted decisions: []
+2025-05-11 15:10:49 INFO: 127.0.0.1 - - [11/May/2025 15:10:49] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 15:13:17 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 15:13:17 INFO:  * Restarting with stat
+2025-05-11 15:16:01 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 15:16:01 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 15:16:01 INFO:  * Restarting with stat
+2025-05-11 15:16:02 WARNING:  * Debugger is active!
+2025-05-11 15:16:02 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 15:23:01 INFO: Received audio upload request
+2025-05-11 15:23:01 INFO: Saved file: original_audio.wav
+2025-05-11 15:23:01 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 15:23:01 WARNING: Likely silent or unreadable audio.
+2025-05-11 15:23:01 INFO: Silence trimmed from audio.
+2025-05-11 15:23:02 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/9c86b094-f1f1-48e5-a36a-762906991fb0
+2025-05-11 15:23:02 INFO: Transcription requested, ID: e93a46d1-59f3-4438-93c3-104756c9d30c
+2025-05-11 15:23:06 INFO: Transcript logged to transcripts\transcript_2025-05-11_15-23-06.txt
+2025-05-11 15:23:06 INFO: 127.0.0.1 - - [11/May/2025 15:23:06] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 15:23:06 INFO: 127.0.0.1 - - [11/May/2025 15:23:06] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 15:23:06 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 15:23:06 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 15:23:06 INFO: Extracted actions: []
+2025-05-11 15:23:06 INFO: Extracted decisions: []
+2025-05-11 15:23:06 INFO: 127.0.0.1 - - [11/May/2025 15:23:06] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 15:29:09 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 15:29:09 INFO:  * Restarting with stat
+2025-05-11 15:29:10 WARNING:  * Debugger is active!
+2025-05-11 15:29:10 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 15:31:56 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 15:31:56 INFO:  * Restarting with stat
+2025-05-11 15:31:57 WARNING:  * Debugger is active!
+2025-05-11 15:31:57 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 15:32:05 INFO: Received audio upload request
+2025-05-11 15:32:05 INFO: Saved file: original_audio.wav
+2025-05-11 15:32:05 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 15:32:05 WARNING: Likely silent or unreadable audio.
+2025-05-11 15:32:05 INFO: Silence trimmed from audio.
+2025-05-11 15:32:06 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/83f50c69-ad9e-4ca2-8f9c-eb86b1fce0a1
+2025-05-11 15:32:06 INFO: Transcription requested, ID: 4b2bc50f-0a3f-4c9a-b079-fc5d996eb3be
+2025-05-11 15:32:10 INFO: Transcript logged to transcripts\transcript_2025-05-11_15-32-10.txt
+2025-05-11 15:32:10 INFO: 127.0.0.1 - - [11/May/2025 15:32:10] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 15:32:10 INFO: 127.0.0.1 - - [11/May/2025 15:32:10] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 15:32:10 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 15:32:10 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 15:32:10 INFO: Extracted actions: []
+2025-05-11 15:32:10 INFO: Extracted decisions: []
+2025-05-11 15:32:10 INFO: 127.0.0.1 - - [11/May/2025 15:32:10] "POST /process-json HTTP/1.1" 200 -

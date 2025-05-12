@@ -5,3 +5,4 @@ sumy
 nltk
 python-dotenv
 gunicorn
+requests

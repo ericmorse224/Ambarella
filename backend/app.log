@@ -188,3 +188,162 @@
 2025-05-11 15:32:10 INFO: Extracted actions: []
 2025-05-11 15:32:10 INFO: Extracted decisions: []
 2025-05-11 15:32:10 INFO: 127.0.0.1 - - [11/May/2025 15:32:10] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 20:00:17 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 20:00:17 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 20:00:17 INFO:  * Restarting with stat
+2025-05-11 20:00:18 WARNING:  * Debugger is active!
+2025-05-11 20:00:18 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 20:01:26 INFO: Received audio upload request
+2025-05-11 20:01:26 INFO: Saved file: original_audio.wav
+2025-05-11 20:01:26 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 20:01:27 WARNING: Likely silent or unreadable audio.
+2025-05-11 20:01:27 INFO: Silence trimmed from audio.
+2025-05-11 20:01:27 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/b6463e58-b9ab-4eb2-89ec-43d44e579eac
+2025-05-11 20:01:28 INFO: Transcription requested, ID: 4286cdd5-90e2-4deb-af2a-27e976284df4
+2025-05-11 20:01:35 INFO: Transcript logged to transcripts\transcript_2025-05-11_20-01-35.txt
+2025-05-11 20:01:35 INFO: 127.0.0.1 - - [11/May/2025 20:01:35] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 20:01:35 INFO: 127.0.0.1 - - [11/May/2025 20:01:35] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 20:01:35 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 20:01:35 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 20:01:35 INFO: Extracted actions: []
+2025-05-11 20:01:35 INFO: Extracted decisions: []
+2025-05-11 20:01:35 INFO: 127.0.0.1 - - [11/May/2025 20:01:35] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 20:04:05 INFO: Received audio upload request
+2025-05-11 20:04:05 INFO: Saved file: original_audio.wav
+2025-05-11 20:04:05 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 20:04:05 WARNING: Likely silent or unreadable audio.
+2025-05-11 20:04:06 INFO: Silence trimmed from audio.
+2025-05-11 20:04:06 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/29821866-ab03-4fa8-b7c6-34b234e8f785
+2025-05-11 20:04:07 INFO: Transcription requested, ID: 0eba1c4d-d824-46c8-b708-bbc25935f4d0
+2025-05-11 20:04:10 INFO: Transcript logged to transcripts\transcript_2025-05-11_20-04-10.txt
+2025-05-11 20:04:10 INFO: 127.0.0.1 - - [11/May/2025 20:04:10] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 20:04:10 INFO: 127.0.0.1 - - [11/May/2025 20:04:10] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 20:04:10 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 20:04:10 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 20:04:10 INFO: Extracted actions: []
+2025-05-11 20:04:10 INFO: Extracted decisions: []
+2025-05-11 20:04:10 INFO: 127.0.0.1 - - [11/May/2025 20:04:10] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 20:12:39 INFO: Received audio upload request
+2025-05-11 20:12:39 INFO: Saved file: original_audio.wav
+2025-05-11 20:12:39 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 20:12:39 WARNING: Likely silent or unreadable audio.
+2025-05-11 20:12:39 INFO: Silence trimmed from audio.
+2025-05-11 20:12:40 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/77198af9-9776-43ca-b342-9a28ae67980a
+2025-05-11 20:12:40 INFO: Transcription requested, ID: f74329be-bc70-4f13-9d12-d4f3038a2932
+2025-05-11 20:12:44 INFO: Transcript logged to transcripts\transcript_2025-05-11_20-12-44.txt
+2025-05-11 20:12:44 INFO: 127.0.0.1 - - [11/May/2025 20:12:44] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 20:12:44 INFO: 127.0.0.1 - - [11/May/2025 20:12:44] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 20:12:44 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 20:12:44 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 20:12:44 INFO: Extracted actions: []
+2025-05-11 20:12:44 INFO: Extracted decisions: []
+2025-05-11 20:12:44 INFO: 127.0.0.1 - - [11/May/2025 20:12:44] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 20:25:56 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 20:25:56 INFO:  * Restarting with stat
+2025-05-11 20:25:58 WARNING:  * Debugger is active!
+2025-05-11 20:25:58 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 20:26:11 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 20:26:11 INFO:  * Restarting with stat
+2025-05-11 20:26:12 WARNING:  * Debugger is active!
+2025-05-11 20:26:12 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 20:30:05 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 20:30:05 INFO:  * Restarting with stat
+2025-05-11 20:30:06 WARNING:  * Debugger is active!
+2025-05-11 20:30:06 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 20:35:15 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 20:35:15 INFO:  * Restarting with stat
+2025-05-11 20:38:34 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-11 20:38:34 INFO: [33mPress CTRL+C to quit[0m
+2025-05-11 20:38:34 INFO:  * Restarting with stat
+2025-05-11 20:38:35 WARNING:  * Debugger is active!
+2025-05-11 20:38:35 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 20:38:51 INFO: Received audio upload request
+2025-05-11 20:38:51 INFO: Saved file: original_audio.wav
+2025-05-11 20:38:51 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 20:38:51 WARNING: Likely silent or unreadable audio.
+2025-05-11 20:38:51 INFO: Silence trimmed from audio.
+2025-05-11 20:38:52 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/977f586a-09f8-4c8e-b190-f507246bf070
+2025-05-11 20:38:53 INFO: Transcription requested, ID: 4ad42396-5f99-4afb-9190-44407e8434df
+2025-05-11 20:38:56 INFO: Transcript logged to transcripts\transcript_2025-05-11_20-38-56.txt
+2025-05-11 20:38:56 INFO: 127.0.0.1 - - [11/May/2025 20:38:56] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 20:38:56 INFO: 127.0.0.1 - - [11/May/2025 20:38:56] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 20:38:56 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 20:38:56 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 20:38:56 INFO: Extracted actions: []
+2025-05-11 20:38:56 INFO: Extracted decisions: []
+2025-05-11 20:38:56 INFO: 127.0.0.1 - - [11/May/2025 20:38:56] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 20:48:50 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-11 20:48:50 INFO:  * Restarting with stat
+2025-05-11 20:48:52 WARNING:  * Debugger is active!
+2025-05-11 20:48:52 INFO:  * Debugger PIN: 818-684-062
+2025-05-11 21:05:45 INFO: Received audio upload request
+2025-05-11 21:05:45 INFO: Saved file: original_audio.wav
+2025-05-11 21:05:46 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 21:05:46 WARNING: Likely silent or unreadable audio.
+2025-05-11 21:05:46 INFO: Silence trimmed from audio.
+2025-05-11 21:05:47 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/e9566fa4-2a23-4519-8c71-e4111fa5e358
+2025-05-11 21:05:47 INFO: Transcription requested, ID: 99a44652-525e-4056-a40b-7b4c4c06defe
+2025-05-11 21:06:16 INFO: Received audio upload request
+2025-05-11 21:06:16 INFO: Saved file: original_audio.wav
+2025-05-11 21:06:16 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 21:06:16 WARNING: Likely silent or unreadable audio.
+2025-05-11 21:06:16 INFO: Silence trimmed from audio.
+2025-05-11 21:06:17 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/71473b36-eda3-4d98-8bf1-26a3373e63ef
+2025-05-11 21:06:17 INFO: Transcript logged to transcripts\transcript_2025-05-11_21-06-17.txt
+2025-05-11 21:06:17 INFO: 127.0.0.1 - - [11/May/2025 21:06:17] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 21:06:17 INFO: Transcription requested, ID: 28f07505-1d9d-4c43-b625-7ea860f42fba
+2025-05-11 21:06:27 INFO: Transcript logged to transcripts\transcript_2025-05-11_21-06-27.txt
+2025-05-11 21:06:27 INFO: 127.0.0.1 - - [11/May/2025 21:06:27] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 21:06:27 INFO: 127.0.0.1 - - [11/May/2025 21:06:27] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 21:06:27 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 21:06:27 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 21:06:27 INFO: Extracted actions: []
+2025-05-11 21:06:27 INFO: Extracted decisions: []
+2025-05-11 21:06:27 INFO: 127.0.0.1 - - [11/May/2025 21:06:27] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 21:24:42 INFO: Received audio upload request
+2025-05-11 21:24:42 INFO: Saved file: original_audio.wav
+2025-05-11 21:24:42 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 21:24:42 WARNING: Likely silent or unreadable audio.
+2025-05-11 21:24:42 INFO: Silence trimmed from audio.
+2025-05-11 21:24:43 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/c4d98f78-bfe5-4e38-ab36-12fd79895208
+2025-05-11 21:24:45 INFO: Transcription requested, ID: f61ceb5b-6809-461b-953a-9b206c4777d0
+2025-05-11 21:24:48 INFO: Transcript logged to transcripts\transcript_2025-05-11_21-24-48.txt
+2025-05-11 21:24:48 INFO: 127.0.0.1 - - [11/May/2025 21:24:48] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 21:24:48 INFO: 127.0.0.1 - - [11/May/2025 21:24:48] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 21:24:48 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 21:24:48 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 21:24:48 INFO: Extracted actions: []
+2025-05-11 21:24:48 INFO: Extracted decisions: []
+2025-05-11 21:24:48 INFO: 127.0.0.1 - - [11/May/2025 21:24:48] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 21:27:22 INFO: Received audio upload request
+2025-05-11 21:27:22 INFO: Saved file: original_audio.wav
+2025-05-11 21:27:22 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 21:27:22 WARNING: Likely silent or unreadable audio.
+2025-05-11 21:27:22 INFO: Silence trimmed from audio.
+2025-05-11 21:27:23 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/35232834-473e-4332-ac5e-4361c5b70f12
+2025-05-11 21:27:24 INFO: Transcription requested, ID: a101a22e-57d1-44f2-9cca-9e58b3aa6209
+2025-05-11 21:27:27 INFO: Transcript logged to transcripts\transcript_2025-05-11_21-27-27.txt
+2025-05-11 21:27:27 INFO: 127.0.0.1 - - [11/May/2025 21:27:27] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 21:27:27 INFO: 127.0.0.1 - - [11/May/2025 21:27:27] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 21:27:27 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 21:27:27 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 21:27:27 INFO: Extracted actions: []
+2025-05-11 21:27:27 INFO: Extracted decisions: []
+2025-05-11 21:27:27 INFO: 127.0.0.1 - - [11/May/2025 21:27:27] "POST /process-json HTTP/1.1" 200 -
+2025-05-11 21:28:14 INFO: Received audio upload request
+2025-05-11 21:28:14 INFO: Saved file: original_audio.wav
+2025-05-11 21:28:14 INFO: Converted audio saved as: converted_audio.wav
+2025-05-11 21:28:14 WARNING: Likely silent or unreadable audio.
+2025-05-11 21:28:14 INFO: Silence trimmed from audio.
+2025-05-11 21:28:15 INFO: Audio uploaded to AssemblyAI: https://cdn.assemblyai.com/upload/4f1358aa-eaa3-4175-b5a0-ff61b1f5c968
+2025-05-11 21:28:16 INFO: Transcription requested, ID: a4339b2d-5516-4aed-9e01-f8df2da7bca6
+2025-05-11 21:28:19 INFO: Transcript logged to transcripts\transcript_2025-05-11_21-28-19.txt
+2025-05-11 21:28:19 INFO: 127.0.0.1 - - [11/May/2025 21:28:19] "POST /process-audio HTTP/1.1" 200 -
+2025-05-11 21:28:19 INFO: 127.0.0.1 - - [11/May/2025 21:28:19] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-11 21:28:19 INFO: Full transcript received: Bible schedule meetings. Alice is going out and Frank is doing something....
+2025-05-11 21:28:19 INFO: Extracted summary: ['Bible schedule meetings.', 'Alice is going out and Frank is doing something.']
+2025-05-11 21:28:19 INFO: Extracted actions: []
+2025-05-11 21:28:19 INFO: Extracted decisions: []
+2025-05-11 21:28:19 INFO: 127.0.0.1 - - [11/May/2025 21:28:19] "POST /process-json HTTP/1.1" 200 -

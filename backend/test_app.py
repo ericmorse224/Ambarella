@@ -14,7 +14,8 @@ class FlaskAppTests(unittest.TestCase):
     def test_invalid_json_to_process_json(self):
         response = self.app.post('/process-json', json={***REMOVED***)
         self.assertEqual(response.status_code, 400)
-        self.assertIn("No transcript found", response.get_data(as_text=True))
+        self.assertEqual(response.get_json()['error'], "Transcript is empty or missing.")
+
 
     def test_process_json_with_sample(self):
         sample = {"transcript": "We decided to launch next week. John will prepare slides."***REMOVED***

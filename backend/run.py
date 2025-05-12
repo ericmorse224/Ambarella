@@ -1,23 +1,33 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-import nltk
-import os
-import requests
-import subprocess
-import datetime
-import logging
-import time
-from nltk.tokenize import sent_tokenize
+# Flask setup and required imports
+from flask import Flask, request, jsonify  # Web app and request/response handling
+from flask_cors import CORS  # For enabling cross-origin requests from frontend
+import nltk  # Natural Language Toolkit for text processing
+import os  # File system operations
+import requests  # For making HTTP requests to AssemblyAI
+import subprocess  # Running ffmpeg for audio processing
+import datetime  # For timestamping transcript logs
+import logging  # For app logging
+import time  # For polling loop delays
+from nltk.tokenize import sent_tokenize  # Sentence tokenizer for summarization
+from dotenv import load_dotenv
+load_dotenv()  # Load variables from .env
 
+import os
+ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
+if not ASSEMBLYAI_API_KEY:
+    raise ValueError("Missing ASSEMBLYAI_API_KEY environment variable.")
+
+# Download sentence tokenizer
 nltk.download('punkt')
 
-# Setup Flask app
+# Initialize Flask app
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024  # 25MB
+app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024  # Limit uploads to 25MB
 
+# Enable CORS for local React frontend
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"***REMOVED******REMOVED***)
 
-# Setup logging
+# Configure logging to file with timestamps
 logging.basicConfig(
     filename='app.log',
     level=logging.INFO,
@@ -25,8 +35,13 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
-ASSEMBLYAI_API_KEY = '***REMOVED***'  # Replace with your actual key
+# Load the API key from environment variable
+#ASSEMBLYAI_API_KEY = os.environ.get("ASSEMBLYAI_API_KEY")
+ASSEMBLYAI_API_KEY = '***REMOVED***'
+if not ASSEMBLYAI_API_KEY:
+    raise ValueError("Missing ASSEMBLYAI_API_KEY environment variable.")
 
+# Helper function to log transcripts to timestamped files
 def log_transcript_to_file(transcript):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     os.makedirs("transcripts", exist_ok=True)
@@ -35,15 +50,27 @@ def log_transcript_to_file(transcript):
         f.write(transcript)
     logging.info(f"Transcript logged to {path***REMOVED***")
 
+# Endpoint for receiving and processing uploaded audio files
 @app.route('/process-audio', methods=['POST'])
 def process_audio():
     logging.info("Received audio upload request")
 
+    # Grab uploaded audio file
     file = request.files.get('audio')
     if not file:
         logging.error("No file uploaded")
         return jsonify({"error": "No file uploaded"***REMOVED***), 400
 
+    # Check file type (audio/wav, audio/mp3, etc.)
+    if not file.content_type.startswith('audio/'):
+        return jsonify({"error": "Invalid file type. Only audio files are allowed."***REMOVED***), 400
+
+    # Check file size (max 25MB)
+    if len(file.read()) > 25 * 1024 * 1024:
+        return jsonify({"error": "File too large! Max 25MB allowed."***REMOVED***), 400
+    file.seek(0)  # Reset file pointer after reading
+
+    # Define file paths for original, converted, and trimmed audio
     original_path = "original_audio.wav"
     converted_path = "converted_audio.wav"
     trimmed_path = "trimmed_audio.wav"
@@ -51,7 +78,7 @@ def process_audio():
     logging.info(f"Saved file: {original_path***REMOVED***")
 
     try:
-        # Convert to mono 16kHz WAV
+        # Convert audio to mono, 16kHz WAV using ffmpeg
         subprocess.run([
             "ffmpeg", "-y",
             "-i", original_path,
@@ -64,7 +91,7 @@ def process_audio():
         logging.exception("FFmpeg conversion failed")
         return jsonify({"error": "Audio conversion failed", "details": str(e)***REMOVED***), 500
 
-    # Detect silence
+    # Check for silence in the converted audio
     try:
         silence_check = subprocess.run(
             ["ffmpeg", "-i", converted_path, "-af", "silencedetect=noise=-30dB:d=1", "-f", "null", "-"],
@@ -81,7 +108,7 @@ def process_audio():
             logging.error("Audio appears completely silent.")
             return jsonify({"error": "Audio file appears to contain only silence."***REMOVED***), 400
 
-    # Trim silence
+    # Try trimming leading and trailing silence
     try:
         subprocess.run([
             "ffmpeg", "-y",
@@ -100,7 +127,6 @@ def process_audio():
         return jsonify({"error": "Final audio file is empty or missing"***REMOVED***), 400
 
     try:
-        # Upload to AssemblyAI
         with open(final_path, 'rb') as f:
             upload_res = requests.post(
                 'https://api.assemblyai.com/v2/upload',
@@ -110,7 +136,6 @@ def process_audio():
         upload_url = upload_res.json()['upload_url']
         logging.info(f"Audio uploaded to AssemblyAI: {upload_url***REMOVED***")
 
-        # Request transcription
         transcript_res = requests.post(
             'https://api.assemblyai.com/v2/transcript',
             headers={'authorization': ASSEMBLYAI_API_KEY, 'content-type': 'application/json'***REMOVED***,
@@ -119,7 +144,6 @@ def process_audio():
         transcript_id = transcript_res.json()['id']
         logging.info(f"Transcription requested, ID: {transcript_id***REMOVED***")
 
-        # Poll for result
         polling_url = f'https://api.assemblyai.com/v2/transcript/{transcript_id***REMOVED***'
         while True:
             status_res = requests.get(polling_url, headers={'authorization': ASSEMBLYAI_API_KEY***REMOVED***)
@@ -145,16 +169,19 @@ def process_audio():
 
 @app.route('/process-json', methods=['POST'])
 def process_json():
-    data = request.json
-    transcript = data.get("transcript", [])
-    if not transcript:
-        logging.error("No transcript found in the request data.")
-        return jsonify({"error": "No transcript found"***REMOVED***), 400
+    data = request.get_json()
+    transcript = data.get("transcript")
 
-    full_text = transcript if isinstance(transcript, str) else " ".join([segment.get("text", "") for segment in transcript])
+    if not transcript or (isinstance(transcript, str) and not transcript.strip()):
+        logging.error("No transcript found in the request data.")
+        return jsonify({"error": "Transcript is empty or missing."***REMOVED***), 400
+
+    full_text = transcript if isinstance(transcript, str) else " ".join(
+        [segment.get("text", "") for segment in transcript]
+    )
+
     logging.info(f"Full transcript received: {full_text[:100]***REMOVED***...")
 
-    # Prompting AI for deeper extraction (simulate LLM response for now)
     prompt = f"""
     You are an assistant summarizing meeting transcripts.
 
@@ -174,7 +201,6 @@ def process_json():
     ***REMOVED******REMOVED***
     """
 
-    # Simulated output for now (replace with OpenAI or similar LLM integration)
     sentences = sent_tokenize(full_text)
     summary = []
     actions = []
@@ -203,6 +229,7 @@ def process_json():
         "actions": actions,
         "decisions": decisions
     ***REMOVED***)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

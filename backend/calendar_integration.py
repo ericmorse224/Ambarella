@@ -2,6 +2,29 @@ from datetime import datetime, timedelta, UTC
 import logging
 import re
 from zoho_utils import create_calendar_event
+import dateparser
+
+logging.basicConfig(level=logging.INFO)
+
+def extract_event_times(action_text):
+    """Parses a date/time string from the action item."""
+    parsed_time = dateparser.parse(action_text, settings={"PREFER_DATES_FROM": "future"***REMOVED***)
+    if not parsed_time:
+        parsed_time = datetime.utcnow() + timedelta(hours=1)  # fallback
+    end_time = parsed_time + timedelta(minutes=30)
+    return parsed_time.isoformat() + "Z", end_time.isoformat() + "Z"
+
+def auto_schedule_actions(actions):
+    for action in actions:
+        logging.info(f"Scheduling: {action***REMOVED***")
+        start_time, end_time = extract_event_times(action)
+        response = create_calendar_event(
+            title=action,
+            description="Auto-generated from meeting action item",
+            start_time=start_time,
+            end_time=end_time
+        )
+        logging.info(f"Zoho response: {response***REMOVED***")
 
 def extract_people(transcript):
     """

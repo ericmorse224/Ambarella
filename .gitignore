@@ -4,9 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
-/frontend/node_modules
-/backend/__pycache__/
+/frontend/node_modules/
+*/node_modules/
+*/__pycache__/
 /.env
+/Monthly_Status_Reports
 # testing
 /coverage
 

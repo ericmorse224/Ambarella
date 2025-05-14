@@ -12,8 +12,9 @@ with open(SECRETS_FILE) as f:
 ZOHO_CLIENT_ID = secrets["ZOHO_CLIENT_ID"]
 ZOHO_CLIENT_SECRET = secrets["ZOHO_CLIENT_SECRET"]
 ZOHO_REFRESH_TOKEN = secrets["ZOHO_REFRESH_TOKEN"]
-TOKENS_FILE = Path.home() / ".app_secrets" / "zoho_tokens.json"
-
+#TOKENS_FILE = Path.home() / ".app_secrets" / "zoho_tokens.json"
+TOKENS_FILE = "zoho_tokens.json"
+API_BASE_URL = "https://www.zohoapis.com/meeting/v1"
 
 # ========== TOKEN HANDLING ==========
 
@@ -39,9 +40,11 @@ def load_access_token():
 
 
 def refresh_access_token():
+    tokens = load_tokens()
+    refresh_token = tokens["refresh_token"]
     url = "https://accounts.zoho.com/oauth/v2/token"
     data = {
-        "refresh_token": ZOHO_REFRESH_TOKEN,
+        "refresh_token": refresh_token,
         "client_id": ZOHO_CLIENT_ID,
         "client_secret": ZOHO_CLIENT_SECRET,
         "grant_type": "refresh_token",
@@ -54,8 +57,45 @@ def refresh_access_token():
     tokens = load_tokens()
     tokens["access_token"] = access_token
     save_tokens(tokens)
-    return access_token, True
+    print("Refreshed Zoho access token.")
+    return access_token
 
+def make_authorized_request(endpoint, method="GET", payload=None):
+    tokens = load_tokens()
+    access_token = tokens["access_token"]
+
+    headers = {
+        "Authorization": f"Zoho-oauthtoken {access_token***REMOVED***",
+        "Content-Type": "application/json"
+    ***REMOVED***
+
+    url = f"{API_BASE_URL***REMOVED***{endpoint***REMOVED***"
+    response = requests.request(method, url, headers=headers, json=payload)
+
+    if response.status_code == 401:
+        access_token = refresh_access_token()
+        headers["Authorization"] = f"Zoho-oauthtoken {access_token***REMOVED***"
+        response = requests.request(method, url, headers=headers, json=payload)
+
+    return response
+
+def create_meeting(title, agenda, start_time):
+    endpoint = "/meetings"
+    payload = {
+        "topic": title,
+        "agenda": agenda,
+        "start_time": start_time,
+        "duration": 30,
+        "timezone": "America/New_York"
+    ***REMOVED***
+
+    response = make_authorized_request(endpoint, method="POST", payload=payload)
+    if response.ok:
+        print("Zoho Meeting created.")
+        return response.json()
+    else:
+        print("Failed to create meeting:", response.text)
+        return None
 
 # ========== ZOHO API CALL ==========
 

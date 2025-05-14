@@ -347,3 +347,1720 @@
 2025-05-11 21:28:19 INFO: Extracted actions: []
 2025-05-11 21:28:19 INFO: Extracted decisions: []
 2025-05-11 21:28:19 INFO: 127.0.0.1 - - [11/May/2025 21:28:19] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 19:46:23 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 19:46:23 INFO: [33mPress CTRL+C to quit[0m
+2025-05-12 19:46:23 INFO:  * Restarting with stat
+2025-05-12 19:46:24 WARNING:  * Debugger is active!
+2025-05-12 19:46:24 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 19:50:33 INFO: Transcript logged to transcripts\transcript_2025-05-12_19-50-33.txt
+2025-05-12 19:50:33 INFO: 127.0.0.1 - - [12/May/2025 19:50:33] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 19:50:33 INFO: 127.0.0.1 - - [12/May/2025 19:50:33] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 19:50:33 INFO: 127.0.0.1 - - [12/May/2025 19:50:33] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 20:04:49 INFO: Transcript logged to transcripts\transcript_2025-05-12_20-04-49.txt
+2025-05-12 20:04:49 INFO: 127.0.0.1 - - [12/May/2025 20:04:49] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 20:04:49 INFO: 127.0.0.1 - - [12/May/2025 20:04:49] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 20:04:49 INFO: 127.0.0.1 - - [12/May/2025 20:04:49] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 20:06:26 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-12 20:06:26 INFO:  * Restarting with stat
+2025-05-12 20:06:27 WARNING:  * Debugger is active!
+2025-05-12 20:06:27 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 20:12:51 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-12 20:12:51 INFO:  * Restarting with stat
+2025-05-12 20:12:52 WARNING:  * Debugger is active!
+2025-05-12 20:12:52 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 20:14:23 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-12 20:14:23 INFO:  * Restarting with stat
+2025-05-12 20:16:49 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 20:16:49 INFO: [33mPress CTRL+C to quit[0m
+2025-05-12 20:16:49 INFO:  * Restarting with stat
+2025-05-12 20:16:50 WARNING:  * Debugger is active!
+2025-05-12 20:16:50 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 20:49:39 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 20:49:39 INFO: [33mPress CTRL+C to quit[0m
+2025-05-12 20:49:39 INFO:  * Restarting with stat
+2025-05-12 20:49:40 WARNING:  * Debugger is active!
+2025-05-12 20:49:40 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 22:55:27 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 22:55:27 INFO: [33mPress CTRL+C to quit[0m
+2025-05-12 22:55:27 INFO:  * Restarting with stat
+2025-05-12 22:55:28 WARNING:  * Debugger is active!
+2025-05-12 22:55:28 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 22:55:50 INFO: Transcript logged to transcripts\transcript_2025-05-12_22-55-50.txt
+2025-05-12 22:55:50 INFO: 127.0.0.1 - - [12/May/2025 22:55:50] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 22:55:50 INFO: 127.0.0.1 - - [12/May/2025 22:55:50] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 22:55:50 INFO: 127.0.0.1 - - [12/May/2025 22:55:50] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 22:58:15 INFO: Transcript logged to transcripts\transcript_2025-05-12_22-58-15.txt
+2025-05-12 22:58:15 INFO: 127.0.0.1 - - [12/May/2025 22:58:15] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 22:58:15 INFO: 127.0.0.1 - - [12/May/2025 22:58:15] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 22:58:15 INFO: 127.0.0.1 - - [12/May/2025 22:58:15] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 22:59:59 INFO: Transcript logged to transcripts\transcript_2025-05-12_22-59-59.txt
+2025-05-12 22:59:59 INFO: 127.0.0.1 - - [12/May/2025 22:59:59] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 22:59:59 INFO: 127.0.0.1 - - [12/May/2025 22:59:59] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 23:00:00 INFO: 127.0.0.1 - - [12/May/2025 23:00:00] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 23:03:36 INFO: Transcript logged to transcripts\transcript_2025-05-12_23-03-36.txt
+2025-05-12 23:03:36 INFO: 127.0.0.1 - - [12/May/2025 23:03:36] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 23:03:37 INFO: 127.0.0.1 - - [12/May/2025 23:03:37] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 23:03:37 INFO: 127.0.0.1 - - [12/May/2025 23:03:37] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 23:03:39 INFO: 127.0.0.1 - - [12/May/2025 23:03:39] "[33mOPTIONS /create-event HTTP/1.1[0m" 404 -
+2025-05-12 23:08:30 INFO: Transcript logged to transcripts\transcript_2025-05-12_23-08-30.txt
+2025-05-12 23:08:30 INFO: 127.0.0.1 - - [12/May/2025 23:08:30] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 23:08:30 INFO: 127.0.0.1 - - [12/May/2025 23:08:30] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 23:08:32 INFO: 127.0.0.1 - - [12/May/2025 23:08:32] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 23:08:38 INFO: 127.0.0.1 - - [12/May/2025 23:08:38] "[33mOPTIONS /create-event HTTP/1.1[0m" 404 -
+2025-05-12 23:32:33 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\calendar_integration.py', reloading
+2025-05-12 23:32:33 INFO:  * Restarting with stat
+2025-05-12 23:32:34 WARNING:  * Debugger is active!
+2025-05-12 23:32:34 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 23:34:58 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\calendar_integration.py', reloading
+2025-05-12 23:34:59 INFO:  * Restarting with stat
+2025-05-12 23:35:00 WARNING:  * Debugger is active!
+2025-05-12 23:35:00 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 23:35:19 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\calendar_integration.py', reloading
+2025-05-12 23:35:19 INFO:  * Restarting with stat
+2025-05-12 23:35:21 WARNING:  * Debugger is active!
+2025-05-12 23:35:21 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 23:35:28 INFO: 127.0.0.1 - - [12/May/2025 23:35:28] "[33mOPTIONS /create-event HTTP/1.1[0m" 404 -
+2025-05-12 23:35:30 INFO: 127.0.0.1 - - [12/May/2025 23:35:30] "[33mOPTIONS /create-event HTTP/1.1[0m" 404 -
+2025-05-12 23:35:33 INFO: 127.0.0.1 - - [12/May/2025 23:35:33] "[33mOPTIONS /create-event HTTP/1.1[0m" 404 -
+2025-05-12 23:35:50 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 23:35:50 INFO: [33mPress CTRL+C to quit[0m
+2025-05-12 23:35:50 INFO:  * Restarting with stat
+2025-05-12 23:35:52 WARNING:  * Debugger is active!
+2025-05-12 23:35:52 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 23:36:10 INFO: Transcript logged to transcripts\transcript_2025-05-12_23-36-10.txt
+2025-05-12 23:36:10 INFO: 127.0.0.1 - - [12/May/2025 23:36:10] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 23:36:10 INFO: 127.0.0.1 - - [12/May/2025 23:36:10] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 23:36:12 INFO: 127.0.0.1 - - [12/May/2025 23:36:12] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 23:36:13 INFO: 127.0.0.1 - - [12/May/2025 23:36:13] "[33mOPTIONS /create-event HTTP/1.1[0m" 404 -
+2025-05-12 23:36:15 INFO: 127.0.0.1 - - [12/May/2025 23:36:15] "[33mOPTIONS /create-event HTTP/1.1[0m" 404 -
+2025-05-12 23:38:38 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-12 23:38:38 INFO:  * Restarting with stat
+2025-05-12 23:38:40 WARNING:  * Debugger is active!
+2025-05-12 23:38:40 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 23:39:19 INFO: 127.0.0.1 - - [12/May/2025 23:39:19] "OPTIONS /create-event HTTP/1.1" 200 -
+2025-05-12 23:39:19 INFO: 127.0.0.1 - - [12/May/2025 23:39:19] "[31m[1mPOST /create-event HTTP/1.1[0m" 400 -
+2025-05-12 23:39:29 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-12 23:39:29 INFO: [33mPress CTRL+C to quit[0m
+2025-05-12 23:39:29 INFO:  * Restarting with stat
+2025-05-12 23:39:31 WARNING:  * Debugger is active!
+2025-05-12 23:39:31 INFO:  * Debugger PIN: 818-684-062
+2025-05-12 23:39:53 INFO: Transcript logged to transcripts\transcript_2025-05-12_23-39-53.txt
+2025-05-12 23:39:53 INFO: 127.0.0.1 - - [12/May/2025 23:39:53] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 23:39:53 INFO: 127.0.0.1 - - [12/May/2025 23:39:53] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 23:39:54 INFO: 127.0.0.1 - - [12/May/2025 23:39:54] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 23:39:56 INFO: 127.0.0.1 - - [12/May/2025 23:39:56] "OPTIONS /create-event HTTP/1.1" 200 -
+2025-05-12 23:39:56 INFO: 127.0.0.1 - - [12/May/2025 23:39:56] "[31m[1mPOST /create-event HTTP/1.1[0m" 400 -
+2025-05-12 23:39:57 INFO: 127.0.0.1 - - [12/May/2025 23:39:57] "[31m[1mPOST /create-event HTTP/1.1[0m" 400 -
+2025-05-12 23:42:46 INFO: 127.0.0.1 - - [12/May/2025 23:42:46] "OPTIONS /create-event HTTP/1.1" 200 -
+2025-05-12 23:42:46 INFO: 127.0.0.1 - - [12/May/2025 23:42:46] "[31m[1mPOST /create-event HTTP/1.1[0m" 400 -
+2025-05-12 23:43:27 INFO: Transcript logged to transcripts\transcript_2025-05-12_23-43-27.txt
+2025-05-12 23:43:27 INFO: 127.0.0.1 - - [12/May/2025 23:43:27] "POST /process-audio HTTP/1.1" 200 -
+2025-05-12 23:43:27 INFO: 127.0.0.1 - - [12/May/2025 23:43:27] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-12 23:43:28 INFO: 127.0.0.1 - - [12/May/2025 23:43:28] "POST /process-json HTTP/1.1" 200 -
+2025-05-12 23:43:39 INFO: 127.0.0.1 - - [12/May/2025 23:43:39] "OPTIONS /create-event HTTP/1.1" 200 -
+2025-05-12 23:43:39 INFO: 127.0.0.1 - - [12/May/2025 23:43:39] "POST /create-event HTTP/1.1" 200 -
+2025-05-12 23:43:44 INFO: 127.0.0.1 - - [12/May/2025 23:43:44] "OPTIONS /create-event HTTP/1.1" 200 -
+2025-05-12 23:43:45 INFO: 127.0.0.1 - - [12/May/2025 23:43:45] "POST /create-event HTTP/1.1" 200 -
+2025-05-13 00:18:17 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 00:18:17 INFO:  * Restarting with stat
+2025-05-13 00:26:28 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 00:26:28 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 00:26:28 INFO:  * Restarting with stat
+2025-05-13 00:26:30 WARNING:  * Debugger is active!
+2025-05-13 00:26:30 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:27:38 INFO: 127.0.0.1 - - [13/May/2025 00:27:38] "[33mGET /zoho/auth HTTP/1.1[0m" 404 -
+2025-05-13 00:27:38 INFO: 127.0.0.1 - - [13/May/2025 00:27:38] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-13 00:28:28 INFO: Transcript logged to transcripts\transcript_2025-05-13_00-28-28.txt
+2025-05-13 00:28:28 INFO: 127.0.0.1 - - [13/May/2025 00:28:28] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 00:28:28 INFO: 127.0.0.1 - - [13/May/2025 00:28:28] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 00:28:30 INFO: 127.0.0.1 - - [13/May/2025 00:28:30] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 00:28:51 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 00:28:51 INFO:  * Restarting with stat
+2025-05-13 00:28:52 WARNING:  * Debugger is active!
+2025-05-13 00:28:52 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:29:06 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 00:29:06 INFO:  * Restarting with stat
+2025-05-13 00:29:07 WARNING:  * Debugger is active!
+2025-05-13 00:29:07 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:29:13 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 00:29:13 INFO:  * Restarting with stat
+2025-05-13 00:29:15 WARNING:  * Debugger is active!
+2025-05-13 00:29:15 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:29:47 INFO: 127.0.0.1 - - [13/May/2025 00:29:47] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 00:30:52 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 00:30:53 INFO:  * Restarting with stat
+2025-05-13 00:30:54 WARNING:  * Debugger is active!
+2025-05-13 00:30:54 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:31:10 INFO: 127.0.0.1 - - [13/May/2025 00:31:10] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 00:32:56 INFO: 127.0.0.1 - - [13/May/2025 00:32:56] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 00:33:11 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 00:33:11 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 00:33:11 INFO:  * Restarting with stat
+2025-05-13 00:33:13 WARNING:  * Debugger is active!
+2025-05-13 00:33:13 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:33:23 INFO: 127.0.0.1 - - [13/May/2025 00:33:23] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 00:35:10 INFO: 127.0.0.1 - - [13/May/2025 00:35:10] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 00:37:01 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 00:37:01 INFO:  * Restarting with stat
+2025-05-13 00:37:03 WARNING:  * Debugger is active!
+2025-05-13 00:37:03 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:37:16 INFO: 127.0.0.1 - - [13/May/2025 00:37:16] "[33mGET /zoho/auth HTTP/1.1[0m" 404 -
+2025-05-13 00:37:36 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 00:37:36 INFO:  * Restarting with stat
+2025-05-13 00:37:38 WARNING:  * Debugger is active!
+2025-05-13 00:37:38 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:37:55 INFO: 127.0.0.1 - - [13/May/2025 00:37:55] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 00:38:05 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 00:38:05 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 00:38:05 INFO:  * Restarting with stat
+2025-05-13 00:38:07 WARNING:  * Debugger is active!
+2025-05-13 00:38:07 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 00:38:19 INFO: 127.0.0.1 - - [13/May/2025 00:38:19] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 00:38:24 INFO: 127.0.0.1 - - [13/May/2025 00:38:24] "GET /zoho/callback?code=1000.631a0c660f23a5270a705a726e54ad03.da5fbf8e915e77da37022e49e5b1a5db&location=us&accounts-server=https://accounts.zoho.com& HTTP/1.1" 200 -
+2025-05-13 00:38:24 INFO: 127.0.0.1 - - [13/May/2025 00:38:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-13 14:53:18 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 14:53:18 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 14:53:18 INFO:  * Restarting with stat
+2025-05-13 14:53:20 WARNING:  * Debugger is active!
+2025-05-13 14:53:20 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 14:53:57 INFO: 127.0.0.1 - - [13/May/2025 14:53:57] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 14:53:57 INFO: 127.0.0.1 - - [13/May/2025 14:53:57] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 14:54:12 INFO: 127.0.0.1 - - [13/May/2025 14:54:12] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 14:54:12 INFO: 127.0.0.1 - - [13/May/2025 14:54:12] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 14:54:14 INFO: 127.0.0.1 - - [13/May/2025 14:54:14] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 14:54:15 INFO: 127.0.0.1 - - [13/May/2025 14:54:15] "GET /zoho/callback?code=1000.064c9dd4f30360275bebc3d00f246e09.8e1e4d5e5bca0edee94c7b259ed2d808&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
+2025-05-13 14:58:42 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\tests\\test_zoho_utils.py', reloading
+2025-05-13 14:58:42 INFO:  * Restarting with stat
+2025-05-13 14:58:43 WARNING:  * Debugger is active!
+2025-05-13 14:58:43 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 14:59:18 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\tests\\test_zoho_utils.py', reloading
+2025-05-13 14:59:18 INFO:  * Restarting with stat
+2025-05-13 14:59:19 WARNING:  * Debugger is active!
+2025-05-13 14:59:19 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 15:37:04 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 15:37:04 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 15:37:04 INFO:  * Restarting with stat
+2025-05-13 15:37:06 WARNING:  * Debugger is active!
+2025-05-13 15:37:06 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 15:43:45 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 15:43:45 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 15:43:45 INFO:  * Restarting with stat
+2025-05-13 15:43:46 WARNING:  * Debugger is active!
+2025-05-13 15:43:46 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 15:45:36 INFO: 127.0.0.1 - - [13/May/2025 15:45:36] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 15:45:36 INFO: 127.0.0.1 - - [13/May/2025 15:45:36] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 15:45:42 INFO: 127.0.0.1 - - [13/May/2025 15:45:42] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 15:45:42 INFO: 127.0.0.1 - - [13/May/2025 15:45:42] "GET /zoho/callback?code=1000.201234c52961b24d3c422fc5b7a34a1f.9a3000da02cc16e5cbb1c4ec4f31bf35&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
+2025-05-13 16:57:26 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 16:57:26 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 16:57:26 INFO:  * Restarting with stat
+2025-05-13 16:57:33 WARNING:  * Debugger is active!
+2025-05-13 16:57:33 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 16:59:03 INFO: 127.0.0.1 - - [13/May/2025 16:59:03] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 16:59:03 INFO: 127.0.0.1 - - [13/May/2025 16:59:03] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 16:59:13 INFO: Transcript logged to transcripts\transcript_2025-05-13_16-59-13.txt
+2025-05-13 16:59:13 INFO: 127.0.0.1 - - [13/May/2025 16:59:13] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 16:59:13 INFO: 127.0.0.1 - - [13/May/2025 16:59:13] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 16:59:23 INFO: 127.0.0.1 - - [13/May/2025 16:59:23] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 17:00:22 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 17:00:24 INFO:  * Restarting with stat
+2025-05-13 17:04:45 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 17:04:45 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 17:04:45 INFO:  * Restarting with stat
+2025-05-13 17:04:53 WARNING:  * Debugger is active!
+2025-05-13 17:04:53 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:05:03 INFO: 127.0.0.1 - - [13/May/2025 17:05:03] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:05:03 INFO: 127.0.0.1 - - [13/May/2025 17:05:03] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:05:12 INFO: Transcript logged to transcripts\transcript_2025-05-13_17-05-12.txt
+2025-05-13 17:05:12 INFO: 127.0.0.1 - - [13/May/2025 17:05:12] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 17:05:12 INFO: 127.0.0.1 - - [13/May/2025 17:05:12] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 17:05:17 INFO: 127.0.0.1 - - [13/May/2025 17:05:17] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 17:05:19 INFO: 127.0.0.1 - - [13/May/2025 17:05:19] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 17:05:25 INFO: 127.0.0.1 - - [13/May/2025 17:05:25] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 17:05:30 INFO: 127.0.0.1 - - [13/May/2025 17:05:30] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 17:05:35 INFO: 127.0.0.1 - - [13/May/2025 17:05:35] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 17:05:37 INFO: 127.0.0.1 - - [13/May/2025 17:05:37] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 17:05:41 INFO: 127.0.0.1 - - [13/May/2025 17:05:41] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 17:06:33 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 17:06:34 INFO:  * Restarting with stat
+2025-05-13 17:06:43 WARNING:  * Debugger is active!
+2025-05-13 17:06:43 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:07:01 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 17:07:02 INFO:  * Restarting with stat
+2025-05-13 17:07:09 WARNING:  * Debugger is active!
+2025-05-13 17:07:09 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:07:21 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 17:07:22 INFO:  * Restarting with stat
+2025-05-13 17:07:29 WARNING:  * Debugger is active!
+2025-05-13 17:07:29 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:09:46 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 17:09:47 INFO:  * Restarting with stat
+2025-05-13 17:09:55 WARNING:  * Debugger is active!
+2025-05-13 17:09:55 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:10:57 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 17:10:57 INFO:  * Restarting with stat
+2025-05-13 17:11:05 WARNING:  * Debugger is active!
+2025-05-13 17:11:05 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:11:22 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 17:11:22 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 17:11:22 INFO:  * Restarting with stat
+2025-05-13 17:11:29 WARNING:  * Debugger is active!
+2025-05-13 17:11:29 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:11:40 INFO: 127.0.0.1 - - [13/May/2025 17:11:40] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:11:40 INFO: 127.0.0.1 - - [13/May/2025 17:11:40] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:11:50 INFO: Transcript logged to transcripts\transcript_2025-05-13_17-11-50.txt
+2025-05-13 17:11:50 INFO: 127.0.0.1 - - [13/May/2025 17:11:50] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 17:11:50 INFO: 127.0.0.1 - - [13/May/2025 17:11:50] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 17:11:59 ERROR: Zoho calendar event creation failed: <html><head><title>Zoho CRM - Error</title><link rel="SHORTCUT ICON" href="https&#x3a;&#x2f;&#x2f;static.zohocdn.com&#x2f;crm&#x2f;images&#x2f;favicon_cbfca4856ba4bfb37be615b152f95251_.ico" /><link href="https://static.zohocdn.com/crm/CRMClient/css/default_theme_4138a1a2a12d43e1ad7ffea869fb0015_.css" rel="stylesheet" type="text/css"/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Pragma" content="no-cache"><style>
+:root{
+--paragraphColor: #434D5F;
+--linkColor: #338cf0;
+--bg_white: #fff;
+--headingColor: #202123;
+--primaryColor: #fff;
+--primaryShadow: #0061CA;
+--primaryBackground: transparent linear-gradient(0deg, #0279FF 0%, #00A3F3 100%);
+--primaryBackgroundHover: transparent linear-gradient(0deg, #006BE4 0%, #02ACFF 100%);
+--primaryBackgroundActive: #2385EF;
+--primaryShadowActive: none; 
+--primaryBackgroundDisabled: #91CBFF;
+--primaryShadowDisabled: #6AAFEB;
+***REMOVED***
+/******new error page style******/
+.crmErrorPgCont {
+background-color: var(--bg_white);
+text-align: center;
+display: flex;
+align-items: center;
+flex-flow: column;
+justify-content: space-between;
+***REMOVED***
+.crmErrorHeight{
+min-height:100vh;
+***REMOVED***
+.crmErrorPgBody {
+background-color: var(--bg_white);
+padding: 50px 0;
+margin-top: 100px;
+margin-bottom: 100px;
+width: 700px;
+display: flex;
+align-items: center;
+flex-flow: column;
+***REMOVED***
+.crmErrorPgImgContr {
+max-width: 300px;
+height: 170px;
+margin-bottom:40px;
+margin-left:45px;
+***REMOVED***
+.crmErrorPgImg {
+max-width: 100%;
+display: block; 
+***REMOVED***
+.crmErrorInfoSection {
+display: flex;
+flex-direction: column;
+align-items: center;
+***REMOVED***
+.crmErrorPgErrText1 {
+color: var(--headingColor);
+font-size: var(--crm-large-font-size);
+font-family: var(--crm-font-bold);
+margin: 0 0 8px 0;
+***REMOVED***
+.crmErrorPgErrText2 {
+color: var(--paragraphColor);
+font-size: var(--crm-base-font-size);
+font-family: var(--crm-font-regular);
+margin: 0 0 40px 0;
+line-height: 22px;
+***REMOVED***
+.crmErrorUrl {
+font-size: var(--crm-base-font-size);
+font-family: var(--crm-font-bold);
+***REMOVED***
+.primarybtn{
+color: var(--primaryColor);
+border-radius: 6px;
+font-family: var(--crm-font-semibold);
+box-sizing: border-box;
+padding: 8px 20px;
+box-shadow: inset 0px -2px 0px var(--primaryShadow);
+background: var(--primaryBackground);
+font-size: var(--crm-base-font-size);
+position: relative;
+border: 0;
+outline: none;
+cursor: pointer;
+text-align: center;
+white-space: nowrap;
+***REMOVED***
+.primarybtn:hover{
+background: var(--primaryBackgroundHover);
+box-shadow: inset 0px -2px 0px var(--primaryShadow);
+border: 0;
+color: var(--primaryColor);
+outline: none;
+***REMOVED***
+.primarybtn:active {
+top: 1px;
+box-shadow: var(--primaryShadowActive);
+background: var(--primaryBackgroundActive);
+position: relative;
+***REMOVED***
+.primarybtn[disabled], .primarybtn.disabled{
+background: var(--primaryBackgroundDisabled);
+box-shadow: inset 0px -2px 0px var(--primaryShadowDisabled);
+border: 0;
+opacity: 1;
+cursor: not-allowed;
+pointer-events: none !important;
+top: 0px !important;
+color: var(--primaryColorDisabled);
+***REMOVED***
+.crmErrorPgfooter {
+margin-bottom: 30px;
+***REMOVED***
+.crmErrorPgfooterTxt {
+font-family: var(--crm-font-regular);
+font-size: var(--crm-base-font-size);
+color: var(--paragraphColor);
+font-style: normal;
+line-height: 22px;
+***REMOVED***
+.crmErrorPgfooterCont {
+height: 30px;
+margin-bottom: 5px;
+***REMOVED***
+.crmLogoImg {
+min-width: 20px;
+max-width: 100px;
+min-height: 20px;
+max-height: 25px;
+***REMOVED***
+/******new error page style End******/
+html{
+font-size:1.4rem;
+/* font-size: calc(.775rem - -.25 * (100vw - 20rem) / 100); */
+font-size: 62.5%;
+font-variant-ligatures: no-contextual;
+***REMOVED***
+</style></head><body leftmargin="0" topmargin="0" class="bodyBg" marginheight="0"
+marginwidth="0">
+<link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2" rel="preload" as="font" type="font/woff" crossorigin><style type="text/css">
+:root{
+--crm-font-regular: Zoho_Puvi_Regular, sans-serif;
+--crm-font-regularlight: Zoho_Puvi_Regular, sans-serif;
+--crm-font-medium: Zoho_Puvi_Regular, sans-serif;
+--crm-font-mediumitalic: Zoho_Puvi_RegularItalic, sans-serif;
+--crm-font-semibold: Zoho_Puvi_Medium, sans-serif;
+--crm-font-semibolditalic: Zoho_Puvi_MediumItalic, sans-serif;
+--crm-font-bold: Zoho_Puvi_SemiBold, sans-serif;
+--crm-font-bolditalic: Zoho_Puvi_SemiBoldItalic, sans-serif;
+--crm-font-black: Zoho_Puvi_Bold, sans-serif;
+--crm-font-blackitalic: Zoho_Puvi_BoldItalic, sans-serif;
+--crm-font-light: Zoho_Puvi_Regular, sans-serif;
+--crm-font-italic: Zoho_Puvi_RegularItalic, sans-serif;
+--crm-font-thin: Zoho_Puvi_Regular, sans-serif;
+--crm-font-thinitalic: Zoho_Puvi_Regular, sans-serif;
+--crm-font-heavy: Zoho_Puvi_Bold, sans-serif;
+--crux-primary-font: Zoho_Puvi_Regular, sans-serif;
+--crux-bold-font: Zoho_Puvi_SemiBold, sans-serif;
+--crux-light-font: Zoho_Puvi_Regular, sans-serif;
+--crux-thin-font: Zoho_Puvi_Regular, sans-serif;
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Thin";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_ThinItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.otf") format("opentype");
+***REMOVED***
+@font-face {    
+font-family:"Zoho_Puvi_Light";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_LightItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Regular";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_RegularItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Medium";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_MediumItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_SemiBold";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_SemiBoldItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Bold";
+font-weight:normal;
+font-style:normal;
+font-display:block;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_BoldItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Black";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Extrablack";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_BlackItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_ExtraBold";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_ExtraBoldItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.otf") format("opentype");
+***REMOVED***
+.fontbold {
+font-weight: bold;
+***REMOVED***
+.crm-font-regular,.CanvasFontRegular,select, input, form, textarea, pre{
+font-family: var(--crm-font-regular);
+***REMOVED***
+.crm-font-bold, .CanvasFontBold{
+font-family: var(--crm-font-bold);
+font-weight: var(--font-weight-bold);
+***REMOVED***
+.crm-font-xbold,.CanvasFontXbold {
+font-family: var(--crm-font-black);
+***REMOVED***
+.crm-font-regular-italic ,.CanvasFontRegularItalic{
+font-family: var(--crm-font-italic);
+***REMOVED***
+.crm-font-bold-italic,.CanvasFontBoldItalic{
+font-family:var(--crm-font-bolditalic);
+***REMOVED***
+.crm-font-xbold-italic,.CanvasFontXboldItalic {
+font-family: var(--crm-font-blackitalic);
+***REMOVED***
+.crm-font-thin,.CanvasFontThin{
+font-family: var(--crm-font-thin);
+***REMOVED***
+.crm-font-light,.CanvasFontLight{
+font-family: @lightFont;
+***REMOVED***
+.crm-font-medium{
+font-family:var(--crm-font-medium);
+***REMOVED***
+.crm-font-semibold , .CanvasFontSemibold{
+font-family: var(--crm-font-semibold);
+***REMOVED***
+.crm-font-thin-italic , .CanvasFontThinItalic{
+font-family: var(--crm-font-thinitalic);
+***REMOVED***
+.crm-font-light-italic , .CanvasFontLightItalic{
+font-family: var(--crm-font-lightitalic);
+***REMOVED***
+.crm-font-medium-italic{
+font-family: var(--crm-font-mediumitalic);
+***REMOVED***
+.crm-font-semibold-italic , .CanvasFontSemiboldItalic{
+font-family: var(--crm-font-semibolditalic);
+***REMOVED***
+:root{
+--crm-base-font-size: calc((14 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-medium-font-size: calc((15 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-extra-medium-font-size: calc((14 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-small-font-size: calc((13 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-extra-small-font-size: calc((11 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-medium-large-font-size: calc((18 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-large-font-size: calc((20 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm_baseFontSize: 16;
+--crm_baseFontUnit: 16px;
+--crm-medium-small-font-size: 1.2rem;
+***REMOVED***
+[data-size="small"]{
+--crm-base-font-size: 1.3rem;
+--crm-medium-font-size: 1.4rem;
+--crm-extra-medium-font-size: 1.3rem;
+--crm-small-font-size: 1.2rem;
+--crm-extra-small-font-size: 1.1rem;
+--crm-medium-large-font-size: 1.7rem;
+--crm-large-font-size: 1.9rem;
+***REMOVED***
+[data-size="large"]{
+--crm-base-font-size: 1.5rem;
+--crm-medium-font-size: 1.6rem;
+--crm-extra-medium-font-size: 1.5rem;
+--crm-small-font-size: 1.4rem;
+--crm-extra-small-font-size: 1.3rem;
+--crm-medium-large-font-size: 1.9rem;
+--crm-large-font-size: 2.1rem;
+***REMOVED***
+[data-size="largest"]{
+--crm-base-font-size: 1.6rem;
+--crm-medium-font-size: 1.7rem;
+--crm-extra-medium-font-size: 1.6rem;
+--crm-small-font-size: 1.5rem;
+--crm-extra-small-font-size: 1.4rem;
+--crm-medium-large-font-size: 2rem;
+--crm-large-font-size: 2.2rem;
+***REMOVED***
+[data-letterspacing="condensed"]{
+letter-spacing: -.5px;
+***REMOVED***
+[data-letterspacing="normal"]{
+letter-spacing: 0px;
+***REMOVED***
+[data-letterspacing="expanded"]{
+letter-spacing: .05px;	
+***REMOVED***
+[data-letterspacing="widen"]{
+letter-spacing: 1px;	
+***REMOVED***
+</style>
+<div class="crmErrorPgCont crmErrorHeight" data-zcqa="crm_error_page" data-errormessage="Sorry the page you have requested was not found"><div class="crmErrorPgBody"><div class="crmErrorPgImgContr"><!-- <span class="crmErrorPgImg"></span> -->
+<img class="crmErrorPgImg" data-image-mode='true' src='https://static.zohocdn.com/crm/images/crm-iam-errorPage_lightmode_2eb563c9ea6d989a69e2be6276245761_.png'/></div><div class="crmErrorInfoSection"><p class="crmErrorPgErrText1">Invalid URL</p> 
+<p class="crmErrorPgErrText2">Unable to process your request as the URL <span class='crmErrorUrl'>&#x2f;calendar&#x2f;v2&#x2f;calendars&#x2f;primary&#x2f;events</span> is invalid.</p> <!-- No I18N -->
+<a class="crmErrorPgHomeLink" href="/crm/ShowHomePage.do">
+<button data-zcqa="home_errorPage" class = "primarybtn" >Go to Home page</button>
+</a></div></div><div class="crmErrorPgfooter"><div class="crmErrorPgfooterCont"><img src="https&#x3a;&#x2f;&#x2f;static.zohocdn.com&#x2f;crm&#x2f;CRMClient&#x2f;images&#x2f;crm_logo_04536e35e8162d631b95cf42593491cd_.svg"  alt="CRM" class="crmLogoImg"></div><span class="crmErrorPgfooterTxt">© 2025 Zoho Corp.All rights reserved.</span></div></div></body></html>
+2025-05-13 17:11:59 INFO: 127.0.0.1 - - [13/May/2025 17:11:59] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 17:14:29 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 17:14:30 INFO:  * Restarting with stat
+2025-05-13 17:14:49 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 17:14:49 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 17:14:49 INFO:  * Restarting with stat
+2025-05-13 17:14:56 WARNING:  * Debugger is active!
+2025-05-13 17:14:56 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:15:09 INFO: 127.0.0.1 - - [13/May/2025 17:15:09] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:15:09 INFO: 127.0.0.1 - - [13/May/2025 17:15:09] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:15:20 INFO: Transcript logged to transcripts\transcript_2025-05-13_17-15-20.txt
+2025-05-13 17:15:20 INFO: 127.0.0.1 - - [13/May/2025 17:15:20] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 17:15:20 INFO: 127.0.0.1 - - [13/May/2025 17:15:20] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 17:15:26 ERROR: Zoho calendar event creation failed: <html><head><title>Zoho CRM - Error</title><link rel="SHORTCUT ICON" href="https&#x3a;&#x2f;&#x2f;static.zohocdn.com&#x2f;crm&#x2f;images&#x2f;favicon_cbfca4856ba4bfb37be615b152f95251_.ico" /><link href="https://static.zohocdn.com/crm/CRMClient/css/default_theme_4138a1a2a12d43e1ad7ffea869fb0015_.css" rel="stylesheet" type="text/css"/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Pragma" content="no-cache"><style>
+:root{
+--paragraphColor: #434D5F;
+--linkColor: #338cf0;
+--bg_white: #fff;
+--headingColor: #202123;
+--primaryColor: #fff;
+--primaryShadow: #0061CA;
+--primaryBackground: transparent linear-gradient(0deg, #0279FF 0%, #00A3F3 100%);
+--primaryBackgroundHover: transparent linear-gradient(0deg, #006BE4 0%, #02ACFF 100%);
+--primaryBackgroundActive: #2385EF;
+--primaryShadowActive: none; 
+--primaryBackgroundDisabled: #91CBFF;
+--primaryShadowDisabled: #6AAFEB;
+***REMOVED***
+/******new error page style******/
+.crmErrorPgCont {
+background-color: var(--bg_white);
+text-align: center;
+display: flex;
+align-items: center;
+flex-flow: column;
+justify-content: space-between;
+***REMOVED***
+.crmErrorHeight{
+min-height:100vh;
+***REMOVED***
+.crmErrorPgBody {
+background-color: var(--bg_white);
+padding: 50px 0;
+margin-top: 100px;
+margin-bottom: 100px;
+width: 700px;
+display: flex;
+align-items: center;
+flex-flow: column;
+***REMOVED***
+.crmErrorPgImgContr {
+max-width: 300px;
+height: 170px;
+margin-bottom:40px;
+margin-left:45px;
+***REMOVED***
+.crmErrorPgImg {
+max-width: 100%;
+display: block; 
+***REMOVED***
+.crmErrorInfoSection {
+display: flex;
+flex-direction: column;
+align-items: center;
+***REMOVED***
+.crmErrorPgErrText1 {
+color: var(--headingColor);
+font-size: var(--crm-large-font-size);
+font-family: var(--crm-font-bold);
+margin: 0 0 8px 0;
+***REMOVED***
+.crmErrorPgErrText2 {
+color: var(--paragraphColor);
+font-size: var(--crm-base-font-size);
+font-family: var(--crm-font-regular);
+margin: 0 0 40px 0;
+line-height: 22px;
+***REMOVED***
+.crmErrorUrl {
+font-size: var(--crm-base-font-size);
+font-family: var(--crm-font-bold);
+***REMOVED***
+.primarybtn{
+color: var(--primaryColor);
+border-radius: 6px;
+font-family: var(--crm-font-semibold);
+box-sizing: border-box;
+padding: 8px 20px;
+box-shadow: inset 0px -2px 0px var(--primaryShadow);
+background: var(--primaryBackground);
+font-size: var(--crm-base-font-size);
+position: relative;
+border: 0;
+outline: none;
+cursor: pointer;
+text-align: center;
+white-space: nowrap;
+***REMOVED***
+.primarybtn:hover{
+background: var(--primaryBackgroundHover);
+box-shadow: inset 0px -2px 0px var(--primaryShadow);
+border: 0;
+color: var(--primaryColor);
+outline: none;
+***REMOVED***
+.primarybtn:active {
+top: 1px;
+box-shadow: var(--primaryShadowActive);
+background: var(--primaryBackgroundActive);
+position: relative;
+***REMOVED***
+.primarybtn[disabled], .primarybtn.disabled{
+background: var(--primaryBackgroundDisabled);
+box-shadow: inset 0px -2px 0px var(--primaryShadowDisabled);
+border: 0;
+opacity: 1;
+cursor: not-allowed;
+pointer-events: none !important;
+top: 0px !important;
+color: var(--primaryColorDisabled);
+***REMOVED***
+.crmErrorPgfooter {
+margin-bottom: 30px;
+***REMOVED***
+.crmErrorPgfooterTxt {
+font-family: var(--crm-font-regular);
+font-size: var(--crm-base-font-size);
+color: var(--paragraphColor);
+font-style: normal;
+line-height: 22px;
+***REMOVED***
+.crmErrorPgfooterCont {
+height: 30px;
+margin-bottom: 5px;
+***REMOVED***
+.crmLogoImg {
+min-width: 20px;
+max-width: 100px;
+min-height: 20px;
+max-height: 25px;
+***REMOVED***
+/******new error page style End******/
+html{
+font-size:1.4rem;
+/* font-size: calc(.775rem - -.25 * (100vw - 20rem) / 100); */
+font-size: 62.5%;
+font-variant-ligatures: no-contextual;
+***REMOVED***
+</style></head><body leftmargin="0" topmargin="0" class="bodyBg" marginheight="0"
+marginwidth="0">
+<link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2" rel="preload" as="font" type="font/woff" crossorigin><style type="text/css">
+:root{
+--crm-font-regular: Zoho_Puvi_Regular, sans-serif;
+--crm-font-regularlight: Zoho_Puvi_Regular, sans-serif;
+--crm-font-medium: Zoho_Puvi_Regular, sans-serif;
+--crm-font-mediumitalic: Zoho_Puvi_RegularItalic, sans-serif;
+--crm-font-semibold: Zoho_Puvi_Medium, sans-serif;
+--crm-font-semibolditalic: Zoho_Puvi_MediumItalic, sans-serif;
+--crm-font-bold: Zoho_Puvi_SemiBold, sans-serif;
+--crm-font-bolditalic: Zoho_Puvi_SemiBoldItalic, sans-serif;
+--crm-font-black: Zoho_Puvi_Bold, sans-serif;
+--crm-font-blackitalic: Zoho_Puvi_BoldItalic, sans-serif;
+--crm-font-light: Zoho_Puvi_Regular, sans-serif;
+--crm-font-italic: Zoho_Puvi_RegularItalic, sans-serif;
+--crm-font-thin: Zoho_Puvi_Regular, sans-serif;
+--crm-font-thinitalic: Zoho_Puvi_Regular, sans-serif;
+--crm-font-heavy: Zoho_Puvi_Bold, sans-serif;
+--crux-primary-font: Zoho_Puvi_Regular, sans-serif;
+--crux-bold-font: Zoho_Puvi_SemiBold, sans-serif;
+--crux-light-font: Zoho_Puvi_Regular, sans-serif;
+--crux-thin-font: Zoho_Puvi_Regular, sans-serif;
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Thin";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_ThinItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.otf") format("opentype");
+***REMOVED***
+@font-face {    
+font-family:"Zoho_Puvi_Light";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_LightItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Regular";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_RegularItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Medium";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_MediumItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_SemiBold";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_SemiBoldItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Bold";
+font-weight:normal;
+font-style:normal;
+font-display:block;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_BoldItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Black";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_Extrablack";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_BlackItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_ExtraBold";
+font-weight:normal;
+font-style:normal;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.otf") format("opentype");
+***REMOVED***
+@font-face {
+font-family:"Zoho_Puvi_ExtraBoldItalic";
+font-weight:normal;
+font-style:italic;
+font-display:swap;
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot");
+src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot?#iefix") format("embedded-opentype"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.woff2") format("woff2"),
+url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.otf") format("opentype");
+***REMOVED***
+.fontbold {
+font-weight: bold;
+***REMOVED***
+.crm-font-regular,.CanvasFontRegular,select, input, form, textarea, pre{
+font-family: var(--crm-font-regular);
+***REMOVED***
+.crm-font-bold, .CanvasFontBold{
+font-family: var(--crm-font-bold);
+font-weight: var(--font-weight-bold);
+***REMOVED***
+.crm-font-xbold,.CanvasFontXbold {
+font-family: var(--crm-font-black);
+***REMOVED***
+.crm-font-regular-italic ,.CanvasFontRegularItalic{
+font-family: var(--crm-font-italic);
+***REMOVED***
+.crm-font-bold-italic,.CanvasFontBoldItalic{
+font-family:var(--crm-font-bolditalic);
+***REMOVED***
+.crm-font-xbold-italic,.CanvasFontXboldItalic {
+font-family: var(--crm-font-blackitalic);
+***REMOVED***
+.crm-font-thin,.CanvasFontThin{
+font-family: var(--crm-font-thin);
+***REMOVED***
+.crm-font-light,.CanvasFontLight{
+font-family: @lightFont;
+***REMOVED***
+.crm-font-medium{
+font-family:var(--crm-font-medium);
+***REMOVED***
+.crm-font-semibold , .CanvasFontSemibold{
+font-family: var(--crm-font-semibold);
+***REMOVED***
+.crm-font-thin-italic , .CanvasFontThinItalic{
+font-family: var(--crm-font-thinitalic);
+***REMOVED***
+.crm-font-light-italic , .CanvasFontLightItalic{
+font-family: var(--crm-font-lightitalic);
+***REMOVED***
+.crm-font-medium-italic{
+font-family: var(--crm-font-mediumitalic);
+***REMOVED***
+.crm-font-semibold-italic , .CanvasFontSemiboldItalic{
+font-family: var(--crm-font-semibolditalic);
+***REMOVED***
+:root{
+--crm-base-font-size: calc((14 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-medium-font-size: calc((15 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-extra-medium-font-size: calc((14 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-small-font-size: calc((13 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-extra-small-font-size: calc((11 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-medium-large-font-size: calc((18 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm-large-font-size: calc((20 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
+--crm_baseFontSize: 16;
+--crm_baseFontUnit: 16px;
+--crm-medium-small-font-size: 1.2rem;
+***REMOVED***
+[data-size="small"]{
+--crm-base-font-size: 1.3rem;
+--crm-medium-font-size: 1.4rem;
+--crm-extra-medium-font-size: 1.3rem;
+--crm-small-font-size: 1.2rem;
+--crm-extra-small-font-size: 1.1rem;
+--crm-medium-large-font-size: 1.7rem;
+--crm-large-font-size: 1.9rem;
+***REMOVED***
+[data-size="large"]{
+--crm-base-font-size: 1.5rem;
+--crm-medium-font-size: 1.6rem;
+--crm-extra-medium-font-size: 1.5rem;
+--crm-small-font-size: 1.4rem;
+--crm-extra-small-font-size: 1.3rem;
+--crm-medium-large-font-size: 1.9rem;
+--crm-large-font-size: 2.1rem;
+***REMOVED***
+[data-size="largest"]{
+--crm-base-font-size: 1.6rem;
+--crm-medium-font-size: 1.7rem;
+--crm-extra-medium-font-size: 1.6rem;
+--crm-small-font-size: 1.5rem;
+--crm-extra-small-font-size: 1.4rem;
+--crm-medium-large-font-size: 2rem;
+--crm-large-font-size: 2.2rem;
+***REMOVED***
+[data-letterspacing="condensed"]{
+letter-spacing: -.5px;
+***REMOVED***
+[data-letterspacing="normal"]{
+letter-spacing: 0px;
+***REMOVED***
+[data-letterspacing="expanded"]{
+letter-spacing: .05px;	
+***REMOVED***
+[data-letterspacing="widen"]{
+letter-spacing: 1px;	
+***REMOVED***
+</style>
+<div class="crmErrorPgCont crmErrorHeight" data-zcqa="crm_error_page" data-errormessage="Sorry the page you have requested was not found"><div class="crmErrorPgBody"><div class="crmErrorPgImgContr"><!-- <span class="crmErrorPgImg"></span> -->
+<img class="crmErrorPgImg" data-image-mode='true' src='https://static.zohocdn.com/crm/images/crm-iam-errorPage_lightmode_2eb563c9ea6d989a69e2be6276245761_.png'/></div><div class="crmErrorInfoSection"><p class="crmErrorPgErrText1">Invalid URL</p> 
+<p class="crmErrorPgErrText2">Unable to process your request as the URL <span class='crmErrorUrl'>&#x2f;calendar&#x2f;v2&#x2f;calendars&#x2f;primary&#x2f;events</span> is invalid.</p> <!-- No I18N -->
+<a class="crmErrorPgHomeLink" href="/crm/ShowHomePage.do">
+<button data-zcqa="home_errorPage" class = "primarybtn" >Go to Home page</button>
+</a></div></div><div class="crmErrorPgfooter"><div class="crmErrorPgfooterCont"><img src="https&#x3a;&#x2f;&#x2f;static.zohocdn.com&#x2f;crm&#x2f;CRMClient&#x2f;images&#x2f;crm_logo_04536e35e8162d631b95cf42593491cd_.svg"  alt="CRM" class="crmLogoImg"></div><span class="crmErrorPgfooterTxt">© 2025 Zoho Corp.All rights reserved.</span></div></div></body></html>
+2025-05-13 17:15:26 INFO: 127.0.0.1 - - [13/May/2025 17:15:26] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 17:17:41 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 17:17:42 INFO:  * Restarting with stat
+2025-05-13 17:23:32 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 17:23:32 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 17:23:32 INFO:  * Restarting with stat
+2025-05-13 17:23:40 WARNING:  * Debugger is active!
+2025-05-13 17:23:40 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:23:59 INFO: 127.0.0.1 - - [13/May/2025 17:23:59] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:23:59 INFO: 127.0.0.1 - - [13/May/2025 17:23:59] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:24:10 INFO: 127.0.0.1 - - [13/May/2025 17:24:10] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:24:17 INFO: 127.0.0.1 - - [13/May/2025 17:24:17] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:27:29 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 17:27:29 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 17:27:29 INFO:  * Restarting with stat
+2025-05-13 17:27:36 WARNING:  * Debugger is active!
+2025-05-13 17:27:36 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:27:53 INFO: 127.0.0.1 - - [13/May/2025 17:27:53] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:27:53 INFO: 127.0.0.1 - - [13/May/2025 17:27:53] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:28:02 INFO: 127.0.0.1 - - [13/May/2025 17:28:02] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:28:09 INFO: 127.0.0.1 - - [13/May/2025 17:28:09] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:28:55 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 17:28:56 INFO:  * Restarting with stat
+2025-05-13 17:29:17 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 17:29:17 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 17:29:17 INFO:  * Restarting with stat
+2025-05-13 17:29:24 WARNING:  * Debugger is active!
+2025-05-13 17:29:24 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:29:24 INFO: 127.0.0.1 - - [13/May/2025 17:29:24] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:29:24 INFO: 127.0.0.1 - - [13/May/2025 17:29:24] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:29:33 INFO: 127.0.0.1 - - [13/May/2025 17:29:33] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:29:40 INFO: 127.0.0.1 - - [13/May/2025 17:29:40] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:29:58 INFO: 127.0.0.1 - - [13/May/2025 17:29:58] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:29:58 INFO: 127.0.0.1 - - [13/May/2025 17:29:58] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:30:02 INFO: 127.0.0.1 - - [13/May/2025 17:30:02] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 17:30:03 INFO: 127.0.0.1 - - [13/May/2025 17:30:03] "GET /zoho/callback?code=1000.4df5c15179c835bc0b1db05a1e38f460.2569efa3744d00fd7aaee4ccc6ca123e&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
+2025-05-13 17:30:13 INFO: 127.0.0.1 - - [13/May/2025 17:30:13] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:30:20 INFO: 127.0.0.1 - - [13/May/2025 17:30:20] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:48:42 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 17:48:42 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 17:48:42 INFO:  * Restarting with stat
+2025-05-13 17:48:49 WARNING:  * Debugger is active!
+2025-05-13 17:48:49 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:51:38 INFO: 127.0.0.1 - - [13/May/2025 17:51:38] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:51:38 INFO: 127.0.0.1 - - [13/May/2025 17:51:38] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 17:52:02 INFO: 127.0.0.1 - - [13/May/2025 17:52:02] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 17:52:03 INFO: 127.0.0.1 - - [13/May/2025 17:52:03] "GET /zoho/callback?code=1000.5878eb37ea4b6cdb9b6179ae7713ec72.e3c8e81f44affb3612980bfb3e32d41f&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
+2025-05-13 17:52:36 INFO: 127.0.0.1 - - [13/May/2025 17:52:36] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:52:43 INFO: 127.0.0.1 - - [13/May/2025 17:52:43] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:59:11 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 17:59:11 INFO:  * Restarting with stat
+2025-05-13 17:59:19 WARNING:  * Debugger is active!
+2025-05-13 17:59:19 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 17:59:32 INFO: 127.0.0.1 - - [13/May/2025 17:59:32] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 17:59:39 INFO: 127.0.0.1 - - [13/May/2025 17:59:39] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:00:46 INFO: 127.0.0.1 - - [13/May/2025 18:00:46] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 18:00:47 INFO: 127.0.0.1 - - [13/May/2025 18:00:47] "GET /zoho/callback?code=1000.64796c2f47a476b27e186c108da7651d.8ead9424d387df3a1fe4f5837e219e78&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
+2025-05-13 18:00:58 INFO: 127.0.0.1 - - [13/May/2025 18:00:58] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:01:05 INFO: 127.0.0.1 - - [13/May/2025 18:01:05] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:01:21 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 18:01:21 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 18:01:21 INFO:  * Restarting with stat
+2025-05-13 18:01:27 WARNING:  * Debugger is active!
+2025-05-13 18:01:27 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 18:01:35 INFO: 127.0.0.1 - - [13/May/2025 18:01:35] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 18:01:35 INFO: 127.0.0.1 - - [13/May/2025 18:01:35] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 18:01:47 INFO: 127.0.0.1 - - [13/May/2025 18:01:47] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 18:01:48 INFO: 127.0.0.1 - - [13/May/2025 18:01:48] "GET /zoho/callback?code=1000.4b3cfb6fcdfe6138b15c91543e44ed5d.3ffc51e33a6a4b144fbf80390fd36fb5&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
+2025-05-13 18:01:59 INFO: 127.0.0.1 - - [13/May/2025 18:01:59] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:02:06 INFO: 127.0.0.1 - - [13/May/2025 18:02:06] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:04:09 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 18:04:10 INFO:  * Restarting with stat
+2025-05-13 18:04:17 WARNING:  * Debugger is active!
+2025-05-13 18:04:17 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 18:04:22 INFO: 127.0.0.1 - - [13/May/2025 18:04:22] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 18:04:23 INFO: 127.0.0.1 - - [13/May/2025 18:04:23] "GET /zoho/callback?code=1000.c8261b7eeac49b788835d11e83e0877a.b39e03194959fb6c3096fc96ead5b2cc&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
+2025-05-13 18:04:33 INFO: 127.0.0.1 - - [13/May/2025 18:04:33] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:04:40 INFO: 127.0.0.1 - - [13/May/2025 18:04:40] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:07:38 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 18:07:39 INFO:  * Restarting with stat
+2025-05-13 18:07:46 WARNING:  * Debugger is active!
+2025-05-13 18:07:46 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 18:07:50 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/fd155a8e-d487-423b-a96a-4b657ab29d76"***REMOVED***
+
+2025-05-13 18:07:54 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 146, in process_audio
+    log_transcript_to_file(transcript)
+    ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'log_transcript_to_file' is not defined
+2025-05-13 18:07:54 INFO: 127.0.0.1 - - [13/May/2025 18:07:54] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:07:57 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/7fb8c09c-0d70-465c-a4da-a457fa559b36"***REMOVED***
+
+2025-05-13 18:08:01 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 146, in process_audio
+    log_transcript_to_file(transcript)
+    ^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'log_transcript_to_file' is not defined
+2025-05-13 18:08:01 INFO: 127.0.0.1 - - [13/May/2025 18:08:01] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
+2025-05-13 18:08:40 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 18:08:41 INFO:  * Restarting with stat
+2025-05-13 18:08:48 WARNING:  * Debugger is active!
+2025-05-13 18:08:48 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 18:08:49 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/206fee3e-12ae-497a-94b9-6cae5a582342"***REMOVED***
+
+2025-05-13 18:08:53 INFO: Transcript logged to transcripts\transcript_2025-05-13_18-08-53.txt
+2025-05-13 18:08:53 INFO: 127.0.0.1 - - [13/May/2025 18:08:53] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 18:08:53 INFO: 127.0.0.1 - - [13/May/2025 18:08:53] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 18:09:04 INFO: RAW LLM OUTPUT:
+Summary: - Action Items: - [Person] needs to [task] - [No decision]
+2025-05-13 18:09:04 INFO: 127.0.0.1 - - [13/May/2025 18:09:04] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 18:16:02 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 18:16:03 INFO:  * Restarting with stat
+2025-05-13 18:16:10 WARNING:  * Debugger is active!
+2025-05-13 18:16:10 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 18:16:24 INFO: 127.0.0.1 - - [13/May/2025 18:16:24] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 18:16:28 INFO: RAW LLM OUTPUT:
+Summary: - Action Items: - [Person] needs to [task] - [No decision]
+2025-05-13 18:16:28 INFO: 127.0.0.1 - - [13/May/2025 18:16:28] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:13:29 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 19:13:29 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 19:13:29 INFO:  * Restarting with stat
+2025-05-13 19:13:36 WARNING:  * Debugger is active!
+2025-05-13 19:13:36 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:14:55 INFO: 127.0.0.1 - - [13/May/2025 19:14:55] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 19:14:55 INFO: 127.0.0.1 - - [13/May/2025 19:14:55] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 19:15:11 INFO: 127.0.0.1 - - [13/May/2025 19:15:11] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 19:15:11 INFO: 127.0.0.1 - - [13/May/2025 19:15:11] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
+2025-05-13 19:15:15 INFO: 127.0.0.1 - - [13/May/2025 19:15:15] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
+2025-05-13 19:15:16 INFO: 127.0.0.1 - - [13/May/2025 19:15:16] "GET /zoho/callback?code=1000.81b9055865256e188fe78e0020c54157.201ee99e20f8a3e40f640fee0916479b&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
+2025-05-13 19:15:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/6e5fd803-c931-455e-aaa1-721df0b6571a"***REMOVED***
+
+2025-05-13 19:15:27 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-15-27.txt
+2025-05-13 19:15:27 INFO: 127.0.0.1 - - [13/May/2025 19:15:27] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:15:27 INFO: 127.0.0.1 - - [13/May/2025 19:15:27] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:15:34 INFO: RAW LLM OUTPUT:
+Summary: - Action Items: - [Person] needs to [task] - [No decision]
+2025-05-13 19:15:34 INFO: 127.0.0.1 - - [13/May/2025 19:15:34] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:22:37 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 19:22:37 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 19:22:37 INFO:  * Restarting with stat
+2025-05-13 19:22:44 WARNING:  * Debugger is active!
+2025-05-13 19:22:44 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:23:09 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/4e1837f0-4305-4613-8a91-348f72953b73"***REMOVED***
+
+2025-05-13 19:23:13 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-23-13.txt
+2025-05-13 19:23:13 INFO: 127.0.0.1 - - [13/May/2025 19:23:13] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:23:13 INFO: 127.0.0.1 - - [13/May/2025 19:23:13] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:23:18 INFO: RAW LLM OUTPUT:
+Summary: - Action Items: - Decisions: - Actions: - ...
+2025-05-13 19:23:18 INFO: 127.0.0.1 - - [13/May/2025 19:23:18] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:24:17 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:24:18 INFO:  * Restarting with stat
+2025-05-13 19:24:25 WARNING:  * Debugger is active!
+2025-05-13 19:24:25 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:24:38 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:24:38 INFO:  * Restarting with stat
+2025-05-13 19:24:45 WARNING:  * Debugger is active!
+2025-05-13 19:24:45 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:25:04 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/4f6cd981-259b-4bef-9aa0-750a3e94fc1d"***REMOVED***
+
+2025-05-13 19:25:08 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-25-08.txt
+2025-05-13 19:25:08 INFO: 127.0.0.1 - - [13/May/2025 19:25:08] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:25:08 INFO: 127.0.0.1 - - [13/May/2025 19:25:08] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:26:28 INFO: RAW LLM OUTPUT:
+Summary: [summary point 1] [summary point 2] [summary point 3] [summary point 4] [summary point 5] [summary point 6] [summary point 7] [summary point 8] [summary point 9] [summary point 10] [summary point 11] [summary point 12] [summary point 13] [summary point 14] [summary point 15] [summary point 16] [summary point 17] [summary point 18] [summary point 19] [summary point 20] [summary point 21] [summary point 22] [summary point 23] [summary point 24] [summary point 25] [summary point 26] [summary point 27] [summary point 28] [summary point 29] [summary point 30] [summary point 31] [summary point 32] [summary point 33] [summary point 34] [summary point 35] [summary point 36] [summary point 37] [summary point 38] [summary point 40] [summary point 41] [summary point 42] [summary point 43] [summary point 45] [summary point 46] [summary point 47] [summary point 48] [summary point 50] [summary point 51] [summary point 52] [summary point 53] [summary point 54] [summary point 55] [summary point 56] [summary point 57] [summary point 58] [summary point 59] [summary point 60] [summary point 61] [summary point 62] [summary point 63] [summary point 62] [summary point 63] [summary point 67] [summary point 68] [summary point 69] [summary point 70] [summary point 71] [summary point 74] [summary point 78] [summary point 79] [summary point
+2025-05-13 19:26:28 INFO: 127.0.0.1 - - [13/May/2025 19:26:28] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:27:15 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:27:16 INFO:  * Restarting with stat
+2025-05-13 19:27:23 WARNING:  * Debugger is active!
+2025-05-13 19:27:23 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:27:24 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/30456697-4b60-465a-92dc-9c8cada54c7c"***REMOVED***
+
+2025-05-13 19:27:28 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-27-28.txt
+2025-05-13 19:27:28 INFO: 127.0.0.1 - - [13/May/2025 19:27:28] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:27:28 INFO: 127.0.0.1 - - [13/May/2025 19:27:28] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:27:31 INFO: RAW LLM OUTPUT:
+Summary: - Action Items: - Decisions: -
+2025-05-13 19:27:31 INFO: 127.0.0.1 - - [13/May/2025 19:27:31] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:28:21 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:28:22 INFO:  * Restarting with stat
+2025-05-13 19:28:29 WARNING:  * Debugger is active!
+2025-05-13 19:28:29 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:28:30 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/40ae6f46-e1e9-47e0-b449-ce645c6b3b43"***REMOVED***
+
+2025-05-13 19:28:34 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-28-34.txt
+2025-05-13 19:28:34 INFO: 127.0.0.1 - - [13/May/2025 19:28:34] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:28:34 INFO: 127.0.0.1 - - [13/May/2025 19:28:34] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:28:39 INFO: RAW LLM OUTPUT:
+Summary: - George planned the next meeting - Fred run for president - Susie saved the day
+2025-05-13 19:28:39 INFO: 127.0.0.1 - - [13/May/2025 19:28:39] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:29:15 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/1ad4a0e2-1bbb-4e4a-8fa8-8bedb902b54d"***REMOVED***
+
+2025-05-13 19:29:19 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-29-19.txt
+2025-05-13 19:29:19 INFO: 127.0.0.1 - - [13/May/2025 19:29:19] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:29:19 INFO: 127.0.0.1 - - [13/May/2025 19:29:19] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:29:27 INFO: RAW LLM OUTPUT:
+Summary: - Action Items: - [Person] needs to [Do the dishes] - [Person] needs to [Brush his teeth] - [Person] needs to [Do something interesting]
+2025-05-13 19:29:27 INFO: 127.0.0.1 - - [13/May/2025 19:29:27] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:30:16 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:30:17 INFO:  * Restarting with stat
+2025-05-13 19:30:24 WARNING:  * Debugger is active!
+2025-05-13 19:30:24 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:30:25 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/a96f4f87-fc48-4cd2-9871-c3068ab6cc6f"***REMOVED***
+
+2025-05-13 19:30:29 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-30-29.txt
+2025-05-13 19:30:29 INFO: 127.0.0.1 - - [13/May/2025 19:30:29] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:30:29 INFO: 127.0.0.1 - - [13/May/2025 19:30:29] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:30:33 INFO: RAW LLM OUTPUT:
+Summary: - Bob needs to brush his teeth - Frank needs to do something interesting
+2025-05-13 19:30:33 INFO: 127.0.0.1 - - [13/May/2025 19:30:33] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:31:18 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:31:19 INFO:  * Restarting with stat
+2025-05-13 19:31:25 WARNING:  * Debugger is active!
+2025-05-13 19:31:25 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:31:26 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/13860621-aec6-4f72-8161-694071ff5c6a"***REMOVED***
+
+2025-05-13 19:31:30 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-31-30.txt
+2025-05-13 19:31:30 INFO: 127.0.0.1 - - [13/May/2025 19:31:30] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:31:31 INFO: 127.0.0.1 - - [13/May/2025 19:31:31] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:31:35 INFO: RAW LLM OUTPUT:
+Summary: - Bob needs to brush his teeth - Frank needs to do something interesting
+2025-05-13 19:31:35 INFO: 127.0.0.1 - - [13/May/2025 19:31:35] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:32:18 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:32:19 INFO:  * Restarting with stat
+2025-05-13 19:32:25 WARNING:  * Debugger is active!
+2025-05-13 19:32:25 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:32:26 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/ced8c430-f787-49e1-85b6-a261d56cb3ea"***REMOVED***
+
+2025-05-13 19:32:30 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-32-30.txt
+2025-05-13 19:32:30 INFO: 127.0.0.1 - - [13/May/2025 19:32:30] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:32:30 INFO: 127.0.0.1 - - [13/May/2025 19:32:30] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:32:33 INFO: RAW LLM OUTPUT:
+Someone needs to wash the dishes.
+2025-05-13 19:32:33 INFO: 127.0.0.1 - - [13/May/2025 19:32:33] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:33:24 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:33:25 INFO:  * Restarting with stat
+2025-05-13 19:33:32 WARNING:  * Debugger is active!
+2025-05-13 19:33:32 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:33:33 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/62e4cf2b-1f85-4265-8fae-0f704e41c2c7"***REMOVED***
+
+2025-05-13 19:33:37 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-33-37.txt
+2025-05-13 19:33:37 INFO: 127.0.0.1 - - [13/May/2025 19:33:37] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:33:37 INFO: 127.0.0.1 - - [13/May/2025 19:33:37] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:33:39 INFO: RAW LLM OUTPUT:
+Someone needs to wash the dishes.
+2025-05-13 19:33:39 INFO: 127.0.0.1 - - [13/May/2025 19:33:39] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:36:31 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:36:32 INFO:  * Restarting with stat
+2025-05-13 19:36:39 WARNING:  * Debugger is active!
+2025-05-13 19:36:39 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:37:16 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:37:17 INFO:  * Restarting with stat
+2025-05-13 19:37:24 WARNING:  * Debugger is active!
+2025-05-13 19:37:24 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:38:30 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:38:31 INFO:  * Restarting with stat
+2025-05-13 19:39:58 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 19:39:58 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 19:39:58 INFO:  * Restarting with stat
+2025-05-13 19:40:06 WARNING:  * Debugger is active!
+2025-05-13 19:40:06 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 19:40:14 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/464f60c8-c38c-41e9-98d6-9e622f06665d"***REMOVED***
+
+2025-05-13 19:40:18 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-40-18.txt
+2025-05-13 19:40:18 INFO: 127.0.0.1 - - [13/May/2025 19:40:18] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 19:40:18 INFO: 127.0.0.1 - - [13/May/2025 19:40:18] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 19:40:22 INFO: RAW LLM OUTPUT:
+Action Items: - Bob needs to brush his teeth. Frank needs to do something interesting.
+2025-05-13 19:40:22 INFO: 127.0.0.1 - - [13/May/2025 19:40:22] "POST /process-json HTTP/1.1" 200 -
+2025-05-13 19:41:25 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 19:41:26 INFO:  * Restarting with stat
+2025-05-13 20:00:09 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 20:00:09 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 20:00:09 INFO:  * Restarting with stat
+2025-05-13 20:00:11 WARNING:  * Debugger is active!
+2025-05-13 20:00:11 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:00:18 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/f4df2a51-e67e-4b3d-affd-5273b52ccdc4"***REMOVED***
+
+2025-05-13 20:00:22 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-00-22.txt
+2025-05-13 20:00:22 INFO: 127.0.0.1 - - [13/May/2025 20:00:22] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:00:22 INFO: 127.0.0.1 - - [13/May/2025 20:00:22] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 20:00:22 INFO: 127.0.0.1 - - [13/May/2025 20:00:22] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 20:00:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/62b2f85d-72dc-4d12-9ff5-e816ed27d824"***REMOVED***
+
+2025-05-13 20:00:27 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-00-27.txt
+2025-05-13 20:00:27 INFO: 127.0.0.1 - - [13/May/2025 20:00:27] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:00:27 INFO: 127.0.0.1 - - [13/May/2025 20:00:27] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 20:00:27 INFO: 127.0.0.1 - - [13/May/2025 20:00:27] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 20:00:28 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/72232c41-fd2f-48aa-b7c9-43e21d95ca2c"***REMOVED***
+
+2025-05-13 20:00:32 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-00-32.txt
+2025-05-13 20:00:32 INFO: 127.0.0.1 - - [13/May/2025 20:00:32] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:00:32 INFO: 127.0.0.1 - - [13/May/2025 20:00:32] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 20:00:32 INFO: 127.0.0.1 - - [13/May/2025 20:00:32] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 20:00:33 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/dd31db36-ad1e-4716-99c5-ab7747b40033"***REMOVED***
+
+2025-05-13 20:00:37 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-00-37.txt
+2025-05-13 20:00:37 INFO: 127.0.0.1 - - [13/May/2025 20:00:37] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:00:56 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/736d02ec-d0e1-4f82-849a-e0b389ad67a7"***REMOVED***
+
+2025-05-13 20:01:00 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-00.txt
+2025-05-13 20:01:00 INFO: 127.0.0.1 - - [13/May/2025 20:01:00] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:01:00 INFO: 127.0.0.1 - - [13/May/2025 20:01:00] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 20:01:01 INFO: 127.0.0.1 - - [13/May/2025 20:01:01] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 20:01:01 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/ba99f5f5-6f4e-48d0-b92c-444d8e4416f4"***REMOVED***
+
+2025-05-13 20:01:05 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-05.txt
+2025-05-13 20:01:05 INFO: 127.0.0.1 - - [13/May/2025 20:01:05] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:01:05 INFO: 127.0.0.1 - - [13/May/2025 20:01:05] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 20:01:06 INFO: 127.0.0.1 - - [13/May/2025 20:01:06] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 20:01:06 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/aef2708e-9945-4912-afe2-1655cb73e264"***REMOVED***
+
+2025-05-13 20:01:10 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-10.txt
+2025-05-13 20:01:10 INFO: 127.0.0.1 - - [13/May/2025 20:01:10] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:01:28 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/8051d8b7-79d2-4219-b884-b9c975b2125d"***REMOVED***
+
+2025-05-13 20:01:33 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-33.txt
+2025-05-13 20:01:33 INFO: 127.0.0.1 - - [13/May/2025 20:01:33] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:01:33 INFO: 127.0.0.1 - - [13/May/2025 20:01:33] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 20:01:33 INFO: 127.0.0.1 - - [13/May/2025 20:01:33] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 20:01:34 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0e13a020-988e-4785-b03f-3fab5891c669"***REMOVED***
+
+2025-05-13 20:01:38 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-38.txt
+2025-05-13 20:01:38 INFO: 127.0.0.1 - - [13/May/2025 20:01:38] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:01:38 INFO: 127.0.0.1 - - [13/May/2025 20:01:38] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 20:01:38 INFO: 127.0.0.1 - - [13/May/2025 20:01:38] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 20:01:39 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/55d73a3d-1a62-492a-a1e9-4573cc6cf4c8"***REMOVED***
+
+2025-05-13 20:01:42 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-42.txt
+2025-05-13 20:01:42 INFO: 127.0.0.1 - - [13/May/2025 20:01:42] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 20:04:12 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 20:04:12 INFO:  * Restarting with stat
+2025-05-13 20:08:18 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 20:08:18 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 20:08:18 INFO:  * Restarting with stat
+2025-05-13 20:08:20 WARNING:  * Debugger is active!
+2025-05-13 20:08:20 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:21:36 INFO: 127.0.0.1 - - [13/May/2025 20:21:36] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 20:22:12 INFO: 127.0.0.1 - - [13/May/2025 20:22:12] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 20:23:11 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:23:11 INFO:  * Restarting with stat
+2025-05-13 20:23:13 WARNING:  * Debugger is active!
+2025-05-13 20:23:13 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:23:17 INFO: 127.0.0.1 - - [13/May/2025 20:23:17] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:25:31 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:25:31 INFO:  * Restarting with stat
+2025-05-13 20:25:33 WARNING:  * Debugger is active!
+2025-05-13 20:25:33 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:25:40 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:25:40 INFO:  * Restarting with stat
+2025-05-13 20:25:42 WARNING:  * Debugger is active!
+2025-05-13 20:25:42 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:25:51 INFO: 127.0.0.1 - - [13/May/2025 20:25:51] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:25:59 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 20:25:59 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 20:25:59 INFO:  * Restarting with stat
+2025-05-13 20:26:01 WARNING:  * Debugger is active!
+2025-05-13 20:26:01 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:26:06 INFO: 127.0.0.1 - - [13/May/2025 20:26:06] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:26:08 INFO: 127.0.0.1 - - [13/May/2025 20:26:08] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:26:28 INFO: 127.0.0.1 - - [13/May/2025 20:26:28] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:29:13 INFO: 127.0.0.1 - - [13/May/2025 20:29:13] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:29:56 INFO: 127.0.0.1 - - [13/May/2025 20:29:56] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:30:52 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 20:30:52 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 20:30:52 INFO:  * Restarting with stat
+2025-05-13 20:30:54 WARNING:  * Debugger is active!
+2025-05-13 20:30:54 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:31:08 INFO: 127.0.0.1 - - [13/May/2025 20:31:08] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:31:44 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:31:44 INFO:  * Restarting with stat
+2025-05-13 20:31:46 WARNING:  * Debugger is active!
+2025-05-13 20:31:46 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:32:05 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:32:05 INFO:  * Restarting with stat
+2025-05-13 20:32:07 WARNING:  * Debugger is active!
+2025-05-13 20:32:07 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:32:19 INFO: 127.0.0.1 - - [13/May/2025 20:32:19] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 20:33:52 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:33:52 INFO:  * Restarting with stat
+2025-05-13 20:33:54 WARNING:  * Debugger is active!
+2025-05-13 20:33:54 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:33:59 INFO: 127.0.0.1 - - [13/May/2025 20:33:59] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:34:16 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:34:17 INFO:  * Restarting with stat
+2025-05-13 20:34:22 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 20:34:22 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 20:34:22 INFO:  * Restarting with stat
+2025-05-13 20:34:24 WARNING:  * Debugger is active!
+2025-05-13 20:34:24 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:34:29 INFO: 127.0.0.1 - - [13/May/2025 20:34:29] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 20:36:02 INFO: 127.0.0.1 - - [13/May/2025 20:36:02] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 20:43:13 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_utils.py', reloading
+2025-05-13 20:43:13 INFO:  * Restarting with stat
+2025-05-13 20:46:27 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 20:46:27 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 20:46:27 INFO:  * Restarting with stat
+2025-05-13 20:46:29 WARNING:  * Debugger is active!
+2025-05-13 20:46:29 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:46:42 INFO: 127.0.0.1 - - [13/May/2025 20:46:42] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 20:47:40 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:47:41 INFO:  * Restarting with stat
+2025-05-13 20:47:43 WARNING:  * Debugger is active!
+2025-05-13 20:47:43 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:47:49 INFO: 127.0.0.1 - - [13/May/2025 20:47:49] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:47:50 INFO: 127.0.0.1 - - [13/May/2025 20:47:50] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:47:52 INFO: 127.0.0.1 - - [13/May/2025 20:47:52] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:48:07 INFO: 127.0.0.1 - - [13/May/2025 20:48:07] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:48:08 INFO: 127.0.0.1 - - [13/May/2025 20:48:08] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 20:49:18 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:49:19 INFO:  * Restarting with stat
+2025-05-13 20:49:21 WARNING:  * Debugger is active!
+2025-05-13 20:49:21 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:49:28 INFO: 127.0.0.1 - - [13/May/2025 20:49:28] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 20:55:31 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:55:32 INFO:  * Restarting with stat
+2025-05-13 20:55:34 WARNING:  * Debugger is active!
+2025-05-13 20:55:34 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:55:51 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 20:55:51 INFO:  * Restarting with stat
+2025-05-13 20:58:36 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 20:58:36 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 20:58:36 INFO:  * Restarting with stat
+2025-05-13 20:58:38 WARNING:  * Debugger is active!
+2025-05-13 20:58:38 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 20:58:55 INFO: 127.0.0.1 - - [13/May/2025 20:58:55] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 20:59:56 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_utils.py', reloading
+2025-05-13 20:59:56 INFO:  * Restarting with stat
+2025-05-13 20:59:59 WARNING:  * Debugger is active!
+2025-05-13 20:59:59 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:01:45 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_utils.py', reloading
+2025-05-13 21:01:45 INFO:  * Restarting with stat
+2025-05-13 21:01:47 WARNING:  * Debugger is active!
+2025-05-13 21:01:47 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:01:52 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_utils.py', reloading
+2025-05-13 21:01:52 INFO:  * Restarting with stat
+2025-05-13 21:01:54 WARNING:  * Debugger is active!
+2025-05-13 21:01:54 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:02:08 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_utils.py', reloading
+2025-05-13 21:02:08 INFO:  * Restarting with stat
+2025-05-13 21:02:10 WARNING:  * Debugger is active!
+2025-05-13 21:02:10 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:02:40 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_utils.py', reloading
+2025-05-13 21:02:40 INFO:  * Restarting with stat
+2025-05-13 21:02:42 WARNING:  * Debugger is active!
+2025-05-13 21:02:42 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:02:47 INFO: 127.0.0.1 - - [13/May/2025 21:02:47] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 21:02:50 INFO: 127.0.0.1 - - [13/May/2025 21:02:50] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 21:03:19 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_utils.py', reloading
+2025-05-13 21:03:19 INFO:  * Restarting with stat
+2025-05-13 21:03:21 WARNING:  * Debugger is active!
+2025-05-13 21:03:21 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:03:43 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_utils.py', reloading
+2025-05-13 21:03:43 INFO:  * Restarting with stat
+2025-05-13 21:03:45 WARNING:  * Debugger is active!
+2025-05-13 21:03:45 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:04:39 INFO: 127.0.0.1 - - [13/May/2025 21:04:39] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 21:08:10 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 21:08:10 INFO:  * Restarting with stat
+2025-05-13 21:08:12 WARNING:  * Debugger is active!
+2025-05-13 21:08:12 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:08:36 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 21:08:36 INFO:  * Restarting with stat
+2025-05-13 21:08:38 WARNING:  * Debugger is active!
+2025-05-13 21:08:38 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:08:48 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 21:08:49 INFO:  * Restarting with stat
+2025-05-13 21:12:44 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 21:12:44 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 21:12:44 INFO:  * Restarting with stat
+2025-05-13 21:12:46 WARNING:  * Debugger is active!
+2025-05-13 21:12:46 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:14:25 INFO: 127.0.0.1 - - [13/May/2025 21:14:25] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 21:15:23 INFO: 127.0.0.1 - - [13/May/2025 21:15:23] "[35m[1mGET /auth-url HTTP/1.1[0m" 500 -
+2025-05-13 21:17:35 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 21:17:35 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 21:17:35 INFO:  * Restarting with stat
+2025-05-13 21:17:37 WARNING:  * Debugger is active!
+2025-05-13 21:17:37 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:17:50 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/1be0ba11-88af-447b-a668-fa67fba547e6"***REMOVED***
+
+2025-05-13 21:17:54 INFO: Transcript logged to transcripts\transcript_2025-05-13_21-17-54.txt
+2025-05-13 21:17:54 INFO: 127.0.0.1 - - [13/May/2025 21:17:54] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 21:17:54 INFO: 127.0.0.1 - - [13/May/2025 21:17:54] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 21:17:54 INFO: Generating LLM prompt...
+2025-05-13 21:17:54 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 256, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = openai.ChatCompletion.create(
+        model="gpt-4-turbo",
+    ...<2 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\lib\_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-05-13 21:17:54 INFO: 127.0.0.1 - - [13/May/2025 21:17:54] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 21:17:56 INFO: 127.0.0.1 - - [13/May/2025 21:17:56] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 21:18:08 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/fae2afe1-8d72-43ba-a211-0b9ab8f6c068"***REMOVED***
+
+2025-05-13 21:18:12 INFO: Transcript logged to transcripts\transcript_2025-05-13_21-18-12.txt
+2025-05-13 21:18:12 INFO: 127.0.0.1 - - [13/May/2025 21:18:12] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 21:18:12 INFO: 127.0.0.1 - - [13/May/2025 21:18:12] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 21:18:12 INFO: Generating LLM prompt...
+2025-05-13 21:18:12 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 256, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = openai.ChatCompletion.create(
+        model="gpt-4-turbo",
+    ...<2 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\lib\_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-05-13 21:18:12 INFO: 127.0.0.1 - - [13/May/2025 21:18:12] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 21:19:39 INFO: 127.0.0.1 - - [13/May/2025 21:19:39] "GET /auth-url HTTP/1.1" 200 -

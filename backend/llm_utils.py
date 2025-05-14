@@ -1,13 +1,13 @@
-import openai
+from openai import OpenAI
 import logging
 import os
 from dotenv import load_dotenv
 from datetime import datetime
+import json
+from pathlib import Path
 
-dotenv_path = os.path.expanduser('~/.app_secrets/.env')
-load_dotenv(dotenv_path=dotenv_path)
-
-openai.api_key = os.getenv("OPENAI_API_KEY")
+secrets = json.loads(Path.home().joinpath(".app_secrets", "env.json").read_text())
+client = OpenAI(api_key=secrets["OPENAI_API_KEY"])
 
 def log_transcript_to_file(transcript):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -51,12 +51,22 @@ Transcript:
 \"\"\"{cleaned_transcript***REMOVED***\"\"\"
 """
     
-    response = openai.ChatCompletion.create(
-        model="gpt-4-turbo",
-        messages=[{"role": "user", "content": prompt***REMOVED***],
-        max_tokens=600,
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {
+                "role": "system",
+                "content": "You are an intelligent assistant. Analyze the following meeting transcript and extract three things:\n\n1. A concise summary of the main topics.\n2. A list of action items, with clear assignments (e.g., \"Bob needs to...\").\n3. Any decisions made.\n\nOutput format:\nSummary:\n- ...\n\nAction Items:\n- [Person] needs to [task]\n\nDecisions:\n- ...",
+            ***REMOVED***,
+            {
+                "role": "user",
+                "content": transcript
+            ***REMOVED***
+        ],
         temperature=0.2
     )
+    output = response.choices[0].message.content
+
 
     logging.info(f"LLM PROMPT:\n{prompt***REMOVED***")
 

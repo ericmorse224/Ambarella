@@ -2064,3 +2064,491 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 
 2025-05-13 21:18:12 INFO: 127.0.0.1 - - [13/May/2025 21:18:12] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-13 21:19:39 INFO: 127.0.0.1 - - [13/May/2025 21:19:39] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 21:32:42 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 21:32:42 INFO:  * Restarting with stat
+2025-05-13 21:32:44 WARNING:  * Debugger is active!
+2025-05-13 21:32:44 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:32:57 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-13 21:32:58 INFO:  * Restarting with stat
+2025-05-13 21:33:00 WARNING:  * Debugger is active!
+2025-05-13 21:33:00 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 21:36:32 INFO: 127.0.0.1 - - [13/May/2025 21:36:32] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 21:36:38 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0cdcfa9d-b5a1-455d-bbc8-4f5badc99229"***REMOVED***
+
+2025-05-13 21:36:42 INFO: Transcript logged to transcripts\transcript_2025-05-13_21-36-42.txt
+2025-05-13 21:36:42 INFO: 127.0.0.1 - - [13/May/2025 21:36:42] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 21:36:42 INFO: 127.0.0.1 - - [13/May/2025 21:36:42] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 21:36:42 INFO: Generating LLM prompt...
+2025-05-13 21:36:42 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 261, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = openai.ChatCompletion.create(
+        model="gpt-4-turbo",
+    ...<2 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\lib\_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-05-13 21:36:42 INFO: 127.0.0.1 - - [13/May/2025 21:36:42] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 22:05:17 INFO: 127.0.0.1 - - [13/May/2025 22:05:17] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 22:05:30 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0fcc63de-6bfb-4d9e-aeb5-5fe280761587"***REMOVED***
+
+2025-05-13 22:05:34 INFO: Transcript logged to transcripts\transcript_2025-05-13_22-05-34.txt
+2025-05-13 22:05:34 INFO: 127.0.0.1 - - [13/May/2025 22:05:34] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 22:05:34 INFO: 127.0.0.1 - - [13/May/2025 22:05:34] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 22:05:34 INFO: Generating LLM prompt...
+2025-05-13 22:05:34 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 261, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = openai.ChatCompletion.create(
+        model="gpt-4-turbo",
+    ...<2 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\lib\_old_api.py", line 39, in __call__
+    raise APIRemovedInV1(symbol=self._symbol)
+openai.lib._old_api.APIRemovedInV1: 
+
+You tried to access openai.ChatCompletion, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+
+2025-05-13 22:05:34 INFO: 127.0.0.1 - - [13/May/2025 22:05:34] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 22:07:46 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 22:07:46 INFO:  * Restarting with stat
+2025-05-13 22:09:09 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 22:09:09 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 22:09:09 INFO:  * Restarting with stat
+2025-05-13 22:09:12 WARNING:  * Debugger is active!
+2025-05-13 22:09:12 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:09:16 INFO: 127.0.0.1 - - [13/May/2025 22:09:16] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 22:09:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/15bc3cf5-d028-4fd8-8ba6-6863e78f1943"***REMOVED***
+
+2025-05-13 22:09:28 INFO: Transcript logged to transcripts\transcript_2025-05-13_22-09-28.txt
+2025-05-13 22:09:28 INFO: 127.0.0.1 - - [13/May/2025 22:09:28] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 22:09:28 INFO: 127.0.0.1 - - [13/May/2025 22:09:28] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 22:09:28 INFO: Generating LLM prompt...
+2025-05-13 22:09:30 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
+2025-05-13 22:09:30 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 261, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = client.chat.completions.create(
+        model="gpt-4-turbo",
+    ...<10 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `gpt-4-turbo` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'***REMOVED******REMOVED***
+2025-05-13 22:09:30 INFO: 127.0.0.1 - - [13/May/2025 22:09:30] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 22:13:57 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 22:13:57 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 22:13:57 INFO:  * Restarting with stat
+2025-05-13 22:14:07 WARNING:  * Debugger is active!
+2025-05-13 22:14:07 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:14:46 INFO: 127.0.0.1 - - [13/May/2025 22:14:46] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 22:14:57 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/6678cb7f-15f4-4a06-bbb0-6445420aa45e"***REMOVED***
+
+2025-05-13 22:15:01 INFO: Transcript logged to transcripts\transcript_2025-05-13_22-15-01.txt
+2025-05-13 22:15:01 INFO: 127.0.0.1 - - [13/May/2025 22:15:01] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 22:15:01 INFO: 127.0.0.1 - - [13/May/2025 22:15:01] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 22:15:01 INFO: Generating LLM prompt...
+2025-05-13 22:15:04 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 404 Not Found"
+2025-05-13 22:15:04 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 261, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = client.chat.completions.create(
+        model="gpt-4-turbo",
+    ...<10 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `gpt-4-turbo` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'***REMOVED******REMOVED***
+2025-05-13 22:15:04 INFO: 127.0.0.1 - - [13/May/2025 22:15:04] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 22:17:27 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 22:17:28 INFO:  * Restarting with stat
+2025-05-13 22:19:45 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 22:19:45 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 22:19:45 INFO:  * Restarting with stat
+2025-05-13 22:19:57 WARNING:  * Debugger is active!
+2025-05-13 22:19:57 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:22:02 INFO: 127.0.0.1 - - [13/May/2025 22:22:02] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 22:22:11 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/8e6e57e2-7585-469e-9274-2d5b180056c1"***REMOVED***
+
+2025-05-13 22:22:15 INFO: Transcript logged to transcripts\transcript_2025-05-13_22-22-15.txt
+2025-05-13 22:22:15 INFO: 127.0.0.1 - - [13/May/2025 22:22:15] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 22:22:15 INFO: 127.0.0.1 - - [13/May/2025 22:22:15] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 22:22:15 INFO: Generating LLM prompt...
+2025-05-13 22:22:18 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-13 22:22:18 INFO: Retrying request to /chat/completions in 0.456120 seconds
+2025-05-13 22:22:18 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-13 22:22:18 INFO: Retrying request to /chat/completions in 0.958292 seconds
+2025-05-13 22:22:19 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-13 22:22:19 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 261, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+    ...<10 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'***REMOVED******REMOVED***
+2025-05-13 22:22:19 INFO: 127.0.0.1 - - [13/May/2025 22:22:19] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 22:25:23 INFO: 127.0.0.1 - - [13/May/2025 22:25:23] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 22:33:41 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 22:33:42 INFO:  * Restarting with stat
+2025-05-13 22:33:53 WARNING:  * Debugger is active!
+2025-05-13 22:33:53 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:35:00 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 22:35:01 INFO:  * Restarting with stat
+2025-05-13 22:35:12 WARNING:  * Debugger is active!
+2025-05-13 22:35:12 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:35:27 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 22:35:28 INFO:  * Restarting with stat
+2025-05-13 22:35:39 WARNING:  * Debugger is active!
+2025-05-13 22:35:39 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:35:50 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 22:35:51 INFO:  * Restarting with stat
+2025-05-13 22:36:04 WARNING:  * Debugger is active!
+2025-05-13 22:36:04 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:36:14 INFO: 127.0.0.1 - - [13/May/2025 22:36:14] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 22:36:37 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 22:36:37 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 22:36:37 INFO:  * Restarting with stat
+2025-05-13 22:36:48 WARNING:  * Debugger is active!
+2025-05-13 22:36:48 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:36:51 INFO: 127.0.0.1 - - [13/May/2025 22:36:51] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 22:38:11 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
+2025-05-13 22:38:12 INFO:  * Restarting with stat
+2025-05-13 22:38:25 WARNING:  * Debugger is active!
+2025-05-13 22:38:25 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:39:18 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 22:39:19 INFO:  * Restarting with stat
+2025-05-13 22:39:31 WARNING:  * Debugger is active!
+2025-05-13 22:39:31 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:39:51 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 22:39:52 INFO:  * Restarting with stat
+2025-05-13 22:40:04 WARNING:  * Debugger is active!
+2025-05-13 22:40:04 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:40:35 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 22:40:36 INFO:  * Restarting with stat
+2025-05-13 22:40:46 WARNING:  * Debugger is active!
+2025-05-13 22:40:46 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:41:02 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 22:41:03 INFO:  * Restarting with stat
+2025-05-13 22:41:22 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 22:41:22 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 22:41:22 INFO:  * Restarting with stat
+2025-05-13 22:41:34 WARNING:  * Debugger is active!
+2025-05-13 22:41:34 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 22:43:50 INFO: 127.0.0.1 - - [13/May/2025 22:43:50] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 23:04:49 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 23:04:50 INFO:  * Restarting with stat
+2025-05-13 23:05:01 WARNING:  * Debugger is active!
+2025-05-13 23:05:01 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 23:05:21 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 23:05:22 INFO:  * Restarting with stat
+2025-05-13 23:05:40 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-13 23:05:40 INFO: [33mPress CTRL+C to quit[0m
+2025-05-13 23:05:40 INFO:  * Restarting with stat
+2025-05-13 23:05:52 WARNING:  * Debugger is active!
+2025-05-13 23:05:52 INFO:  * Debugger PIN: 818-684-062
+2025-05-13 23:06:05 INFO: 127.0.0.1 - - [13/May/2025 23:06:05] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 23:09:16 INFO: 127.0.0.1 - - [13/May/2025 23:09:16] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 23:11:42 INFO: 127.0.0.1 - - [13/May/2025 23:11:42] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 23:11:47 INFO: 127.0.0.1 - - [13/May/2025 23:11:47] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 23:16:16 INFO: 127.0.0.1 - - [13/May/2025 23:16:16] "GET /auth-url HTTP/1.1" 200 -
+2025-05-13 23:18:13 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/08eb40e9-75a4-4796-bdfb-a5e4a158dce8"***REMOVED***
+
+2025-05-13 23:18:17 INFO: Transcript logged to transcripts\transcript_2025-05-13_23-18-17.txt
+2025-05-13 23:18:17 INFO: 127.0.0.1 - - [13/May/2025 23:18:17] "POST /process-audio HTTP/1.1" 200 -
+2025-05-13 23:18:17 INFO: 127.0.0.1 - - [13/May/2025 23:18:17] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-13 23:18:17 INFO: Generating LLM prompt...
+2025-05-13 23:18:20 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-13 23:18:20 INFO: Retrying request to /chat/completions in 0.404161 seconds
+2025-05-13 23:18:21 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-13 23:18:21 INFO: Retrying request to /chat/completions in 0.810999 seconds
+2025-05-13 23:18:23 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-13 23:18:23 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 261, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+    ...<10 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'***REMOVED******REMOVED***
+2025-05-13 23:18:23 INFO: 127.0.0.1 - - [13/May/2025 23:18:23] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-13 23:20:35 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-13 23:20:37 INFO:  * Restarting with stat
+2025-05-13 23:20:48 WARNING:  * Debugger is active!
+2025-05-13 23:20:48 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 07:57:05 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-14 07:57:05 INFO: [33mPress CTRL+C to quit[0m
+2025-05-14 07:57:05 INFO:  * Restarting with stat
+2025-05-14 07:57:07 WARNING:  * Debugger is active!
+2025-05-14 07:57:07 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 07:57:18 INFO: 127.0.0.1 - - [14/May/2025 07:57:18] "[35m[1mGET /zoho/callback?code=1000.fae3dfcc4ed7bf9a679ec2c0d7e866fa.abb27c0db6f12267d57cdb451a3c44fc&location=us&accounts-server=https://accounts.zoho.com& HTTP/1.1[0m" 500 -
+2025-05-14 07:57:18 INFO: 127.0.0.1 - - [14/May/2025 07:57:18] "GET /zoho/callback?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-14 07:57:18 INFO: 127.0.0.1 - - [14/May/2025 07:57:18] "GET /zoho/callback?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-14 07:57:18 INFO: 127.0.0.1 - - [14/May/2025 07:57:18] "GET /zoho/callback?__debugger__=yes&cmd=resource&f=console.png&s=c6s5piUKmo5WBNCLm6P0 HTTP/1.1" 200 -
+2025-05-14 07:57:19 INFO: 127.0.0.1 - - [14/May/2025 07:57:19] "GET /zoho/callback?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-14 07:58:18 INFO: 127.0.0.1 - - [14/May/2025 07:58:18] "[35m[1mGET /zoho/callback?code=1000.aad253731d2a76352898650c44e4001d.6e66060f9e9c52f04d331677d8de3dc0&location=us&accounts-server=https://accounts.zoho.com& HTTP/1.1[0m" 500 -
+2025-05-14 07:58:18 INFO: 127.0.0.1 - - [14/May/2025 07:58:18] "[36mGET /zoho/callback?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-05-14 07:58:19 INFO: 127.0.0.1 - - [14/May/2025 07:58:19] "[36mGET /zoho/callback?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-05-14 07:58:19 INFO: 127.0.0.1 - - [14/May/2025 07:58:19] "[36mGET /zoho/callback?__debugger__=yes&cmd=resource&f=console.png&s=c6s5piUKmo5WBNCLm6P0 HTTP/1.1[0m" 304 -
+2025-05-14 08:35:58 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-14 08:35:58 INFO: [33mPress CTRL+C to quit[0m
+2025-05-14 08:35:58 INFO:  * Restarting with stat
+2025-05-14 08:36:01 WARNING:  * Debugger is active!
+2025-05-14 08:36:01 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 08:36:43 INFO: 127.0.0.1 - - [14/May/2025 08:36:43] "GET /auth-url HTTP/1.1" 200 -
+2025-05-14 09:35:28 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-14 09:35:28 INFO: [33mPress CTRL+C to quit[0m
+2025-05-14 09:35:28 INFO:  * Restarting with stat
+2025-05-14 09:35:31 WARNING:  * Debugger is active!
+2025-05-14 09:35:31 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 09:35:52 INFO: 127.0.0.1 - - [14/May/2025 09:35:52] "GET /auth-url HTTP/1.1" 200 -
+2025-05-14 09:35:56 INFO: 127.0.0.1 - - [14/May/2025 09:35:56] "GET /auth-url HTTP/1.1" 200 -
+2025-05-14 09:42:33 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-14 09:42:33 INFO:  * Restarting with stat
+2025-05-14 09:42:36 WARNING:  * Debugger is active!
+2025-05-14 09:42:36 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 09:43:19 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-14 09:43:19 INFO:  * Restarting with stat
+2025-05-14 09:43:22 WARNING:  * Debugger is active!
+2025-05-14 09:43:22 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 09:43:37 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-14 09:43:37 INFO:  * Restarting with stat
+2025-05-14 09:43:40 WARNING:  * Debugger is active!
+2025-05-14 09:43:40 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 09:45:11 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-14 09:45:11 INFO:  * Restarting with stat
+2025-05-14 09:53:14 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-14 09:53:14 INFO: [33mPress CTRL+C to quit[0m
+2025-05-14 09:53:14 INFO:  * Restarting with stat
+2025-05-14 09:53:16 WARNING:  * Debugger is active!
+2025-05-14 09:53:16 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 09:55:02 INFO: 127.0.0.1 - - [14/May/2025 09:55:02] "GET /auth-url HTTP/1.1" 200 -
+2025-05-14 09:56:59 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-14 09:56:59 INFO:  * Restarting with stat
+2025-05-14 09:57:02 WARNING:  * Debugger is active!
+2025-05-14 09:57:02 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 09:57:09 INFO: 127.0.0.1 - - [14/May/2025 09:57:09] "GET /auth-url HTTP/1.1" 200 -
+2025-05-14 09:57:12 INFO: 127.0.0.1 - - [14/May/2025 09:57:12] "[35m[1mGET /zoho/callback?code=1000.b7d063b4b62e81b82a8c9b93a3e73b9b.134210f167b6ea0ca29a2b6acfe1574e&location=us&accounts-server=https://accounts.zoho.com& HTTP/1.1[0m" 500 -
+2025-05-14 09:57:12 INFO: 127.0.0.1 - - [14/May/2025 09:57:12] "GET /zoho/callback?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-05-14 09:57:12 INFO: 127.0.0.1 - - [14/May/2025 09:57:12] "GET /zoho/callback?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-05-14 09:57:12 INFO: 127.0.0.1 - - [14/May/2025 09:57:12] "GET /zoho/callback?__debugger__=yes&cmd=resource&f=console.png&s=Vq9Q2CezUfUfuYMfqiKS HTTP/1.1" 200 -
+2025-05-14 09:57:12 INFO: 127.0.0.1 - - [14/May/2025 09:57:12] "GET /zoho/callback?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-05-14 09:59:37 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-14 09:59:37 INFO:  * Restarting with stat
+2025-05-14 09:59:39 WARNING:  * Debugger is active!
+2025-05-14 09:59:39 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 10:01:32 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
+2025-05-14 10:01:32 INFO:  * Restarting with stat
+2025-05-14 10:01:35 WARNING:  * Debugger is active!
+2025-05-14 10:01:35 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 10:01:42 INFO: 127.0.0.1 - - [14/May/2025 10:01:42] "GET /auth-url HTTP/1.1" 200 -
+2025-05-14 10:01:43 INFO: 127.0.0.1 - - [14/May/2025 10:01:43] "GET /zoho/callback?code=1000.42afe4cc2cbe7344ac74768540409bba.b3dccd578f8759f64f5554fabe68dae0&location=us&accounts-server=https://accounts.zoho.com& HTTP/1.1" 200 -
+2025-05-14 10:01:43 INFO: 127.0.0.1 - - [14/May/2025 10:01:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-14 10:02:27 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/76b4fd92-61e6-4a58-9b35-26712383b5b1"***REMOVED***
+
+2025-05-14 10:02:31 INFO: Transcript logged to transcripts\transcript_2025-05-14_10-02-31.txt
+2025-05-14 10:02:31 INFO: 127.0.0.1 - - [14/May/2025 10:02:31] "POST /process-audio HTTP/1.1" 200 -
+2025-05-14 10:02:31 INFO: 127.0.0.1 - - [14/May/2025 10:02:31] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-14 10:02:31 INFO: Generating LLM prompt...
+2025-05-14 10:02:32 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-14 10:02:32 INFO: Retrying request to /chat/completions in 0.394151 seconds
+2025-05-14 10:02:33 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-14 10:02:33 INFO: Retrying request to /chat/completions in 0.844636 seconds
+2025-05-14 10:02:34 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-14 10:02:34 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 262, in process_json
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+    ...<10 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'***REMOVED******REMOVED***
+2025-05-14 10:02:34 INFO: 127.0.0.1 - - [14/May/2025 10:02:34] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-14 10:02:50 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
+2025-05-14 10:02:50 INFO:  * Restarting with stat
+2025-05-14 10:03:17 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-05-14 10:03:17 INFO: [33mPress CTRL+C to quit[0m
+2025-05-14 10:03:17 INFO:  * Restarting with stat
+2025-05-14 10:03:19 WARNING:  * Debugger is active!
+2025-05-14 10:03:19 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 10:03:29 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/546f2be2-3f46-4f0a-b4f3-2eab3aee704f"***REMOVED***
+
+2025-05-14 10:03:33 INFO: Transcript logged to transcripts\transcript_2025-05-14_10-03-33.txt
+2025-05-14 10:03:33 INFO: 127.0.0.1 - - [14/May/2025 10:03:33] "POST /process-audio HTTP/1.1" 200 -
+2025-05-14 10:03:33 INFO: 127.0.0.1 - - [14/May/2025 10:03:33] "OPTIONS /process-json HTTP/1.1" 200 -
+2025-05-14 10:03:33 INFO: Generating LLM prompt...
+2025-05-14 10:03:33 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-14 10:03:33 INFO: Retrying request to /chat/completions in 0.493212 seconds
+2025-05-14 10:03:34 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-14 10:03:34 INFO: Retrying request to /chat/completions in 0.804978 seconds
+2025-05-14 10:03:35 INFO: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-14 10:03:35 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\run.py", line 262, in process_json_for_AB_testing
+    raw_output = generate_summary_and_extraction(transcript)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\llm_utils.py", line 54, in generate_summary_and_extraction
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+    ...<10 lines>...
+        temperature=0.2
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_utils\_utils.py", line 287, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 925, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<43 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1239, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'***REMOVED******REMOVED***
+2025-05-14 10:03:35 INFO: 127.0.0.1 - - [14/May/2025 10:03:35] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
+2025-05-14 10:21:02 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\test_app.py', reloading
+2025-05-14 10:21:03 INFO:  * Restarting with stat
+2025-05-14 10:21:06 WARNING:  * Debugger is active!
+2025-05-14 10:21:06 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 10:25:33 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\test_app.py', reloading
+2025-05-14 10:25:33 INFO:  * Restarting with stat
+2025-05-14 10:25:36 WARNING:  * Debugger is active!
+2025-05-14 10:25:36 INFO:  * Debugger PIN: 818-684-062
+2025-05-14 10:26:22 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\test_app.py', reloading
+2025-05-14 10:26:22 INFO:  * Restarting with stat
+2025-05-14 10:26:25 WARNING:  * Debugger is active!
+2025-05-14 10:26:25 INFO:  * Debugger PIN: 818-684-062

@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 import requests
@@ -18,11 +18,16 @@ import re
 from pathlib import Path
 import json
 
+
 nltk.download('punkt')
 
-# Load secrets from env.json
+# Load secrets from ~/.app_secrets/env.json
 SECRETS_DIR = Path.home() / ".app_secrets"
-with open(SECRETS_DIR / "env.json") as f:
+SECRETS_PATH = SECRETS_DIR / "env.json"
+if not SECRETS_PATH.exists():
+    raise FileNotFoundError(f"Missing secrets file: {SECRETS_PATH***REMOVED***")
+
+with open(SECRETS_PATH) as f:
     secrets = json.load(f)
 
 ASSEMBLYAI_API_KEY = secrets["ASSEMBLYAI_API_KEY"]
@@ -34,6 +39,7 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:3000"***REMOVED******R
 app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024
 app.register_blueprint(zoho_bp)
 
+# Logging setup
 logging.basicConfig(
     filename='app.log',
     level=logging.INFO,
@@ -277,7 +283,7 @@ def process_json():
                 create_calendar_event("Follow-up", a, start_time.isoformat(), end_time.isoformat())
             except Exception as e:
                 print("Calendar error:", e)
-
+        create_calendar_events(actions, entities)
         return jsonify({
             "summary": parsed["summary"],
             "actions": assigned_actions,

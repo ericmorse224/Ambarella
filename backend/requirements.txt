@@ -1,8 +1,9 @@
 flask
 flask-cors
-deepgram-sdk
-sumy
+openai
 nltk
 python-dotenv
 gunicorn
 requests
+dateparser
+pytest

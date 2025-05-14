@@ -1,33 +1,39 @@
-# Flask setup and required imports
-from flask import Flask, request, jsonify  # Web app and request/response handling
-from flask_cors import CORS  # For enabling cross-origin requests from frontend
-import nltk  # Natural Language Toolkit for text processing
-import os  # File system operations
-import requests  # For making HTTP requests to AssemblyAI
-import subprocess  # Running ffmpeg for audio processing
-import datetime  # For timestamping transcript logs
-import logging  # For app logging
-import time  # For polling loop delays
-from nltk.tokenize import sent_tokenize  # Sentence tokenizer for summarization
-from dotenv import load_dotenv
-load_dotenv()  # Load variables from .env
-
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import os
-ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
+import requests
+import subprocess
+import logging
+import time
+import nltk
+from nltk.tokenize import sent_tokenize
+from dotenv import load_dotenv
+from datetime import datetime, timedelta
+from zoho_utils import create_calendar_event
+from calendar_integration import extract_people, assign_actions_to_people, create_calendar_events
+from zoho_auth import get_auth_url, exchange_code_for_tokens, zoho_bp
+from zoho_utils import get_user_profile 
+from llm_utils import generate_summary_and_extraction
+import re
+from pathlib import Path
+import json
+
+nltk.download('punkt')
+
+# Load secrets from env.json
+SECRETS_DIR = Path.home() / ".app_secrets"
+with open(SECRETS_DIR / "env.json") as f:
+    secrets = json.load(f)
+
+ASSEMBLYAI_API_KEY = secrets["ASSEMBLYAI_API_KEY"]
 if not ASSEMBLYAI_API_KEY:
     raise ValueError("Missing ASSEMBLYAI_API_KEY environment variable.")
 
-# Download sentence tokenizer
-nltk.download('punkt')
-
-# Initialize Flask app
 app = Flask(__name__)
-app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024  # Limit uploads to 25MB
-
-# Enable CORS for local React frontend
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"***REMOVED******REMOVED***)
+app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024
+app.register_blueprint(zoho_bp)
 
-# Configure logging to file with timestamps
 logging.basicConfig(
     filename='app.log',
     level=logging.INFO,
@@ -35,201 +41,252 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
-# Load the API key from environment variable
-#ASSEMBLYAI_API_KEY = os.environ.get("ASSEMBLYAI_API_KEY")
-ASSEMBLYAI_API_KEY = '***REMOVED***'
-if not ASSEMBLYAI_API_KEY:
-    raise ValueError("Missing ASSEMBLYAI_API_KEY environment variable.")
+UPLOAD_FOLDER = 'uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# Helper function to log transcripts to timestamped files
 def log_transcript_to_file(transcript):
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     os.makedirs("transcripts", exist_ok=True)
     path = os.path.join("transcripts", f"transcript_{timestamp***REMOVED***.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write(transcript)
     logging.info(f"Transcript logged to {path***REMOVED***")
 
-# Endpoint for receiving and processing uploaded audio files
+def assign_owner(action, entities, last_mentioned=None):
+    person_entities = [e.lower() for e in entities]
+
+    pronouns = {
+        "he": last_mentioned,
+        "she": last_mentioned,
+        "they": last_mentioned
+    ***REMOVED***
+
+    lower_action = action.lower()
+    is_ambiguous = False
+
+    for person in person_entities:
+        if person in lower_action:
+            cleaned_action = action.replace(person, '').strip()
+            assigned = f"{person.title()***REMOVED*** needs to {cleaned_action***REMOVED***"
+            return person.title(), assigned, is_ambiguous
+
+    for pronoun, fallback in pronouns.items():
+        if pronoun in lower_action and fallback:
+            assigned = f"{fallback.title()***REMOVED*** needs to {action***REMOVED***"
+            return fallback.title(), assigned, is_ambiguous
+
+    # Fallback
+    assigned = f"Someone needs to {action***REMOVED***"
+    is_ambiguous = True
+
+    generic_verbs = ["do", "handle", "fix", "work", "make", "take care", "something"]
+    if any(word in lower_action for word in generic_verbs) or len(action.split()) < 3:
+        is_ambiguous = True
+
+    return "Someone", assigned, is_ambiguous
+
+@app.route("/auth-url")
+def auth_url():
+    return jsonify({"url": get_auth_url()***REMOVED***)
+
+@app.route("/callback")
+def auth_callback():
+    code = request.args.get("code")
+    if not code:
+        return "Authorization code not found.", 400
+    try:
+        tokens = exchange_code_for_tokens(code)
+        return "Authorization successful."
+    except Exception as e:
+        return f"Error exchanging code: {e***REMOVED***", 500
+
 @app.route('/process-audio', methods=['POST'])
 def process_audio():
-    logging.info("Received audio upload request")
-
-    # Grab uploaded audio file
-    file = request.files.get('audio')
-    if not file:
-        logging.error("No file uploaded")
-        return jsonify({"error": "No file uploaded"***REMOVED***), 400
-
-    # Check file type (audio/wav, audio/mp3, etc.)
-    if not file.content_type.startswith('audio/'):
-        return jsonify({"error": "Invalid file type. Only audio files are allowed."***REMOVED***), 400
-
-    # Check file size (max 25MB)
-    if len(file.read()) > 25 * 1024 * 1024:
-        return jsonify({"error": "File too large! Max 25MB allowed."***REMOVED***), 400
-    file.seek(0)  # Reset file pointer after reading
-
-    # Define file paths for original, converted, and trimmed audio
-    original_path = "original_audio.wav"
-    converted_path = "converted_audio.wav"
-    trimmed_path = "trimmed_audio.wav"
-    file.save(original_path)
-    logging.info(f"Saved file: {original_path***REMOVED***")
-
     try:
-        # Convert audio to mono, 16kHz WAV using ffmpeg
-        subprocess.run([
-            "ffmpeg", "-y",
-            "-i", original_path,
-            "-ac", "1",
-            "-ar", "16000",
-            converted_path
-        ], check=True)
-        logging.info(f"Converted audio saved as: {converted_path***REMOVED***")
-    except subprocess.CalledProcessError as e:
-        logging.exception("FFmpeg conversion failed")
-        return jsonify({"error": "Audio conversion failed", "details": str(e)***REMOVED***), 500
+        file = request.files.get('audio')
+        if not file or not file.content_type.startswith('audio/'):
+            return jsonify({"error": "Invalid file or missing."***REMOVED***), 400
 
-    # Check for silence in the converted audio
-    try:
-        silence_check = subprocess.run(
-            ["ffmpeg", "-i", converted_path, "-af", "silencedetect=noise=-30dB:d=1", "-f", "null", "-"],
-            stderr=subprocess.PIPE,
-            text=True,
-            check=True
-        )
-        if "silencedetect" not in silence_check.stderr:
-            logging.warning("Likely silent or unreadable audio.")
-    except subprocess.CalledProcessError as e:
-        if "silence_start" in e.stderr and "silence_end" in e.stderr:
-            logging.info("Silence detected but audio content exists.")
-        else:
-            logging.error("Audio appears completely silent.")
-            return jsonify({"error": "Audio file appears to contain only silence."***REMOVED***), 400
+        file.seek(0, os.SEEK_END)
+        if file.tell() > 25 * 1024 * 1024:
+            return jsonify({"error": "File too large! Max 25MB allowed."***REMOVED***), 400
+        file.seek(0)
 
-    # Try trimming leading and trailing silence
-    try:
-        subprocess.run([
-            "ffmpeg", "-y",
-            "-i", converted_path,
-            "-af", "silenceremove=start_periods=1:start_duration=0.5:start_threshold=-50dB:stop_periods=1:stop_duration=0.5:stop_threshold=-50dB",
-            trimmed_path
-        ], check=True)
-        logging.info("Silence trimmed from audio.")
-        final_path = trimmed_path
-    except subprocess.CalledProcessError:
-        logging.warning("Silence trimming failed; using untrimmed audio.")
-        final_path = converted_path
+        original_path = "original_audio.wav"
+        converted_path = "converted_audio.wav"
+        trimmed_path = "trimmed_audio.wav"
+        file.save(original_path)
 
-    if not os.path.exists(final_path) or os.stat(final_path).st_size == 0:
-        logging.error("Final audio file is empty or missing.")
-        return jsonify({"error": "Final audio file is empty or missing"***REMOVED***), 400
+        subprocess.run(["ffmpeg", "-y", "-i", original_path, "-ac", "1", "-ar", "16000", converted_path], check=True)
+        try:
+            subprocess.run([
+                "ffmpeg", "-y", "-i", converted_path,
+                "-af", "silenceremove=start_periods=1:start_duration=0.5:start_threshold=-50dB:stop_periods=1:stop_duration=0.5:stop_threshold=-50dB",
+                trimmed_path
+            ], check=True)
+            final_path = trimmed_path
+        except subprocess.CalledProcessError:
+            final_path = converted_path
 
-    try:
         with open(final_path, 'rb') as f:
             upload_res = requests.post(
                 'https://api.assemblyai.com/v2/upload',
                 headers={'authorization': ASSEMBLYAI_API_KEY***REMOVED***,
                 data=f
             )
+        logging.info("Upload response: %s", upload_res.text)
         upload_url = upload_res.json()['upload_url']
-        logging.info(f"Audio uploaded to AssemblyAI: {upload_url***REMOVED***")
 
         transcript_res = requests.post(
             'https://api.assemblyai.com/v2/transcript',
             headers={'authorization': ASSEMBLYAI_API_KEY, 'content-type': 'application/json'***REMOVED***,
-            json={'audio_url': upload_url, 'punctuate': True***REMOVED***
+            json={
+                'audio_url': upload_url,
+                'punctuate': True,
+                'entity_detection': True
+            ***REMOVED***
         )
         transcript_id = transcript_res.json()['id']
-        logging.info(f"Transcription requested, ID: {transcript_id***REMOVED***")
 
         polling_url = f'https://api.assemblyai.com/v2/transcript/{transcript_id***REMOVED***'
         while True:
             status_res = requests.get(polling_url, headers={'authorization': ASSEMBLYAI_API_KEY***REMOVED***)
             status_data = status_res.json()
-
             if status_data['status'] == 'completed':
                 transcript = status_data['text']
+                entities = status_data.get('entities', [])
                 log_transcript_to_file(transcript)
-                return jsonify({'transcript': transcript***REMOVED***)
+                return jsonify({'transcript': transcript, 'entities': entities***REMOVED***)
             elif status_data['status'] == 'error':
-                logging.error(f"AssemblyAI Error: {status_data.get('error')***REMOVED***")
-                return jsonify({"error": "AssemblyAI transcription failed", "details": status_data.get("error")***REMOVED***), 500
-
+                return jsonify({"error": "Transcription failed", "details": status_data.get("error")***REMOVED***), 500
             time.sleep(3)
 
     except Exception as e:
-        logging.exception("Failed during transcription process")
-        return jsonify({"error": "Transcription failed", "details": str(e)***REMOVED***), 500
+        logging.exception("Unhandled error in /process-audio")
+        return jsonify({"error": "Unexpected server error", "details": str(e)***REMOVED***), 500
     finally:
-        for path in [original_path, converted_path, trimmed_path]:
+        for path in ["original_audio.wav", "converted_audio.wav", "trimmed_audio.wav"]:
             if os.path.exists(path):
                 os.remove(path)
 
-@app.route('/process-json', methods=['POST'])
-def process_json():
+
+@app.route('/process-json-for-AB-testing', methods=['POST'])
+def process_json_for_AB_testing():
     data = request.get_json()
     transcript = data.get("transcript")
+    entities = data.get("entities", [])
 
-    if not transcript or (isinstance(transcript, str) and not transcript.strip()):
-        logging.error("No transcript found in the request data.")
-        return jsonify({"error": "Transcript is empty or missing."***REMOVED***), 400
+    if not transcript:
+        return jsonify({"error": "Transcript missing."***REMOVED***), 400
 
-    full_text = transcript if isinstance(transcript, str) else " ".join(
-        [segment.get("text", "") for segment in transcript]
-    )
-
-    logging.info(f"Full transcript received: {full_text[:100]***REMOVED***...")
-
-    prompt = f"""
-    You are an assistant summarizing meeting transcripts.
-
-    Transcript:
-    {full_text***REMOVED***
-
-    Extract the following:
-    1. Summary (bullet points)
-    2. Action Items (with responsible people if mentioned)
-    3. Decisions made
-
-    Respond in JSON format like:
-    {{
-      "summary": [...],
-      "actions": [...],
-      "decisions": [...]
-    ***REMOVED******REMOVED***
-    """
-
-    sentences = sent_tokenize(full_text)
-    summary = []
-    actions = []
-    decisions = []
-
-    action_keywords = [
-        "will", "must", "should", "needs to", "is responsible for",
-        "will handle", "is tasked with", "take the lead in"
-    ]
+    sentences = sent_tokenize(transcript)
+    summary, actions, decisions = [], [], []
+    action_keywords = ["will", "must", "should", "needs to", "is responsible for"]
 
     for sentence in sentences:
         lower = sentence.lower()
-        if "decided" in lower or "decision" in lower or "agree" in lower:
-            decisions.append(sentence)
-        elif any(k in lower for k in action_keywords):
+        if any(k in lower for k in action_keywords):
             actions.append(sentence)
+        elif "decision" in lower or "decided" in lower:
+            decisions.append(sentence)
         else:
             summary.append(sentence)
 
-    logging.info(f"Extracted summary: {summary***REMOVED***")
-    logging.info(f"Extracted actions: {actions***REMOVED***")
-    logging.info(f"Extracted decisions: {decisions***REMOVED***")
+    people = extract_people(transcript)
+    assigned_actions = assign_actions_to_people(actions, people)
+    create_calendar_events(assigned_actions)
 
     return jsonify({
         "summary": summary,
-        "actions": actions,
+        "actions": [a['text'] for a in assigned_actions],
         "decisions": decisions
     ***REMOVED***)
 
+@app.route('/create-event', methods=['POST'])
+def create_event():
+    data = request.get_json()
+    title = data.get("title")
+    description = data.get("description")
+    start = data.get("start")
+    end = data.get("end")
+
+    if not all([title, description, start, end]):
+        return jsonify({"error": "Missing required event fields"***REMOVED***), 400
+
+    try:
+        create_calendar_event(title, description, start, end)
+        return jsonify({"success": True***REMOVED***)
+    except Exception as e:
+        logging.error(f"Manual calendar event creation failed: {e***REMOVED***")
+        return jsonify({"error": "Failed to create event", "details": str(e)***REMOVED***), 500
+
+@app.route('/zoho/user')
+def get_zoho_user():
+    try:
+        profile = get_user_profile()
+        return jsonify(profile)
+    except Exception as e:
+        return jsonify({"error": str(e)***REMOVED***), 500
+
+def parse_llm_sections(text):
+    def extract_section(name):
+        pattern = rf"{name***REMOVED***:\s*([\s\S]*?)(?=\n[A-Z][a-z]+:|\Z)"
+        match = re.search(pattern, text)
+        if match:
+            lines = match.group(1).strip().split('\n')
+            return [line.strip('-\u2022 ').strip() for line in lines if line.strip()]
+        return []
+
+    return {
+        "summary": extract_section("Summary"),
+        "actions": extract_section("Action Items"),
+        "decisions": extract_section("Decisions"),
+    ***REMOVED***
+
+@app.route('/process-json', methods=['POST'])
+def process_json():
+    try:
+        data = request.get_json()
+        transcript = data.get("transcript", "")
+        entities = data.get("entities", [])
+
+        if not transcript:
+            return jsonify({"error": "Transcript missing."***REMOVED***), 400
+
+        raw_output = generate_summary_and_extraction(transcript)
+        parsed = parse_llm_sections(raw_output)
+
+        assigned_actions = []
+        ambiguous_actions = []
+        last_mentioned = None
+        people = [e['text'] for e in entities if e.get('entity_type') == 'person']
+
+        for action in parsed["actions"]:
+            owner, assignment, is_ambiguous = assign_owner(action, people, last_mentioned)
+            if owner != "Someone":
+                last_mentioned = owner
+            if is_ambiguous:
+                ambiguous_actions.append(assignment)
+            else:
+                assigned_actions.append(assignment)
+
+        for a in assigned_actions:
+            try:
+                start_time = datetime.now() + timedelta(hours=1)
+                end_time = start_time + timedelta(minutes=30)
+                create_calendar_event("Follow-up", a, start_time.isoformat(), end_time.isoformat())
+            except Exception as e:
+                print("Calendar error:", e)
+
+        return jsonify({
+            "summary": parsed["summary"],
+            "actions": assigned_actions,
+            "decisions": parsed["decisions"],
+            "raw_output": raw_output,
+        ***REMOVED***)
+    except Exception as e:
+        logging.exception("Error in /process-json")
+        return jsonify({"error": str(e)***REMOVED***), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

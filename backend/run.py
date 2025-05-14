@@ -47,6 +47,34 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S'
 )
 
+# Zoho API configuration (make sure these are correct in your .env file)
+ZOHO_CLIENT_ID = os.getenv("ZOHO_CLIENT_ID")
+ZOHO_CLIENT_SECRET = os.getenv("ZOHO_CLIENT_SECRET")
+ZOHO_REFRESH_TOKEN = os.getenv("ZOHO_REFRESH_TOKEN")
+
+@app.route('/api/zoho-token', methods=['GET'])
+def get_zoho_token():
+    try:
+        url = 'https://accounts.zoho.com/oauth/v2/token'
+        data = {
+            'client_id': ZOHO_CLIENT_ID,
+            'client_secret': ZOHO_CLIENT_SECRET,
+            'refresh_token': ZOHO_REFRESH_TOKEN,
+            'grant_type': 'refresh_token'
+        ***REMOVED***
+        
+        response = requests.post(url, data=data)
+        
+        # Check if the request was successful
+        if response.status_code == 200:
+            token_data = response.json()
+            return jsonify(token_data), 200
+        else:
+            return jsonify({"error": "Failed to fetch Zoho token", "message": response.text***REMOVED***), 500
+
+    except Exception as e:
+        return jsonify({"error": "An error occurred", "message": str(e)***REMOVED***), 500
+
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 

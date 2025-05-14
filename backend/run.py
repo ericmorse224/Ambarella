@@ -211,20 +211,24 @@ def process_json_for_AB_testing():
 @app.route('/create-event', methods=['POST'])
 def create_event():
     data = request.get_json()
-    title = data.get("title")
-    description = data.get("description")
-    start = data.get("start")
-    end = data.get("end")
+    events = data.get("events", [])
 
-    if not all([title, description, start, end]):
-        return jsonify({"error": "Missing required event fields"***REMOVED***), 400
+    if not events:
+        return jsonify({"error": "No events provided"***REMOVED***), 400
 
     try:
-        create_calendar_event(title, description, start, end)
+        for event in events:
+            title = f"Follow-up: {event['owner']***REMOVED***" if event.get('owner') else "Meeting Follow-up"
+            description = f"{event['text']***REMOVED***\n\nOwner: {event.get('owner', 'Unassigned')***REMOVED***"
+            start = event["startTime"]
+            end = (datetime.fromisoformat(start) + timedelta(minutes=30)).isoformat()
+
+            create_calendar_event(title, description, start, end)
+
         return jsonify({"success": True***REMOVED***)
     except Exception as e:
-        logging.error(f"Manual calendar event creation failed: {e***REMOVED***")
-        return jsonify({"error": "Failed to create event", "details": str(e)***REMOVED***), 500
+        logging.exception("Failed to create events")
+        return jsonify({"error": "Failed to create one or more events", "details": str(e)***REMOVED***), 500
 
 @app.route('/zoho/user')
 def get_zoho_user():

@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect ***REMOVED*** from 'react';
 import axios from 'axios';
+import ReviewPanel from './components/ReviewPanel';
 
 function App() {
     const [file, setFile] = useState(null);
@@ -11,6 +12,14 @@ function App() {
     const [error, setError] = useState('');
     const [attempt, setAttempt] = useState(0);
     const [processing, setProcessing] = useState(false);
+
+    const downloadTextFile = (filename, content) => {
+        const blob = new Blob([content], { type: 'text/plain' ***REMOVED***);
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        link.click();
+    ***REMOVED***;
 
     const handleFileChange = (e) => {
         const uploaded = e.target.files[0];
@@ -44,9 +53,7 @@ function App() {
 
         let success = false;
         try {
-            console.log('Uploading audio to backend for transcription...');
             const { data: audioRes ***REMOVED*** = await axios.post('http://localhost:5000/process-audio', formData);
-            console.log('Sending transcript for analysis...');
             const { data: nlpRes ***REMOVED*** = await axios.post('http://localhost:5000/process-json', {
                 transcript: audioRes.transcript,
                 entities: audioRes.entities || [],
@@ -119,6 +126,19 @@ function App() {
                     <p className="whitespace-pre-line text-sm mt-1">{transcript***REMOVED***</p>
                 </div>
             )***REMOVED***
+            {transcript && (
+                <div>
+                    <h2 className="text-lg font-bold mt-4">Transcript:</h2>
+                    <p className="whitespace-pre-line text-sm mt-1">{transcript***REMOVED***</p>
+                    <button
+                        className="mt-2 bg-gray-700 text-white px-3 py-1 rounded"
+                        onClick={() => downloadTextFile('transcript.txt', transcript)***REMOVED***
+                    >
+                        Download Transcript
+                    </button>
+                </div>
+            )***REMOVED***
+
             {summary.length > 0 && (
                 <div>
                     <h2 className="text-lg font-bold mt-4">Summary:</h2>
@@ -129,16 +149,21 @@ function App() {
                     </ul>
                 </div>
             )***REMOVED***
-            {actions.length > 0 && (
+            {summary.length > 0 && (
                 <div>
-                    <h2 className="text-lg font-bold mt-4">Actions:</h2>
+                    <h2 className="text-lg font-bold mt-4">Summary:</h2>
                     <ul className="list-disc list-inside text-sm">
-                        {actions.map((item, i) => (
-                            <li key={i***REMOVED***>{item***REMOVED***</li>
-                        ))***REMOVED***
+                        {summary.map((item, i) => <li key={i***REMOVED***>{item***REMOVED***</li>)***REMOVED***
                     </ul>
+                    <button
+                        className="mt-2 bg-gray-700 text-white px-3 py-1 rounded"
+                        onClick={() => downloadTextFile('summary.txt', summary.join('\\n'))***REMOVED***
+                    >
+                        Download Summary
+                    </button>
                 </div>
             )***REMOVED***
+
             {decisions.length > 0 && (
                 <div>
                     <h2 className="text-lg font-bold mt-4">Decisions:</h2>
@@ -148,6 +173,22 @@ function App() {
                         ))***REMOVED***
                     </ul>
                 </div>
+            )***REMOVED***
+            {actions.length > 0 && (
+                <ReviewPanel
+                    actions={actions***REMOVED***
+                    onSubmit={async (filteredItems) => {
+                        try {
+                            const res = await axios.post('http://localhost:5000/create-event', {
+                                events: filteredItems,
+                            ***REMOVED***);
+                            alert('Events scheduled successfully!');
+                        ***REMOVED*** catch (err) {
+                            alert('Failed to schedule events.');
+                            console.error(err);
+                        ***REMOVED***
+                    ***REMOVED******REMOVED***
+                />
             )***REMOVED***
         </div>
     );

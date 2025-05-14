@@ -10,7 +10,7 @@ def extract_event_times(action_text):
     """Parses a date/time string from the action item."""
     parsed_time = dateparser.parse(action_text, settings={"PREFER_DATES_FROM": "future"***REMOVED***)
     if not parsed_time:
-        parsed_time = datetime.utcnow() + timedelta(hours=1)  # fallback
+        parsed_time = datetime.now(UTC) + timedelta(hours=1)
     end_time = parsed_time + timedelta(minutes=30)
     return parsed_time.isoformat() + "Z", end_time.isoformat() + "Z"
 

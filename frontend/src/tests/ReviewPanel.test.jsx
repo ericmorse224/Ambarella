@@ -3,23 +3,11 @@ import ReviewPanel from '../components/ReviewPanel';
 import axios from 'axios';
 import { vi ***REMOVED*** from 'vitest';
 
-// Mock axios
-vi.mock('axios');
+vi.mock('axios'); // Only mock the external dependency
 
-// Sample actions for testing
 const sampleActions = [
-    {
-        text: 'Action A',
-        owner: 'Alice',
-        dueDate: '2025-05-14T14:30',
-        include: true,
-    ***REMOVED***,
-    {
-        text: 'Action B',
-        owner: 'Bob',
-        dueDate: '2025-05-14T15:00',
-        include: true,
-    ***REMOVED***,
+    { text: 'Action A', owner: 'Alice', dueDate: '2025-05-14T14:30', include: true ***REMOVED***,
+    { text: 'Action B', owner: 'Bob', dueDate: '2025-05-14T15:00', include: true ***REMOVED***,
 ];
 
 describe('ReviewPanel Component', () => {
@@ -27,7 +15,7 @@ describe('ReviewPanel Component', () => {
         vi.resetAllMocks();
     ***REMOVED***);
 
-    test('updates owner field correctly', () => {
+    test('renders action inputs', () => {
         render(<ReviewPanel actions={sampleActions***REMOVED*** />);
         expect(screen.getByDisplayValue('Alice')).toBeInTheDocument();
         expect(screen.getByDisplayValue('Bob')).toBeInTheDocument();
@@ -37,7 +25,6 @@ describe('ReviewPanel Component', () => {
         axios.get.mockRejectedValueOnce(new Error('Network Error'));
 
         render(<ReviewPanel actions={sampleActions***REMOVED*** />);
-
         fireEvent.click(screen.getByRole('button', { name: /schedule selected/i ***REMOVED***));
 
         const errorMessage = await screen.findByText(/Error fetching Zoho token/i);
@@ -49,7 +36,6 @@ describe('ReviewPanel Component', () => {
         axios.post.mockResolvedValueOnce({ status: 200 ***REMOVED***);
 
         render(<ReviewPanel actions={sampleActions***REMOVED*** />);
-
         fireEvent.click(screen.getByRole('button', { name: /schedule selected/i ***REMOVED***));
 
         const successMessage = await screen.findByText(/Scheduled successfully!/i);
@@ -61,7 +47,6 @@ describe('ReviewPanel Component', () => {
         axios.post.mockRejectedValueOnce(new Error('Error scheduling events'));
 
         render(<ReviewPanel actions={sampleActions***REMOVED*** />);
-
         fireEvent.click(screen.getByRole('button', { name: /schedule selected/i ***REMOVED***));
 
         const errorMessage = await screen.findByText(/Error scheduling events/i);

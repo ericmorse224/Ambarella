@@ -9,6 +9,8 @@
 */__pycache__/
 /.env
 /Monthly_Status_Reports
+/backend/.env
+
 # testing
 /coverage
 

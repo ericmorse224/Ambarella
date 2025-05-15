@@ -24,12 +24,12 @@ def save_tokens(tokens):
     try:
         TOKENS_FILE.chmod(0o600)
     except Exception as e:
-        logging.error(f"Failed to save Zoho token: {e***REMOVED***")
+        logging.error(f"Failed to save Zoho token: {e}")
 
 
 def load_tokens():
     if not TOKENS_FILE.exists():
-        return {***REMOVED***
+        return {}
     with open(TOKENS_FILE) as f:
         return json.load(f)
 
@@ -48,7 +48,7 @@ def refresh_access_token():
         "client_id": ZOHO_CLIENT_ID,
         "client_secret": ZOHO_CLIENT_SECRET,
         "grant_type": "refresh_token",
-    ***REMOVED***
+    }
     response = requests.post(url, data=data)
     if not response.ok:
         raise Exception("Failed to refresh Zoho access token")
@@ -65,16 +65,16 @@ def make_authorized_request(endpoint, method="GET", payload=None):
     access_token = tokens["access_token"]
 
     headers = {
-        "Authorization": f"Zoho-oauthtoken {access_token***REMOVED***",
+        "Authorization": f"Zoho-oauthtoken {access_token}",
         "Content-Type": "application/json"
-    ***REMOVED***
+    }
 
-    url = f"{API_BASE_URL***REMOVED***{endpoint***REMOVED***"
+    url = f"{API_BASE_URL}{endpoint}"
     response = requests.request(method, url, headers=headers, json=payload)
 
     if response.status_code == 401:
         access_token = refresh_access_token()
-        headers["Authorization"] = f"Zoho-oauthtoken {access_token***REMOVED***"
+        headers["Authorization"] = f"Zoho-oauthtoken {access_token}"
         response = requests.request(method, url, headers=headers, json=payload)
 
     return response
@@ -87,7 +87,7 @@ def create_meeting(title, agenda, start_time):
         "start_time": start_time,
         "duration": 30,
         "timezone": "America/New_York"
-    ***REMOVED***
+    }
 
     response = make_authorized_request(endpoint, method="POST", payload=payload)
     if response.ok:
@@ -106,9 +106,9 @@ def create_calendar_event(title, description, start_time, end_time):
 
     url = "https://www.zohoapis.com/calendar/v2/calendars/primary/events"
     headers = {
-        "Authorization": f"Zoho-oauthtoken {access_token***REMOVED***",
+        "Authorization": f"Zoho-oauthtoken {access_token}",
         "Content-Type": "application/json"
-    ***REMOVED***
+    }
     body = {
         "event_title": title,
         "location": "",
@@ -117,16 +117,16 @@ def create_calendar_event(title, description, start_time, end_time):
         "start_time": start_time,
         "end_time": end_time,
         "timezone": "UTC"
-    ***REMOVED***
+    }
 
     res = requests.post(url, headers=headers, json=body)
     if res.status_code == 401:
         access_token, _ = refresh_access_token()
-        headers["Authorization"] = f"Zoho-oauthtoken {access_token***REMOVED***"
+        headers["Authorization"] = f"Zoho-oauthtoken {access_token}"
         res = requests.post(url, headers=headers, json=body)
 
     if not res.ok:
-        raise Exception(f"Zoho calendar event creation failed: {res.text***REMOVED***")
+        raise Exception(f"Zoho calendar event creation failed: {res.text}")
 
     return res.json()
 
@@ -137,14 +137,15 @@ def get_user_profile():
         access_token, _ = refresh_access_token()
 
     url = "https://www.zohoapis.com/calendar/v2/users/me"
-    headers = {"Authorization": f"Zoho-oauthtoken {access_token***REMOVED***"***REMOVED***
+    headers = {"Authorization": f"Zoho-oauthtoken {access_token}"}
     res = requests.get(url, headers=headers)
     if res.status_code == 401:
         access_token, _ = refresh_access_token()
-        headers = {"Authorization": f"Zoho-oauthtoken {access_token***REMOVED***"***REMOVED***
+        headers = {"Authorization": f"Zoho-oauthtoken {access_token}"}
         res = requests.get(url, headers=headers)
 
     if not res.ok:
-        raise Exception(f"Zoho user info failed: {res.text***REMOVED***")
+        raise Exception(f"Zoho user info failed: {res.text}")
 
     return res.json()
+

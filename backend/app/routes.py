@@ -25,7 +25,8 @@ def process_json():
             'summary': summary,
             'actions': actions,
             'decisions': decisions
-        ***REMOVED***)
+        })
     except Exception as e:
-        logger.error(f'Error processing transcript: {str(e)***REMOVED***')
-        return jsonify({'error': str(e)***REMOVED***), 500
+        logger.error(f'Error processing transcript: {str(e)}')
+        return jsonify({'error': str(e)}), 500
+

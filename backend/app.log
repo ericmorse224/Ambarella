@@ -10,7 +10,7 @@
 2025-05-11 11:55:06 INFO: Saved file: original_audio.wav
 2025-05-11 11:55:06 INFO: Converted audio saved as: converted_audio.wav
 2025-05-11 11:55:07 ERROR: Deepgram error: 400
-2025-05-11 11:55:07 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"3ca8b732-3bc3-4b5d-a411-dad90d62b729"***REMOVED***
+2025-05-11 11:55:07 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"3ca8b732-3bc3-4b5d-a411-dad90d62b729"}
 2025-05-11 11:55:07 INFO: 127.0.0.1 - - [11/May/2025 11:55:07] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
 2025-05-11 11:55:47 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
@@ -22,7 +22,7 @@
 2025-05-11 11:56:32 INFO: Saved file: original_audio.wav
 2025-05-11 11:56:32 INFO: Converted audio saved as: converted_audio.wav
 2025-05-11 11:56:32 ERROR: Deepgram error: 400
-2025-05-11 11:56:32 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"c47ed868-4a22-4bcc-87ef-0f78a744a5f6"***REMOVED***
+2025-05-11 11:56:32 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"c47ed868-4a22-4bcc-87ef-0f78a744a5f6"}
 2025-05-11 11:56:32 INFO: 127.0.0.1 - - [11/May/2025 11:56:32] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
 2025-05-11 12:01:47 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
 2025-05-11 12:01:48 INFO:  * Restarting with stat
@@ -38,7 +38,7 @@
 2025-05-11 12:02:50 INFO: Saved file: original_audio.wav
 2025-05-11 12:02:51 INFO: Converted audio saved as: converted_audio.wav
 2025-05-11 12:02:51 ERROR: Deepgram error: 400
-2025-05-11 12:02:51 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"89edc293-6f00-4fb1-bc2a-55ce914e6bf6"***REMOVED***
+2025-05-11 12:02:51 ERROR: Response: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"89edc293-6f00-4fb1-bc2a-55ce914e6bf6"}
 2025-05-11 12:02:51 INFO: 127.0.0.1 - - [11/May/2025 12:02:51] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
 2025-05-11 12:05:23 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
 2025-05-11 12:05:23 INFO:  * Restarting with stat
@@ -50,7 +50,7 @@
 2025-05-11 12:05:32 INFO: Sending audio to Deepgram...
 2025-05-11 12:05:32 INFO: Deepgram response received
 2025-05-11 12:05:32 ERROR: Deepgram error: 400
-2025-05-11 12:05:32 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"f940eca1-a8bc-446a-bd88-733712bdfc95"***REMOVED***
+2025-05-11 12:05:32 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"f940eca1-a8bc-446a-bd88-733712bdfc95"}
 2025-05-11 12:05:32 INFO: 127.0.0.1 - - [11/May/2025 12:05:32] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
 2025-05-11 12:06:56 ERROR: No transcript found in the request data.
 2025-05-11 12:06:56 INFO: Received audio upload request
@@ -71,7 +71,7 @@
 2025-05-11 12:13:47 INFO: Sending audio to Deepgram...
 2025-05-11 12:13:48 INFO: Deepgram response received
 2025-05-11 12:13:48 ERROR: Deepgram error: 400
-2025-05-11 12:13:48 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"ab670133-95d1-497a-a8ae-f3f8bbbea07c"***REMOVED***
+2025-05-11 12:13:48 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"ab670133-95d1-497a-a8ae-f3f8bbbea07c"}
 2025-05-11 12:13:48 INFO: 127.0.0.1 - - [11/May/2025 12:13:48] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
 2025-05-11 14:38:01 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
@@ -85,7 +85,7 @@
 2025-05-11 14:38:50 INFO: Sending audio to Deepgram...
 2025-05-11 14:38:51 INFO: Deepgram response received
 2025-05-11 14:38:51 ERROR: Deepgram error: 400
-2025-05-11 14:38:51 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"7b534668-eed8-4399-bf81-102b05f33ca9"***REMOVED***
+2025-05-11 14:38:51 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"7b534668-eed8-4399-bf81-102b05f33ca9"}
 2025-05-11 14:38:51 INFO: 127.0.0.1 - - [11/May/2025 14:38:51] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
 2025-05-11 14:48:53 INFO: Received audio upload request
 2025-05-11 14:48:53 INFO: Saved file: original_audio.wav
@@ -93,7 +93,7 @@
 2025-05-11 14:48:53 INFO: Sending audio to Deepgram...
 2025-05-11 14:48:53 INFO: Deepgram response received
 2025-05-11 14:48:53 ERROR: Deepgram error: 400
-2025-05-11 14:48:53 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"470b93a2-e902-486c-b711-55f7bc8f5975"***REMOVED***
+2025-05-11 14:48:53 ERROR: Response text: {"err_code":"Bad Request","err_msg":"Bad Request: Invalid data received.","request_id":"470b93a2-e902-486c-b711-55f7bc8f5975"}
 2025-05-11 14:48:53 INFO: 127.0.0.1 - - [11/May/2025 14:48:53] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
 2025-05-11 14:54:27 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
@@ -640,7 +640,7 @@
 --primaryShadowActive: none; 
 --primaryBackgroundDisabled: #91CBFF;
 --primaryShadowDisabled: #6AAFEB;
-***REMOVED***
+}
 /******new error page style******/
 .crmErrorPgCont {
 background-color: var(--bg_white);
@@ -649,10 +649,10 @@ display: flex;
 align-items: center;
 flex-flow: column;
 justify-content: space-between;
-***REMOVED***
+}
 .crmErrorHeight{
 min-height:100vh;
-***REMOVED***
+}
 .crmErrorPgBody {
 background-color: var(--bg_white);
 padding: 50px 0;
@@ -662,39 +662,39 @@ width: 700px;
 display: flex;
 align-items: center;
 flex-flow: column;
-***REMOVED***
+}
 .crmErrorPgImgContr {
 max-width: 300px;
 height: 170px;
 margin-bottom:40px;
 margin-left:45px;
-***REMOVED***
+}
 .crmErrorPgImg {
 max-width: 100%;
 display: block; 
-***REMOVED***
+}
 .crmErrorInfoSection {
 display: flex;
 flex-direction: column;
 align-items: center;
-***REMOVED***
+}
 .crmErrorPgErrText1 {
 color: var(--headingColor);
 font-size: var(--crm-large-font-size);
 font-family: var(--crm-font-bold);
 margin: 0 0 8px 0;
-***REMOVED***
+}
 .crmErrorPgErrText2 {
 color: var(--paragraphColor);
 font-size: var(--crm-base-font-size);
 font-family: var(--crm-font-regular);
 margin: 0 0 40px 0;
 line-height: 22px;
-***REMOVED***
+}
 .crmErrorUrl {
 font-size: var(--crm-base-font-size);
 font-family: var(--crm-font-bold);
-***REMOVED***
+}
 .primarybtn{
 color: var(--primaryColor);
 border-radius: 6px;
@@ -710,20 +710,20 @@ outline: none;
 cursor: pointer;
 text-align: center;
 white-space: nowrap;
-***REMOVED***
+}
 .primarybtn:hover{
 background: var(--primaryBackgroundHover);
 box-shadow: inset 0px -2px 0px var(--primaryShadow);
 border: 0;
 color: var(--primaryColor);
 outline: none;
-***REMOVED***
+}
 .primarybtn:active {
 top: 1px;
 box-shadow: var(--primaryShadowActive);
 background: var(--primaryBackgroundActive);
 position: relative;
-***REMOVED***
+}
 .primarybtn[disabled], .primarybtn.disabled{
 background: var(--primaryBackgroundDisabled);
 box-shadow: inset 0px -2px 0px var(--primaryShadowDisabled);
@@ -733,34 +733,34 @@ cursor: not-allowed;
 pointer-events: none !important;
 top: 0px !important;
 color: var(--primaryColorDisabled);
-***REMOVED***
+}
 .crmErrorPgfooter {
 margin-bottom: 30px;
-***REMOVED***
+}
 .crmErrorPgfooterTxt {
 font-family: var(--crm-font-regular);
 font-size: var(--crm-base-font-size);
 color: var(--paragraphColor);
 font-style: normal;
 line-height: 22px;
-***REMOVED***
+}
 .crmErrorPgfooterCont {
 height: 30px;
 margin-bottom: 5px;
-***REMOVED***
+}
 .crmLogoImg {
 min-width: 20px;
 max-width: 100px;
 min-height: 20px;
 max-height: 25px;
-***REMOVED***
+}
 /******new error page style End******/
 html{
 font-size:1.4rem;
 /* font-size: calc(.775rem - -.25 * (100vw - 20rem) / 100); */
 font-size: 62.5%;
 font-variant-ligatures: no-contextual;
-***REMOVED***
+}
 </style></head><body leftmargin="0" topmargin="0" class="bodyBg" marginheight="0"
 marginwidth="0">
 <link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2" rel="preload" as="font" type="font/woff" crossorigin><style type="text/css">
@@ -784,7 +784,7 @@ marginwidth="0">
 --crux-bold-font: Zoho_Puvi_SemiBold, sans-serif;
 --crux-light-font: Zoho_Puvi_Regular, sans-serif;
 --crux-thin-font: Zoho_Puvi_Regular, sans-serif;
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Thin";
 font-weight:normal;
@@ -794,7 +794,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_ThinItalic";
 font-weight:normal;
@@ -804,7 +804,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.otf") format("opentype");
-***REMOVED***
+}
 @font-face {    
 font-family:"Zoho_Puvi_Light";
 font-weight:normal;
@@ -814,7 +814,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_LightItalic";
 font-weight:normal;
@@ -824,7 +824,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Regular";
 font-weight:normal;
@@ -834,7 +834,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_RegularItalic";
 font-weight:normal;
@@ -844,7 +844,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.eo
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Medium";
 font-weight:normal;
@@ -854,7 +854,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_MediumItalic";
 font-weight:normal;
@@ -864,7 +864,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_SemiBold";
 font-weight:normal;
@@ -874,7 +874,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_SemiBoldItalic";
 font-weight:normal;
@@ -884,7 +884,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.e
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Bold";
 font-weight:normal;
@@ -894,7 +894,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_BoldItalic";
 font-weight:normal;
@@ -904,7 +904,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.eot")
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Black";
 font-weight:normal;
@@ -914,7 +914,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Extrablack";
 font-weight:normal;
@@ -924,7 +924,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_BlackItalic";
 font-weight:normal;
@@ -934,7 +934,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_ExtraBold";
 font-weight:normal;
@@ -944,7 +944,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_ExtraBoldItalic";
 font-weight:normal;
@@ -954,53 +954,53 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.otf") format("opentype");
-***REMOVED***
+}
 .fontbold {
 font-weight: bold;
-***REMOVED***
+}
 .crm-font-regular,.CanvasFontRegular,select, input, form, textarea, pre{
 font-family: var(--crm-font-regular);
-***REMOVED***
+}
 .crm-font-bold, .CanvasFontBold{
 font-family: var(--crm-font-bold);
 font-weight: var(--font-weight-bold);
-***REMOVED***
+}
 .crm-font-xbold,.CanvasFontXbold {
 font-family: var(--crm-font-black);
-***REMOVED***
+}
 .crm-font-regular-italic ,.CanvasFontRegularItalic{
 font-family: var(--crm-font-italic);
-***REMOVED***
+}
 .crm-font-bold-italic,.CanvasFontBoldItalic{
 font-family:var(--crm-font-bolditalic);
-***REMOVED***
+}
 .crm-font-xbold-italic,.CanvasFontXboldItalic {
 font-family: var(--crm-font-blackitalic);
-***REMOVED***
+}
 .crm-font-thin,.CanvasFontThin{
 font-family: var(--crm-font-thin);
-***REMOVED***
+}
 .crm-font-light,.CanvasFontLight{
 font-family: @lightFont;
-***REMOVED***
+}
 .crm-font-medium{
 font-family:var(--crm-font-medium);
-***REMOVED***
+}
 .crm-font-semibold , .CanvasFontSemibold{
 font-family: var(--crm-font-semibold);
-***REMOVED***
+}
 .crm-font-thin-italic , .CanvasFontThinItalic{
 font-family: var(--crm-font-thinitalic);
-***REMOVED***
+}
 .crm-font-light-italic , .CanvasFontLightItalic{
 font-family: var(--crm-font-lightitalic);
-***REMOVED***
+}
 .crm-font-medium-italic{
 font-family: var(--crm-font-mediumitalic);
-***REMOVED***
+}
 .crm-font-semibold-italic , .CanvasFontSemiboldItalic{
 font-family: var(--crm-font-semibolditalic);
-***REMOVED***
+}
 :root{
 --crm-base-font-size: calc((14 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
 --crm-medium-font-size: calc((15 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
@@ -1012,7 +1012,7 @@ font-family: var(--crm-font-semibolditalic);
 --crm_baseFontSize: 16;
 --crm_baseFontUnit: 16px;
 --crm-medium-small-font-size: 1.2rem;
-***REMOVED***
+}
 [data-size="small"]{
 --crm-base-font-size: 1.3rem;
 --crm-medium-font-size: 1.4rem;
@@ -1021,7 +1021,7 @@ font-family: var(--crm-font-semibolditalic);
 --crm-extra-small-font-size: 1.1rem;
 --crm-medium-large-font-size: 1.7rem;
 --crm-large-font-size: 1.9rem;
-***REMOVED***
+}
 [data-size="large"]{
 --crm-base-font-size: 1.5rem;
 --crm-medium-font-size: 1.6rem;
@@ -1030,7 +1030,7 @@ font-family: var(--crm-font-semibolditalic);
 --crm-extra-small-font-size: 1.3rem;
 --crm-medium-large-font-size: 1.9rem;
 --crm-large-font-size: 2.1rem;
-***REMOVED***
+}
 [data-size="largest"]{
 --crm-base-font-size: 1.6rem;
 --crm-medium-font-size: 1.7rem;
@@ -1039,19 +1039,19 @@ font-family: var(--crm-font-semibolditalic);
 --crm-extra-small-font-size: 1.4rem;
 --crm-medium-large-font-size: 2rem;
 --crm-large-font-size: 2.2rem;
-***REMOVED***
+}
 [data-letterspacing="condensed"]{
 letter-spacing: -.5px;
-***REMOVED***
+}
 [data-letterspacing="normal"]{
 letter-spacing: 0px;
-***REMOVED***
+}
 [data-letterspacing="expanded"]{
 letter-spacing: .05px;	
-***REMOVED***
+}
 [data-letterspacing="widen"]{
 letter-spacing: 1px;	
-***REMOVED***
+}
 </style>
 <div class="crmErrorPgCont crmErrorHeight" data-zcqa="crm_error_page" data-errormessage="Sorry the page you have requested was not found"><div class="crmErrorPgBody"><div class="crmErrorPgImgContr"><!-- <span class="crmErrorPgImg"></span> -->
 <img class="crmErrorPgImg" data-image-mode='true' src='https://static.zohocdn.com/crm/images/crm-iam-errorPage_lightmode_2eb563c9ea6d989a69e2be6276245761_.png'/></div><div class="crmErrorInfoSection"><p class="crmErrorPgErrText1">Invalid URL</p> 
@@ -1087,7 +1087,7 @@ letter-spacing: 1px;
 --primaryShadowActive: none; 
 --primaryBackgroundDisabled: #91CBFF;
 --primaryShadowDisabled: #6AAFEB;
-***REMOVED***
+}
 /******new error page style******/
 .crmErrorPgCont {
 background-color: var(--bg_white);
@@ -1096,10 +1096,10 @@ display: flex;
 align-items: center;
 flex-flow: column;
 justify-content: space-between;
-***REMOVED***
+}
 .crmErrorHeight{
 min-height:100vh;
-***REMOVED***
+}
 .crmErrorPgBody {
 background-color: var(--bg_white);
 padding: 50px 0;
@@ -1109,39 +1109,39 @@ width: 700px;
 display: flex;
 align-items: center;
 flex-flow: column;
-***REMOVED***
+}
 .crmErrorPgImgContr {
 max-width: 300px;
 height: 170px;
 margin-bottom:40px;
 margin-left:45px;
-***REMOVED***
+}
 .crmErrorPgImg {
 max-width: 100%;
 display: block; 
-***REMOVED***
+}
 .crmErrorInfoSection {
 display: flex;
 flex-direction: column;
 align-items: center;
-***REMOVED***
+}
 .crmErrorPgErrText1 {
 color: var(--headingColor);
 font-size: var(--crm-large-font-size);
 font-family: var(--crm-font-bold);
 margin: 0 0 8px 0;
-***REMOVED***
+}
 .crmErrorPgErrText2 {
 color: var(--paragraphColor);
 font-size: var(--crm-base-font-size);
 font-family: var(--crm-font-regular);
 margin: 0 0 40px 0;
 line-height: 22px;
-***REMOVED***
+}
 .crmErrorUrl {
 font-size: var(--crm-base-font-size);
 font-family: var(--crm-font-bold);
-***REMOVED***
+}
 .primarybtn{
 color: var(--primaryColor);
 border-radius: 6px;
@@ -1157,20 +1157,20 @@ outline: none;
 cursor: pointer;
 text-align: center;
 white-space: nowrap;
-***REMOVED***
+}
 .primarybtn:hover{
 background: var(--primaryBackgroundHover);
 box-shadow: inset 0px -2px 0px var(--primaryShadow);
 border: 0;
 color: var(--primaryColor);
 outline: none;
-***REMOVED***
+}
 .primarybtn:active {
 top: 1px;
 box-shadow: var(--primaryShadowActive);
 background: var(--primaryBackgroundActive);
 position: relative;
-***REMOVED***
+}
 .primarybtn[disabled], .primarybtn.disabled{
 background: var(--primaryBackgroundDisabled);
 box-shadow: inset 0px -2px 0px var(--primaryShadowDisabled);
@@ -1180,34 +1180,34 @@ cursor: not-allowed;
 pointer-events: none !important;
 top: 0px !important;
 color: var(--primaryColorDisabled);
-***REMOVED***
+}
 .crmErrorPgfooter {
 margin-bottom: 30px;
-***REMOVED***
+}
 .crmErrorPgfooterTxt {
 font-family: var(--crm-font-regular);
 font-size: var(--crm-base-font-size);
 color: var(--paragraphColor);
 font-style: normal;
 line-height: 22px;
-***REMOVED***
+}
 .crmErrorPgfooterCont {
 height: 30px;
 margin-bottom: 5px;
-***REMOVED***
+}
 .crmLogoImg {
 min-width: 20px;
 max-width: 100px;
 min-height: 20px;
 max-height: 25px;
-***REMOVED***
+}
 /******new error page style End******/
 html{
 font-size:1.4rem;
 /* font-size: calc(.775rem - -.25 * (100vw - 20rem) / 100); */
 font-size: 62.5%;
 font-variant-ligatures: no-contextual;
-***REMOVED***
+}
 </style></head><body leftmargin="0" topmargin="0" class="bodyBg" marginheight="0"
 marginwidth="0">
 <link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.woff2" rel="preload" as="font" type="font/woff" crossorigin><link href="//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2" rel="preload" as="font" type="font/woff" crossorigin><style type="text/css">
@@ -1231,7 +1231,7 @@ marginwidth="0">
 --crux-bold-font: Zoho_Puvi_SemiBold, sans-serif;
 --crux-light-font: Zoho_Puvi_Regular, sans-serif;
 --crux-thin-font: Zoho_Puvi_Regular, sans-serif;
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Thin";
 font-weight:normal;
@@ -1241,7 +1241,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_ThinItalic";
 font-weight:normal;
@@ -1251,7 +1251,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Thin.otf") format("opentype");
-***REMOVED***
+}
 @font-face {    
 font-family:"Zoho_Puvi_Light";
 font-weight:normal;
@@ -1261,7 +1261,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_LightItalic";
 font-weight:normal;
@@ -1271,7 +1271,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Light.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Regular";
 font-weight:normal;
@@ -1281,7 +1281,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_RegularItalic";
 font-weight:normal;
@@ -1291,7 +1291,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.eo
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Regular_Italic.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Medium";
 font-weight:normal;
@@ -1301,7 +1301,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_MediumItalic";
 font-weight:normal;
@@ -1311,7 +1311,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Medium.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_SemiBold";
 font-weight:normal;
@@ -1321,7 +1321,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_SemiBoldItalic";
 font-weight:normal;
@@ -1331,7 +1331,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.e
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Semibold_Italic.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Bold";
 font-weight:normal;
@@ -1341,7 +1341,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_BoldItalic";
 font-weight:normal;
@@ -1351,7 +1351,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.eot")
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Bold_Italic.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Black";
 font-weight:normal;
@@ -1361,7 +1361,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_Extrablack";
 font-weight:normal;
@@ -1371,7 +1371,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrablack.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_BlackItalic";
 font-weight:normal;
@@ -1381,7 +1381,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Black.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_ExtraBold";
 font-weight:normal;
@@ -1391,7 +1391,7 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.otf") format("opentype");
-***REMOVED***
+}
 @font-face {
 font-family:"Zoho_Puvi_ExtraBoldItalic";
 font-weight:normal;
@@ -1401,53 +1401,53 @@ src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot");
 src:url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.eot?#iefix") format("embedded-opentype"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.woff2") format("woff2"),
 url("//static.zohocdn.com/zohofonts/zohopuvi/4.0/Zoho_Puvi_Extrabold.otf") format("opentype");
-***REMOVED***
+}
 .fontbold {
 font-weight: bold;
-***REMOVED***
+}
 .crm-font-regular,.CanvasFontRegular,select, input, form, textarea, pre{
 font-family: var(--crm-font-regular);
-***REMOVED***
+}
 .crm-font-bold, .CanvasFontBold{
 font-family: var(--crm-font-bold);
 font-weight: var(--font-weight-bold);
-***REMOVED***
+}
 .crm-font-xbold,.CanvasFontXbold {
 font-family: var(--crm-font-black);
-***REMOVED***
+}
 .crm-font-regular-italic ,.CanvasFontRegularItalic{
 font-family: var(--crm-font-italic);
-***REMOVED***
+}
 .crm-font-bold-italic,.CanvasFontBoldItalic{
 font-family:var(--crm-font-bolditalic);
-***REMOVED***
+}
 .crm-font-xbold-italic,.CanvasFontXboldItalic {
 font-family: var(--crm-font-blackitalic);
-***REMOVED***
+}
 .crm-font-thin,.CanvasFontThin{
 font-family: var(--crm-font-thin);
-***REMOVED***
+}
 .crm-font-light,.CanvasFontLight{
 font-family: @lightFont;
-***REMOVED***
+}
 .crm-font-medium{
 font-family:var(--crm-font-medium);
-***REMOVED***
+}
 .crm-font-semibold , .CanvasFontSemibold{
 font-family: var(--crm-font-semibold);
-***REMOVED***
+}
 .crm-font-thin-italic , .CanvasFontThinItalic{
 font-family: var(--crm-font-thinitalic);
-***REMOVED***
+}
 .crm-font-light-italic , .CanvasFontLightItalic{
 font-family: var(--crm-font-lightitalic);
-***REMOVED***
+}
 .crm-font-medium-italic{
 font-family: var(--crm-font-mediumitalic);
-***REMOVED***
+}
 .crm-font-semibold-italic , .CanvasFontSemiboldItalic{
 font-family: var(--crm-font-semibolditalic);
-***REMOVED***
+}
 :root{
 --crm-base-font-size: calc((14 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
 --crm-medium-font-size: calc((15 / var(--crm_baseFontSize)) * var(--crm_baseFontUnit));
@@ -1459,7 +1459,7 @@ font-family: var(--crm-font-semibolditalic);
 --crm_baseFontSize: 16;
 --crm_baseFontUnit: 16px;
 --crm-medium-small-font-size: 1.2rem;
-***REMOVED***
+}
 [data-size="small"]{
 --crm-base-font-size: 1.3rem;
 --crm-medium-font-size: 1.4rem;
@@ -1468,7 +1468,7 @@ font-family: var(--crm-font-semibolditalic);
 --crm-extra-small-font-size: 1.1rem;
 --crm-medium-large-font-size: 1.7rem;
 --crm-large-font-size: 1.9rem;
-***REMOVED***
+}
 [data-size="large"]{
 --crm-base-font-size: 1.5rem;
 --crm-medium-font-size: 1.6rem;
@@ -1477,7 +1477,7 @@ font-family: var(--crm-font-semibolditalic);
 --crm-extra-small-font-size: 1.3rem;
 --crm-medium-large-font-size: 1.9rem;
 --crm-large-font-size: 2.1rem;
-***REMOVED***
+}
 [data-size="largest"]{
 --crm-base-font-size: 1.6rem;
 --crm-medium-font-size: 1.7rem;
@@ -1486,19 +1486,19 @@ font-family: var(--crm-font-semibolditalic);
 --crm-extra-small-font-size: 1.4rem;
 --crm-medium-large-font-size: 2rem;
 --crm-large-font-size: 2.2rem;
-***REMOVED***
+}
 [data-letterspacing="condensed"]{
 letter-spacing: -.5px;
-***REMOVED***
+}
 [data-letterspacing="normal"]{
 letter-spacing: 0px;
-***REMOVED***
+}
 [data-letterspacing="expanded"]{
 letter-spacing: .05px;	
-***REMOVED***
+}
 [data-letterspacing="widen"]{
 letter-spacing: 1px;	
-***REMOVED***
+}
 </style>
 <div class="crmErrorPgCont crmErrorHeight" data-zcqa="crm_error_page" data-errormessage="Sorry the page you have requested was not found"><div class="crmErrorPgBody"><div class="crmErrorPgImgContr"><!-- <span class="crmErrorPgImg"></span> -->
 <img class="crmErrorPgImg" data-image-mode='true' src='https://static.zohocdn.com/crm/images/crm-iam-errorPage_lightmode_2eb563c9ea6d989a69e2be6276245761_.png'/></div><div class="crmErrorInfoSection"><p class="crmErrorPgErrText1">Invalid URL</p> 
@@ -1593,7 +1593,7 @@ letter-spacing: 1px;
 2025-05-13 18:07:39 INFO:  * Restarting with stat
 2025-05-13 18:07:46 WARNING:  * Debugger is active!
 2025-05-13 18:07:46 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 18:07:50 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/fd155a8e-d487-423b-a96a-4b657ab29d76"***REMOVED***
+2025-05-13 18:07:50 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/fd155a8e-d487-423b-a96a-4b657ab29d76"}
 
 2025-05-13 18:07:54 ERROR: Unhandled error in /process-audio
 Traceback (most recent call last):
@@ -1602,7 +1602,7 @@ Traceback (most recent call last):
     ^^^^^^^^^^^^^^^^^^^^^^
 NameError: name 'log_transcript_to_file' is not defined
 2025-05-13 18:07:54 INFO: 127.0.0.1 - - [13/May/2025 18:07:54] "[35m[1mPOST /process-audio HTTP/1.1[0m" 500 -
-2025-05-13 18:07:57 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/7fb8c09c-0d70-465c-a4da-a457fa559b36"***REMOVED***
+2025-05-13 18:07:57 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/7fb8c09c-0d70-465c-a4da-a457fa559b36"}
 
 2025-05-13 18:08:01 ERROR: Unhandled error in /process-audio
 Traceback (most recent call last):
@@ -1615,7 +1615,7 @@ NameError: name 'log_transcript_to_file' is not defined
 2025-05-13 18:08:41 INFO:  * Restarting with stat
 2025-05-13 18:08:48 WARNING:  * Debugger is active!
 2025-05-13 18:08:48 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 18:08:49 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/206fee3e-12ae-497a-94b9-6cae5a582342"***REMOVED***
+2025-05-13 18:08:49 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/206fee3e-12ae-497a-94b9-6cae5a582342"}
 
 2025-05-13 18:08:53 INFO: Transcript logged to transcripts\transcript_2025-05-13_18-08-53.txt
 2025-05-13 18:08:53 INFO: 127.0.0.1 - - [13/May/2025 18:08:53] "POST /process-audio HTTP/1.1" 200 -
@@ -1643,7 +1643,7 @@ Summary: - Action Items: - [Person] needs to [task] - [No decision]
 2025-05-13 19:15:11 INFO: 127.0.0.1 - - [13/May/2025 19:15:11] "[33mGET /zoho/userinfo HTTP/1.1[0m" 404 -
 2025-05-13 19:15:15 INFO: 127.0.0.1 - - [13/May/2025 19:15:15] "[32mGET /zoho/auth HTTP/1.1[0m" 302 -
 2025-05-13 19:15:16 INFO: 127.0.0.1 - - [13/May/2025 19:15:16] "GET /zoho/callback?code=1000.81b9055865256e188fe78e0020c54157.201ee99e20f8a3e40f640fee0916479b&location=us&accounts-server=https://accounts.zoho.com HTTP/1.1" 200 -
-2025-05-13 19:15:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/6e5fd803-c931-455e-aaa1-721df0b6571a"***REMOVED***
+2025-05-13 19:15:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/6e5fd803-c931-455e-aaa1-721df0b6571a"}
 
 2025-05-13 19:15:27 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-15-27.txt
 2025-05-13 19:15:27 INFO: 127.0.0.1 - - [13/May/2025 19:15:27] "POST /process-audio HTTP/1.1" 200 -
@@ -1657,7 +1657,7 @@ Summary: - Action Items: - [Person] needs to [task] - [No decision]
 2025-05-13 19:22:37 INFO:  * Restarting with stat
 2025-05-13 19:22:44 WARNING:  * Debugger is active!
 2025-05-13 19:22:44 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:23:09 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/4e1837f0-4305-4613-8a91-348f72953b73"***REMOVED***
+2025-05-13 19:23:09 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/4e1837f0-4305-4613-8a91-348f72953b73"}
 
 2025-05-13 19:23:13 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-23-13.txt
 2025-05-13 19:23:13 INFO: 127.0.0.1 - - [13/May/2025 19:23:13] "POST /process-audio HTTP/1.1" 200 -
@@ -1673,7 +1673,7 @@ Summary: - Action Items: - Decisions: - Actions: - ...
 2025-05-13 19:24:38 INFO:  * Restarting with stat
 2025-05-13 19:24:45 WARNING:  * Debugger is active!
 2025-05-13 19:24:45 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:25:04 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/4f6cd981-259b-4bef-9aa0-750a3e94fc1d"***REMOVED***
+2025-05-13 19:25:04 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/4f6cd981-259b-4bef-9aa0-750a3e94fc1d"}
 
 2025-05-13 19:25:08 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-25-08.txt
 2025-05-13 19:25:08 INFO: 127.0.0.1 - - [13/May/2025 19:25:08] "POST /process-audio HTTP/1.1" 200 -
@@ -1685,7 +1685,7 @@ Summary: [summary point 1] [summary point 2] [summary point 3] [summary point 4]
 2025-05-13 19:27:16 INFO:  * Restarting with stat
 2025-05-13 19:27:23 WARNING:  * Debugger is active!
 2025-05-13 19:27:23 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:27:24 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/30456697-4b60-465a-92dc-9c8cada54c7c"***REMOVED***
+2025-05-13 19:27:24 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/30456697-4b60-465a-92dc-9c8cada54c7c"}
 
 2025-05-13 19:27:28 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-27-28.txt
 2025-05-13 19:27:28 INFO: 127.0.0.1 - - [13/May/2025 19:27:28] "POST /process-audio HTTP/1.1" 200 -
@@ -1697,7 +1697,7 @@ Summary: - Action Items: - Decisions: -
 2025-05-13 19:28:22 INFO:  * Restarting with stat
 2025-05-13 19:28:29 WARNING:  * Debugger is active!
 2025-05-13 19:28:29 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:28:30 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/40ae6f46-e1e9-47e0-b449-ce645c6b3b43"***REMOVED***
+2025-05-13 19:28:30 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/40ae6f46-e1e9-47e0-b449-ce645c6b3b43"}
 
 2025-05-13 19:28:34 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-28-34.txt
 2025-05-13 19:28:34 INFO: 127.0.0.1 - - [13/May/2025 19:28:34] "POST /process-audio HTTP/1.1" 200 -
@@ -1705,7 +1705,7 @@ Summary: - Action Items: - Decisions: -
 2025-05-13 19:28:39 INFO: RAW LLM OUTPUT:
 Summary: - George planned the next meeting - Fred run for president - Susie saved the day
 2025-05-13 19:28:39 INFO: 127.0.0.1 - - [13/May/2025 19:28:39] "POST /process-json HTTP/1.1" 200 -
-2025-05-13 19:29:15 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/1ad4a0e2-1bbb-4e4a-8fa8-8bedb902b54d"***REMOVED***
+2025-05-13 19:29:15 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/1ad4a0e2-1bbb-4e4a-8fa8-8bedb902b54d"}
 
 2025-05-13 19:29:19 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-29-19.txt
 2025-05-13 19:29:19 INFO: 127.0.0.1 - - [13/May/2025 19:29:19] "POST /process-audio HTTP/1.1" 200 -
@@ -1717,7 +1717,7 @@ Summary: - Action Items: - [Person] needs to [Do the dishes] - [Person] needs to
 2025-05-13 19:30:17 INFO:  * Restarting with stat
 2025-05-13 19:30:24 WARNING:  * Debugger is active!
 2025-05-13 19:30:24 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:30:25 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/a96f4f87-fc48-4cd2-9871-c3068ab6cc6f"***REMOVED***
+2025-05-13 19:30:25 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/a96f4f87-fc48-4cd2-9871-c3068ab6cc6f"}
 
 2025-05-13 19:30:29 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-30-29.txt
 2025-05-13 19:30:29 INFO: 127.0.0.1 - - [13/May/2025 19:30:29] "POST /process-audio HTTP/1.1" 200 -
@@ -1729,7 +1729,7 @@ Summary: - Bob needs to brush his teeth - Frank needs to do something interestin
 2025-05-13 19:31:19 INFO:  * Restarting with stat
 2025-05-13 19:31:25 WARNING:  * Debugger is active!
 2025-05-13 19:31:25 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:31:26 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/13860621-aec6-4f72-8161-694071ff5c6a"***REMOVED***
+2025-05-13 19:31:26 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/13860621-aec6-4f72-8161-694071ff5c6a"}
 
 2025-05-13 19:31:30 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-31-30.txt
 2025-05-13 19:31:30 INFO: 127.0.0.1 - - [13/May/2025 19:31:30] "POST /process-audio HTTP/1.1" 200 -
@@ -1741,7 +1741,7 @@ Summary: - Bob needs to brush his teeth - Frank needs to do something interestin
 2025-05-13 19:32:19 INFO:  * Restarting with stat
 2025-05-13 19:32:25 WARNING:  * Debugger is active!
 2025-05-13 19:32:25 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:32:26 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/ced8c430-f787-49e1-85b6-a261d56cb3ea"***REMOVED***
+2025-05-13 19:32:26 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/ced8c430-f787-49e1-85b6-a261d56cb3ea"}
 
 2025-05-13 19:32:30 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-32-30.txt
 2025-05-13 19:32:30 INFO: 127.0.0.1 - - [13/May/2025 19:32:30] "POST /process-audio HTTP/1.1" 200 -
@@ -1753,7 +1753,7 @@ Someone needs to wash the dishes.
 2025-05-13 19:33:25 INFO:  * Restarting with stat
 2025-05-13 19:33:32 WARNING:  * Debugger is active!
 2025-05-13 19:33:32 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:33:33 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/62e4cf2b-1f85-4265-8fae-0f704e41c2c7"***REMOVED***
+2025-05-13 19:33:33 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/62e4cf2b-1f85-4265-8fae-0f704e41c2c7"}
 
 2025-05-13 19:33:37 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-33-37.txt
 2025-05-13 19:33:37 INFO: 127.0.0.1 - - [13/May/2025 19:33:37] "POST /process-audio HTTP/1.1" 200 -
@@ -1777,7 +1777,7 @@ Someone needs to wash the dishes.
 2025-05-13 19:39:58 INFO:  * Restarting with stat
 2025-05-13 19:40:06 WARNING:  * Debugger is active!
 2025-05-13 19:40:06 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 19:40:14 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/464f60c8-c38c-41e9-98d6-9e622f06665d"***REMOVED***
+2025-05-13 19:40:14 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/464f60c8-c38c-41e9-98d6-9e622f06665d"}
 
 2025-05-13 19:40:18 INFO: Transcript logged to transcripts\transcript_2025-05-13_19-40-18.txt
 2025-05-13 19:40:18 INFO: 127.0.0.1 - - [13/May/2025 19:40:18] "POST /process-audio HTTP/1.1" 200 -
@@ -1793,57 +1793,57 @@ Action Items: - Bob needs to brush his teeth. Frank needs to do something intere
 2025-05-13 20:00:09 INFO:  * Restarting with stat
 2025-05-13 20:00:11 WARNING:  * Debugger is active!
 2025-05-13 20:00:11 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 20:00:18 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/f4df2a51-e67e-4b3d-affd-5273b52ccdc4"***REMOVED***
+2025-05-13 20:00:18 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/f4df2a51-e67e-4b3d-affd-5273b52ccdc4"}
 
 2025-05-13 20:00:22 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-00-22.txt
 2025-05-13 20:00:22 INFO: 127.0.0.1 - - [13/May/2025 20:00:22] "POST /process-audio HTTP/1.1" 200 -
 2025-05-13 20:00:22 INFO: 127.0.0.1 - - [13/May/2025 20:00:22] "OPTIONS /process-json HTTP/1.1" 200 -
 2025-05-13 20:00:22 INFO: 127.0.0.1 - - [13/May/2025 20:00:22] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
-2025-05-13 20:00:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/62b2f85d-72dc-4d12-9ff5-e816ed27d824"***REMOVED***
+2025-05-13 20:00:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/62b2f85d-72dc-4d12-9ff5-e816ed27d824"}
 
 2025-05-13 20:00:27 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-00-27.txt
 2025-05-13 20:00:27 INFO: 127.0.0.1 - - [13/May/2025 20:00:27] "POST /process-audio HTTP/1.1" 200 -
 2025-05-13 20:00:27 INFO: 127.0.0.1 - - [13/May/2025 20:00:27] "OPTIONS /process-json HTTP/1.1" 200 -
 2025-05-13 20:00:27 INFO: 127.0.0.1 - - [13/May/2025 20:00:27] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
-2025-05-13 20:00:28 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/72232c41-fd2f-48aa-b7c9-43e21d95ca2c"***REMOVED***
+2025-05-13 20:00:28 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/72232c41-fd2f-48aa-b7c9-43e21d95ca2c"}
 
 2025-05-13 20:00:32 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-00-32.txt
 2025-05-13 20:00:32 INFO: 127.0.0.1 - - [13/May/2025 20:00:32] "POST /process-audio HTTP/1.1" 200 -
 2025-05-13 20:00:32 INFO: 127.0.0.1 - - [13/May/2025 20:00:32] "OPTIONS /process-json HTTP/1.1" 200 -
 2025-05-13 20:00:32 INFO: 127.0.0.1 - - [13/May/2025 20:00:32] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
-2025-05-13 20:00:33 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/dd31db36-ad1e-4716-99c5-ab7747b40033"***REMOVED***
+2025-05-13 20:00:33 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/dd31db36-ad1e-4716-99c5-ab7747b40033"}
 
 2025-05-13 20:00:37 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-00-37.txt
 2025-05-13 20:00:37 INFO: 127.0.0.1 - - [13/May/2025 20:00:37] "POST /process-audio HTTP/1.1" 200 -
-2025-05-13 20:00:56 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/736d02ec-d0e1-4f82-849a-e0b389ad67a7"***REMOVED***
+2025-05-13 20:00:56 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/736d02ec-d0e1-4f82-849a-e0b389ad67a7"}
 
 2025-05-13 20:01:00 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-00.txt
 2025-05-13 20:01:00 INFO: 127.0.0.1 - - [13/May/2025 20:01:00] "POST /process-audio HTTP/1.1" 200 -
 2025-05-13 20:01:00 INFO: 127.0.0.1 - - [13/May/2025 20:01:00] "OPTIONS /process-json HTTP/1.1" 200 -
 2025-05-13 20:01:01 INFO: 127.0.0.1 - - [13/May/2025 20:01:01] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
-2025-05-13 20:01:01 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/ba99f5f5-6f4e-48d0-b92c-444d8e4416f4"***REMOVED***
+2025-05-13 20:01:01 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/ba99f5f5-6f4e-48d0-b92c-444d8e4416f4"}
 
 2025-05-13 20:01:05 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-05.txt
 2025-05-13 20:01:05 INFO: 127.0.0.1 - - [13/May/2025 20:01:05] "POST /process-audio HTTP/1.1" 200 -
 2025-05-13 20:01:05 INFO: 127.0.0.1 - - [13/May/2025 20:01:05] "OPTIONS /process-json HTTP/1.1" 200 -
 2025-05-13 20:01:06 INFO: 127.0.0.1 - - [13/May/2025 20:01:06] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
-2025-05-13 20:01:06 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/aef2708e-9945-4912-afe2-1655cb73e264"***REMOVED***
+2025-05-13 20:01:06 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/aef2708e-9945-4912-afe2-1655cb73e264"}
 
 2025-05-13 20:01:10 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-10.txt
 2025-05-13 20:01:10 INFO: 127.0.0.1 - - [13/May/2025 20:01:10] "POST /process-audio HTTP/1.1" 200 -
-2025-05-13 20:01:28 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/8051d8b7-79d2-4219-b884-b9c975b2125d"***REMOVED***
+2025-05-13 20:01:28 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/8051d8b7-79d2-4219-b884-b9c975b2125d"}
 
 2025-05-13 20:01:33 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-33.txt
 2025-05-13 20:01:33 INFO: 127.0.0.1 - - [13/May/2025 20:01:33] "POST /process-audio HTTP/1.1" 200 -
 2025-05-13 20:01:33 INFO: 127.0.0.1 - - [13/May/2025 20:01:33] "OPTIONS /process-json HTTP/1.1" 200 -
 2025-05-13 20:01:33 INFO: 127.0.0.1 - - [13/May/2025 20:01:33] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
-2025-05-13 20:01:34 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0e13a020-988e-4785-b03f-3fab5891c669"***REMOVED***
+2025-05-13 20:01:34 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0e13a020-988e-4785-b03f-3fab5891c669"}
 
 2025-05-13 20:01:38 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-38.txt
 2025-05-13 20:01:38 INFO: 127.0.0.1 - - [13/May/2025 20:01:38] "POST /process-audio HTTP/1.1" 200 -
 2025-05-13 20:01:38 INFO: 127.0.0.1 - - [13/May/2025 20:01:38] "OPTIONS /process-json HTTP/1.1" 200 -
 2025-05-13 20:01:38 INFO: 127.0.0.1 - - [13/May/2025 20:01:38] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
-2025-05-13 20:01:39 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/55d73a3d-1a62-492a-a1e9-4573cc6cf4c8"***REMOVED***
+2025-05-13 20:01:39 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/55d73a3d-1a62-492a-a1e9-4573cc6cf4c8"}
 
 2025-05-13 20:01:42 INFO: Transcript logged to transcripts\transcript_2025-05-13_20-01-42.txt
 2025-05-13 20:01:42 INFO: 127.0.0.1 - - [13/May/2025 20:01:42] "POST /process-audio HTTP/1.1" 200 -
@@ -2004,7 +2004,7 @@ Action Items: - Bob needs to brush his teeth. Frank needs to do something intere
 2025-05-13 21:17:35 INFO:  * Restarting with stat
 2025-05-13 21:17:37 WARNING:  * Debugger is active!
 2025-05-13 21:17:37 INFO:  * Debugger PIN: 818-684-062
-2025-05-13 21:17:50 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/1be0ba11-88af-447b-a668-fa67fba547e6"***REMOVED***
+2025-05-13 21:17:50 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/1be0ba11-88af-447b-a668-fa67fba547e6"}
 
 2025-05-13 21:17:54 INFO: Transcript logged to transcripts\transcript_2025-05-13_21-17-54.txt
 2025-05-13 21:17:54 INFO: 127.0.0.1 - - [13/May/2025 21:17:54] "POST /process-audio HTTP/1.1" 200 -
@@ -2034,7 +2034,7 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 
 2025-05-13 21:17:54 INFO: 127.0.0.1 - - [13/May/2025 21:17:54] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-13 21:17:56 INFO: 127.0.0.1 - - [13/May/2025 21:17:56] "GET /auth-url HTTP/1.1" 200 -
-2025-05-13 21:18:08 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/fae2afe1-8d72-43ba-a211-0b9ab8f6c068"***REMOVED***
+2025-05-13 21:18:08 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/fae2afe1-8d72-43ba-a211-0b9ab8f6c068"}
 
 2025-05-13 21:18:12 INFO: Transcript logged to transcripts\transcript_2025-05-13_21-18-12.txt
 2025-05-13 21:18:12 INFO: 127.0.0.1 - - [13/May/2025 21:18:12] "POST /process-audio HTTP/1.1" 200 -
@@ -2073,7 +2073,7 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-05-13 21:33:00 WARNING:  * Debugger is active!
 2025-05-13 21:33:00 INFO:  * Debugger PIN: 818-684-062
 2025-05-13 21:36:32 INFO: 127.0.0.1 - - [13/May/2025 21:36:32] "GET /auth-url HTTP/1.1" 200 -
-2025-05-13 21:36:38 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0cdcfa9d-b5a1-455d-bbc8-4f5badc99229"***REMOVED***
+2025-05-13 21:36:38 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0cdcfa9d-b5a1-455d-bbc8-4f5badc99229"}
 
 2025-05-13 21:36:42 INFO: Transcript logged to transcripts\transcript_2025-05-13_21-36-42.txt
 2025-05-13 21:36:42 INFO: 127.0.0.1 - - [13/May/2025 21:36:42] "POST /process-audio HTTP/1.1" 200 -
@@ -2103,7 +2103,7 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 
 2025-05-13 21:36:42 INFO: 127.0.0.1 - - [13/May/2025 21:36:42] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-13 22:05:17 INFO: 127.0.0.1 - - [13/May/2025 22:05:17] "GET /auth-url HTTP/1.1" 200 -
-2025-05-13 22:05:30 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0fcc63de-6bfb-4d9e-aeb5-5fe280761587"***REMOVED***
+2025-05-13 22:05:30 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/0fcc63de-6bfb-4d9e-aeb5-5fe280761587"}
 
 2025-05-13 22:05:34 INFO: Transcript logged to transcripts\transcript_2025-05-13_22-05-34.txt
 2025-05-13 22:05:34 INFO: 127.0.0.1 - - [13/May/2025 22:05:34] "POST /process-audio HTTP/1.1" 200 -
@@ -2141,7 +2141,7 @@ A detailed migration guide is available here: https://github.com/openai/openai-p
 2025-05-13 22:09:12 WARNING:  * Debugger is active!
 2025-05-13 22:09:12 INFO:  * Debugger PIN: 818-684-062
 2025-05-13 22:09:16 INFO: 127.0.0.1 - - [13/May/2025 22:09:16] "GET /auth-url HTTP/1.1" 200 -
-2025-05-13 22:09:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/15bc3cf5-d028-4fd8-8ba6-6863e78f1943"***REMOVED***
+2025-05-13 22:09:23 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/15bc3cf5-d028-4fd8-8ba6-6863e78f1943"}
 
 2025-05-13 22:09:28 INFO: Transcript logged to transcripts\transcript_2025-05-13_22-09-28.txt
 2025-05-13 22:09:28 INFO: 127.0.0.1 - - [13/May/2025 22:09:28] "POST /process-audio HTTP/1.1" 200 -
@@ -2175,7 +2175,7 @@ Traceback (most recent call last):
                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
     raise self._make_status_error_from_response(err.response) from None
-openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `gpt-4-turbo` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'***REMOVED******REMOVED***
+openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `gpt-4-turbo` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
 2025-05-13 22:09:30 INFO: 127.0.0.1 - - [13/May/2025 22:09:30] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-13 22:13:57 INFO: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
@@ -2184,7 +2184,7 @@ openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `gpt-4-
 2025-05-13 22:14:07 WARNING:  * Debugger is active!
 2025-05-13 22:14:07 INFO:  * Debugger PIN: 818-684-062
 2025-05-13 22:14:46 INFO: 127.0.0.1 - - [13/May/2025 22:14:46] "GET /auth-url HTTP/1.1" 200 -
-2025-05-13 22:14:57 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/6678cb7f-15f4-4a06-bbb0-6445420aa45e"***REMOVED***
+2025-05-13 22:14:57 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/6678cb7f-15f4-4a06-bbb0-6445420aa45e"}
 
 2025-05-13 22:15:01 INFO: Transcript logged to transcripts\transcript_2025-05-13_22-15-01.txt
 2025-05-13 22:15:01 INFO: 127.0.0.1 - - [13/May/2025 22:15:01] "POST /process-audio HTTP/1.1" 200 -
@@ -2218,7 +2218,7 @@ Traceback (most recent call last):
                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
     raise self._make_status_error_from_response(err.response) from None
-openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `gpt-4-turbo` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'***REMOVED******REMOVED***
+openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `gpt-4-turbo` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'param': None, 'code': 'model_not_found'}}
 2025-05-13 22:15:04 INFO: 127.0.0.1 - - [13/May/2025 22:15:04] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-13 22:17:27 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\llm_utils.py', reloading
 2025-05-13 22:17:28 INFO:  * Restarting with stat
@@ -2229,7 +2229,7 @@ openai.NotFoundError: Error code: 404 - {'error': {'message': 'The model `gpt-4-
 2025-05-13 22:19:57 WARNING:  * Debugger is active!
 2025-05-13 22:19:57 INFO:  * Debugger PIN: 818-684-062
 2025-05-13 22:22:02 INFO: 127.0.0.1 - - [13/May/2025 22:22:02] "GET /auth-url HTTP/1.1" 200 -
-2025-05-13 22:22:11 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/8e6e57e2-7585-469e-9274-2d5b180056c1"***REMOVED***
+2025-05-13 22:22:11 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/8e6e57e2-7585-469e-9274-2d5b180056c1"}
 
 2025-05-13 22:22:15 INFO: Transcript logged to transcripts\transcript_2025-05-13_22-22-15.txt
 2025-05-13 22:22:15 INFO: 127.0.0.1 - - [13/May/2025 22:22:15] "POST /process-audio HTTP/1.1" 200 -
@@ -2267,7 +2267,7 @@ Traceback (most recent call last):
                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
     raise self._make_status_error_from_response(err.response) from None
-openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'***REMOVED******REMOVED***
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
 2025-05-13 22:22:19 INFO: 127.0.0.1 - - [13/May/2025 22:22:19] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-13 22:25:23 INFO: 127.0.0.1 - - [13/May/2025 22:25:23] "GET /auth-url HTTP/1.1" 200 -
 2025-05-13 22:33:41 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
@@ -2336,7 +2336,7 @@ openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded you
 2025-05-13 23:11:42 INFO: 127.0.0.1 - - [13/May/2025 23:11:42] "GET /auth-url HTTP/1.1" 200 -
 2025-05-13 23:11:47 INFO: 127.0.0.1 - - [13/May/2025 23:11:47] "GET /auth-url HTTP/1.1" 200 -
 2025-05-13 23:16:16 INFO: 127.0.0.1 - - [13/May/2025 23:16:16] "GET /auth-url HTTP/1.1" 200 -
-2025-05-13 23:18:13 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/08eb40e9-75a4-4796-bdfb-a5e4a158dce8"***REMOVED***
+2025-05-13 23:18:13 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/08eb40e9-75a4-4796-bdfb-a5e4a158dce8"}
 
 2025-05-13 23:18:17 INFO: Transcript logged to transcripts\transcript_2025-05-13_23-18-17.txt
 2025-05-13 23:18:17 INFO: 127.0.0.1 - - [13/May/2025 23:18:17] "POST /process-audio HTTP/1.1" 200 -
@@ -2374,7 +2374,7 @@ Traceback (most recent call last):
                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
     raise self._make_status_error_from_response(err.response) from None
-openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'***REMOVED******REMOVED***
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
 2025-05-13 23:18:23 INFO: 127.0.0.1 - - [13/May/2025 23:18:23] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-13 23:20:35 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\zoho_auth.py', reloading
 2025-05-13 23:20:37 INFO:  * Restarting with stat
@@ -2452,7 +2452,7 @@ openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded you
 2025-05-14 10:01:42 INFO: 127.0.0.1 - - [14/May/2025 10:01:42] "GET /auth-url HTTP/1.1" 200 -
 2025-05-14 10:01:43 INFO: 127.0.0.1 - - [14/May/2025 10:01:43] "GET /zoho/callback?code=1000.42afe4cc2cbe7344ac74768540409bba.b3dccd578f8759f64f5554fabe68dae0&location=us&accounts-server=https://accounts.zoho.com& HTTP/1.1" 200 -
 2025-05-14 10:01:43 INFO: 127.0.0.1 - - [14/May/2025 10:01:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2025-05-14 10:02:27 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/76b4fd92-61e6-4a58-9b35-26712383b5b1"***REMOVED***
+2025-05-14 10:02:27 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/76b4fd92-61e6-4a58-9b35-26712383b5b1"}
 
 2025-05-14 10:02:31 INFO: Transcript logged to transcripts\transcript_2025-05-14_10-02-31.txt
 2025-05-14 10:02:31 INFO: 127.0.0.1 - - [14/May/2025 10:02:31] "POST /process-audio HTTP/1.1" 200 -
@@ -2490,7 +2490,7 @@ Traceback (most recent call last):
                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
     raise self._make_status_error_from_response(err.response) from None
-openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'***REMOVED******REMOVED***
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
 2025-05-14 10:02:34 INFO: 127.0.0.1 - - [14/May/2025 10:02:34] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-14 10:02:50 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\run.py', reloading
 2025-05-14 10:02:50 INFO:  * Restarting with stat
@@ -2500,7 +2500,7 @@ openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded you
 2025-05-14 10:03:17 INFO:  * Restarting with stat
 2025-05-14 10:03:19 WARNING:  * Debugger is active!
 2025-05-14 10:03:19 INFO:  * Debugger PIN: 818-684-062
-2025-05-14 10:03:29 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/546f2be2-3f46-4f0a-b4f3-2eab3aee704f"***REMOVED***
+2025-05-14 10:03:29 INFO: Upload response: {"upload_url":"https://cdn.assemblyai.com/upload/546f2be2-3f46-4f0a-b4f3-2eab3aee704f"}
 
 2025-05-14 10:03:33 INFO: Transcript logged to transcripts\transcript_2025-05-14_10-03-33.txt
 2025-05-14 10:03:33 INFO: 127.0.0.1 - - [14/May/2025 10:03:33] "POST /process-audio HTTP/1.1" 200 -
@@ -2538,7 +2538,7 @@ Traceback (most recent call last):
                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\openai\_base_client.py", line 1034, in request
     raise self._make_status_error_from_response(err.response) from None
-openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'***REMOVED******REMOVED***
+openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
 2025-05-14 10:03:35 INFO: 127.0.0.1 - - [14/May/2025 10:03:35] "[35m[1mPOST /process-json HTTP/1.1[0m" 500 -
 2025-05-14 10:21:02 INFO:  * Detected change in 'C:\\Users\\bandi\\meeting-summary-dashboard\\backend\\test_app.py', reloading
 2025-05-14 10:21:03 INFO:  * Restarting with stat
@@ -2552,3 +2552,4 @@ openai.RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded you
 2025-05-14 10:26:22 INFO:  * Restarting with stat
 2025-05-14 10:26:25 WARNING:  * Debugger is active!
 2025-05-14 10:26:25 INFO:  * Debugger PIN: 818-684-062
+

@@ -1,4 +1,4 @@
-import { useState, useCallback ***REMOVED*** from 'react';
+import { useState, useCallback } from 'react';
 import axios from 'axios';
 
 const useMeetingState = () => {
@@ -20,38 +20,38 @@ const useMeetingState = () => {
 
             // Use the endpoint your tests expect
             const response = await axios.post('/api/transcribe', formData);
-            const { transcript ***REMOVED*** = response.data;
+            const { transcript } = response.data;
             setTranscript(transcript);
             return true;
-        ***REMOVED*** catch (err) {
+        } catch (err) {
             setError(
                 err.response?.data?.message || 'Error processing audio'
             );
             console.error('Error processing audio:', err);
             return false;
-        ***REMOVED*** finally {
+        } finally {
             setIsLoading(false);
-        ***REMOVED***
-    ***REMOVED***, []);
+        }
+    }, []);
 
     const processTranscript = useCallback(async () => {
         setIsLoading(true);
         setError(false);
         try {
-            const response = await axios.post('/api/process', { transcript ***REMOVED***);
-            const { summary, actions, decisions ***REMOVED*** = response.data;
+            const response = await axios.post('/api/process', { transcript });
+            const { summary, actions, decisions } = response.data;
             setSummary(summary);
             setActions(actions);
             setDecisions(decisions);
-        ***REMOVED*** catch (err) {
+        } catch (err) {
             setError(
                 err.response?.data?.message || 'Error processing transcript'
             );
             console.error('Error processing transcript:', err);
-        ***REMOVED*** finally {
+        } finally {
             setIsLoading(false);
-        ***REMOVED***
-    ***REMOVED***, [transcript]);
+        }
+    }, [transcript]);
 
     const resetTranscript = useCallback(() => {
         setTranscript('');
@@ -60,7 +60,7 @@ const useMeetingState = () => {
         setDecisions([]);
         setUploadAttempts(0);
         setError(false);
-    ***REMOVED***, []);
+    }, []);
 
     return {
         transcript,
@@ -75,7 +75,8 @@ const useMeetingState = () => {
         processAudio,
         processTranscript,
         resetTranscript,
-    ***REMOVED***;
-***REMOVED***;
+    };
+};
 
 export default useMeetingState;
+

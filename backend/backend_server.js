@@ -9,7 +9,7 @@ const path = require('path');
 const app = express();
 
 // Load environment variables from .env file
-dotenv.config({ path: path.resolve(__dirname, './.env') ***REMOVED***);
+dotenv.config({ path: path.resolve(__dirname, './.env') });
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -19,14 +19,15 @@ app.get('/api/zoho-token', (req, res) => {
   const zohoToken = process.env.ZOHO_API_TOKEN;  // Retrieve Zoho token from .env
 
   if (zohoToken) {
-    res.json({ access_token: zohoToken ***REMOVED***);
-  ***REMOVED*** else {
-    res.status(500).json({ error: 'Zoho token not found' ***REMOVED***);
-  ***REMOVED***
-***REMOVED***);
+    res.json({ access_token: zohoToken });
+  } else {
+    res.status(500).json({ error: 'Zoho token not found' });
+  }
+});
 
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT***REMOVED***`);
-***REMOVED***);
+  console.log(`Server running on port ${PORT}`);
+});
+

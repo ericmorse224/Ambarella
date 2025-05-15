@@ -18,7 +18,7 @@ params = {
     "client_secret": CLIENT_SECRET,
     "redirect_uri": REDIRECT_URI,
     "code": AUTH_CODE
-***REMOVED***
+}
 
 response = requests.post(token_url, params=params)
 
@@ -35,3 +35,4 @@ if response.status_code == 200:
 else:
     print("❌ Error:", response.status_code)
     print(response.text)
+

@@ -1,7 +1,8 @@
-import { defineConfig ***REMOVED*** from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
     setupFiles: ['./vitest.setup.js'],
-  ***REMOVED***,
-***REMOVED***);
+  },
+});
+

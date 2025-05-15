@@ -4,9 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-/frontend/node_modules/
+frontend/node_modules/
 */node_modules/
 */__pycache__/
+.env
 /.env
 /Monthly_Status_Reports
 /backend/.env

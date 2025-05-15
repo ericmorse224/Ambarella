@@ -133,10 +133,10 @@ With body:
 ```json
 {
   "transcript": [
-    { "speaker": "Alice", "text": "We decided to ship the product next week." ***REMOVED***,
-    { "speaker": "Bob", "text": "I'll write the release notes and handle deployment." ***REMOVED***
+    { "speaker": "Alice", "text": "We decided to ship the product next week." },
+    { "speaker": "Bob", "text": "I'll write the release notes and handle deployment." }
   ]
-***REMOVED***
+}
 ```
 
 ---
@@ -148,7 +148,7 @@ With body:
   "summary": ["We decided to ship the product next week."],
   "actions": ["I'll write the release notes and handle deployment."],
   "decisions": ["We decided to ship the product next week."]
-***REMOVED***
+}
 ```
 
 ---
@@ -165,3 +165,4 @@ With body:
 ## 📝 License
 
 MIT License. Contributions welcome!
+

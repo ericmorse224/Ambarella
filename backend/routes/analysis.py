@@ -9,7 +9,7 @@ def process_json():
     data = request.get_json()
     transcript = data.get("transcript", "")
     if not transcript:
-        return jsonify({"error": "No transcript provided"***REMOVED***), 400
+        return jsonify({"error": "No transcript provided"}), 400
 
     try:
         result = analyze_transcript(transcript)
@@ -20,4 +20,5 @@ def process_json():
 
         return jsonify(result)
     except Exception as e:
-        return jsonify({"error": str(e)***REMOVED***), 500
+        return jsonify({"error": str(e)}), 500
+

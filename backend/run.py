@@ -25,7 +25,7 @@ nltk.download('punkt')
 SECRETS_DIR = Path.home() / ".app_secrets"
 SECRETS_PATH = SECRETS_DIR / "env.json"
 if not SECRETS_PATH.exists():
-    raise FileNotFoundError(f"Missing secrets file: {SECRETS_PATH***REMOVED***")
+    raise FileNotFoundError(f"Missing secrets file: {SECRETS_PATH}")
 
 with open(SECRETS_PATH) as f:
     secrets = json.load(f)
@@ -35,7 +35,7 @@ if not ASSEMBLYAI_API_KEY:
     raise ValueError("Missing ASSEMBLYAI_API_KEY environment variable.")
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"***REMOVED******REMOVED***)
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 app.config['MAX_CONTENT_LENGTH'] = 25 * 1024 * 1024
 app.register_blueprint(zoho_bp)
 
@@ -61,7 +61,7 @@ def get_zoho_token():
             'client_secret': ZOHO_CLIENT_SECRET,
             'refresh_token': ZOHO_REFRESH_TOKEN,
             'grant_type': 'refresh_token'
-        ***REMOVED***
+        }
         
         response = requests.post(url, data=data)
         
@@ -70,10 +70,10 @@ def get_zoho_token():
             token_data = response.json()
             return jsonify(token_data), 200
         else:
-            return jsonify({"error": "Failed to fetch Zoho token", "message": response.text***REMOVED***), 500
+            return jsonify({"error": "Failed to fetch Zoho token", "message": response.text}), 500
 
     except Exception as e:
-        return jsonify({"error": "An error occurred", "message": str(e)***REMOVED***), 500
+        return jsonify({"error": "An error occurred", "message": str(e)}), 500
 
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -81,10 +81,10 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def log_transcript_to_file(transcript):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     os.makedirs("transcripts", exist_ok=True)
-    path = os.path.join("transcripts", f"transcript_{timestamp***REMOVED***.txt")
+    path = os.path.join("transcripts", f"transcript_{timestamp}.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write(transcript)
-    logging.info(f"Transcript logged to {path***REMOVED***")
+    logging.info(f"Transcript logged to {path}")
 
 def assign_owner(action, entities, last_mentioned=None):
     person_entities = [e.lower() for e in entities]
@@ -93,7 +93,7 @@ def assign_owner(action, entities, last_mentioned=None):
         "he": last_mentioned,
         "she": last_mentioned,
         "they": last_mentioned
-    ***REMOVED***
+    }
 
     lower_action = action.lower()
     is_ambiguous = False
@@ -101,16 +101,16 @@ def assign_owner(action, entities, last_mentioned=None):
     for person in person_entities:
         if person in lower_action:
             cleaned_action = action.replace(person, '').strip()
-            assigned = f"{person.title()***REMOVED*** needs to {cleaned_action***REMOVED***"
+            assigned = f"{person.title()} needs to {cleaned_action}"
             return person.title(), assigned, is_ambiguous
 
     for pronoun, fallback in pronouns.items():
         if pronoun in lower_action and fallback:
-            assigned = f"{fallback.title()***REMOVED*** needs to {action***REMOVED***"
+            assigned = f"{fallback.title()} needs to {action}"
             return fallback.title(), assigned, is_ambiguous
 
     # Fallback
-    assigned = f"Someone needs to {action***REMOVED***"
+    assigned = f"Someone needs to {action}"
     is_ambiguous = True
 
     generic_verbs = ["do", "handle", "fix", "work", "make", "take care", "something"]
@@ -121,7 +121,7 @@ def assign_owner(action, entities, last_mentioned=None):
 
 @app.route("/auth-url")
 def auth_url():
-    return jsonify({"url": get_auth_url()***REMOVED***)
+    return jsonify({"url": get_auth_url()})
 
 @app.route("/callback")
 def auth_callback():
@@ -132,18 +132,18 @@ def auth_callback():
         tokens = exchange_code_for_tokens(code)
         return "Authorization successful."
     except Exception as e:
-        return f"Error exchanging code: {e***REMOVED***", 500
+        return f"Error exchanging code: {e}", 500
 
 @app.route('/process-audio', methods=['POST'])
 def process_audio():
     try:
         file = request.files.get('audio')
         if not file or not file.content_type.startswith('audio/'):
-            return jsonify({"error": "Invalid file or missing."***REMOVED***), 400
+            return jsonify({"error": "Invalid file or missing."}), 400
 
         file.seek(0, os.SEEK_END)
         if file.tell() > 25 * 1024 * 1024:
-            return jsonify({"error": "File too large! Max 25MB allowed."***REMOVED***), 400
+            return jsonify({"error": "File too large! Max 25MB allowed."}), 400
         file.seek(0)
 
         original_path = "original_audio.wav"
@@ -165,7 +165,7 @@ def process_audio():
         with open(final_path, 'rb') as f:
             upload_res = requests.post(
                 'https://api.assemblyai.com/v2/upload',
-                headers={'authorization': ASSEMBLYAI_API_KEY***REMOVED***,
+                headers={'authorization': ASSEMBLYAI_API_KEY},
                 data=f
             )
         logging.info("Upload response: %s", upload_res.text)
@@ -173,31 +173,31 @@ def process_audio():
 
         transcript_res = requests.post(
             'https://api.assemblyai.com/v2/transcript',
-            headers={'authorization': ASSEMBLYAI_API_KEY, 'content-type': 'application/json'***REMOVED***,
+            headers={'authorization': ASSEMBLYAI_API_KEY, 'content-type': 'application/json'},
             json={
                 'audio_url': upload_url,
                 'punctuate': True,
                 'entity_detection': True
-            ***REMOVED***
+            }
         )
         transcript_id = transcript_res.json()['id']
 
-        polling_url = f'https://api.assemblyai.com/v2/transcript/{transcript_id***REMOVED***'
+        polling_url = f'https://api.assemblyai.com/v2/transcript/{transcript_id}'
         while True:
-            status_res = requests.get(polling_url, headers={'authorization': ASSEMBLYAI_API_KEY***REMOVED***)
+            status_res = requests.get(polling_url, headers={'authorization': ASSEMBLYAI_API_KEY})
             status_data = status_res.json()
             if status_data['status'] == 'completed':
                 transcript = status_data['text']
                 entities = status_data.get('entities', [])
                 log_transcript_to_file(transcript)
-                return jsonify({'transcript': transcript, 'entities': entities***REMOVED***)
+                return jsonify({'transcript': transcript, 'entities': entities})
             elif status_data['status'] == 'error':
-                return jsonify({"error": "Transcription failed", "details": status_data.get("error")***REMOVED***), 500
+                return jsonify({"error": "Transcription failed", "details": status_data.get("error")}), 500
             time.sleep(3)
 
     except Exception as e:
         logging.exception("Unhandled error in /process-audio")
-        return jsonify({"error": "Unexpected server error", "details": str(e)***REMOVED***), 500
+        return jsonify({"error": "Unexpected server error", "details": str(e)}), 500
     finally:
         for path in ["original_audio.wav", "converted_audio.wav", "trimmed_audio.wav"]:
             if os.path.exists(path):
@@ -211,7 +211,7 @@ def process_json_for_AB_testing():
     entities = data.get("entities", [])
 
     if not transcript:
-        return jsonify({"error": "Transcript missing."***REMOVED***), 400
+        return jsonify({"error": "Transcript missing."}), 400
 
     sentences = sent_tokenize(transcript)
     summary, actions, decisions = [], [], []
@@ -234,7 +234,7 @@ def process_json_for_AB_testing():
         "summary": summary,
         "actions": [a['text'] for a in assigned_actions],
         "decisions": decisions
-    ***REMOVED***)
+    })
 
 @app.route('/create-event', methods=['POST'])
 def create_event():
@@ -242,21 +242,21 @@ def create_event():
     events = data.get("events", [])
 
     if not events:
-        return jsonify({"error": "No events provided"***REMOVED***), 400
+        return jsonify({"error": "No events provided"}), 400
 
     try:
         for event in events:
-            title = f"Follow-up: {event['owner']***REMOVED***" if event.get('owner') else "Meeting Follow-up"
-            description = f"{event['text']***REMOVED***\n\nOwner: {event.get('owner', 'Unassigned')***REMOVED***"
+            title = f"Follow-up: {event['owner']}" if event.get('owner') else "Meeting Follow-up"
+            description = f"{event['text']}\n\nOwner: {event.get('owner', 'Unassigned')}"
             start = event["startTime"]
             end = (datetime.fromisoformat(start) + timedelta(minutes=30)).isoformat()
 
             create_calendar_event(title, description, start, end)
 
-        return jsonify({"success": True***REMOVED***)
+        return jsonify({"success": True})
     except Exception as e:
         logging.exception("Failed to create events")
-        return jsonify({"error": "Failed to create one or more events", "details": str(e)***REMOVED***), 500
+        return jsonify({"error": "Failed to create one or more events", "details": str(e)}), 500
 
 @app.route('/zoho/user')
 def get_zoho_user():
@@ -264,11 +264,11 @@ def get_zoho_user():
         profile = get_user_profile()
         return jsonify(profile)
     except Exception as e:
-        return jsonify({"error": str(e)***REMOVED***), 500
+        return jsonify({"error": str(e)}), 500
 
 def parse_llm_sections(text):
     def extract_section(name):
-        pattern = rf"{name***REMOVED***:\s*([\s\S]*?)(?=\n[A-Z][a-z]+:|\Z)"
+        pattern = rf"{name}:\s*([\s\S]*?)(?=\n[A-Z][a-z]+:|\Z)"
         match = re.search(pattern, text)
         if match:
             lines = match.group(1).strip().split('\n')
@@ -279,7 +279,7 @@ def parse_llm_sections(text):
         "summary": extract_section("Summary"),
         "actions": extract_section("Action Items"),
         "decisions": extract_section("Decisions"),
-    ***REMOVED***
+    }
 
 @app.route('/process-json', methods=['POST'])
 def process_json():
@@ -289,7 +289,7 @@ def process_json():
         entities = data.get("entities", [])
 
         if not transcript:
-            return jsonify({"error": "Transcript missing."***REMOVED***), 400
+            return jsonify({"error": "Transcript missing."}), 400
 
         raw_output = generate_summary_and_extraction(transcript)
         parsed = parse_llm_sections(raw_output)
@@ -321,10 +321,11 @@ def process_json():
             "actions": assigned_actions,
             "decisions": parsed["decisions"],
             "raw_output": raw_output,
-        ***REMOVED***)
+        })
     except Exception as e:
         logging.exception("Error in /process-json")
-        return jsonify({"error": str(e)***REMOVED***), 500
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
+

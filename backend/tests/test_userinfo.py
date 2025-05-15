@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 mock_userinfo_response = {
     "Email": "user@example.com",
     "Display_Name": "Zoho User"
-***REMOVED***
+}
 
 # Simulated Flask app with /zoho/userinfo route
 def create_test_app():
@@ -31,3 +31,4 @@ def test_zoho_userinfo_endpoint():
     assert response.status_code == 200
     assert data["Email"] == "user@example.com"
     assert data["Display_Name"] == "Zoho User"
+

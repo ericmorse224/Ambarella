@@ -18,6 +18,7 @@ def transcribe_audio(file_path):
     response = client.recognize(config=config, audio=audio)
 
     for result in response.results:
-        print("Transcript: {***REMOVED***".format(result.alternatives[0].transcript))
+        print("Transcript: {}".format(result.alternatives[0].transcript))
 
 transcribe_audio("Recording.wav")
+

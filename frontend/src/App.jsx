@@ -1,5 +1,5 @@
-﻿// src/App.jsx
-import React, { useState ***REMOVED*** from 'react';
+// src/App.jsx
+import React, { useState } from 'react';
 import useMeetingState from './hooks/UseMeetingState';
 import ReviewPanel from './components/ReviewPanel';
 
@@ -20,7 +20,7 @@ export default function App() {
         setTranscript,
         setActions,
         error, // from useMeetingState, for audio/transcript errors
-    ***REMOVED*** = useMeetingState();
+    } = useMeetingState();
 
     const handleZohoConnect = async () => {
         setZohoError('');
@@ -29,15 +29,15 @@ export default function App() {
             const result = await response.json();
             if (response.ok && result.access_token) {
                 alert('Connected to Zoho!');
-            ***REMOVED*** else {
+            } else {
                 console.error("Zoho token error:", result);
                 setZohoError(result.message || 'Error fetching Zoho token');
-            ***REMOVED***
-        ***REMOVED*** catch (err) {
+            }
+        } catch (err) {
             console.error("Fetch error:", err);
             setZohoError('Error fetching Zoho token');
-        ***REMOVED***
-    ***REMOVED***;
+        }
+    };
 
 
     const handleFileChange = (e) => {
@@ -46,13 +46,13 @@ export default function App() {
         if (selectedFile.size > 10 * 1024 * 1024) {
             window.alert('File size exceeds 10MB limit');
             return;
-        ***REMOVED***
+        }
         if (!selectedFile.type.startsWith('audio/')) {
             window.alert('Unsupported file type! Please upload a valid audio file.');
             return;
-        ***REMOVED***
+        }
         setFile(selectedFile);
-    ***REMOVED***;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -62,16 +62,16 @@ export default function App() {
         const audioSuccess = await processAudio(file);
         if (audioSuccess) {
             await processTranscript();
-        ***REMOVED***
-    ***REMOVED***;
+        }
+    };
 
     const handleDownload = (content, filename) => {
-        const blob = new Blob([content], { type: 'text/plain' ***REMOVED***);
+        const blob = new Blob([content], { type: 'text/plain' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
         link.download = filename;
         link.click();
-    ***REMOVED***;
+    };
 
     const handleSchedule = async () => {
         setScheduleError('');
@@ -79,127 +79,128 @@ export default function App() {
         try {
             const response = await fetch('/api/schedule', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' ***REMOVED***,
-                body: JSON.stringify({ actions ***REMOVED***),
-            ***REMOVED***);
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ actions }),
+            });
             const data = await response.json();
             if (response.ok) {
                 setScheduleSuccess('Events scheduled successfully');
-            ***REMOVED*** else {
+            } else {
                 setScheduleError(data.error || 'Error scheduling events');
-            ***REMOVED***
-        ***REMOVED*** catch (err) {
+            }
+        } catch (err) {
             setScheduleError('Error scheduling events');
-        ***REMOVED***
-    ***REMOVED***;
+        }
+    };
 
     return (
         <div className="p-6 max-w-xl mx-auto font-sans">
             <h1 className="text-2xl font-bold mb-4">AI Meeting Summarizer (AssemblyAI + OpenAI)</h1>
 
             <button
-                onClick={handleZohoConnect***REMOVED***
+                onClick={handleZohoConnect}
                 className="mb-4 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
                 Connect to Zoho
             </button>
 
-            <form onSubmit={handleSubmit***REMOVED*** className="mb-4">
+            <form onSubmit={handleSubmit} className="mb-4">
                 <label className="block font-medium mb-1" htmlFor="audio-upload">Upload Audio</label>
                 <input
                     id="audio-upload"
                     type="file"
                     accept="audio/*"
-                    onChange={handleFileChange***REMOVED***
+                    onChange={handleFileChange}
                     className="w-full p-2 border border-gray-300 rounded mb-2"
                 />
                 <p className="text-sm text-gray-600 mt-1">
-                    Selected file: {file ? file.name : 'None'***REMOVED***
+                    Selected file: {file ? file.name : 'None'}
                 </p>
                 <button
                     type="submit"
-                    disabled={isLoading || !file***REMOVED***
+                    disabled={isLoading || !file}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded disabled:opacity-50 flex items-center gap-2"
                 >
-                    {isLoading ? 'Processing...' : 'Transcribe Audio'***REMOVED***
+                    {isLoading ? 'Processing...' : 'Transcribe Audio'}
                 </button>
                 {isLoading && (
-                    <div className="text-sm text-gray-600 mt-2">Attempt {uploadAttempts + 1***REMOVED*** of 2...</div>
-                )***REMOVED***
+                    <div className="text-sm text-gray-600 mt-2">Attempt {uploadAttempts + 1} of 2...</div>
+                )}
             </form>
 
-            {/* Error messages */***REMOVED***
+            {/* Error messages */}
             {zohoError && (
                 <p className="mt-2 text-sm text-center text-red-600" role="alert">
-                    {zohoError***REMOVED***
+                    {zohoError}
                 </p>
-            )***REMOVED***
+            )}
             {error && (
                 <p className="mt-2 text-sm text-center text-red-600" role="alert">
-                    {error***REMOVED***
+                    {error}
                 </p>
-            )***REMOVED***
+            )}
             {scheduleError && (
                 <p className="mt-2 text-sm text-center text-red-600" role="alert">
-                    {scheduleError***REMOVED***
+                    {scheduleError}
                 </p>
-            )***REMOVED***
+            )}
             {scheduleSuccess && (
                 <p className="mt-2 text-sm text-center text-green-600" role="status">
-                    {scheduleSuccess***REMOVED***
+                    {scheduleSuccess}
                 </p>
-            )***REMOVED***
+            )}
 
             {transcript && (
                 <div>
                     <h2 className="text-lg font-bold mt-4">Transcript:</h2>
-                    <p className="whitespace-pre-line text-sm mt-1">{transcript***REMOVED***</p>
+                    <p className="whitespace-pre-line text-sm mt-1">{transcript}</p>
                     <button
                         className="mt-2 bg-gray-700 text-white px-3 py-1 rounded"
-                        onClick={() => handleDownload(transcript, 'transcript.txt')***REMOVED***
+                        onClick={() => handleDownload(transcript, 'transcript.txt')}
                     >
                         Download Transcript
                     </button>
                 </div>
-            )***REMOVED***
+            )}
 
             {summary.length > 0 && (
                 <div>
                     <h2 className="text-lg font-bold mt-4">Summary:</h2>
                     <ul className="list-disc list-inside text-sm">
-                        {summary.map((s, i) => <li key={i***REMOVED***>{s***REMOVED***</li>)***REMOVED***
+                        {summary.map((s, i) => <li key={i}>{s}</li>)}
                     </ul>
                     <button
                         className="mt-2 bg-gray-700 text-white px-3 py-1 rounded"
-                        onClick={() => handleDownload(summary.join('\n'), 'summary.txt')***REMOVED***
+                        onClick={() => handleDownload(summary.join('\n'), 'summary.txt')}
                     >
                         Download Summary
                     </button>
                 </div>
-            )***REMOVED***
+            )}
 
             {decisions.length > 0 && (
                 <div>
                     <h2 className="text-lg font-bold mt-4">Decisions:</h2>
                     <ul className="list-disc list-inside text-sm">
-                        {decisions.map((d, i) => <li key={i***REMOVED***>{d***REMOVED***</li>)***REMOVED***
+                        {decisions.map((d, i) => <li key={i}>{d}</li>)}
                     </ul>
                 </div>
-            )***REMOVED***
+            )}
 
             {actions.length > 0 && (
                 <div className="mt-6">
                     <h2 className="text-xl font-semibold mb-4">Review and Schedule Actions</h2>
                     <div className="border rounded p-4 mb-4 space-y-2">
-                        <ReviewPanel actions={actions***REMOVED*** setActions={setActions***REMOVED*** />
+                        <ReviewPanel actions={actions} setActions={setActions} />
                     </div>
                     <button
                         className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-                        onClick={handleSchedule***REMOVED***
+                        onClick={handleSchedule}
                     >
                         Schedule Selected
                     </button>
                 </div>
-            )***REMOVED***
+            )}
         </div>
     );
-***REMOVED***
+}
+

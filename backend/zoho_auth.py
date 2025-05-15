@@ -25,11 +25,11 @@ zoho_bp = Blueprint('zoho', __name__)
 def get_auth_url():
     return (
         "https://accounts.zoho.com/oauth/v2/auth?"
-        f"scope={scope***REMOVED***"
-        f"&client_id={ZOHO_CLIENT_ID***REMOVED***"
+        f"scope={scope}"
+        f"&client_id={ZOHO_CLIENT_ID}"
         f"&response_type=code"
         f"&access_type=offline"
-        f"&redirect_uri={ZOHO_REDIRECT_URI***REMOVED***"
+        f"&redirect_uri={ZOHO_REDIRECT_URI}"
         f"&prompt=consent"
     )
 
@@ -41,19 +41,19 @@ def exchange_code_for_tokens(code):
         'client_secret': ZOHO_CLIENT_SECRET,
         'redirect_uri': ZOHO_REDIRECT_URI,
         'code': code
-    ***REMOVED***
+    }
     response = request.post(token_url, data=data)
     if response.ok:
         return response.json()
     else:
-        raise Exception(f"Failed to exchange code: {response.text***REMOVED***")
+        raise Exception(f"Failed to exchange code: {response.text}")
 
 @zoho_bp.route("/zoho/auth")
 def zoho_auth():
     url = (
         "https://accounts.zoho.com/oauth/v2/auth?"
-        f"scope={scope***REMOVED***&client_id={ZOHO_CLIENT_ID***REMOVED***"
-        f"&response_type=code&access_type=offline&redirect_uri={ZOHO_REDIRECT_URI***REMOVED***"
+        f"scope={scope}&client_id={ZOHO_CLIENT_ID}"
+        f"&response_type=code&access_type=offline&redirect_uri={ZOHO_REDIRECT_URI}"
     )
     return redirect(url)
 
@@ -68,10 +68,10 @@ def zoho_callback():
         'client_secret': ZOHO_CLIENT_SECRET,
         'redirect_uri': ZOHO_REDIRECT_URI,
         'code': code
-    ***REMOVED***
+    }
     response = requests.post(token_url, data=data)
     if not response.ok:
-        return jsonify({"error": "Failed to exchange code for tokens", "details": response.text***REMOVED***), 500
+        return jsonify({"error": "Failed to exchange code for tokens", "details": response.text}), 500
 
     tokens = response.json()
      # Save tokens to secrets file
@@ -80,3 +80,4 @@ def zoho_callback():
         json.dump(secrets, f, indent=2)
 
     return jsonify(tokens)
+

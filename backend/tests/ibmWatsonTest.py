@@ -19,3 +19,4 @@ def transcribe_audio(file_path):
         print(response)
 
 transcribe_audio("Recording.wav")
+

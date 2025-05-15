@@ -1,6 +1,6 @@
 ﻿// src/App.jsx
 import React, { useState ***REMOVED*** from 'react';
-import useMeetingState from './hooks/useMeetingState';
+import useMeetingState from './hooks/UseMeetingState';
 import ReviewPanel from './components/ReviewPanel';
 
 export default function App() {
@@ -25,17 +25,20 @@ export default function App() {
     const handleZohoConnect = async () => {
         setZohoError('');
         try {
-            const response = await fetch('/api/auth/zoho');
+            const response = await fetch('/api/zoho-token');
             const result = await response.json();
-            if (result.success) {
+            if (response.ok && result.access_token) {
                 alert('Connected to Zoho!');
             ***REMOVED*** else {
-                setZohoError('Error fetching Zoho token');
+                console.error("Zoho token error:", result);
+                setZohoError(result.message || 'Error fetching Zoho token');
             ***REMOVED***
         ***REMOVED*** catch (err) {
+            console.error("Fetch error:", err);
             setZohoError('Error fetching Zoho token');
         ***REMOVED***
     ***REMOVED***;
+
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];

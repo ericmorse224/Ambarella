@@ -5,87 +5,85 @@ import axios from "axios";
 vi.mock("axios");
 
 const mockActions = [
-  { include: true, owner: 'Alice', datetime: '2025-05-14T14:30', summary: 'Prepare report' ***REMOVED***,
-  { include: true, owner: 'Bob', datetime: '2025-05-14T15:00', summary: 'Action B' ***REMOVED***,
+    { include: true, owner: 'Alice', datetime: '2025-05-14T14:30', summary: 'Prepare report' ***REMOVED***,
+    { include: true, owner: 'Bob', datetime: '2025-05-14T15:00', summary: 'Action B' ***REMOVED***,
 ];
 
 describe('calendarActions', () => {
-  it('does not schedule actions that are not included', async () => {
-    const mockActions = [
-      { summary: 'Action A', owner: 'Alice', datetime: '2025-05-14T14:30', include: false ***REMOVED***,
-      { summary: 'Action B', owner: 'Bob', datetime: '2025-05-14T15:00', include: true ***REMOVED***,
-    ];
+    it('does not schedule actions that are not included', async () => {
+        const mockActions = [
+            { summary: 'Action A', owner: 'Alice', datetime: '2025-05-14T14:30', include: false ***REMOVED***,
+            { summary: 'Action B', owner: 'Bob', datetime: '2025-05-14T15:00', include: true ***REMOVED***,
+        ];
 
-    axios.post.mockResolvedValue({***REMOVED***);
+        axios.post.mockResolvedValue({***REMOVED***);
+        await scheduleActions(mockActions);
+        expect(axios.post).toHaveBeenCalledTimes(1);
+    ***REMOVED***);
 
-    await scheduleActions(mockActions);
+    it("creates event with correct parameters", async () => {
+        axios.post.mockResolvedValueOnce({ data: {***REMOVED*** ***REMOVED***);
 
-    expect(axios.post).toHaveBeenCalledTimes(1); // Only one action should be scheduled
-  ***REMOVED***);
+        await scheduleActions(mockActions);
 
-  it("creates event with correct parameters", async () => {
-    axios.post.mockResolvedValueOnce({ data: {***REMOVED*** ***REMOVED***);
+        expect(axios.post).toHaveBeenCalledWith(
+            "https://www.zohoapis.com/calendar/v2/events",
+            {
+                data: [
+                    {
+                        summary: "Prepare report",
+                        owner: "Alice",
+                        datetime: "2025-05-14T14:30",
+                        include: true,
+                    ***REMOVED***,
+                    {
+                        summary: "Action B",
+                        owner: "Bob",
+                        datetime: "2025-05-14T15:00",
+                        include: true,
+                    ***REMOVED***,
+                ],
+            ***REMOVED***
+        );
+    ***REMOVED***);
 
-    await scheduleActions(mockActions);
+    it("handles missing datetime gracefully", async () => {
+        const actionsWithMissingDatetime = [
+            { include: true, owner: "Alice", summary: "Do something" ***REMOVED***,
+            { include: true, owner: "Bob", summary: "Another thing", datetime: "2025-05-14T15:00" ***REMOVED***,
+            { include: true, owner: "Carol", summary: "Third task" ***REMOVED***
+        ];
 
-    expect(axios.post).toHaveBeenCalledWith(
-      "https://www.zohoapis.com/calendar/v2/events",
-      {
-        data: [
-          {
-            summary: "Prepare report",
-            owner: "Alice",
-            datetime: "2025-05-14T14:30", // changed from start_time to datetime
-            include: true,
-          ***REMOVED***,
-          {
-            summary: "Action B",
-            owner: "Bob",
-            datetime: "2025-05-14T15:00", // changed from start_time to datetime
-            include: true,
-          ***REMOVED***,
-        ],
-      ***REMOVED***
-    );
-  ***REMOVED***);
+        axios.post.mockClear();
+        await scheduleActions(actionsWithMissingDatetime);
 
-  it("handles missing datetime gracefully", async () => {
-    const actionsWithMissingDatetime = [
-      { include: true, owner: "Alice", summary: "Do something" ***REMOVED***, // Missing datetime
-      { include: true, owner: "Bob", summary: "Another thing", datetime: "2025-05-14T15:00" ***REMOVED***,
-      { include: true, owner: "Carol", summary: "Third task" ***REMOVED*** // Missing datetime
-    ];
+        expect(axios.post).toHaveBeenCalledTimes(1);
+        expect(axios.post).toHaveBeenCalledWith(
+            "https://www.zohoapis.com/calendar/v2/events",
+            {
+                data: [
+                    {
+                        include: true,
+                        owner: "Bob",
+                        summary: "Another thing",
+                        datetime: "2025-05-14T15:00"
+                    ***REMOVED***
+                ]
+            ***REMOVED***
+        );
+    ***REMOVED***);
 
-    axios.post.mockClear(); // 👈 Clear previous calls if any
-    await scheduleActions(actionsWithMissingDatetime);
+    it("handles API error gracefully", async () => {
+        axios.post.mockRejectedValueOnce(new Error("Error scheduling events"));
 
-    // Expect only one call for the single valid datetime
-    expect(axios.post).toHaveBeenCalledTimes(1);
-    expect(axios.post).toHaveBeenCalledWith(
-      "https://www.zohoapis.com/calendar/v2/events",
-      {
-        data: [
-          {
-            include: true,
-            owner: "Bob",
-            summary: "Another thing",
-            datetime: "2025-05-14T15:00"
-          ***REMOVED***
-        ]
-      ***REMOVED***
-    );
-  ***REMOVED***);
+        try {
+            await scheduleActions(mockActions);
+        ***REMOVED*** catch (error) {
+            expect(error.message).toBe("Error scheduling events");
+        ***REMOVED***
+    ***REMOVED***);
+***REMOVED***);
 
-
-  it("handles API error gracefully", async () => {
-    axios.post.mockRejectedValueOnce(new Error("Error scheduling events"));
-
-    try {
-      await scheduleActions(mockActions);
-    ***REMOVED*** catch (error) {
-      expect(error.message).toBe("Error scheduling events");
-    ***REMOVED***
-  ***REMOVED***);
 
   it("creates event with correct parameters when only included actions are passed", async () => {
     axios.post.mockResolvedValueOnce({ data: {***REMOVED*** ***REMOVED***);

@@ -1,136 +1,137 @@
-﻿import { render, screen, fireEvent, waitFor ***REMOVED*** from "@testing-library/react";
-import App from "./App";
-import { vi ***REMOVED*** from "vitest";
+﻿import { render, screen, fireEvent, waitFor ***REMOVED*** from '@testing-library/react';
+import App from '../App';
+import { vi ***REMOVED*** from 'vitest';
+import axios from 'axios';
 
-// Mock global fetch
-beforeEach(() => {
-    vi.restoreAllMocks();
-***REMOVED***);
+// Mock only external APIs
+vi.mock('axios');
 
-global.fetch = vi.fn();
+describe('App Component', () => {
+    beforeEach(() => {
+        axios.post.mockReset();
+        axios.get.mockReset();
+        vi.spyOn(window, 'alert').mockImplementation(() => { ***REMOVED***);
+    ***REMOVED***);
 
-vi.mock("./hooks/useMeetingState", () => ({
-    default: () => ({
-        transcript: "Test transcript",
-        setTranscript: vi.fn(),
-        summary: ["Summary A"],
-        setSummary: vi.fn(),
-        actions: [
-            { text: "Action A", owner: "", datetime: "", include: true ***REMOVED***
-        ],
-        setActions: vi.fn(),
-        decisions: ["Decision A"],
-        setDecisions: vi.fn()
-    ***REMOVED***)
-***REMOVED***));
+    it('alerts on large file upload', () => {
+        render(<App />);
+        const fileInput = screen.getByLabelText(/upload audio/i);
+        const largeFile = new File(['a'.repeat(11 * 1024 * 1024)], 'large.mp3', { type: 'audio/mpeg' ***REMOVED***);
 
-describe("App Component", () => {
-    it("alerts on large file upload", async () => {
-        const alertMock = vi.spyOn(window, "alert").mockImplementation(() => { ***REMOVED***);
+        fireEvent.change(fileInput, { target: { files: [largeFile] ***REMOVED*** ***REMOVED***);
+        expect(window.alert).toHaveBeenCalledWith('File size exceeds 10MB limit');
+    ***REMOVED***);
+
+    it('fetches and processes audio correctly', async () => {
+        axios.post.mockResolvedValueOnce({ data: { transcript: 'Test transcript' ***REMOVED*** ***REMOVED***);
+        axios.post.mockResolvedValueOnce({
+            data: {
+                summary: ['Summary A'],
+                actions: ['Action A'],
+                decisions: ['Decision A']
+            ***REMOVED***
+        ***REMOVED***);
+
+        render(<App />);
+        const fileInput = screen.getByLabelText(/upload audio/i);
+        const file = new File(['audio'], 'audio.mp3', { type: 'audio/mpeg' ***REMOVED***);
+
+        fireEvent.change(fileInput, { target: { files: [file] ***REMOVED*** ***REMOVED***);
+        fireEvent.click(screen.getByRole('button', { name: /Transcribe Audio/i ***REMOVED***));
+
+        await waitFor(() => screen.getByText(/Test transcript/i));
+        expect(screen.getByText(/Summary A/i)).toBeInTheDocument();
+        expect(screen.getByText(/Decision A/i)).toBeInTheDocument();
+    ***REMOVED***);
+
+    it('shows error when Zoho token fetch fails', async () => {
+        axios.get.mockRejectedValueOnce(new Error('Network Error'));
         render(<App />);
 
-        const fileInput = screen.getByLabelText(/upload audio/i);
-        const largeFile = new File(["a".repeat(11 * 1024 * 1024)], "large.mp3", {
-            type: "audio/mp3"
-        ***REMOVED***);
+        const connectBtn = screen.getByRole('button', { name: /Connect to Zoho/i ***REMOVED***);
+        fireEvent.click(connectBtn);
 
         await waitFor(() =>
-            fireEvent.change(fileInput, { target: { files: [largeFile] ***REMOVED*** ***REMOVED***)
+            expect(screen.getByText(/Error fetching Zoho token/i)).toBeInTheDocument()
         );
-
-        expect(alertMock).toHaveBeenCalledWith("File size exceeds 10MB limit.");
-        alertMock.mockRestore();
     ***REMOVED***);
 
-    it("fetches and processes audio correctly", async () => {
-        fetch
+    it('handles audio API failure gracefully', async () => {
+        axios.post.mockRejectedValueOnce(new Error('Network Error'));
+        render(<App />);
+
+        const fileInput = screen.getByLabelText(/upload audio/i);
+        const file = new File(['audio'], 'audio.mp3', { type: 'audio/mpeg' ***REMOVED***);
+
+        fireEvent.change(fileInput, { target: { files: [file] ***REMOVED*** ***REMOVED***);
+        fireEvent.click(screen.getByRole('button', { name: /Transcribe Audio/i ***REMOVED***));
+
+        await waitFor(() =>
+            expect(screen.getByText(/Error processing audio/i)).toBeInTheDocument()
+        );
+    ***REMOVED***);
+
+    it('schedules selected actions and shows success message', async () => {
+        axios.post
+            .mockResolvedValueOnce({ data: { transcript: 'Test transcript' ***REMOVED*** ***REMOVED***)
             .mockResolvedValueOnce({
-                ok: true,
-                json: async () => ({ transcript: "Test transcript", entities: [] ***REMOVED***)
+                data: {
+                    summary: ['Point 1'],
+                    actions: ['Action A'],
+                    decisions: ['Decision X']
+                ***REMOVED***
             ***REMOVED***)
+            .mockResolvedValueOnce({ status: 200 ***REMOVED***);
+
+        axios.get.mockResolvedValueOnce({ data: { access_token: 'valid_token' ***REMOVED*** ***REMOVED***);
+
+        render(<App />);
+
+        const fileInput = screen.getByLabelText(/upload audio/i);
+        const file = new File(['audio'], 'audio.mp3', { type: 'audio/mpeg' ***REMOVED***);
+
+        fireEvent.change(fileInput, { target: { files: [file] ***REMOVED*** ***REMOVED***);
+        fireEvent.click(screen.getByRole('button', { name: /Transcribe Audio/i ***REMOVED***));
+
+        await waitFor(() => screen.getByText(/Action A/i));
+
+        const scheduleBtn = screen.getByRole('button', { name: /Schedule Selected/i ***REMOVED***);
+        fireEvent.click(scheduleBtn);
+
+        await waitFor(() =>
+            expect(screen.getByText(/Events scheduled successfully/i)).toBeInTheDocument()
+        );
+    ***REMOVED***);
+
+    it('shows error message when scheduling fails', async () => {
+        axios.post
+            .mockResolvedValueOnce({ data: { transcript: 'Test transcript' ***REMOVED*** ***REMOVED***)
             .mockResolvedValueOnce({
-                ok: true,
-                json: async () => ({
-                    summary: ["Summary A"],
-                    actions: ["Action A"],
-                    decisions: ["Decision A"]
-                ***REMOVED***)
-            ***REMOVED***);
+                data: {
+                    summary: ['Point 1'],
+                    actions: ['Action A'],
+                    decisions: ['Decision X']
+                ***REMOVED***
+            ***REMOVED***)
+            .mockRejectedValueOnce(new Error('Error scheduling events'));
+
+        axios.get.mockResolvedValueOnce({ data: { access_token: 'valid_token' ***REMOVED*** ***REMOVED***);
 
         render(<App />);
 
         const fileInput = screen.getByLabelText(/upload audio/i);
-        const validFile = new File(["audio"], "audio.mp3", { type: "audio/mp3" ***REMOVED***);
+        const file = new File(['audio'], 'audio.mp3', { type: 'audio/mpeg' ***REMOVED***);
 
-        fireEvent.change(fileInput, { target: { files: [validFile] ***REMOVED*** ***REMOVED***);
-        fireEvent.click(screen.getByRole("button", { name: /Upload & Analyze/i ***REMOVED***));
+        fireEvent.change(fileInput, { target: { files: [file] ***REMOVED*** ***REMOVED***);
+        fireEvent.click(screen.getByRole('button', { name: /Transcribe Audio/i ***REMOVED***));
 
-        await waitFor(() => {
-            expect(screen.getByText(/Test transcript/i)).toBeInTheDocument();
-            expect(screen.getByText(/Summary A/i)).toBeInTheDocument();
-            expect(screen.getByText(/Action A/i)).toBeInTheDocument();
-            expect(screen.getByText(/Decision A/i)).toBeInTheDocument();
-        ***REMOVED***);
-    ***REMOVED***);
+        await waitFor(() => screen.getByText(/Action A/i));
 
-    it("shows error when Zoho token fetch fails", async () => {
-        fetch.mockRejectedValueOnce(new Error("Network Error"));
+        const scheduleBtn = screen.getByRole('button', { name: /Schedule Selected/i ***REMOVED***);
+        fireEvent.click(scheduleBtn);
 
-        render(<App />);
-
-        fireEvent.click(screen.getByText(/Connect to Zoho/i));
-
-        await waitFor(() => {
-            expect(screen.getByText(/Error connecting to Zoho/i)).toBeInTheDocument();
-        ***REMOVED***);
-    ***REMOVED***);
-
-    it("handles audio API failure gracefully", async () => {
-        fetch.mockResolvedValueOnce({
-            ok: false,
-            json: async () => ({ error: "API Error" ***REMOVED***)
-        ***REMOVED***);
-
-        render(<App />);
-
-        const fileInput = screen.getByLabelText(/upload audio/i);
-        const validFile = new File(["audio"], "audio.mp3", { type: "audio/mp3" ***REMOVED***);
-
-        fireEvent.change(fileInput, { target: { files: [validFile] ***REMOVED*** ***REMOVED***);
-        fireEvent.click(screen.getByRole("button", { name: /Upload & Analyze/i ***REMOVED***));
-
-        await waitFor(() => {
-            expect(screen.getByText(/API Error/i)).toBeInTheDocument();
-        ***REMOVED***);
-    ***REMOVED***);
-
-    it("schedules selected actions and shows success message", async () => {
-        fetch.mockResolvedValueOnce({
-            ok: true,
-            json: async () => ({ message: "Events scheduled" ***REMOVED***)
-        ***REMOVED***);
-
-        render(<App />);
-
-        fireEvent.click(screen.getByRole("button", { name: /Schedule Selected/i ***REMOVED***));
-
-        await waitFor(() => {
-            expect(screen.getByText(/Events scheduled successfully/i)).toBeInTheDocument();
-        ***REMOVED***);
-    ***REMOVED***);
-
-    it("shows error message when scheduling fails", async () => {
-        fetch.mockResolvedValueOnce({
-            ok: false,
-            json: async () => ({ error: "Scheduling failed" ***REMOVED***)
-        ***REMOVED***);
-
-        render(<App />);
-
-        fireEvent.click(screen.getByRole("button", { name: /Schedule Selected/i ***REMOVED***));
-
-        await waitFor(() => {
-            expect(screen.getByText(/Error scheduling events/i)).toBeInTheDocument();
-        ***REMOVED***);
+        await waitFor(() =>
+            expect(screen.getByText(/Error scheduling events/i)).toBeInTheDocument()
+        );
     ***REMOVED***);
 ***REMOVED***);

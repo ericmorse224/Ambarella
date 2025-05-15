@@ -1,4 +1,4 @@
-import React, { useState ***REMOVED*** from 'react';
+import React, { useState } from 'react';
 
 function AudioUploader() {
   const [audioFile, setAudioFile] = useState(null);
@@ -10,7 +10,7 @@ function AudioUploader() {
 
   const handleFileChange = (e) => {
     setAudioFile(e.target.files[0]);
-  ***REMOVED***;
+  };
 
   const uploadAudio = async () => {
     if (!audioFile) return;
@@ -24,22 +24,22 @@ function AudioUploader() {
       const res = await fetch('http://localhost:5000/process-audio', {
         method: 'POST',
         body: formData,
-      ***REMOVED***);
+      });
 
       const data = await res.json();
       if (data.transcript) {
         setTranscript(data.transcript);
         await summarizeTranscript(data.transcript);
-      ***REMOVED*** else {
+      } else {
         alert('Transcription failed');
-      ***REMOVED***
-    ***REMOVED*** catch (err) {
+      }
+    } catch (err) {
       console.error(err);
       alert('Upload failed');
-    ***REMOVED***
+    }
 
     setLoading(false);
-  ***REMOVED***;
+  };
 
   const summarizeTranscript = async (text) => {
     try {
@@ -47,57 +47,58 @@ function AudioUploader() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-        ***REMOVED***,
-        body: JSON.stringify({ transcript: text ***REMOVED***),
-      ***REMOVED***);
+        },
+        body: JSON.stringify({ transcript: text }),
+      });
 
       const data = await res.json();
       setSummary(data.summary || []);
       setActions(data.actions || []);
       setDecisions(data.decisions || []);
-    ***REMOVED*** catch (err) {
+    } catch (err) {
       console.error(err);
       alert('Summarization failed');
-    ***REMOVED***
-  ***REMOVED***;
+    }
+  };
 
   return (
     <div>
       <h2>Upload Meeting Audio</h2>
-      <input type="file" accept="audio/*" onChange={handleFileChange***REMOVED*** />
-      <button onClick={uploadAudio***REMOVED*** disabled={loading***REMOVED***>
-        {loading ? 'Processing...' : 'Upload & Transcribe'***REMOVED***
+      <input type="file" accept="audio/*" onChange={handleFileChange} />
+      <button onClick={uploadAudio} disabled={loading}>
+        {loading ? 'Processing...' : 'Upload & Transcribe'}
       </button>
 
       {transcript && (
         <>
           <h3>Transcript</h3>
-          <p>{transcript***REMOVED***</p>
+          <p>{transcript}</p>
         </>
-      )***REMOVED***
+      )}
 
       {summary.length > 0 && (
         <>
           <h3>Summary</h3>
-          <ul>{summary.map((s, i) => <li key={i***REMOVED***>{s***REMOVED***</li>)***REMOVED***</ul>
+          <ul>{summary.map((s, i) => <li key={i}>{s}</li>)}</ul>
         </>
-      )***REMOVED***
+      )}
 
       {actions.length > 0 && (
         <>
           <h3>Action Items</h3>
-          <ul>{actions.map((a, i) => <li key={i***REMOVED***>{a***REMOVED***</li>)***REMOVED***</ul>
+          <ul>{actions.map((a, i) => <li key={i}>{a}</li>)}</ul>
         </>
-      )***REMOVED***
+      )}
 
       {decisions.length > 0 && (
         <>
           <h3>Decisions</h3>
-          <ul>{decisions.map((d, i) => <li key={i***REMOVED***>{d***REMOVED***</li>)***REMOVED***</ul>
+          <ul>{decisions.map((d, i) => <li key={i}>{d}</li>)}</ul>
         </>
-      )***REMOVED***
+      )}
     </div>
   );
-***REMOVED***
+}
 
 export default AudioUploader;
+

@@ -11,7 +11,7 @@ def load_tokens():
     if TOKENS_FILE.exists():
         with open(TOKENS_FILE) as f:
             return json.load(f)
-    return {***REMOVED***
+    return {}
 
 
 def refresh_access_token():
@@ -27,7 +27,7 @@ def refresh_access_token():
         "client_id": client_id,
         "client_secret": client_secret,
         "grant_type": "refresh_token"
-    ***REMOVED***)
+    })
 
     if response.ok:
         tokens = response.json()
@@ -36,17 +36,18 @@ def refresh_access_token():
             json.dump(tokens, f, indent=2)
         return tokens["access_token"]
     else:
-        raise Exception(f"Failed to refresh Zoho access token: {response.text***REMOVED***")
+        raise Exception(f"Failed to refresh Zoho access token: {response.text}")
 
 
 def update_meeting(meeting_key, access_token, payload):
-    url = f"https://meeting.zoho.com/api/v1/meetings/{meeting_key***REMOVED***"
+    url = f"https://meeting.zoho.com/api/v1/meetings/{meeting_key}"
     headers = {
-        "Authorization": f"Zoho-oauthtoken {access_token***REMOVED***",
+        "Authorization": f"Zoho-oauthtoken {access_token}",
         "Content-Type": "application/json"
-    ***REMOVED***
+    }
     response = requests.put(url, headers=headers, json=payload)
     if response.ok:
         return response.json()
     else:
-        raise Exception(f"Failed to update meeting: {response.text***REMOVED***")
+        raise Exception(f"Failed to update meeting: {response.text}")
+

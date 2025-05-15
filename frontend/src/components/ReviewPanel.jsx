@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const ReviewPanel = ({ actions, setActions ***REMOVED***) => {
+const ReviewPanel = ({ actions, setActions }) => {
     const [statusMessage, setStatusMessage] = React.useState("");
     const [statusType, setStatusType] = React.useState(""); // "success" or "error"
     const [isLoading, setIsLoading] = React.useState(false);
@@ -16,12 +16,12 @@ const ReviewPanel = ({ actions, setActions ***REMOVED***) => {
             // For test: simulate token fetch error
             const tokenResponse = await axios.get("/api/zoho/access-token");
             accessToken = tokenResponse.data.access_token;
-        ***REMOVED*** catch (error) {
+        } catch (error) {
             setStatusMessage("Error fetching Zoho token");
             setStatusType("error");
             setIsLoading(false);
             return;
-        ***REMOVED***
+        }
 
         try {
             const includedActions = actions.filter(
@@ -38,37 +38,37 @@ const ReviewPanel = ({ actions, setActions ***REMOVED***) => {
                                     title: action.text || action, // support both string and object
                                     start_time: action.datetime,
                                     end_time: action.datetime,
-                                    attendees: [{ email: action.owner ***REMOVED***],
-                                ***REMOVED***,
-                            ***REMOVED***,
-                        ***REMOVED***,
+                                    attendees: [{ email: action.owner }],
+                                },
+                            },
+                        },
                         {
                             headers: {
-                                Authorization: `Zoho-oauthtoken ${accessToken***REMOVED***`,
-                            ***REMOVED***,
-                        ***REMOVED***
+                                Authorization: `Zoho-oauthtoken ${accessToken}`,
+                            },
+                        }
                     )
                 )
             );
             setStatusMessage("Events scheduled successfully");
             setStatusType("success");
-        ***REMOVED*** catch (error) {
+        } catch (error) {
             setStatusMessage("Error scheduling events");
             setStatusType("error");
-        ***REMOVED*** finally {
+        } finally {
             setIsLoading(false);
-        ***REMOVED***
-    ***REMOVED***;
+        }
+    };
 
     const updateAction = (index, field, value) => {
         const newActions = [...actions];
         if (typeof newActions[index] === "string") {
             // Convert to object if needed
-            newActions[index] = { text: newActions[index] ***REMOVED***;
-        ***REMOVED***
+            newActions[index] = { text: newActions[index] };
+        }
         newActions[index][field] = value;
         setActions(newActions);
-    ***REMOVED***;
+    };
 
     return (
         <div className="mt-6">
@@ -82,57 +82,58 @@ const ReviewPanel = ({ actions, setActions ***REMOVED***) => {
                     const include = typeof action === "object" ? !!action.include : true;
 
                     return (
-                        <div key={index***REMOVED***>
-                            {/* Make action text visible for tests */***REMOVED***
-                            <div className="font-semibold text-sm mb-1">{actionText***REMOVED***</div>
+                        <div key={index}>
+                            {/* Make action text visible for tests */}
+                            <div className="font-semibold text-sm mb-1">{actionText}</div>
                             <textarea
                                 className="w-full p-2 border border-gray-300 rounded"
                                 readOnly
-                                value={actionText***REMOVED***
+                                value={actionText}
                             />
                             <input
                                 className="w-full p-2 border border-gray-300 rounded"
                                 type="text"
                                 placeholder="Owner"
-                                value={owner***REMOVED***
-                                onChange={(e) => updateAction(index, "owner", e.target.value)***REMOVED***
+                                value={owner}
+                                onChange={(e) => updateAction(index, "owner", e.target.value)}
                             />
                             <input
                                 className="w-full p-2 border border-gray-300 rounded"
                                 type="datetime-local"
-                                value={datetime***REMOVED***
-                                onChange={(e) => updateAction(index, "datetime", e.target.value)***REMOVED***
+                                value={datetime}
+                                onChange={(e) => updateAction(index, "datetime", e.target.value)}
                             />
                             <div className="flex items-center space-x-2">
                                 <input
                                     type="checkbox"
-                                    checked={include***REMOVED***
-                                    onChange={(e) => updateAction(index, "include", e.target.checked)***REMOVED***
+                                    checked={include}
+                                    onChange={(e) => updateAction(index, "include", e.target.checked)}
                                     aria-label="Include this action"
                                 />
                                 <span>Include this action</span>
                             </div>
                         </div>
                     );
-                ***REMOVED***)***REMOVED***
+                })}
             </div>
             <button
                 className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-                onClick={handleSchedule***REMOVED***
-                disabled={isLoading***REMOVED***
+                onClick={handleSchedule}
+                disabled={isLoading}
             >
-                {isLoading ? "Scheduling..." : "Schedule Selected"***REMOVED***
+                {isLoading ? "Scheduling..." : "Schedule Selected"}
             </button>
             {statusMessage && (
                 <p
-                    className={`mt-2 text-sm text-center ${statusType === "success" ? "text-green-600" : "text-red-600"***REMOVED***`***REMOVED***
-                    role={statusType === "success" ? "status" : "alert"***REMOVED***
+                    className={`mt-2 text-sm text-center ${statusType === "success" ? "text-green-600" : "text-red-600"}`}
+                    role={statusType === "success" ? "status" : "alert"}
                 >
-                    {statusMessage***REMOVED***
+                    {statusMessage}
                 </p>
-            )***REMOVED***
+            )}
         </div>
     );
-***REMOVED***;
+};
 
 export default ReviewPanel;
+

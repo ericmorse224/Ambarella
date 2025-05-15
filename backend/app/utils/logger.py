@@ -19,3 +19,4 @@ console_handler.setFormatter(logging.Formatter('%(levelname)s: %(message)s'))
 
 logger.addHandler(file_handler)
 logger.addHandler(console_handler)
+

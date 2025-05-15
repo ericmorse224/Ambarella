@@ -12,10 +12,11 @@ def create_event():
     end_time = data.get('end_time')
 
     if not all([title, start_time, end_time]):
-        return jsonify({'error': 'Missing required fields'***REMOVED***), 400
+        return jsonify({'error': 'Missing required fields'}), 400
 
     try:
         event = create_calendar_event(title, description, start_time, end_time)
-        return jsonify({'message': 'Event created', 'event': event***REMOVED***), 200
+        return jsonify({'message': 'Event created', 'event': event}), 200
     except Exception as e:
-        return jsonify({'error': str(e)***REMOVED***), 500
+        return jsonify({'error': str(e)}), 500
+

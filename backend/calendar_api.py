@@ -23,7 +23,8 @@ def schedule_actions():
             response = create_calendar_event(title, owner, start, end)
             results.append(response)
 
-        return jsonify({"success": True, "scheduled": results***REMOVED***), 200
+        return jsonify({"success": True, "scheduled": results}), 200
 
     except Exception as e:
-        return jsonify({"success": False, "error": str(e)***REMOVED***), 500
+        return jsonify({"success": False, "error": str(e)}), 500
+

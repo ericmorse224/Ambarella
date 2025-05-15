@@ -64,8 +64,8 @@ def test_assign_actions_to_people():
 @patch("calendar_integration.create_calendar_event")
 def test_create_calendar_events(mock_create):
     actions = [
-        {"text": "Follow up with Alice", "owner": "Alice"***REMOVED***,
-        {"text": "General meeting review", "owner": "Unassigned"***REMOVED***
+        {"text": "Follow up with Alice", "owner": "Alice"},
+        {"text": "General meeting review", "owner": "Unassigned"}
     ]
     ci.create_calendar_events(actions)
 
@@ -73,3 +73,4 @@ def test_create_calendar_events(mock_create):
     titles = [call.args[0] for call in mock_create.call_args_list]
     assert "Follow-up: Alice" in titles
     assert "Meeting Follow-up" in titles
+

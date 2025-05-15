@@ -19,7 +19,7 @@ def upload_audio(file_path):
     Returns:
         str: A URL pointing to the uploaded audio file.
     """
-    headers = {'authorization': ASSEMBLYAI_API_KEY***REMOVED***
+    headers = {'authorization': ASSEMBLYAI_API_KEY}
 
     # Open the audio file in binary mode and send it to the upload endpoint
     with open(file_path, 'rb') as f:
@@ -50,11 +50,11 @@ def start_transcription(audio_url):
         'audio_url': audio_url,
         'punctuate': True,         # Request punctuation in the transcript
         'language_code': 'en_us'   # Specify the language of the audio
-    ***REMOVED***
+    }
     headers = {
         'authorization': ASSEMBLYAI_API_KEY,
         'content-type': 'application/json'
-    ***REMOVED***
+    }
 
     # Send the transcription request
     response = requests.post(endpoint, json=json_data, headers=headers)
@@ -75,8 +75,8 @@ def wait_for_completion(transcript_id):
     Returns:
         str: The completed transcript text.
     """
-    endpoint = f'https://api.assemblyai.com/v2/transcript/{transcript_id***REMOVED***'
-    headers = {'authorization': ASSEMBLYAI_API_KEY***REMOVED***
+    endpoint = f'https://api.assemblyai.com/v2/transcript/{transcript_id}'
+    headers = {'authorization': ASSEMBLYAI_API_KEY}
 
     while True:
         # Get the current status of the transcription job
@@ -90,7 +90,7 @@ def wait_for_completion(transcript_id):
             return response.json()['text']
         elif status == 'error':
             # Raise an exception with the error message
-            raise Exception(f"Transcription failed: {response.json()['error']***REMOVED***")
+            raise Exception(f"Transcription failed: {response.json()['error']}")
 
         # Wait 3 seconds before polling again to avoid rate-limiting
         time.sleep(3)
@@ -116,3 +116,4 @@ def transcribe(file_path):
 
 # Execute the transcription pipeline for a file called "Recording.wav"
 transcribe("Recording.wav")
+

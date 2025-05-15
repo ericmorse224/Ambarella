@@ -18,27 +18,28 @@ def create_meetings_from_actions(actions: list):
     for i, action in enumerate(actions):
         # Create a default payload using the action string
         payload = {
-            "topic": f"Action Item {i+1***REMOVED***",
+            "topic": f"Action Item {i+1}",
             "agenda": action,
             "meetingType": "WEBINAR",
             "startTime": "2025-05-15T10:00:00",  # Ideally use actual time parsing/NLP
             "duration": 30,
             "timezone": "America/New_York"
-        ***REMOVED***
+        }
 
         try:
             response = requests.post(
                 "https://meeting.zoho.com/api/v1/meetings",
-                headers={"Authorization": f"Zoho-oauthtoken {access_token***REMOVED***"***REMOVED***,
+                headers={"Authorization": f"Zoho-oauthtoken {access_token}"},
                 json=payload,
                 timeout=10
             )
             response.raise_for_status()
             result = response.json()
             created.append(result)
-            logging.info(f"✅ Created meeting for action: {action***REMOVED***")
+            logging.info(f"✅ Created meeting for action: {action}")
 
         except Exception as e:
-            logging.error(f"❌ Failed to create meeting for action '{action***REMOVED***': {e***REMOVED***")
+            logging.error(f"❌ Failed to create meeting for action '{action}': {e}")
 
     return created
+

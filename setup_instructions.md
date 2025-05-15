@@ -96,10 +96,10 @@ With JSON body:
 ```json
 {
   "transcript": [
-    { "speaker": "Alice", "text": "We decided to launch next week." ***REMOVED***,
-    { "speaker": "Bob", "text": "I will prepare the documentation." ***REMOVED***
+    { "speaker": "Alice", "text": "We decided to launch next week." },
+    { "speaker": "Bob", "text": "I will prepare the documentation." }
   ]
-***REMOVED***
+}
 ```
 
 Response will include:
@@ -123,3 +123,4 @@ Feel free to reach out to the maintainer or consult the README for updates.
 ---
 
 Happy coding! 🎉
+

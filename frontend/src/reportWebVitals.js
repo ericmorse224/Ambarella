@@ -1,2 +1,3 @@
 // src/reportWebVitals.js
-export default function reportWebVitals() {***REMOVED***
+export default function reportWebVitals() {}
+

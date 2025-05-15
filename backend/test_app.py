@@ -8,12 +8,12 @@ class FlaskAppTests(unittest.TestCase):
         self.app.testing = True
 
     def test_no_audio_upload(self):
-        response = self.app.post('/process-audio', data={***REMOVED***)
+        response = self.app.post('/process-audio', data={})
         self.assertEqual(response.status_code, 400)
         self.assertIn("No file uploaded", response.get_data(as_text=True))
 
     def test_invalid_json_to_process_json(self):
-        response = self.app.post('/process-json', json={***REMOVED***)
+        response = self.app.post('/process-json', json={})
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.get_json()['error'], "Transcript is empty or missing.")
     
@@ -24,13 +24,13 @@ class FlaskAppTests(unittest.TestCase):
             "summary": ["Mock summary"],
             "actions": ["Mock action item"],
             "decisions": ["Mock decision"]
-        ***REMOVED***
+        }
         mock_create_meeting.return_value = {
             "status": "success",
             "meeting_url": "https://mock.zoho.meeting"
-        ***REMOVED***
+        }
 
-        sample = {"transcript": "We decided to launch next week. John will prepare slides."***REMOVED***
+        sample = {"transcript": "We decided to launch next week. John will prepare slides."}
         response = self.app.post('/process-json', json=sample)
 
         self.assertEqual(response.status_code, 200)
@@ -42,3 +42,4 @@ class FlaskAppTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

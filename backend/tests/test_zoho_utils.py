@@ -17,21 +17,21 @@ def temp_token_file(monkeypatch):
     with tempfile.NamedTemporaryFile(delete=False) as tf:
         path = Path(tf.name)
     with open(path, "w") as f:
-        json.dump({"access_token": "test", "refresh_token": "test"***REMOVED***, f)
+        json.dump({"access_token": "test", "refresh_token": "test"}, f)
 
     monkeypatch.setattr("zoho_utils.TOKENS_FILE", path)
     yield path
     path.unlink(missing_ok=True)
 
 def test_save_and_load_tokens(temp_token_file):
-    tokens = {"access_token": "abc", "refresh_token": "def"***REMOVED***
+    tokens = {"access_token": "abc", "refresh_token": "def"}
     save_tokens(tokens)
     loaded = load_tokens()
     assert loaded == tokens
 
 def test_load_access_token(temp_token_file):
     with open(temp_token_file, "w") as f:
-        json.dump({"access_token": "abc"***REMOVED***, f)
+        json.dump({"access_token": "abc"}, f)
     assert load_access_token() == "abc"
 
 @patch("requests.post")
@@ -39,7 +39,7 @@ def test_refresh_access_token_success(mock_post, temp_token_file, monkeypatch):
     mock_post.return_value.ok = True
     mock_post.return_value.json.return_value = {
         "access_token": "new_token"
-    ***REMOVED***
+    }
 
     access_token = refresh_access_token()
     assert access_token == "new_token"
@@ -54,7 +54,7 @@ def test_refresh_access_token_failure(mock_post, temp_token_file):
 @patch("zoho_utils.requests.post")
 def test_create_calendar_event_success(mock_post, mock_refresh_token, temp_token_file):
     mock_post.return_value.ok = True
-    mock_post.return_value.json.return_value = {"event_id": "12345"***REMOVED***
+    mock_post.return_value.json.return_value = {"event_id": "12345"}
 
     response = create_calendar_event(
         title="Test Event",
@@ -74,7 +74,8 @@ def test_refresh_expired_token(mock_post, temp_token_file, monkeypatch):
     mock_post.return_value.json.return_value = {
         "access_token": "expired_token",
         "expires_in": 0
-    ***REMOVED***
+    }
 
     access_token = refresh_access_token()
     assert access_token == "expired_token"
+

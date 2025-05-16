@@ -1,6 +1,8 @@
 from app.utils.zoho_utils import refresh_access_token, create_meeting
 import requests
 import logging
+from datetime import datetime
+from app.utils.logger import logger
 
 # Auto-create meetings from extracted action items
 
@@ -76,9 +78,21 @@ def update_meeting(meeting_key, access_token, payload):
 def auto_schedule_meetings(actions):
     results = []
     for action in actions:
-        title = f"Meeting: {action.get('owner')}"
-        agenda = action.get("text")
-        start_time = "2025-05-21T15:00:00"  # Placeholder start time or derive dynamically
-        result = create_meeting(title, agenda, start_time)
-        results.append(result)
+        if not isinstance(action, dict):
+            logger.warning("Skipping invalid action: %s", action)
+            continue
+
+        owner = action.get("owner", "None")
+        agenda = action.get("text", "No details provided")
+        title = f"Meeting: {owner}"
+        start_time = datetime.now().isoformat()
+
+        try:
+            result = create_meeting(title, agenda, start_time)
+            results.append(result)
+        except Exception as e:
+            logger.error("Failed to schedule meeting: %s", e)
+            return []
+
+
     return results

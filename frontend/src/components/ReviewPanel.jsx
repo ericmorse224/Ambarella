@@ -29,17 +29,15 @@ const ReviewPanel = ({ actions, setActions }) => {
             );
             // For test: simulate scheduling error
             await Promise.all(
-                includedActions.map((action) =>
-                    axios.post(
-                        "https://www.zohoapis.com/calendar/v2/events",
+                includedActions.map(async (action) =>
+                    await axios.post(
+                        'https://www.zohoapis.com/calendar/v2/events',
                         {
-                            data: {
-                                event: {
-                                    title: action.text || action, // support both string and object
-                                    start_time: action.datetime,
-                                    end_time: action.datetime,
-                                    attendees: [{ email: action.owner }],
-                                },
+                            event: {
+                                title: action.text,
+                                start_time: action.datetime,
+                                end_time: action.datetime,
+                                attendees: [{ email: action.owner }],
                             },
                         },
                         {
@@ -50,6 +48,7 @@ const ReviewPanel = ({ actions, setActions }) => {
                     )
                 )
             );
+
             setStatusMessage("Events scheduled successfully");
             setStatusType("success");
         } catch (error) {

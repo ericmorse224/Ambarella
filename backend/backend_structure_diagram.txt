@@ -1,0 +1,24 @@
+backend/
+├── run.py                → Flask app launcher
+├── app/
+│   ├── __init__.py       → Registers all route blueprints
+│   ├── routes/
+│   │   ├── audio_routes.py      → /process-audio
+│   │   ├── json_routes.py       → /process-json, /AB-testing
+│   │   └── zoho_routes.py       → /zoho/oauth, /create-event
+│   ├── services/
+│   │   ├── audio_processor.py       → ffmpeg helpers
+│   │   ├── calendar_api.py          → low-level event creation
+│   │   ├── calendar_integration.py  → NLP → calendar time parsing
+│   │   ├── llm_utils.py             → OpenAI prompt & response
+│   │   ├── meeting_scheduler.py     → Zoho Meeting creation
+│   │   └── nlp_analysis.py          → analyze_transcript abstraction
+│   ├── utils/
+│   │   ├── entity_utils.py      → extract/assign owners
+│   │   ├── logger.py            → console + rotating file logs
+│   │   ├── logging_utils.py     → log_transcript_to_file()
+│   │   └── zoho_utils.py        → token mgmt, API calls
+├── transcripts/           → saved transcript logs
+├── logs/                  → server logs
+├── uploads/               → temp audio
+├── tests/                 → optional unit tests

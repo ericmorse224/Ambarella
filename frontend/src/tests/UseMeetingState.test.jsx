@@ -1,76 +1,95 @@
-import { renderHook, act } from '@testing-library/react'
-import useMeetingState from '../hooks/UseMeetingState'
-import axios from 'axios'
-import MockAdapter from 'axios-mock-adapter'
+import { renderHook, act } from '@testing-library/react';
+import useMeetingState from '../hooks/UseMeetingState';
+import axios from 'axios';
 
-const mock = new MockAdapter(axios)
+vi.mock('axios');
 
 describe('UseMeetingState', () => {
     beforeEach(() => {
-        mock.reset()
-    })
+        vi.clearAllMocks();
+    });
 
-    it('initial state is correct', () => {
-        const { result } = renderHook(() => useMeetingState())
-        expect(result.current.transcript).toBe('')
-        expect(result.current.summary).toEqual([])
-        expect(result.current.actions).toEqual([])
-        expect(result.current.decisions).toEqual([])
-        expect(result.current.loading).toBe(false)
-        expect(result.current.error).toBe('')
-        expect(result.current.uploadAttempts).toBe(0)
-    })
+    test('initial state is correct', () => {
+        const { result } = renderHook(() => useMeetingState());
 
-    it('processAudio sets transcript and updates loading/attempts', async () => {
-        const dummyFile = new File(['test'], 'audio.mp3', { type: 'audio/mp3' })
-        mock.onPost('/api/transcribe').reply(200, { transcript: 'Test transcript' })
+        expect(result.current.transcript).toBe('');
+        expect(result.current.summary).toEqual([]);
+        expect(result.current.actions).toEqual([]);
+        expect(result.current.decisions).toEqual([]);
+        expect(result.current.isLoading).toBe(false);
+        expect(result.current.error).toBe(false);;
+        expect(result.current.uploadAttempts).toBe(0);
+    });
 
-        const { result } = renderHook(() => useMeetingState())
+    test('processAudio sets transcript and updates loading/attempts', async () => {
+        axios.post.mockResolvedValue({ data: { transcript: 'Test transcript' } });
 
-        await act(async () => {
-            const success = await result.current.processAudio(dummyFile)
-            expect(success).toBe(true)
-        })
+        const { result } = renderHook(() => useMeetingState());
 
-        expect(result.current.transcript).toBe('Test transcript')
-        expect(result.current.uploadAttempts).toBe(1)
-        expect(result.current.error).toBe('')
-    })
-
-    it('processTranscript sets summary/actions/decisions', async () => {
-        const { result } = renderHook(() => useMeetingState())
-
-        act(() => {
-            result.current.setTranscript('Test transcript')
-        })
-
-        mock.onPost('/api/process').reply(200, {
-            summary: ['Point 1'],
-            actions: ['Action A'],
-            decisions: ['Decision X'],
-        })
+        const file = new File(['audio'], 'audio.mp3', { type: 'audio/mpeg' });
 
         await act(async () => {
-            await result.current.processTranscript()
-        })
+            await result.current.processAudio(file);
+        });
 
-        expect(result.current.summary).toEqual(['Point 1'])
-        expect(result.current.actions).toEqual(['Action A'])
-        expect(result.current.decisions).toEqual(['Decision X'])
-    })
+        expect(result.current.transcript).toBe('Test transcript');
+        expect(result.current.isLoading).toBe(false);
+        expect(result.current.uploadAttempts).toBe(1);
+        expect(result.current.error).toBe(false);
+    });
 
-    it('handles API error gracefully in processAudio', async () => {
-        const dummyFile = new File(['test'], 'audio.mp3', { type: 'audio/mp3' })
-        mock.onPost('/api/transcribe').networkError()
+    test('handles error during processAudio', async () => {
+        axios.post.mockRejectedValue(new Error('Network Error'));
 
-        const { result } = renderHook(() => useMeetingState())
+        const { result } = renderHook(() => useMeetingState());
+
+        const file = new File(['audio'], 'audio.mp3', { type: 'audio/mpeg' });
 
         await act(async () => {
-            const success = await result.current.processAudio(dummyFile)
-            expect(success).toBe(false)
-        })
+            await result.current.processAudio(file);
+        });
 
-        expect(result.current.error).toMatch(/Error processing audio/i)
-    })
-})
+        expect(result.current.transcript).toBe('');
+        expect(result.current.isLoading).toBe(false);
+        expect(result.current.uploadAttempts).toBe(1);
+        expect(result.current.error).toBe('Error processing audio');
+    });
 
+    test('processTranscript sets summary/actions/decisions', async () => {
+        axios.post.mockResolvedValue({
+            data: {
+                summary: 'Summary text',
+                actions: ['Action 1', 'Action 2'],
+                decisions: ['Decision 1'],
+            },
+        });
+
+        const { result } = renderHook(() => useMeetingState());
+
+        await act(async () => {
+            await result.current.processTranscript('Test transcript');
+        });
+
+        expect(result.current.summary).toBe('Summary text');
+        expect(result.current.actions).toEqual(['Action 1', 'Action 2']);
+        expect(result.current.decisions).toEqual(['Decision 1']);
+        expect(result.current.isLoading).toBe(false);
+        expect(result.current.error).toBe(false);
+    });
+
+    test('handles error during processTranscript', async () => {
+        axios.post.mockRejectedValue(new Error('LLM Error'));
+
+        const { result } = renderHook(() => useMeetingState());
+
+        await act(async () => {
+            await result.current.processTranscript('Test transcript');
+        });
+
+        expect(result.current.summary).toEqual([]);
+        expect(result.current.actions).toEqual([]);
+        expect(result.current.decisions).toEqual([]);
+        expect(result.current.isLoading).toBe(false);
+        expect(result.current.error).toBe('Error processing transcript');
+    });
+});

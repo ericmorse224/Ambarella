@@ -85,7 +85,7 @@ describe('calendarActions', () => {
 });
 
 
-  it("creates event with correct parameters when only included actions are passed", async () => {
+it("creates event with correct parameters when only included actions are passed", async () => {
     axios.post.mockResolvedValueOnce({ data: {} });
 
     const includedActions = mockActions.filter((action) => action.include);
@@ -93,24 +93,23 @@ describe('calendarActions', () => {
     await scheduleActions(includedActions);
 
     expect(axios.post).toHaveBeenCalledWith(
-      "https://www.zohoapis.com/calendar/v2/events",
-      {
-        data: [
-          {
-            summary: "Prepare report",
-            owner: "Alice",
-            datetime: "2025-05-14T14:30", // changed from start_time to datetime
-            include: true,
-          },
-          {
-            summary: "Action B",
-            owner: "Bob",
-            datetime: "2025-05-14T15:00", // changed from start_time to datetime
-            include: true,
-          },
-        ],
-      }
+        "https://www.zohoapis.com/calendar/v2/events",
+        {
+            data: [
+                {
+                    summary: "Prepare report",
+                    owner: "Alice",
+                    datetime: "2025-05-14T14:30", // changed from start_time to datetime
+                    include: true,
+                },
+                {
+                    summary: "Action B",
+                    owner: "Bob",
+                    datetime: "2025-05-14T15:00", // changed from start_time to datetime
+                    include: true,
+                },
+            ],
+        }
     );
-  });
 });
 

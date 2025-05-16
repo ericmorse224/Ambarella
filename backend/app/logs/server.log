@@ -1573,3 +1573,215 @@ Exception: Failure
 2025-05-16 15:19:07,547 INFO: Refreshing Zoho access token...
 2025-05-16 15:19:07,560 INFO: Refreshing Zoho access token...
 2025-05-16 15:19:07,578 INFO: Refreshing Zoho access token...
+2025-05-16 15:34:23,337 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 15:34:24,317 INFO: Scheduling: Alice needs to send the report
+2025-05-16 15:34:24,318 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='3078087608368'>
+2025-05-16 15:34:24,701 INFO: Transcript logged to transcripts\transcript_2025-05-16_15-34-24.txt
+2025-05-16 15:34:24,772 INFO: Refreshing Zoho access token...
+2025-05-16 15:34:24,784 INFO: Refreshing Zoho access token...
+2025-05-16 15:34:24,802 INFO: Refreshing Zoho access token...
+2025-05-16 15:48:56,730 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 15:48:57,188 INFO: Scheduling: Alice needs to send the report
+2025-05-16 15:48:57,189 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='1921009525696'>
+2025-05-16 15:48:57,532 INFO: Transcript logged to transcripts\transcript_2025-05-16_15-48-57.txt
+2025-05-16 15:48:57,596 INFO: Refreshing Zoho access token...
+2025-05-16 15:48:57,607 INFO: Refreshing Zoho access token...
+2025-05-16 15:48:57,624 INFO: Refreshing Zoho access token...
+2025-05-16 16:06:00,801 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 16:06:01,870 INFO: Scheduling: Alice needs to send the report
+2025-05-16 16:06:01,873 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='1320978668176'>
+2025-05-16 16:06:01,986 INFO: Transcript logged to transcripts\transcript_2025-05-16_16-06-01.txt
+2025-05-16 16:06:02,057 INFO: Refreshing Zoho access token...
+2025-05-16 16:06:02,068 INFO: Refreshing Zoho access token...
+2025-05-16 16:06:02,086 INFO: Refreshing Zoho access token...
+2025-05-16 16:08:59,956 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 16:09:01,107 INFO: Scheduling: Alice needs to send the report
+2025-05-16 16:09:01,107 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='2231959765744'>
+2025-05-16 16:09:01,213 INFO: Transcript logged to transcripts\transcript_2025-05-16_16-09-01.txt
+2025-05-16 16:09:01,279 INFO: Refreshing Zoho access token...
+2025-05-16 16:09:01,292 INFO: Refreshing Zoho access token...
+2025-05-16 16:09:01,308 INFO: Refreshing Zoho access token...
+2025-05-16 16:12:37,367 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 16:12:38,110 INFO: Scheduling: Alice needs to send the report
+2025-05-16 16:12:38,111 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='2529299905040'>
+2025-05-16 16:12:38,149 ERROR: Failed to schedule meeting: Calendar error
+2025-05-16 16:12:38,163 WARNING: Skipping invalid action: None
+2025-05-16 16:12:38,204 INFO: Transcript logged to transcripts\transcript_2025-05-16_16-12-38.txt
+2025-05-16 16:12:38,273 INFO: Refreshing Zoho access token...
+2025-05-16 16:12:38,289 INFO: Refreshing Zoho access token...
+2025-05-16 16:12:38,309 INFO: Refreshing Zoho access token...
+2025-05-16 16:21:01,387 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 16:21:08,007 INFO: Scheduling: Alice needs to send the report
+2025-05-16 16:21:08,008 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='2477642816480'>
+2025-05-16 16:21:08,044 ERROR: Failed to schedule meeting: Calendar error
+2025-05-16 16:21:08,052 WARNING: Skipping invalid action: None
+2025-05-16 16:21:08,093 INFO: Transcript logged to transcripts\transcript_2025-05-16_16-21-08.txt
+2025-05-16 16:21:08,157 INFO: Refreshing Zoho access token...
+2025-05-16 16:21:08,173 INFO: Refreshing Zoho access token...
+2025-05-16 16:21:08,193 INFO: Refreshing Zoho access token...
+2025-05-16 16:25:52,300 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 16:25:52,851 INFO: Scheduling: Alice needs to send the report
+2025-05-16 16:25:52,852 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='2777187497168'>
+2025-05-16 16:25:52,889 ERROR: Failed to schedule meeting: Calendar error
+2025-05-16 16:25:52,895 WARNING: Skipping invalid action: None
+2025-05-16 16:25:52,939 INFO: Transcript logged to transcripts\transcript_2025-05-16_16-25-52.txt
+2025-05-16 16:25:53,019 INFO: Refreshing Zoho access token...
+2025-05-16 16:25:53,034 INFO: Refreshing Zoho access token...
+2025-05-16 16:25:53,054 INFO: Refreshing Zoho access token...
+2025-05-16 16:29:29,182 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 16:29:29,629 INFO: Scheduling: Alice needs to send the report
+2025-05-16 16:29:29,630 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='2530432922832'>
+2025-05-16 16:29:29,662 ERROR: Failed to schedule meeting: Calendar error
+2025-05-16 16:29:29,668 WARNING: Skipping invalid action: None
+2025-05-16 16:29:29,707 INFO: Transcript logged to transcripts\transcript_2025-05-16_16-29-29.txt
+2025-05-16 16:29:29,772 INFO: Refreshing Zoho access token...
+2025-05-16 16:29:29,783 INFO: Refreshing Zoho access token...
+2025-05-16 16:29:29,799 INFO: Refreshing Zoho access token...
+2025-05-16 16:30:22,507 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 16:30:22,916 INFO: Scheduling: Alice needs to send the report
+2025-05-16 16:30:22,916 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='2511309894864'>
+2025-05-16 16:30:22,945 ERROR: Failed to schedule meeting: Calendar error
+2025-05-16 16:30:22,953 WARNING: Skipping invalid action: None
+2025-05-16 16:30:22,994 INFO: Transcript logged to transcripts\transcript_2025-05-16_16-30-22.txt
+2025-05-16 16:30:23,053 INFO: Refreshing Zoho access token...
+2025-05-16 16:30:23,063 INFO: Refreshing Zoho access token...
+2025-05-16 16:30:23,081 INFO: Refreshing Zoho access token...
+2025-05-16 16:38:42,637 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 16:38:42,731 INFO: Scheduling: Alice needs to send the report
+2025-05-16 16:38:42,732 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='2251587874368'>
+2025-05-16 16:38:42,760 ERROR: Failed to schedule meeting: Calendar error
+2025-05-16 16:38:42,768 WARNING: Skipping invalid action: None
+2025-05-16 16:38:42,813 INFO: Transcript logged to transcripts\transcript_2025-05-16_16-38-42.txt
+2025-05-16 16:38:42,871 INFO: Refreshing Zoho access token...
+2025-05-16 16:38:42,885 INFO: Refreshing Zoho access token...
+2025-05-16 16:38:42,904 INFO: Refreshing Zoho access token...

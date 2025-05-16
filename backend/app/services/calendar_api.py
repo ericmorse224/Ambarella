@@ -1,8 +1,21 @@
 from flask import Blueprint, request, jsonify
 from .calendar_integration import create_calendar_event
 from datetime import datetime, timedelta
+import requests
+from app.utils.zoho_utils import make_authorized_request
 
 calendar_api = Blueprint('calendar_api', __name__)
+
+def create_event_payload(owner: str, action: str, start_time: str):
+    return {
+        "data": {
+            "title": action,
+            "agenda": f"{owner} will {action}" if owner else action,
+            "start_time": start_time,
+            "end_time": start_time,  # You may adjust this as needed
+            "attendees": [{"name": owner if owner else "Unassigned"}],
+        }
+    }
 
 @calendar_api.route('/api/schedule-actions', methods=['POST'])
 def schedule_actions():
@@ -83,3 +96,14 @@ def get_user_profile():
     if not response.ok:
         raise Exception(f"Zoho user info failed: {response.text}")
     return response.json()
+
+def create_event_payload(owner, action_text, start_time):
+    return {
+        "data": {
+            "title": f"Meeting with {owner}" if owner else "Team Meeting",
+            "agenda": action_text or "Discussion",
+            "start_time": start_time,
+            "end_time": (datetime.fromisoformat(start_time) + timedelta(minutes=30)).isoformat(),
+            "attendees": [{"name": owner or "Unassigned"}]
+        }
+    }

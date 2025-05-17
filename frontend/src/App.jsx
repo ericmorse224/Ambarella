@@ -41,7 +41,7 @@ export default function App() {
 
 
     const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
+        const selectedFile = e.target.files?.[0];
         if (!selectedFile) return;
         if (selectedFile.size > 10 * 1024 * 1024) {
             window.alert('File size exceeds 10MB limit');
@@ -106,6 +106,7 @@ export default function App() {
             <form onSubmit={handleSubmit} className="mb-4">
                 <label className="block font-medium mb-1" htmlFor="audio-upload">Upload Audio</label>
                 <input
+                    data-testid="audio-upload"
                     id="audio-upload"
                     type="file"
                     accept="audio/*"
@@ -117,11 +118,22 @@ export default function App() {
                 </p>
                 <button
                     type="submit"
-                    disabled={isLoading || !file}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded disabled:opacity-50 flex items-center gap-2"
+                    disabled={isLoading}
+                    aria-label="Transcribe Audio"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
                 >
-                    {isLoading ? 'Processing...' : 'Transcribe Audio'}
+                    {isLoading ? (
+                        <span>
+                            <span className="sr-only">Transcribe Audio</span>
+                            Processing...
+                        </span>
+                    ) : (
+                        'Transcribe Audio'
+                    )}
                 </button>
+
+
+
                 {isLoading && (
                     <div className="text-sm text-gray-600 mt-2">Attempt {uploadAttempts + 1} of 2...</div>
                 )}
@@ -150,10 +162,12 @@ export default function App() {
                 </p>
             )}
 
-            {transcript && (
+            {transcript && transcript.trim() != '' && (
                 <div>
                     <h2 className="text-lg font-bold mt-4">Transcript:</h2>
-                    <p className="whitespace-pre-line text-sm mt-1">{transcript}</p>
+                    <pre className="whitespace-pre-wrap break-words bg-gray-100 p-2 rounded">
+                        {transcript}
+                    </pre>
                     <button
                         className="mt-2 bg-gray-700 text-white px-3 py-1 rounded"
                         onClick={() => handleDownload(transcript, 'transcript.txt')}
@@ -162,6 +176,7 @@ export default function App() {
                     </button>
                 </div>
             )}
+
 
             {summary.length > 0 && (
                 <div>

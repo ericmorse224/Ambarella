@@ -6,51 +6,75 @@ from app.utils.entity_utils import extract_people, assign_actions_to_people, ass
 from app.utils.zoho_utils import create_calendar_event
 from app.utils.logger import logger
 from app.services.nlp_analysis import analyze_transcript  # you should move this if it exists
+from werkzeug.exceptions import BadRequest, UnsupportedMediaType
 
 json_bp = Blueprint('json', __name__)
 
-@json_bp.route('/process-json', methods=['POST'])
+@json_bp.route("/process-json", methods=["POST"])
 def process_json():
     try:
-        data = request.get_json()
-        transcript = data.get("transcript", "")
-        entities = data.get("entities", [])
+        if not request.is_json:
+            return jsonify({"error": "Invalid content type. Must be application/json."}), 415
 
-        if not transcript:
-            return jsonify({"error": "Transcript missing."}), 400
+        try:
+            data = request.get_json(force=True)
+        except Exception as json_err:
+            return jsonify({"error": f"Malformed JSON: {str(json_err)}"}), 400
 
-        from app.services.nlp_analysis import analyze_transcript
-        from app.utils.entity_utils import extract_people_from_entities
-        from app.utils.zoho_utils import create_calendar_event
+        if not data or "transcript" not in data:
+            return jsonify({"error": "Missing transcript"}), 400
 
-        # Use detected entity names as fallback
-        people = extract_people_from_entities(entities)
-
+        transcript = data["transcript"]
         result = analyze_transcript(transcript)
-        
-        for action in result.get("actions", []):
-            try:
-                # Fill missing owner using fallback people list
-                if action["owner"] == "Someone" and people:
-                    for p in people:
-                        if p.lower() in action["text"].lower():
-                            action["owner"] = p
-                            break
-
-                create_calendar_event(
-                    title=f"Follow-up: {action['owner']}",
-                    description=action['text'],
-                    start_time=action['start'],
-                    end_time=action['end']
-                )
-            except Exception as e:
-                logger.warning(f"Calendar event error for action '{action['text']}': {e}")
-
         return jsonify(result)
 
     except Exception as e:
-        logger.exception("Error in /process-json")
+        logger.error("Error in /process-json", exc_info=True)
         return jsonify({"error": str(e)}), 500
+
+
+#@json_bp.route('/process-json', methods=['POST'])
+#def process_json():
+#    try:
+#        data = request.get_json()
+#        transcript = data.get("transcript", "")
+#        entities = data.get("entities", [])
+#
+#        if not transcript:
+#            return jsonify({"error": "Transcript missing."}), 400
+#
+#        from app.services.nlp_analysis import analyze_transcript
+#        from app.utils.entity_utils import extract_people_from_entities
+#        from app.utils.zoho_utils import create_calendar_event
+#
+#        # Use detected entity names as fallback
+#        people = extract_people_from_entities(entities)
+#
+#        result = analyze_transcript(transcript)
+#        
+#        for action in result.get("actions", []):
+#            try:
+#                # Fill missing owner using fallback people list
+#                if action["owner"] == "Someone" and people:
+#                    for p in people:
+#                        if p.lower() in action["text"].lower():
+#                            action["owner"] = p
+#                            break
+#
+#                create_calendar_event(
+#                    title=f"Follow-up: {action['owner']}",
+#                    description=action['text'],
+#                    start_time=action['start'],
+#                    end_time=action['end']
+#                )
+#            except Exception as e:
+#                logger.warning(f"Calendar event error for action '{action['text']}': {e}")
+#
+#        return jsonify(result)
+#
+#    except Exception as e:
+#        logger.exception("Error in /process-json")
+#        return jsonify({"error": str(e)}), 500
 
 @json_bp.route('/process-json-for-AB-testing', methods=['POST'])
 def process_json_for_ab_testing():

@@ -9,13 +9,18 @@ def analyze_transcript(transcript):
     Assign owners to actions.
     """
     raw_output = generate_summary_and_extraction(transcript)
+
+    # Ensure raw_output is a string to avoid regex errors
+    if isinstance(raw_output, dict):
+        logger.warning("LLM returned a dict instead of string; converting to string.")
+        raw_output = str(raw_output)
+
     parsed = parse_llm_sections(raw_output) or {}
 
     assigned_actions = []
     ambiguous_actions = []
     last_mentioned = None
 
-    # Attempt to extract person names from the transcript or default to empty list
     people = extract_people(transcript)
 
     for action_obj in parsed.get("actions", []):

@@ -6,15 +6,21 @@ from app.utils.zoho_utils import make_authorized_request
 
 calendar_api = Blueprint('calendar_api', __name__)
 
-def create_event_payload(owner: str, action: str, start_time: str):
+def create_event_payload(owner, action, start_time, end_time):
+    owner_str = str(owner).strip() if owner is not None else ""
+    action_str = str(action).strip() if action is not None else ""
+    start_time_str = str(start_time).strip() if start_time is not None else ""
+    end_time_str = str(end_time).strip() if end_time is not None else ""
+
+    title = f"Meeting with {owner_str}" if owner_str else "Meeting with Unassigned"
+    attendee_name = owner_str if owner_str else "Unassigned"
+
     return {
-        "data": {
-            "title": action,
-            "agenda": f"{owner} will {action}" if owner else action,
-            "start_time": start_time,
-            "end_time": start_time,  # You may adjust this as needed
-            "attendees": [{"name": owner if owner else "Unassigned"}],
-        }
+        "title": title,
+        "agenda": action_str,
+        "start_time": start_time_str,
+        "end_time": end_time_str,
+        "attendees": [{"name": attendee_name}]
     }
 
 @calendar_api.route('/api/schedule-actions', methods=['POST'])
@@ -85,10 +91,15 @@ def create_calendar_event(title, description, start_time, end_time):
     }
 
     response = make_authorized_request(endpoint, method="POST", payload=payload)
-    if not response.ok:
-        raise Exception(f"Zoho calendar event creation failed: {response.text}")
+    try:
+        data = response.json()
+    except Exception:
+        raise Exception(f"Zoho calendar event creation failed: {response}")
 
-    return response.json()
+    if not isinstance(data, dict) or "error" in data:
+        raise Exception(f"Zoho calendar event creation failed: {data}")
+    print(f"DEBUG: response={data}, type={type(data)}")
+    return data
 
 def get_user_profile():
     endpoint = "/calendar/v2/users/me"
@@ -96,14 +107,3 @@ def get_user_profile():
     if not response.ok:
         raise Exception(f"Zoho user info failed: {response.text}")
     return response.json()
-
-def create_event_payload(owner, action_text, start_time):
-    return {
-        "data": {
-            "title": f"Meeting with {owner}" if owner else "Team Meeting",
-            "agenda": action_text or "Discussion",
-            "start_time": start_time,
-            "end_time": (datetime.fromisoformat(start_time) + timedelta(minutes=30)).isoformat(),
-            "attendees": [{"name": owner or "Unassigned"}]
-        }
-    }

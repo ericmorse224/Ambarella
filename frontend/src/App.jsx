@@ -133,6 +133,7 @@ export default function App() {
                     {zohoError}
                 </p>
             )}
+
             {error && (
                 <p className="mt-2 text-sm text-center text-red-600" role="alert">
                     {error}

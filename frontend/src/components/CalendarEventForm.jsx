@@ -21,7 +21,7 @@ export default function CalendarEventForm() {
 
         try {
             const res = await axios.post('http://localhost:5000/create-event', form);
-            setStatus(res.data.message || 'Event created!');
+            setStatus(res.message || 'Event created!');
         } catch (err) {
             console.error(err);
             setStatus('Failed to create event.');

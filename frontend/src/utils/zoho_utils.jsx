@@ -1,31 +1,17 @@
 import axios from 'axios';
 
-// Format event data for Zoho
-export function formatEventData(action) {
-  return {
-    subject: action.text,
-    start_time: action.datetime,
-    owner: action.owner,
-    // other fields...
-  };
+//Function to create a new event in Zoho Calendar
+// Instead of talking to Zoho directly, this talks to your Flask backend.
+export async function createEvent(actions) {
+    const includedActions = Array.isArray(actions) ? actions.filter(a => a.include && a.datetime) : [];
+    try {
+        const response = await axios.post('http://localhost:5000/create-event', includedActions);
+        return response.data;
+    } catch (error) {
+        console.error("Error creating event via backend:", error);
+        throw new Error("Error creating event via backend");
+    }
 }
-
-// Function to create a new event in Zoho Calendar
-export const createEvent = async (eventData) => {
-  try {
-    const response = await axios.post('https://www.zohoapis.com/calendar/v2/events', eventData, {
-      headers: {
-        'Authorization': `Bearer ${process.env.ZOHO_ACCESS_TOKEN}`,
-        'Content-Type': 'application/json',
-      },
-    });
-    
-    return response.data;  // Assuming Zoho returns the created event data.
-  } catch (error) {
-    console.error('Error creating event in Zoho:', error);
-    throw new Error('Failed to create event');
-  }
-};
 
 // Example helper function to format event data for Zoho
 export const formatEventData = (action) => {
@@ -58,7 +44,31 @@ export const listEvents = async () => {
   }
 };
 
-// Create event in Zoho using the provided token
+// Function to fetch Zoho access token using refresh token
+export const getAccessToken = async () => {
+    try {
+        const response = await fetch('https://accounts.zoho.com/oauth/v2/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                refresh_token: process.env.ZOHO_REFRESH_TOKEN,
+                client_id: process.env.ZOHO_CLIENT_ID,
+                client_secret: process.env.ZOHO_CLIENT_SECRET,
+                grant_type: 'refresh_token',
+            }),
+        });
+
+        const data = await response.json();
+        return data.access_token;
+    } catch (error) {
+        console.error('Error fetching Zoho access token:', error);
+        throw error;
+    }
+};
+
+/* Create event in Zoho using the provided token
 export async function createEvent(eventData, token) {
   const url = 'https://www.zohoapis.com/calendar/v2/events';
   
@@ -77,5 +87,4 @@ export async function createEvent(eventData, token) {
     console.error('Error creating Zoho event:', error);
     throw new Error('Failed to create event in Zoho');
   }
-}
-
+};*/

@@ -4129,3 +4129,68 @@ Exception: Failure
 2025-05-16 21:13:28,715 INFO: Refreshing Zoho access token...
 2025-05-16 21:13:28,728 INFO: Refreshing Zoho access token...
 2025-05-16 21:13:28,746 INFO: Refreshing Zoho access token...
+2025-05-16 21:37:47,590 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\json_routes.py", line 28, in process_json
+    result = analyze_transcript(transcript)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: LLM error
+2025-05-16 21:37:47,643 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\json_routes.py", line 28, in process_json
+    result = analyze_transcript(transcript)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: LLM error
+2025-05-16 21:37:47,661 WARNING: LLM returned a dict instead of string; converting to string.
+2025-05-16 21:37:47,680 WARNING: LLM returned a dict instead of string; converting to string.
+2025-05-16 21:37:47,691 WARNING: LLM returned a dict instead of string; converting to string.
+2025-05-16 21:37:47,709 WARNING: LLM returned a dict instead of string; converting to string.
+2025-05-16 21:37:47,722 ERROR: Error in /process-json
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\json_routes.py", line 28, in process_json
+    result = analyze_transcript(transcript)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+ValueError: Test exception
+2025-05-16 21:37:47,776 ERROR: Failed to create events
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\zoho_routes.py", line 118, in create_event
+    create_calendar_event(title, description, start, end)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 1228, in _execute_mock_call
+    raise effect
+Exception: Failure
+2025-05-16 21:37:47,932 INFO: Scheduling: Alice needs to send the report
+2025-05-16 21:37:47,933 INFO: Zoho response: <MagicMock name='create_calendar_event()' id='2995936051952'>
+2025-05-16 21:37:47,961 ERROR: Failed to schedule meeting: Calendar error
+2025-05-16 21:37:47,968 WARNING: Skipping invalid action: None
+2025-05-16 21:37:48,006 INFO: Transcript logged to transcripts\transcript_2025-05-16_21-37-48.txt
+2025-05-16 21:37:48,070 INFO: Refreshing Zoho access token...
+2025-05-16 21:37:48,080 INFO: Refreshing Zoho access token...
+2025-05-16 21:37:48,095 INFO: Refreshing Zoho access token...

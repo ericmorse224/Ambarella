@@ -11,9 +11,8 @@ from datetime import datetime, timedelta, timezone
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
-
+from app.utils import nextcloud_utils
 from app.services import calendar_integration as ci
-
 from tests.test_services.test_nextcloud_client import get_nextcloud_client
 from app.utils.entity_utils import extract_entities
 
@@ -53,7 +52,6 @@ def test_auto_schedule_actions_and_verify_nextcloud():
     unique_title = f"Pytest Action {now.isoformat()}"
     actions = [unique_title]
     ci.auto_schedule_actions(actions)
-    time.sleep(2)
     start, _ = ci.extract_event_times(unique_title)
     found = find_event_in_nextcloud(unique_title, start)
     assert found, f"Event '{unique_title}' not found in Nextcloud"
@@ -75,44 +73,56 @@ def test_assign_actions_to_people():
     assert result[1]["owner"] == "Unassigned"
     assert result[2]["owner"] == "Bob"
 
-@pytest.mark.skip("Needs audio and the full process completed")
-def test_create_calendar_events_and_verify_nextcloud_from_audio():
-    #Prerequisite: Your backend (run.py) must be running locally at http://localhost:5000
-
-    # Use your backend endpoint or process directly
+def test_audio_to_nextcloud_event_integration():
+    # Step 1: Upload audio and get transcript/entities
     audio_path = "tests/test_audio/All_Needs.wav"
     backend_url = "http://localhost:5000/process-audio"
-    
     with open(audio_path, "rb") as f:
         files = {'audio': (audio_path, f, 'audio/wav')}
         response = requests.post(backend_url, files=files)
         assert response.ok, f"Audio upload failed: {response.text}"
         data = response.json()
-    
     transcript = data.get("transcript")
     entities = data.get("entities", [])
-
     assert transcript and len(transcript) > 0, "Transcript missing"
-    
+
+    # Step 2: Analyze transcript for actions (if your NLP pipeline is not run on /process-audio)
     analysis_url = "http://localhost:5000/process-json"
     payload = {"transcript": transcript, "entities": entities}
     analysis_response = requests.post(analysis_url, json=payload)
     assert analysis_response.ok, f"Transcript analysis failed: {analysis_response.text}"
     analysis_data = analysis_response.json()
     actions = analysis_data.get("actions", [])
-    
     assert actions and len(actions) > 0, "No actions extracted"
 
-    time.sleep(4)
-    
+    # Step 3: Create calendar events using your integration logic
     from app.services import calendar_integration as ci
+    ci.create_calendar_events(actions)
+
+    # Step 4: Connect to Nextcloud and verify
+    from app.utils import nextcloud_utils
+    from caldav import DAVClient
+    url, username, password = nextcloud_utils.load_nextcloud_secrets()
+    client = DAVClient(url, username=username, password=password)
+    calendar = client.principal().calendars()[0]
+    events = calendar.events()
+
+    def extract_field(ical, field):
+        m = re.search(rf"{field}:(.*)", ical)
+        if not m:
+            return None
+        value = m.group(1).replace("\n ", "").replace("\r\n ", "")
+        return value.strip()
 
     for action in actions:
-        # NEW: Use owner key from the action dict
         owner = action.get("owner", "Unassigned")
         title = f"Follow-up: {owner}" if owner != "Unassigned" else "Meeting Follow-up"
-        start = (datetime.now(timezone.utc) + timedelta(hours=1)).isoformat()[:16]
-        found = find_event_in_nextcloud(title, start)
-        assert found, f"Event '{title}' not found in Nextcloud for action: {action}"
+        matched = False
+        for event in events:
+            summary = extract_field(event.data, "SUMMARY")
+            if summary == title:
+                matched = True
+                break
+        assert matched, f"Event '{title}' not found in Nextcloud for action: {action}"
 
     print("All events from audio file successfully created and verified in Nextcloud.")

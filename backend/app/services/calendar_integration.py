@@ -61,6 +61,7 @@ def create_calendar_events(assigned_actions):
     """
     for item in assigned_actions:
         title = f"Follow-up: {item['owner']}" if item['owner'] != "Unassigned" else "Meeting Follow-up"
+        print(f"BACKEND: Attempting to create event '{title}'")
         description = item['text'] + f"\n\nOwner: {item['owner']}"
         start_time = datetime.now(timezone.utc) + timedelta(hours=1)
         end_time = start_time + timedelta(minutes=30)

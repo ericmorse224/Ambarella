@@ -4,7 +4,7 @@ from app.utils.logging_utils import log_event
 import re
 from app.utils.nextcloud_utils import create_calendar_event
 import dateparser
-from app.utils.entity_utils import extract_people_from_entities, assign_actions_to_people  # fixed import
+from app.utils.entity_utils import extract_people_from_entities, assign_actions_to_people
 
 def extract_event_times(action_text):
     """

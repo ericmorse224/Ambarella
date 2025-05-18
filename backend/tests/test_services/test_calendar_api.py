@@ -164,7 +164,7 @@ def test_create_calendar_event_nextcloud_success():
     assert result is not None, "create_calendar_event returned None"
     assert isinstance(result, (str, dict))  # Adjust as per your real function's return type
 
-@pytest.mark.skip("No longer auto-scheduling")
+@pytest.mark.skip("Will work on later")
 def test_create_calendar_event_and_verify_in_nextcloud():
     title = "Pytest Meeting"
     description = "Automated test event from pytest"

@@ -41,11 +41,12 @@ def create_calendar_event(title, description, start_time, end_time):
 
     dtstart_str = start_time.strftime('%Y%m%dT%H%M%SZ')
     dtend_str = end_time.strftime('%Y%m%dT%H%M%SZ')
+    uid = f"{datetime.now().timestamp()}@meeting-summarizer"
 
     event_template = f"""BEGIN:VCALENDAR
 VERSION:2.0
 BEGIN:VEVENT
-UID:{datetime.now().timestamp()}@meeting-summarizer
+UID:{uid}
 DTSTART:{dtstart_str}
 DTEND:{dtend_str}
 SUMMARY:{title}
@@ -53,5 +54,10 @@ DESCRIPTION:{description}
 END:VEVENT
 END:VCALENDAR"""
 
-    calendar.add_event(event_template)
-
+    try:
+        calendar.add_event(event_template)
+        print(f"Event created: {title}, UID: {uid}, {dtstart_str}–{dtend_str}")
+        return uid
+    except Exception as e:
+        print(f"Failed to create event: {e}")
+        raise

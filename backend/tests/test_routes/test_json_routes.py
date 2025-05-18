@@ -85,7 +85,6 @@ def test_process_json_with_actions_and_decisions(client):
     print("Actions extracted:", data["actions"])
     print("Owners extracted:", [a.get("owner") for a in data["actions"]])
 
-    # Fix: Access 'text' field in decisions dict for lower() call
     assert any(
         "decision" in d.get("text", "").lower() or "adopt" in d.get("text", "").lower()
         for d in data["decisions"]

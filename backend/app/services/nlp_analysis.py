@@ -1,58 +1,127 @@
-from datetime import datetime, timedelta
-from app.services.llm_utils import generate_summary_and_extraction, parse_llm_sections
-from app.utils.entity_utils import assign_owner, extract_people
-from app.utils.logger import logger
+import re
+import nltk
+from app.utils.entity_utils import extract_entities, extract_people_from_entities
 
-def analyze_transcript(transcript):
+# Action signal phrases for action extraction
+ACTION_PHRASES = [
+    "will", "needs to", "need to", "should", "must", "is to", "shall",
+    "tasked with", "responsible for", "required to", "assigned to", "supposed to"
+]
+
+def group_entities_by_type(entities):
     """
-    Analyze transcript using LLM to extract summary, action items, decisions.
-    Assign owners to actions.
+    Group entities by their type (person, organization, location, etc.)
+    Returns a dict: {type: [entities...]}
     """
-    raw_output = generate_summary_and_extraction(transcript)
+    grouped = {}
+    for e in entities:
+        etype = e['entity_type'].lower()
+        grouped.setdefault(etype, []).append(e['text'])
+    return grouped
 
-    # Ensure raw_output is a string to avoid regex errors
-    if isinstance(raw_output, dict):
-        logger.warning("LLM returned a dict instead of string; converting to string.")
-        raw_output = str(raw_output)
+def extract_actions_nltk(transcript, entities=None):
+    """
+    Use NLTK and heuristics for action extraction with confidence scoring.
+    Returns (actions, warnings)
+    """
+    if entities is None:
+        entities = extract_entities(transcript)
+    people = extract_people_from_entities(entities)
+    sentences = nltk.sent_tokenize(transcript)
+    actions = []
+    warnings = []
 
-    parsed = parse_llm_sections(raw_output) or {}
+    for sentence in sentences:
+        sent_lower = sentence.lower()
+        confidence = 0.6  # Default baseline
+        is_action = False
+        if any(phrase in sent_lower for phrase in ACTION_PHRASES):
+            is_action = True
+            confidence = 0.95
+        else:
+            tokens = nltk.word_tokenize(sentence)
+            tags = nltk.pos_tag(tokens)
+            if tags and tags[0][1] == "VB":  # Imperative verb at start
+                is_action = True
+                confidence = 0.85
+        if is_action:
+            owner = next((p for p in people if p.lower() in sent_lower), "Unassigned")
+            actions.append({
+                "text": sentence.strip(),
+                "owner": owner,
+                "confidence": confidence
+            })
+    if not actions:
+        warnings.append("No action items detected.")
+    return actions, warnings
 
-    assigned_actions = []
-    ambiguous_actions = []
-    last_mentioned = None
+def extract_decisions(transcript):
+    """
+    Basic rule-based extraction for decisions, with confidence.
+    Returns (decisions, warnings)
+    """
+    sentences = nltk.sent_tokenize(transcript)
+    decisions = []
+    warnings = []
+    for s in sentences:
+        if re.search(r"\b(decision:|we decided|it was decided|the group decided)\b", s, re.I):
+            decisions.append({"text": s.strip(), "confidence": 0.95})
+    if not decisions:
+        warnings.append("No decisions detected.")
+    return decisions, warnings
 
-    people = extract_people(transcript)
+def extract_summary(transcript, actions=None, decisions=None, level="short"):
+    """
+    Simple summary extraction: exclude action/decision sentences.
+    level: "short" returns first 2 non-action/decision sentences, "detailed" returns all.
+    """
+    sentences = nltk.sent_tokenize(transcript)
+    action_texts = set(a['text'] for a in (actions or []))
+    decision_texts = set(d['text'] for d in (decisions or []))
+    base = [s for s in sentences if s not in action_texts and s not in decision_texts]
+    if level == "short":
+        return base[:2]
+    else:
+        return base
 
-    for action_obj in parsed.get("actions", []):
-        if not isinstance(action_obj, dict) or "text" not in action_obj:
-            logger.warning(f"Skipping malformed action: {action_obj}")
-            continue
-
-        action_text = action_obj["text"]
-        owner, assignment, is_ambiguous = assign_owner(action_text, people, last_mentioned)
-
-        if owner != "Someone":
-            last_mentioned = owner
-
-        start_time = datetime.now() + timedelta(hours=1)
-        end_time = start_time + timedelta(minutes=30)
-
-        enriched_action = {
-            "text": assignment,
-            "owner": owner,
-            "is_ambiguous": is_ambiguous,
-            "start": start_time.isoformat(),
-            "end": end_time.isoformat()
+def analyze_transcript(transcript, level="short"):
+    """
+    Full meeting transcript analysis pipeline with advanced output.
+    Returns a dict with:
+        summary, actions, decisions, entities (by type), warnings, pipeline_version
+    """
+    warnings = []
+    if not transcript or not transcript.strip():
+        warnings.append("Transcript is empty or missing.")
+        return {
+            "summary": [],
+            "actions": [],
+            "decisions": [],
+            "entities": {},
+            "warnings": warnings,
+            "pipeline_version": "v1.4"
         }
 
-        if is_ambiguous:
-            ambiguous_actions.append(enriched_action)
-        else:
-            assigned_actions.append(enriched_action)
+    # Entities extraction and grouping
+    entities = extract_entities(transcript)
+    grouped_entities = group_entities_by_type(entities)
+
+    # Action extraction (with warnings)
+    actions, action_warn = extract_actions_nltk(transcript, entities)
+    warnings.extend(action_warn)
+
+    # Decision extraction (with warnings)
+    decisions, decision_warn = extract_decisions(transcript)
+    warnings.extend(decision_warn)
+
+    # Summary (configurable detail)
+    summary = extract_summary(transcript, actions, decisions, level=level)
 
     return {
-        "summary": parsed.get("summary", ""),
-        "actions": assigned_actions + ambiguous_actions,
-        "decisions": parsed.get("decisions", []),
-        "raw_output": raw_output
+        "summary": summary,
+        "actions": actions,
+        "decisions": decisions,
+        "entities": grouped_entities,
+        "warnings": warnings,
+        "pipeline_version": "v1.4"
     }

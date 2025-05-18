@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import useMeetingState from './hooks/UseMeetingState';
 import ReviewPanel from './components/ReviewPanel';
-
 export default function App() {
     const [file, setFile] = useState(null);
     const [zohoError, setZohoError] = useState('');
@@ -118,7 +117,7 @@ export default function App() {
                 </p>
                 <button
                     type="submit"
-                    disabled={isLoading}
+                    disabled={isLoading || !file} // disable if loading OR no file selected!
                     aria-label="Transcribe Audio"
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
                 >
@@ -131,8 +130,6 @@ export default function App() {
                         'Transcribe Audio'
                     )}
                 </button>
-
-
 
                 {isLoading && (
                     <div className="text-sm text-gray-600 mt-2">Attempt {uploadAttempts + 1} of 2...</div>

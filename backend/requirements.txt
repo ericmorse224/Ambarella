@@ -1,10 +1,11 @@
-flask
-flask-cors
-openai
-nltk
-python-dotenv
-gunicorn
-requests
-dateparser
-pytest
-pytest-cov
+# Recommended Python version: >=3.10,<3.13
+Flask==2.3.2
+flask-cors==3.1.1
+nltk==3.8.1
+whisper==20240930
+ffmpeg-python==0.2.0
+requests==2.31.0
+python-dotenv==1.0.0
+dateparser==1.1.8
+pytest==7.4.2
+pytest-cov==4.1.0

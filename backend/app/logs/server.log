@@ -5184,3 +5184,105 @@ werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The dat
 2025-05-18 17:09:09,006 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:09:08.996670', 'type': 'transcript', 'timestamp': '2025-05-18_17-09-08', 'transcript': 'Test transcript logging'}
 2025-05-18 17:14:02,806 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpfb0hiqq1\transcript_2025-05-18_17-14-02.txt
 2025-05-18 17:14:02,815 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:14:02.808139', 'type': 'transcript', 'timestamp': '2025-05-18_17-14-02', 'transcript': 'Test transcript logging'}
+2025-05-18 17:17:23,519 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 17:17:23,626 INFO: Trimming silence from converted_audio.wav
+2025-05-18 17:17:26,309 INFO: Transcript logged to transcripts\transcript_2025-05-18_17-17-26.txt
+2025-05-18 17:17:26,319 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:17:26.310026', 'type': 'transcript', 'timestamp': '2025-05-18_17-17-26', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 17:17:26,319 INFO: Transcription completed.
+2025-05-18 17:17:26,327 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:17:26.319839', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T21:17:23.519361+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 2.58, 'processing_time_sec': 4.65}
+2025-05-18 17:17:38,366 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp5b_ec9jh\transcript_2025-05-18_17-17-38.txt
+2025-05-18 17:17:38,374 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:17:38.366885', 'type': 'transcript', 'timestamp': '2025-05-18_17-17-38', 'transcript': 'Test transcript logging'}
+2025-05-18 17:22:02,882 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 17:22:02,983 INFO: Trimming silence from converted_audio.wav
+2025-05-18 17:22:05,193 INFO: Transcript logged to transcripts\transcript_2025-05-18_17-22-05.txt
+2025-05-18 17:22:05,203 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:22:05.194440', 'type': 'transcript', 'timestamp': '2025-05-18_17-22-05', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 17:22:05,203 INFO: Transcription completed.
+2025-05-18 17:22:05,212 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:22:05.203992', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T21:22:02.882598+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 2.13, 'processing_time_sec': 3.09}
+2025-05-18 17:22:17,448 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp8lmi_mhe\transcript_2025-05-18_17-22-17.txt
+2025-05-18 17:22:17,456 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:22:17.449010', 'type': 'transcript', 'timestamp': '2025-05-18_17-22-17', 'transcript': 'Test transcript logging'}
+2025-05-18 17:52:16,828 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 17:52:16,926 INFO: Trimming silence from converted_audio.wav
+2025-05-18 17:52:18,941 INFO: Transcript logged to transcripts\transcript_2025-05-18_17-52-18.txt
+2025-05-18 17:52:18,949 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:52:18.941756', 'type': 'transcript', 'timestamp': '2025-05-18_17-52-18', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 17:52:18,950 INFO: Transcription completed.
+2025-05-18 17:52:18,957 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:52:18.950752', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T21:52:16.828579+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.92, 'processing_time_sec': 2.85}
+2025-05-18 17:52:30,385 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpfy5gs3rv\transcript_2025-05-18_17-52-30.txt
+2025-05-18 17:52:30,393 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:52:30.386201', 'type': 'transcript', 'timestamp': '2025-05-18_17-52-30', 'transcript': 'Test transcript logging'}
+2025-05-18 17:54:21,846 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 17:54:21,942 INFO: Trimming silence from converted_audio.wav
+2025-05-18 17:54:23,968 INFO: Transcript logged to transcripts\transcript_2025-05-18_17-54-23.txt
+2025-05-18 17:54:23,976 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:54:23.969060', 'type': 'transcript', 'timestamp': '2025-05-18_17-54-23', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 17:54:23,976 INFO: Transcription completed.
+2025-05-18 17:54:23,986 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:54:23.977262', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T21:54:21.845868+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.95, 'processing_time_sec': 2.87}
+2025-05-18 17:54:35,952 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpg8lcjp1h\transcript_2025-05-18_17-54-35.txt
+2025-05-18 17:54:35,960 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:54:35.952822', 'type': 'transcript', 'timestamp': '2025-05-18_17-54-35', 'transcript': 'Test transcript logging'}
+2025-05-18 18:03:57,009 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:03:57,101 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:03:59,118 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-03-59.txt
+2025-05-18 18:03:59,127 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:03:59.118559', 'type': 'transcript', 'timestamp': '2025-05-18_18-03-59', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:03:59,128 INFO: Transcription completed.
+2025-05-18 18:03:59,137 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:03:59.128597', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:03:57.009422+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.94, 'processing_time_sec': 2.85}
+2025-05-18 18:04:16,039 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpxwz05qqs\transcript_2025-05-18_18-04-16.txt
+2025-05-18 18:04:16,049 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:04:16.040458', 'type': 'transcript', 'timestamp': '2025-05-18_18-04-16', 'transcript': 'Test transcript logging'}
+2025-05-18 18:06:51,487 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:06:51,579 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:06:53,596 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-06-53.txt
+2025-05-18 18:06:53,605 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:06:53.596982', 'type': 'transcript', 'timestamp': '2025-05-18_18-06-53', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:06:53,606 INFO: Transcription completed.
+2025-05-18 18:06:53,615 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:06:53.606546', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:06:51.487406+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.94, 'processing_time_sec': 2.86}
+2025-05-18 18:07:04,328 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:07:04,430 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:07:06,085 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-07-06.txt
+2025-05-18 18:07:06,094 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:07:06.086042', 'type': 'transcript', 'timestamp': '2025-05-18_18-07-06', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:07:06,094 INFO: Transcription completed.
+2025-05-18 18:07:06,103 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:07:06.095517', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:07:04.328912+00:00', 'user_agent': 'python-requests/2.32.3', 'ip': '127.0.0.1', 'filename': 'tests/test_audio/All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.57, 'processing_time_sec': 2.55}
+2025-05-18 18:07:19,171 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpzomqojd1\transcript_2025-05-18_18-07-19.txt
+2025-05-18 18:07:19,179 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:07:19.171762', 'type': 'transcript', 'timestamp': '2025-05-18_18-07-19', 'transcript': 'Test transcript logging'}
+2025-05-18 18:10:17,216 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:10:17,312 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:10:19,525 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-10-19.txt
+2025-05-18 18:10:19,535 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:10:19.525760', 'type': 'transcript', 'timestamp': '2025-05-18_18-10-19', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:10:19,535 INFO: Transcription completed.
+2025-05-18 18:10:19,545 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:10:19.535893', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:10:17.216205+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 2.12, 'processing_time_sec': 3.07}
+2025-05-18 18:10:30,540 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:10:30,639 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:10:32,387 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-10-32.txt
+2025-05-18 18:10:32,396 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:10:32.387704', 'type': 'transcript', 'timestamp': '2025-05-18_18-10-32', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:10:32,396 INFO: Transcription completed.
+2025-05-18 18:10:32,406 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:10:32.396854', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:10:30.540230+00:00', 'user_agent': 'python-requests/2.32.3', 'ip': '127.0.0.1', 'filename': 'tests/test_audio/All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.67, 'processing_time_sec': 2.6}
+2025-05-18 18:10:45,505 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp7ye5qeu8\transcript_2025-05-18_18-10-45.txt
+2025-05-18 18:10:45,516 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:10:45.506695', 'type': 'transcript', 'timestamp': '2025-05-18_18-10-45', 'transcript': 'Test transcript logging'}
+2025-05-18 18:14:30,441 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:14:30,535 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:14:32,125 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-14-32.txt
+2025-05-18 18:14:32,133 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:14:32.125917', 'type': 'transcript', 'timestamp': '2025-05-18_18-14-32', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:14:32,133 INFO: Transcription completed.
+2025-05-18 18:14:32,142 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:14:32.134117', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:14:30.441061+00:00', 'user_agent': 'python-requests/2.32.3', 'ip': '127.0.0.1', 'filename': 'tests/test_audio/All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.51, 'processing_time_sec': 2.47}
+2025-05-18 18:24:34,846 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:24:34,942 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:24:36,558 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-24-36.txt
+2025-05-18 18:24:36,567 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:24:36.558889', 'type': 'transcript', 'timestamp': '2025-05-18_18-24-36', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:24:36,568 INFO: Transcription completed.
+2025-05-18 18:24:36,576 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:24:36.568541', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:24:34.846599+00:00', 'user_agent': 'python-requests/2.32.3', 'ip': '127.0.0.1', 'filename': 'tests/test_audio/All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.53, 'processing_time_sec': 2.49}
+2025-05-18 18:30:41,282 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:30:41,377 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:30:43,590 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-30-43.txt
+2025-05-18 18:30:43,600 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:30:43.590766', 'type': 'transcript', 'timestamp': '2025-05-18_18-30-43', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:30:43,601 INFO: Transcription completed.
+2025-05-18 18:30:43,612 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:30:43.601652', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:30:41.282116+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 2.13, 'processing_time_sec': 3.08}
+2025-05-18 18:30:54,569 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 18:30:54,670 INFO: Trimming silence from converted_audio.wav
+2025-05-18 18:30:56,561 INFO: Transcript logged to transcripts\transcript_2025-05-18_18-30-56.txt
+2025-05-18 18:30:56,570 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:30:56.562002', 'type': 'transcript', 'timestamp': '2025-05-18_18-30-56', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 18:30:56,570 INFO: Transcription completed.
+2025-05-18 18:30:56,580 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:30:56.571020', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T22:30:54.569404+00:00', 'user_agent': 'python-requests/2.32.3', 'ip': '127.0.0.1', 'filename': 'tests/test_audio/All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.81, 'processing_time_sec': 2.76}
+2025-05-18 18:31:10,324 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpe284x0se\transcript_2025-05-18_18-31-10.txt
+2025-05-18 18:31:10,332 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T18:31:10.324595', 'type': 'transcript', 'timestamp': '2025-05-18_18-31-10', 'transcript': 'Test transcript logging'}
+2025-05-18 19:07:24,255 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-18 19:07:24,366 INFO: Trimming silence from converted_audio.wav
+2025-05-18 19:07:26,601 INFO: Transcript logged to transcripts\transcript_2025-05-18_19-07-26.txt
+2025-05-18 19:07:26,611 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T19:07:26.602425', 'type': 'transcript', 'timestamp': '2025-05-18_19-07-26', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-18 19:07:26,611 INFO: Transcription completed.
+2025-05-18 19:07:26,621 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T19:07:26.612196', 'type': 'audio_upload_success', 'timestamp': '2025-05-18T23:07:24.254857+00:00', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'filename': 'test_sample.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 2.16, 'processing_time_sec': 3.13}
+2025-05-18 19:07:39,740 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpoq4ewrob\transcript_2025-05-18_19-07-39.txt
+2025-05-18 19:07:39,749 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T19:07:39.741380', 'type': 'transcript', 'timestamp': '2025-05-18_19-07-39', 'transcript': 'Test transcript logging'}

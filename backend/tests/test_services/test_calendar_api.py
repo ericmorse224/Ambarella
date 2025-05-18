@@ -11,6 +11,14 @@ from caldav import DAVClient
 import json
 from app.services.calendar_api import create_calendar_event, create_event_payload
 from tests.test_services.test_nextcloud_client import get_nextcloud_client
+import re
+
+def extract_field(ical, field):
+    m = re.search(rf"{field}:(.*)", ical)
+    if not m:
+        return None
+    value = m.group(1).replace("\n ", "").replace("\r\n ", "")
+    return value.strip()
 
 def test_create_event_payload_date_objects():
     start = datetime(2025, 1, 1, 9, 0)
@@ -150,36 +158,11 @@ def test_create_event_payload_structure_valid():
     assert isinstance(payload, dict)
     assert isinstance(payload.get("attendees"), list)
 
-@pytest.mark.skip("Will test later")
-def test_create_calendar_event_nextcloud_success():
-    # This will create a real event in Nextcloud.
-    # Set up your test Nextcloud with valid secrets for this to pass!
-    title = "Test Meeting"
-    description = "Automated test event"
-    start = "2025-06-05T09:00:00"
-    end = "2025-06-05T09:30:00"
-    result = create_calendar_event(title, description, start, end)
-    print("\nResult from create_calendar_event:", result)
-
-    assert result is not None, "create_calendar_event returned None"
-    assert isinstance(result, (str, dict))  # Adjust as per your real function's return type
-
-@pytest.mark.skip("Will work on later")
 def test_create_calendar_event_and_verify_in_nextcloud():
     title = "Pytest Meeting"
     description = "Automated test event from pytest"
-    start = (datetime.fromisoformat(datetime.now(timezone.utc)) + timedelta(hours=2)).isoformat()
-    #dt1 = datetime.now(timezone.utc) + timedelta(hours=2)
-    #start = datetime.strptime(str(dt1),"%Y-%m-%d %H:%M:%S.%f%z")
-    #start_formatted = dt1.isoformat()
-    #start = start_formatted[:16]
-    #start = dt1.strftime('%Y-%m-%dT%H:%M')
-    end = (datetime.fromisoformat(datetime.now(timezone.utc)) + timedelta(hours=3)).isoformat()
-    #dt2 = datetime.now(timezone.utc) + timedelta(hours=2, minutes=30)
-    #end = datetime.strptime(str(dt2),"%Y-%m-%d %H:%M:%S.%f%z")
-    #end_formatted = end.isoformat()
-    #end = end_formatted[:16]
-    #end = dt2.strftime('%Y-%m-%dT%H:%M')
+    start = (datetime.now(timezone.utc) + timedelta(hours=2)).isoformat()
+    end = (datetime.now(timezone.utc) + timedelta(hours=3)).isoformat()
     create_calendar_event(title, description, start, end)
 
     client = get_nextcloud_client()
@@ -189,5 +172,14 @@ def test_create_calendar_event_and_verify_in_nextcloud():
     calendar = calendars[0]
 
     events = list(calendar.events())
-    found = any(title in event.data and start[:16] in event.data for event in events)
-    assert found, f"Event with title '{title}' and start '{start}' not found in Nextcloud calendar!"
+
+    found = False
+    for event in events:
+        summary = extract_field(event.data, "SUMMARY")
+        # Optional debug print:
+        # print(f"SUMMARY: {summary!r}")
+        if summary == title:
+            found = True
+            break
+
+    assert found, f"Event with title '{title}' not found in Nextcloud calendar!"

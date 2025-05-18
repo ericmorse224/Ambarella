@@ -69,7 +69,6 @@ def test_process_json_large_transcript(client):
     data = response.get_json()
     assert "summary" in data
 
-@pytest.mark.skip("Will test later")
 def test_process_json_with_actions_and_decisions(client):
     transcript = (
         "Bob will schedule a follow-up meeting. Alice should prepare the agenda. "

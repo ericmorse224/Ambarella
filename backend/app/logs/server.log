@@ -5130,3 +5130,49 @@ werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The dat
 2025-05-18 14:57:42,822 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T14:57:42.814815', 'type': 'transcript', 'timestamp': '2025-05-18_14-57-42', 'transcript': 'Test transcript logging'}
 2025-05-18 14:59:31,982 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpkvmwrtad\transcript_2025-05-18_14-59-31.txt
 2025-05-18 14:59:31,990 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T14:59:31.983244', 'type': 'transcript', 'timestamp': '2025-05-18_14-59-31', 'transcript': 'Test transcript logging'}
+2025-05-18 15:07:22,360 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpe6of1umh\transcript_2025-05-18_15-07-22.txt
+2025-05-18 15:07:22,370 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:07:22.361931', 'type': 'transcript', 'timestamp': '2025-05-18_15-07-22', 'transcript': 'Test transcript logging'}
+2025-05-18 15:09:57,747 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp46b161fy\transcript_2025-05-18_15-09-57.txt
+2025-05-18 15:09:57,755 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:09:57.748526', 'type': 'transcript', 'timestamp': '2025-05-18_15-09-57', 'transcript': 'Test transcript logging'}
+2025-05-18 15:15:09,228 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpgic2e29t\transcript_2025-05-18_15-15-09.txt
+2025-05-18 15:15:09,236 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:15:09.229560', 'type': 'transcript', 'timestamp': '2025-05-18_15-15-09', 'transcript': 'Test transcript logging'}
+2025-05-18 15:19:51,500 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpeovzxwkm\transcript_2025-05-18_15-19-51.txt
+2025-05-18 15:19:51,509 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:19:51.501507', 'type': 'transcript', 'timestamp': '2025-05-18_15-19-51', 'transcript': 'Test transcript logging'}
+2025-05-18 15:24:55,956 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpv8qij9yz\transcript_2025-05-18_15-24-55.txt
+2025-05-18 15:24:55,966 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:24:55.957612', 'type': 'transcript', 'timestamp': '2025-05-18_15-24-55', 'transcript': 'Test transcript logging'}
+2025-05-18 15:32:06,329 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp_lrmkh86\transcript_2025-05-18_15-32-06.txt
+2025-05-18 15:32:06,355 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:32:06.345541', 'type': 'transcript', 'timestamp': '2025-05-18_15-32-06', 'transcript': 'Test transcript logging'}
+2025-05-18 15:34:58,174 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp4givpnxp\transcript_2025-05-18_15-34-58.txt
+2025-05-18 15:34:58,186 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:34:58.176644', 'type': 'transcript', 'timestamp': '2025-05-18_15-34-58', 'transcript': 'Test transcript logging'}
+2025-05-18 15:42:07,637 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpb2fza2_j\transcript_2025-05-18_15-42-07.txt
+2025-05-18 15:42:07,646 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:42:07.639139', 'type': 'transcript', 'timestamp': '2025-05-18_15-42-07', 'transcript': 'Test transcript logging'}
+2025-05-18 15:48:21,637 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp1ptawoxu\transcript_2025-05-18_15-48-21.txt
+2025-05-18 15:48:21,646 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T15:48:21.638929', 'type': 'transcript', 'timestamp': '2025-05-18_15-48-21', 'transcript': 'Test transcript logging'}
+2025-05-18 16:01:35,664 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpxxaj8g1s\transcript_2025-05-18_16-01-35.txt
+2025-05-18 16:01:35,675 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:01:35.667123', 'type': 'transcript', 'timestamp': '2025-05-18_16-01-35', 'transcript': 'Test transcript logging'}
+2025-05-18 16:02:06,319 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpxsjnw2v5\transcript_2025-05-18_16-02-06.txt
+2025-05-18 16:02:06,328 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:02:06.320482', 'type': 'transcript', 'timestamp': '2025-05-18_16-02-06', 'transcript': 'Test transcript logging'}
+2025-05-18 16:06:03,663 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp5oaychs4\transcript_2025-05-18_16-06-03.txt
+2025-05-18 16:06:03,673 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:06:03.665521', 'type': 'transcript', 'timestamp': '2025-05-18_16-06-03', 'transcript': 'Test transcript logging'}
+2025-05-18 16:12:05,499 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpq_gjzt2m\transcript_2025-05-18_16-12-05.txt
+2025-05-18 16:12:05,508 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:12:05.500629', 'type': 'transcript', 'timestamp': '2025-05-18_16-12-05', 'transcript': 'Test transcript logging'}
+2025-05-18 16:15:28,728 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpi4xik19n\transcript_2025-05-18_16-15-28.txt
+2025-05-18 16:15:28,737 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:15:28.729592', 'type': 'transcript', 'timestamp': '2025-05-18_16-15-28', 'transcript': 'Test transcript logging'}
+2025-05-18 16:18:18,518 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp4kvoo7ig\transcript_2025-05-18_16-18-18.txt
+2025-05-18 16:18:18,529 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:18:18.520412', 'type': 'transcript', 'timestamp': '2025-05-18_16-18-18', 'transcript': 'Test transcript logging'}
+2025-05-18 16:25:53,821 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp4ez6kqh8\transcript_2025-05-18_16-25-53.txt
+2025-05-18 16:25:53,830 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:25:53.822822', 'type': 'transcript', 'timestamp': '2025-05-18_16-25-53', 'transcript': 'Test transcript logging'}
+2025-05-18 16:30:44,934 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmppfd74fiw\transcript_2025-05-18_16-30-44.txt
+2025-05-18 16:30:44,942 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:30:44.935141', 'type': 'transcript', 'timestamp': '2025-05-18_16-30-44', 'transcript': 'Test transcript logging'}
+2025-05-18 16:42:56,455 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpnq8bk0cs\transcript_2025-05-18_16-42-56.txt
+2025-05-18 16:42:56,465 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:42:56.457225', 'type': 'transcript', 'timestamp': '2025-05-18_16-42-56', 'transcript': 'Test transcript logging'}
+2025-05-18 16:45:16,610 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmphd0x6a_z\transcript_2025-05-18_16-45-16.txt
+2025-05-18 16:45:16,618 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:45:16.611371', 'type': 'transcript', 'timestamp': '2025-05-18_16-45-16', 'transcript': 'Test transcript logging'}
+2025-05-18 16:49:27,101 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpu83mq9n9\transcript_2025-05-18_16-49-27.txt
+2025-05-18 16:49:27,110 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:49:27.102825', 'type': 'transcript', 'timestamp': '2025-05-18_16-49-27', 'transcript': 'Test transcript logging'}
+2025-05-18 16:52:44,784 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpsz9afob7\transcript_2025-05-18_16-52-44.txt
+2025-05-18 16:52:44,792 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:52:44.785741', 'type': 'transcript', 'timestamp': '2025-05-18_16-52-44', 'transcript': 'Test transcript logging'}
+2025-05-18 16:55:22,372 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpx2j8nmfr\transcript_2025-05-18_16-55-22.txt
+2025-05-18 16:55:22,380 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:55:22.373266', 'type': 'transcript', 'timestamp': '2025-05-18_16-55-22', 'transcript': 'Test transcript logging'}
+2025-05-18 16:56:24,220 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpugvispfp\transcript_2025-05-18_16-56-24.txt
+2025-05-18 16:56:24,229 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:56:24.221924', 'type': 'transcript', 'timestamp': '2025-05-18_16-56-24', 'transcript': 'Test transcript logging'}

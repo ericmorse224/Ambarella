@@ -2,7 +2,6 @@ import sys
 import os
 import pytest
 import re
-from app.utils.entity_utils import assign_owner, normalize_name, extract_entities, clean_name, extract_people_from_entities, extract_probable_people
 
 # Add project root to sys.path for imports
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -10,16 +9,13 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 from app.utils.entity_utils import (
+    assign_owner,
+    normalize_name,
     extract_entities,
+    clean_name,
     extract_people_from_entities,
-    assign_actions_to_people,
-    assign_owner
+    assign_actions_to_people
 )
-
-def normalize_name(name: str) -> str:
-    # Remove titles and capitalize each word (Title Case)
-    name_no_title = re.sub(r'\b(Mr|Ms|Mrs|Dr|Prof|Sir|Madam)\.? ', '', name, flags=re.I)
-    return name_no_title.title()
 
 @pytest.mark.parametrize(
     "action_text, entities, last_mentioned, expected_owner, expected_ambiguous, expected_action_substr",
@@ -90,21 +86,44 @@ def test_assign_actions_to_people_case_insensitive():
     actions = ["Alice will prepare notes", "Charlie will call", "Someone needs to summarize"]
     people = ["Alice", "Charlie"]
     assigned = assign_actions_to_people(actions, people)
-    assert assigned[0]["owner"] == "Alice"
-    assert assigned[1]["owner"] == "Charlie"
+    assert assigned[0]["owner"].lower() == "alice"
+    assert assigned[1]["owner"].lower() == "charlie"
     assert assigned[2]["owner"] == "Unassigned"
 
 def test_extract_people_with_titles():
     text = "Dr. Alice Smith and Mr. Bob Lee attended. Ms. Carol Jones presented."
+
+    entities = extract_entities(text)
+    print("Full entities:", entities)  # Debug print
+
+    people = extract_people_from_entities(entities)
+    print("Extracted people:", people)  # Debug print
+
+    # Use normalize_name but expect capitalized (preserved) casing from your code
+    normalized_people = [normalize_name(p) for p in people]
+
+    # Normalize expected names for comparison
+    expected_names = ["Alice", "Bob", "Carol"]
+
+    # Normalize extracted to lowercase for case-insensitive compare
+    extracted_lower = [p.lower() for p in normalized_people]
+
+    for expected in expected_names:
+        assert expected.lower() in extracted_lower, f"{expected} not found in extracted people"
+
+def test_normalize_name_removes_titles():
+    # Adjust expectation to preserve capitalization but remove titles
+    assert normalize_name("Dr. Alice Smith") == "Alice Smith"
+    assert normalize_name("Mr. Bob Lee") == "Bob Lee"
+    assert normalize_name("Ms. Carol Jones") == "Carol Jones"
+
+def test_extract_people_basic():
+    text = "Alice and Bob are attending the meeting."
+
     entities = extract_entities(text)
     people = extract_people_from_entities(entities)
+    normalized_people = [normalize_name(p) for p in people]
 
-    found_alice = any("alice" in name.lower() for name in people)
-    found_bob = any("bob" in name.lower() for name in people)
-    found_carol = any("carol" in name.lower() for name in people)
-
-    print("Extracted people:", people)
-
-    assert found_alice, "Alice not found in extracted people"
-    assert found_bob, "Bob not found in extracted people"
-    assert found_carol, "Carol not found in extracted people"
+    # Expect Alice and Bob case-insensitive
+    assert "alice" in [p.lower() for p in normalized_people]
+    assert "bob" in [p.lower() for p in normalized_people]

@@ -20,10 +20,6 @@ def group_entities_by_type(entities):
     return grouped
 
 def extract_actions_nltk(transcript, entities=None):
-    """
-    Use NLTK and heuristics for action extraction with confidence scoring.
-    Returns (actions, warnings)
-    """
     if entities is None:
         entities = extract_entities(transcript)
     people = extract_people_from_entities(entities)
@@ -32,21 +28,27 @@ def extract_actions_nltk(transcript, entities=None):
     warnings = []
 
     for sentence in sentences:
+        tokens = nltk.word_tokenize(sentence)  # Always tokenize first
+        tags = nltk.pos_tag(tokens) if tokens else []
         sent_lower = sentence.lower()
-        confidence = 0.6  # Default baseline
+        confidence = 0.6
         is_action = False
+
         if any(phrase in sent_lower for phrase in ACTION_PHRASES):
             is_action = True
             confidence = 0.95
         else:
-            tokens = nltk.word_tokenize(sentence)
-            tags = nltk.pos_tag(tokens)
-            if tags and tags[0][1] == "VB":  # Imperative verb at start
+            if tags and tags[0][1] == "VB":
                 is_action = True
                 confidence = 0.85
+
         if is_action:
             owner_candidate = next((p for p in people if p.lower() in sent_lower), None)
-            if owner_candidate is None or owner_candidate.lower() not in [p.lower() for p in people]:
+
+            first_word = tokens[0].lower() if tokens else ""
+            if (owner_candidate is None or
+                owner_candidate.lower() not in [p.lower() for p in people] or
+                (tags and tags[0][1] == "VB" and owner_candidate.lower() == first_word)):
                 owner = "Someone"
             else:
                 owner = owner_candidate
@@ -56,20 +58,17 @@ def extract_actions_nltk(transcript, entities=None):
                 "owner": owner,
                 "confidence": confidence
             })
+
     if not actions:
         warnings.append("No action items detected.")
     return actions, warnings
 
 def extract_decisions(transcript):
-    """
-    Basic rule-based extraction for decisions, with confidence.
-    Returns (decisions, warnings)
-    """
     sentences = nltk.sent_tokenize(transcript)
     decisions = []
     warnings = []
     for s in sentences:
-        if re.search(r"\b(decision:|we decided|it was decided|the group decided)\b", s, re.I):
+        if re.search(r"\b(decision:|we decided|it was decided|the group decided)\b", s, re.I) or s.lower().startswith("decision:"):
             decisions.append({"text": s.strip(), "confidence": 0.95})
     if not decisions:
         warnings.append("No decisions detected.")

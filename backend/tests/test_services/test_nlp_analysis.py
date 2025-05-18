@@ -49,9 +49,14 @@ def test_transcript_with_ambiguous_actions():
     assert all("text" in a for a in actions)
 
 def test_owner_fallback_behavior():
-    transcript = "Finalize the report. Summarize findings."
-    result = analyze_transcript(transcript)
-    actions = result["actions"]
-    if actions:
-        # When no specific person, owner should be "Unassigned"
-        assert all(a.get("owner", "Unassigned") == "Unassigned" for a in actions)
+    from app.utils.entity_utils import assign_owner
+
+    action = "Finalize the report."
+    entities = []  # No person entities detected
+    last_mentioned = None
+
+    owner, _, _ = assign_owner(action, entities, last_mentioned)
+
+    print("Owner:", owner)  # For debug, should print "Someone"
+
+    assert owner == "Someone"

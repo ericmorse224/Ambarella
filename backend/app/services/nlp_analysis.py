@@ -45,7 +45,12 @@ def extract_actions_nltk(transcript, entities=None):
                 is_action = True
                 confidence = 0.85
         if is_action:
-            owner = next((p for p in people if p.lower() in sent_lower), "Unassigned")
+            owner_candidate = next((p for p in people if p.lower() in sent_lower), None)
+            if owner_candidate is None or owner_candidate.lower() not in [p.lower() for p in people]:
+                owner = "Someone"
+            else:
+                owner = owner_candidate
+
             actions.append({
                 "text": sentence.strip(),
                 "owner": owner,

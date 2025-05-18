@@ -4194,3 +4194,925 @@ Exception: Failure
 2025-05-16 21:37:48,070 INFO: Refreshing Zoho access token...
 2025-05-16 21:37:48,080 INFO: Refreshing Zoho access token...
 2025-05-16 21:37:48,095 INFO: Refreshing Zoho access token...
+2025-05-17 21:41:30,772 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 21:41:30,796 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:41:30.791921', 'type': 'audio_route_exception', 'timestamp': '2025-05-18T01:41:30.790498', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'error': '413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.', 'outcome': 'exception'}
+2025-05-17 21:41:38,579 INFO: Scheduling: Pytest Action 2025-05-18T01:41:38.579884
+2025-05-17 21:41:38,620 ERROR: Calendar event creation failed: [Errno 2] No such file or directory: 'C:\\Users\\bandi/.apps_secret/env.json'
+2025-05-17 21:41:38,624 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:41:38.621006', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T01:41:38.579884', 'start_time': '2025-05-18T02:41:38.620167+00:00Z', 'end_time': '2025-05-18T03:11:38.620167+00:00Z', 'status': 'error', 'error': "[Errno 2] No such file or directory: 'C:\\\\Users\\\\bandi/.apps_secret/env.json'"}
+2025-05-17 21:41:40,684 ERROR: Calendar event creation failed: [Errno 2] No such file or directory: 'C:\\Users\\bandi/.apps_secret/env.json'
+2025-05-17 21:41:40,686 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:41:40.685236', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 01:41:40.684498\n\nOwner: Alice', 'start_time': '2025-05-18T02:41:40.684526+00:00', 'end_time': '2025-05-18T03:11:40.684526+00:00', 'owner': 'Alice', 'status': 'error', 'error': "[Errno 2] No such file or directory: 'C:\\\\Users\\\\bandi/.apps_secret/env.json'"}
+2025-05-17 21:41:40,686 ERROR: Calendar event creation failed: [Errno 2] No such file or directory: 'C:\\Users\\bandi/.apps_secret/env.json'
+2025-05-17 21:41:40,689 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:41:40.687765', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 01:41:40.684498\n\nOwner: Unassigned', 'start_time': '2025-05-18T02:41:40.686723+00:00', 'end_time': '2025-05-18T03:11:40.686723+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "[Errno 2] No such file or directory: 'C:\\\\Users\\\\bandi/.apps_secret/env.json'"}
+2025-05-17 21:41:43,386 INFO: Transcript logged to transcripts\transcript_2025-05-17_21-41-43.txt
+2025-05-17 21:41:43,390 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:41:43.387346', 'type': 'transcript', 'timestamp': '2025-05-17_21-41-43', 'transcript': 'Test transcript logging'}
+2025-05-17 21:45:53,848 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 21:45:53,860 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:45:53.857333', 'type': 'audio_route_exception', 'timestamp': '2025-05-18T01:45:53.856947', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'error': '413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.', 'outcome': 'exception'}
+2025-05-17 21:45:59,156 INFO: Scheduling: Pytest Action 2025-05-18T01:45:59.156051
+2025-05-17 21:45:59,199 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:45:59,202 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:45:59.199776', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T01:45:59.156051', 'start_time': '2025-05-18T02:45:59.198714+00:00Z', 'end_time': '2025-05-18T03:15:59.198714+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:46:01,261 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:46:01,264 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:46:01.261744', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 01:46:01.260753\n\nOwner: Alice', 'start_time': '2025-05-18T02:46:01.260784+00:00', 'end_time': '2025-05-18T03:16:01.260784+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:46:01,265 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:46:01,268 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:46:01.265762', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 01:46:01.260753\n\nOwner: Unassigned', 'start_time': '2025-05-18T02:46:01.264920+00:00', 'end_time': '2025-05-18T03:16:01.264920+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:46:03,924 INFO: Transcript logged to transcripts\transcript_2025-05-17_21-46-03.txt
+2025-05-17 21:46:03,927 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:46:03.924630', 'type': 'transcript', 'timestamp': '2025-05-17_21-46-03', 'transcript': 'Test transcript logging'}
+2025-05-17 21:50:05,472 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 21:50:05,483 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:50:05.480638', 'type': 'audio_route_exception', 'timestamp': '2025-05-18T01:50:05.480225', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'error': '413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.', 'outcome': 'exception'}
+2025-05-17 21:50:10,897 INFO: Scheduling: Pytest Action 2025-05-18T01:50:10.897918
+2025-05-17 21:50:10,940 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:50:10,943 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:50:10.941015', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T01:50:10.897918', 'start_time': '2025-05-18T02:50:10.939970+00:00Z', 'end_time': '2025-05-18T03:20:10.939970+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:50:13,009 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:50:13,012 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:50:13.009571', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 01:50:13.008612\n\nOwner: Alice', 'start_time': '2025-05-18T02:50:13.008641+00:00', 'end_time': '2025-05-18T03:20:13.008641+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:50:13,013 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:50:13,017 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:50:13.014131', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 01:50:13.008612\n\nOwner: Unassigned', 'start_time': '2025-05-18T02:50:13.013032+00:00', 'end_time': '2025-05-18T03:20:13.013032+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:50:15,704 INFO: Transcript logged to transcripts\transcript_2025-05-17_21-50-15.txt
+2025-05-17 21:50:15,708 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:50:15.705080', 'type': 'transcript', 'timestamp': '2025-05-17_21-50-15', 'transcript': 'Test transcript logging'}
+2025-05-17 21:53:14,435 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 21:53:14,445 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:53:14.442451', 'type': 'audio_route_exception', 'timestamp': '2025-05-18T01:53:14.442135', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'error': '413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.', 'outcome': 'exception'}
+2025-05-17 21:53:19,248 INFO: Scheduling: Pytest Action 2025-05-18T01:53:19.248755
+2025-05-17 21:53:19,291 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:53:19,295 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:53:19.292560', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T01:53:19.248755', 'start_time': '2025-05-18T02:53:19.291366+00:00Z', 'end_time': '2025-05-18T03:23:19.291366+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:53:21,370 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:53:21,374 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:53:21.371211', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 01:53:21.370243\n\nOwner: Alice', 'start_time': '2025-05-18T02:53:21.370273+00:00', 'end_time': '2025-05-18T03:23:21.370273+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:53:21,375 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:53:21,378 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:53:21.375526', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 01:53:21.370243\n\nOwner: Unassigned', 'start_time': '2025-05-18T02:53:21.374735+00:00', 'end_time': '2025-05-18T03:23:21.374735+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:53:24,159 INFO: Transcript logged to transcripts\transcript_2025-05-17_21-53-24.txt
+2025-05-17 21:53:24,164 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:53:24.160636', 'type': 'transcript', 'timestamp': '2025-05-17_21-53-24', 'transcript': 'Test transcript logging'}
+2025-05-17 21:58:07,624 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 21:58:07,634 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:58:07.630549', 'type': 'audio_route_exception', 'timestamp': '2025-05-18T01:58:07.630221', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'error': '413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.', 'outcome': 'exception'}
+2025-05-17 21:58:12,364 INFO: Scheduling: Pytest Action 2025-05-18T01:58:12.364415
+2025-05-17 21:58:12,412 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:58:12,417 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:58:12.412856', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T01:58:12.364415', 'start_time': '2025-05-18T02:58:12.411638+00:00Z', 'end_time': '2025-05-18T03:28:12.411638+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:58:14,503 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:58:14,507 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:58:14.504143', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 01:58:14.502881\n\nOwner: Alice', 'start_time': '2025-05-18T02:58:14.502914+00:00', 'end_time': '2025-05-18T03:28:14.502914+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:58:14,508 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 21:58:14,513 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:58:14.509185', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 01:58:14.502881\n\nOwner: Unassigned', 'start_time': '2025-05-18T02:58:14.508140+00:00', 'end_time': '2025-05-18T03:28:14.508140+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 21:58:17,220 INFO: Transcript logged to transcripts\transcript_2025-05-17_21-58-17.txt
+2025-05-17 21:58:17,225 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T21:58:17.221327', 'type': 'transcript', 'timestamp': '2025-05-17_21-58-17', 'transcript': 'Test transcript logging'}
+2025-05-17 22:12:55,192 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 22:12:55,202 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:12:55.198916', 'type': 'audio_route_exception', 'timestamp': '2025-05-18T02:12:55.198614', 'user_agent': 'Werkzeug/3.1.3', 'ip': '127.0.0.1', 'error': '413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.', 'outcome': 'exception'}
+2025-05-17 22:13:00,598 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpa2tw0cvx\transcript_2025-05-17_22-13-00.txt
+2025-05-17 22:13:00,603 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:13:00.599174', 'type': 'transcript', 'timestamp': '2025-05-17_22-13-00', 'transcript': 'Test transcript logging'}
+2025-05-17 22:19:19,974 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 22:19:25,482 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpj1784qlp\transcript_2025-05-17_22-19-25.txt
+2025-05-17 22:19:25,486 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:19:25.482609', 'type': 'transcript', 'timestamp': '2025-05-17_22-19-25', 'transcript': 'Test transcript logging'}
+2025-05-17 22:21:14,296 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 22:21:19,610 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpq5hvi7yc\transcript_2025-05-17_22-21-19.txt
+2025-05-17 22:21:19,615 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:21:19.610876', 'type': 'transcript', 'timestamp': '2025-05-17_22-21-19', 'transcript': 'Test transcript logging'}
+2025-05-17 22:23:21,619 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 22:23:27,069 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp4n9zobae\transcript_2025-05-17_22-23-27.txt
+2025-05-17 22:23:27,072 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:23:27.069890', 'type': 'transcript', 'timestamp': '2025-05-17_22-23-27', 'transcript': 'Test transcript logging'}
+2025-05-17 22:38:04,168 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 22:38:09,217 INFO: Scheduling: Pytest Action 2025-05-18T02:38:09.217511+00:00
+2025-05-17 22:38:09,317 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 22:38:09,320 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:38:09.318035', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T02:38:09.217511+00:00', 'start_time': '2025-05-18T03:38:09.317037+00:00Z', 'end_time': '2025-05-18T04:08:09.317037+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 22:38:11,444 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 22:38:11,450 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:38:11.445541', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 02:38:11.444243+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T03:38:11.444282+00:00', 'end_time': '2025-05-18T04:08:11.444282+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 22:38:11,450 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 22:38:11,454 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:38:11.451660', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 02:38:11.444243+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T03:38:11.450373+00:00', 'end_time': '2025-05-18T04:08:11.450373+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 22:38:14,002 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpzfteq8j1\transcript_2025-05-17_22-38-13.txt
+2025-05-17 22:38:14,006 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:38:14.003249', 'type': 'transcript', 'timestamp': '2025-05-17_22-38-13', 'transcript': 'Test transcript logging'}
+2025-05-17 22:54:25,209 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 22:54:30,753 INFO: Scheduling: Pytest Action 2025-05-18T02:54:30.753113+00:00
+2025-05-17 22:54:30,852 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 22:54:30,856 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:54:30.853448', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T02:54:30.753113+00:00', 'start_time': '2025-05-18T03:54:30.852028+00:00Z', 'end_time': '2025-05-18T04:24:30.852028+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 22:54:32,992 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 22:54:32,996 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:54:32.993302', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 02:54:32.991987+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T03:54:32.992018+00:00', 'end_time': '2025-05-18T04:24:32.992018+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 22:54:32,997 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 22:54:33,000 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:54:32.997596', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 02:54:32.991987+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T03:54:32.996798+00:00', 'end_time': '2025-05-18T04:24:32.996798+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 22:54:35,698 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpk6kwoh8b\transcript_2025-05-17_22-54-35.txt
+2025-05-17 22:54:35,702 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T22:54:35.698783', 'type': 'transcript', 'timestamp': '2025-05-17_22-54-35', 'transcript': 'Test transcript logging'}
+2025-05-17 23:33:08,562 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 23:33:15,231 INFO: Scheduling: Pytest Action 2025-05-18T03:33:15.231868+00:00
+2025-05-17 23:33:15,352 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:33:15,361 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:33:15.353729', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T03:33:15.231868+00:00', 'start_time': '2025-05-18T04:33:15.352251+00:00Z', 'end_time': '2025-05-18T05:03:15.352251+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:33:17,564 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:33:17,569 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:33:17.565411', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 03:33:17.563687+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T04:33:17.563728+00:00', 'end_time': '2025-05-18T05:03:17.563728+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:33:17,570 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:33:17,577 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:33:17.571202', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 03:33:17.563687+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T04:33:17.570066+00:00', 'end_time': '2025-05-18T05:03:17.570066+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:33:20,333 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpkil_h0jy\transcript_2025-05-17_23-33-20.txt
+2025-05-17 23:33:20,338 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:33:20.333876', 'type': 'transcript', 'timestamp': '2025-05-17_23-33-20', 'transcript': 'Test transcript logging'}
+2025-05-17 23:47:42,589 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 23:47:47,952 INFO: Scheduling: Pytest Action 2025-05-18T03:47:47.952399+00:00
+2025-05-17 23:47:48,039 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:47:48,044 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:47:48.040377', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T03:47:47.952399+00:00', 'start_time': '2025-05-18T04:47:48.039263+00:00Z', 'end_time': '2025-05-18T05:17:48.039263+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:47:50,218 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:47:50,224 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:47:50.219689', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 03:47:50.218033+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T04:47:50.218140+00:00', 'end_time': '2025-05-18T05:17:50.218140+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:47:50,225 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:47:50,231 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:47:50.225877', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 03:47:50.218033+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T04:47:50.224850+00:00', 'end_time': '2025-05-18T05:17:50.224850+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:47:52,879 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmphgwni6_2\transcript_2025-05-17_23-47-52.txt
+2025-05-17 23:47:52,884 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:47:52.880027', 'type': 'transcript', 'timestamp': '2025-05-17_23-47-52', 'transcript': 'Test transcript logging'}
+2025-05-17 23:50:24,763 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 23:50:30,039 INFO: Scheduling: Pytest Action 2025-05-18T03:50:30.039148+00:00
+2025-05-17 23:50:30,141 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:50:30,147 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:50:30.142256', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T03:50:30.039148+00:00', 'start_time': '2025-05-18T04:50:30.140696+00:00Z', 'end_time': '2025-05-18T05:20:30.140696+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:50:32,279 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:50:32,286 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:50:32.282484', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 03:50:32.278641+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T04:50:32.278682+00:00', 'end_time': '2025-05-18T05:20:32.278682+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:50:32,287 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:50:32,293 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:50:32.288164', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 03:50:32.278641+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T04:50:32.287302+00:00', 'end_time': '2025-05-18T05:20:32.287302+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:50:34,824 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp04cd640z\transcript_2025-05-17_23-50-34.txt
+2025-05-17 23:50:34,829 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:50:34.824659', 'type': 'transcript', 'timestamp': '2025-05-17_23-50-34', 'transcript': 'Test transcript logging'}
+2025-05-17 23:57:29,423 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-17 23:57:36,619 INFO: Scheduling: Pytest Action 2025-05-18T03:57:36.619452+00:00
+2025-05-17 23:57:36,771 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:57:36,783 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:57:36.772386', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T03:57:36.619452+00:00', 'start_time': '2025-05-18T04:57:36.770130+00:00Z', 'end_time': '2025-05-18T05:27:36.770130+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:57:38,920 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:57:38,926 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:57:38.920869', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 03:57:38.919641+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T04:57:38.919683+00:00', 'end_time': '2025-05-18T05:27:38.919683+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:57:38,927 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-17 23:57:38,934 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:57:38.928564', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 03:57:38.919641+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T04:57:38.927066+00:00', 'end_time': '2025-05-18T05:27:38.927066+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-17 23:57:41,690 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmplww0dv3d\transcript_2025-05-17_23-57-41.txt
+2025-05-17 23:57:41,697 INFO: Event logged to event_logs\event_log_2025-05-17.jsonl: {'logged_at': '2025-05-17T23:57:41.691502', 'type': 'transcript', 'timestamp': '2025-05-17_23-57-41', 'transcript': 'Test transcript logging'}
+2025-05-18 00:02:18,275 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-18 00:02:24,278 INFO: Scheduling: Pytest Action 2025-05-18T04:02:24.278053+00:00
+2025-05-18 00:02:24,370 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:02:24,375 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:02:24.371073', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T04:02:24.278053+00:00', 'start_time': '2025-05-18T05:02:24.370018+00:00Z', 'end_time': '2025-05-18T05:32:24.370018+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:02:26,505 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:02:26,511 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:02:26.506361', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 04:02:26.505290+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T05:02:26.505323+00:00', 'end_time': '2025-05-18T05:32:26.505323+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:02:26,512 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:02:26,516 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:02:26.513100', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 04:02:26.505290+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T05:02:26.512070+00:00', 'end_time': '2025-05-18T05:32:26.512070+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:02:28,988 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpygjcfarg\transcript_2025-05-18_00-02-28.txt
+2025-05-18 00:02:28,991 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:02:28.989456', 'type': 'transcript', 'timestamp': '2025-05-18_00-02-28', 'transcript': 'Test transcript logging'}
+2025-05-18 00:07:50,852 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-18 00:08:05,489 INFO: Scheduling: Pytest Action 2025-05-18T04:08:05.488940+00:00
+2025-05-18 00:08:05,618 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:08:05,624 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:08:05.618979', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T04:08:05.488940+00:00', 'start_time': '2025-05-18T05:08:05.617719+00:00Z', 'end_time': '2025-05-18T05:38:05.617719+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:08:07,835 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:08:07,840 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:08:07.836295', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 04:08:07.833879+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T05:08:07.833974+00:00', 'end_time': '2025-05-18T05:38:07.833974+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:08:07,841 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:08:07,848 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:08:07.842437', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 04:08:07.833879+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T05:08:07.840639+00:00', 'end_time': '2025-05-18T05:38:07.840639+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:08:17,201 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpy8qy3682\transcript_2025-05-18_00-08-17.txt
+2025-05-18 00:08:17,205 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:08:17.201870', 'type': 'transcript', 'timestamp': '2025-05-18_00-08-17', 'transcript': 'Test transcript logging'}
+2025-05-18 00:09:02,357 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 27, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 272, in _load_form_data
+    self._get_stream_for_parsing(),
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 299, in _get_stream_for_parsing
+    return self.stream
+           ^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 351, in stream
+    return get_input_stream(
+        self.environ, max_content_length=self.max_content_length
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 173, in get_input_stream
+    raise RequestEntityTooLarge()
+werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2025-05-18 00:09:15,737 INFO: Scheduling: Pytest Action 2025-05-18T04:09:15.737271+00:00
+2025-05-18 00:09:15,876 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:09:15,881 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:09:15.877265', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T04:09:15.737271+00:00', 'start_time': '2025-05-18T05:09:15.875409+00:00Z', 'end_time': '2025-05-18T05:39:15.875409+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:09:18,082 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:09:18,087 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:09:18.083053', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 04:09:18.081457+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T05:09:18.081501+00:00', 'end_time': '2025-05-18T05:39:18.081501+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:09:18,088 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:09:18,095 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:09:18.089873', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 04:09:18.081457+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T05:09:18.088036+00:00', 'end_time': '2025-05-18T05:39:18.088036+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:09:27,821 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpl6a1qzeg\transcript_2025-05-18_00-09-27.txt
+2025-05-18 00:09:27,826 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:09:27.822204', 'type': 'transcript', 'timestamp': '2025-05-18_00-09-27', 'transcript': 'Test transcript logging'}
+2025-05-18 00:23:20,188 INFO: Scheduling: Pytest Action 2025-05-18T04:23:20.188385+00:00
+2025-05-18 00:23:20,337 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:23:20,343 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:23:20.338300', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T04:23:20.188385+00:00', 'start_time': '2025-05-18T05:23:20.336496+00:00Z', 'end_time': '2025-05-18T05:53:20.336496+00:00Z', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:23:22,635 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:23:22,646 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:23:22.638477', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 04:23:22.634118+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T05:23:22.634210+00:00', 'end_time': '2025-05-18T05:53:22.634210+00:00', 'owner': 'Alice', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:23:22,648 ERROR: Calendar event creation failed: Extra data: line 15 column 1 (char 806)
+2025-05-18 00:23:22,658 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:23:22.650130', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 04:23:22.634118+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T05:23:22.646662+00:00', 'end_time': '2025-05-18T05:53:22.646662+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': 'Extra data: line 15 column 1 (char 806)'}
+2025-05-18 00:23:33,303 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpezbqpg3k\transcript_2025-05-18_00-23-33.txt
+2025-05-18 00:23:33,310 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:23:33.304578', 'type': 'transcript', 'timestamp': '2025-05-18_00-23-33', 'transcript': 'Test transcript logging'}
+2025-05-18 00:31:18,295 INFO: Scheduling: Pytest Action 2025-05-18T04:31:18.295296+00:00
+2025-05-18 00:31:20,143 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:31:20,148 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:31:20.144311', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T04:31:18.295296+00:00', 'start_time': '2025-05-18T05:31:18.415034+00:00Z', 'end_time': '2025-05-18T06:01:18.415034+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:31:27,106 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:31:27,111 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:31:27.107006', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 04:31:25.233302+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T05:31:25.233362+00:00', 'end_time': '2025-05-18T06:01:25.233362+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:31:28,590 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:31:28,595 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:31:28.590996', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 04:31:25.233302+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T05:31:27.112072+00:00', 'end_time': '2025-05-18T06:01:27.112072+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:31:39,874 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpfld7e9ka\transcript_2025-05-18_00-31-39.txt
+2025-05-18 00:31:39,880 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:31:39.875648', 'type': 'transcript', 'timestamp': '2025-05-18_00-31-39', 'transcript': 'Test transcript logging'}
+2025-05-18 00:39:35,461 INFO: Scheduling: Pytest Action 2025-05-18T04:39:35.461610+00:00
+2025-05-18 00:39:36,962 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:39:36,968 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:39:36.963424', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T04:39:35.461610+00:00', 'start_time': '2025-05-18T05:39:35.570314+00:00Z', 'end_time': '2025-05-18T06:09:35.570314+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:39:42,679 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:39:42,685 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:39:42.680313', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 04:39:41.325230+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T05:39:41.325263+00:00', 'end_time': '2025-05-18T06:09:41.325263+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:39:44,054 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:39:44,062 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:39:44.055371', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 04:39:41.325230+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T05:39:42.686059+00:00', 'end_time': '2025-05-18T06:09:42.686059+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:39:54,287 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp7tdkby0c\transcript_2025-05-18_00-39-54.txt
+2025-05-18 00:39:54,292 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:39:54.288709', 'type': 'transcript', 'timestamp': '2025-05-18_00-39-54', 'transcript': 'Test transcript logging'}
+2025-05-18 00:45:02,457 INFO: Scheduling: Pytest Action 2025-05-18T04:45:02.457112+00:00
+2025-05-18 00:45:03,984 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:45:03,989 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:45:03.985048', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T04:45:02.457112+00:00', 'start_time': '2025-05-18T05:45:02.557844+00:00Z', 'end_time': '2025-05-18T06:15:02.557844+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:45:10,123 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:45:10,128 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:45:10.124247', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 04:45:08.652102+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T05:45:08.652134+00:00', 'end_time': '2025-05-18T06:15:08.652134+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:45:11,786 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 00:45:11,793 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:45:11.788049', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 04:45:08.652102+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T05:45:10.129049+00:00', 'end_time': '2025-05-18T06:15:10.129049+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 00:45:23,242 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp4airca8m\transcript_2025-05-18_00-45-23.txt
+2025-05-18 00:45:23,249 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T00:45:23.243966', 'type': 'transcript', 'timestamp': '2025-05-18_00-45-23', 'transcript': 'Test transcript logging'}
+2025-05-18 01:00:19,237 INFO: Scheduling: Pytest Action 2025-05-18T05:00:19.237545+00:00
+2025-05-18 01:00:20,688 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:00:20,700 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:00:20.689093', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:00:19.237545+00:00', 'start_time': '2025-05-18T06:00:19.322402+00:00Z', 'end_time': '2025-05-18T06:30:19.322402+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:00:26,635 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:00:26,641 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:00:26.636558', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:00:25.175603+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:00:25.175636+00:00', 'end_time': '2025-05-18T06:30:25.175636+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:00:28,041 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:00:28,047 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:00:28.042191', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:00:25.175603+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:00:26.641802+00:00', 'end_time': '2025-05-18T06:30:26.641802+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:00:37,018 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpxeaf0f42\transcript_2025-05-18_01-00-37.txt
+2025-05-18 01:00:37,023 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:00:37.019489', 'type': 'transcript', 'timestamp': '2025-05-18_01-00-37', 'transcript': 'Test transcript logging'}
+2025-05-18 01:12:20,709 INFO: Scheduling: Pytest Action 2025-05-18T05:12:20.709525+00:00
+2025-05-18 01:12:22,160 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:12:22,172 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:12:22.161051', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:12:20.709525+00:00', 'start_time': '2025-05-18T06:12:20.820641+00:00Z', 'end_time': '2025-05-18T06:42:20.820641+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:12:27,990 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:12:27,996 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:12:27.991171', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:12:26.713458+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:12:26.713489+00:00', 'end_time': '2025-05-18T06:42:26.713489+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:12:29,277 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:12:29,283 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:12:29.278165', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:12:26.713458+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:12:27.997312+00:00', 'end_time': '2025-05-18T06:42:27.997312+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:12:38,190 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp0z1mmiiw\transcript_2025-05-18_01-12-38.txt
+2025-05-18 01:12:38,195 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:12:38.191381', 'type': 'transcript', 'timestamp': '2025-05-18_01-12-38', 'transcript': 'Test transcript logging'}
+2025-05-18 01:15:10,107 INFO: Scheduling: Pytest Action 2025-05-18T05:15:10.107142+00:00
+2025-05-18 01:15:11,553 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:15:11,558 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:15:11.554096', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:15:10.107142+00:00', 'start_time': '2025-05-18T06:15:10.197058+00:00Z', 'end_time': '2025-05-18T06:45:10.197058+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:15:17,365 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:15:17,371 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:15:17.366440', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:15:15.961500+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:15:15.961537+00:00', 'end_time': '2025-05-18T06:45:15.961537+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:15:18,659 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:15:18,665 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:15:18.660564', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:15:15.961500+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:15:17.372070+00:00', 'end_time': '2025-05-18T06:45:17.372070+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:15:27,741 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpbwowqd8m\transcript_2025-05-18_01-15-27.txt
+2025-05-18 01:15:27,745 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:15:27.741862', 'type': 'transcript', 'timestamp': '2025-05-18_01-15-27', 'transcript': 'Test transcript logging'}
+2025-05-18 01:16:12,476 INFO: Scheduling: Pytest Action 2025-05-18T05:16:12.476869+00:00
+2025-05-18 01:16:13,880 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:16:13,886 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:16:13.880904', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:16:12.476869+00:00', 'start_time': '2025-05-18T06:16:12.563555+00:00Z', 'end_time': '2025-05-18T06:46:12.563555+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:16:19,613 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:16:19,619 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:16:19.614556', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:16:18.259778+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:16:18.259811+00:00', 'end_time': '2025-05-18T06:46:18.259811+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:16:20,965 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:16:20,971 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:16:20.965629', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:16:18.259778+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:16:19.619579+00:00', 'end_time': '2025-05-18T06:46:19.619579+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:16:29,941 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpqd9quutk\transcript_2025-05-18_01-16-29.txt
+2025-05-18 01:16:29,946 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:16:29.942128', 'type': 'transcript', 'timestamp': '2025-05-18_01-16-29', 'transcript': 'Test transcript logging'}
+2025-05-18 01:32:16,134 INFO: Scheduling: Pytest Action 2025-05-18T05:32:16.134853+00:00
+2025-05-18 01:32:17,617 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:32:17,624 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:32:17.618882', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:32:16.134853+00:00', 'start_time': '2025-05-18T06:32:16.225998+00:00Z', 'end_time': '2025-05-18T07:02:16.225998+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:32:23,457 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:32:23,463 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:32:23.457854', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:32:22.127708+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:32:22.127743+00:00', 'end_time': '2025-05-18T07:02:22.127743+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:32:24,849 ERROR: Calendar event creation failed: 'str' object has no attribute 'strftime'
+2025-05-18 01:32:24,855 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:32:24.850075', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:32:22.127708+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:32:23.464115+00:00', 'end_time': '2025-05-18T07:02:23.464115+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'strftime'"}
+2025-05-18 01:32:34,144 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpzorxhcjq\transcript_2025-05-18_01-32-34.txt
+2025-05-18 01:32:34,149 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:32:34.144994', 'type': 'transcript', 'timestamp': '2025-05-18_01-32-34', 'transcript': 'Test transcript logging'}
+2025-05-18 01:33:45,547 INFO: Scheduling: Pytest Action 2025-05-18T05:33:45.547667+00:00
+2025-05-18 01:33:46,974 ERROR: Calendar event creation failed: 'str' object has no attribute 'isoformat'
+2025-05-18 01:33:46,980 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:33:46.974961', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:33:45.547667+00:00', 'start_time': '2025-05-18T06:33:45.649661+00:00Z', 'end_time': '2025-05-18T07:03:45.649661+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'isoformat'"}
+2025-05-18 01:33:52,689 ERROR: Calendar event creation failed: 'str' object has no attribute 'isoformat'
+2025-05-18 01:33:52,696 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:33:52.689887', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:33:51.373640+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:33:51.373674+00:00', 'end_time': '2025-05-18T07:03:51.373674+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'isoformat'"}
+2025-05-18 01:33:54,032 ERROR: Calendar event creation failed: 'str' object has no attribute 'isoformat'
+2025-05-18 01:33:54,038 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:33:54.032991', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:33:51.373640+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:33:52.696835+00:00', 'end_time': '2025-05-18T07:03:52.696835+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'isoformat'"}
+2025-05-18 01:34:03,195 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpnjwzgzru\transcript_2025-05-18_01-34-03.txt
+2025-05-18 01:34:03,200 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:34:03.196142', 'type': 'transcript', 'timestamp': '2025-05-18_01-34-03', 'transcript': 'Test transcript logging'}
+2025-05-18 01:39:37,601 INFO: Scheduling: Pytest Action 2025-05-18T05:39:37.601491+00:00
+2025-05-18 01:39:39,020 ERROR: Calendar event creation failed: time data '2025-05-18T06:39:37.685469+00:00Z' does not match format '%Y%m%dT%H%M%SZ'
+2025-05-18 01:39:39,026 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:39:39.021408', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:39:37.601491+00:00', 'start_time': '2025-05-18T06:39:37.685469+00:00Z', 'end_time': '2025-05-18T07:09:37.685469+00:00Z', 'status': 'error', 'error': "time data '2025-05-18T06:39:37.685469+00:00Z' does not match format '%Y%m%dT%H%M%SZ'"}
+2025-05-18 01:39:45,024 ERROR: Calendar event creation failed: time data '2025-05-18T06:39:43.693279+00:00' does not match format '%Y%m%dT%H%M%SZ'
+2025-05-18 01:39:45,031 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:39:45.024779', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:39:43.693245+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:39:43.693279+00:00', 'end_time': '2025-05-18T07:09:43.693279+00:00', 'owner': 'Alice', 'status': 'error', 'error': "time data '2025-05-18T06:39:43.693279+00:00' does not match format '%Y%m%dT%H%M%SZ'"}
+2025-05-18 01:39:46,315 ERROR: Calendar event creation failed: time data '2025-05-18T06:39:45.031824+00:00' does not match format '%Y%m%dT%H%M%SZ'
+2025-05-18 01:39:46,322 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:39:46.316588', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:39:43.693245+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:39:45.031824+00:00', 'end_time': '2025-05-18T07:09:45.031824+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "time data '2025-05-18T06:39:45.031824+00:00' does not match format '%Y%m%dT%H%M%SZ'"}
+2025-05-18 01:39:55,242 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpg7hl8k59\transcript_2025-05-18_01-39-55.txt
+2025-05-18 01:39:55,248 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:39:55.242878', 'type': 'transcript', 'timestamp': '2025-05-18_01-39-55', 'transcript': 'Test transcript logging'}
+2025-05-18 01:42:47,889 INFO: Scheduling: Pytest Action 2025-05-18T05:42:47.889060+00:00
+2025-05-18 01:42:49,313 ERROR: Calendar event creation failed: 'str' object has no attribute 'isoformat'
+2025-05-18 01:42:49,319 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:42:49.314515', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:42:47.889060+00:00', 'start_time': '2025-05-18T06:42:47.983662+00:00Z', 'end_time': '2025-05-18T07:12:47.983662+00:00Z', 'status': 'error', 'error': "'str' object has no attribute 'isoformat'"}
+2025-05-18 01:42:54,971 ERROR: Calendar event creation failed: 'str' object has no attribute 'isoformat'
+2025-05-18 01:42:54,977 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:42:54.972103', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:42:53.654239+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:42:53.654276+00:00', 'end_time': '2025-05-18T07:12:53.654276+00:00', 'owner': 'Alice', 'status': 'error', 'error': "'str' object has no attribute 'isoformat'"}
+2025-05-18 01:42:56,241 ERROR: Calendar event creation failed: 'str' object has no attribute 'isoformat'
+2025-05-18 01:42:56,248 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:42:56.242417', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:42:53.654239+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:42:54.978065+00:00', 'end_time': '2025-05-18T07:12:54.978065+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "'str' object has no attribute 'isoformat'"}
+2025-05-18 01:43:05,214 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpidevbekd\transcript_2025-05-18_01-43-05.txt
+2025-05-18 01:43:05,220 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:43:05.215099', 'type': 'transcript', 'timestamp': '2025-05-18_01-43-05', 'transcript': 'Test transcript logging'}
+2025-05-18 01:47:07,336 INFO: Scheduling: Pytest Action 2025-05-18T05:47:07.336423+00:00
+2025-05-18 01:47:08,742 ERROR: Calendar event creation failed: time data '2025-05-18T06:47:07.417896+00:00Z' does not match format '%Y%m%dT%H%M%SZ'
+2025-05-18 01:47:08,749 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:47:08.743588', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:47:07.336423+00:00', 'start_time': '2025-05-18T06:47:07.417896+00:00Z', 'end_time': '2025-05-18T07:17:07.417896+00:00Z', 'status': 'error', 'error': "time data '2025-05-18T06:47:07.417896+00:00Z' does not match format '%Y%m%dT%H%M%SZ'"}
+2025-05-18 01:47:14,645 ERROR: Calendar event creation failed: time data '2025-05-18T06:47:13.352398+00:00' does not match format '%Y%m%dT%H%M%SZ'
+2025-05-18 01:47:14,652 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:47:14.646142', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:47:13.352366+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:47:13.352398+00:00', 'end_time': '2025-05-18T07:17:13.352398+00:00', 'owner': 'Alice', 'status': 'error', 'error': "time data '2025-05-18T06:47:13.352398+00:00' does not match format '%Y%m%dT%H%M%SZ'"}
+2025-05-18 01:47:15,945 ERROR: Calendar event creation failed: time data '2025-05-18T06:47:14.652895+00:00' does not match format '%Y%m%dT%H%M%SZ'
+2025-05-18 01:47:15,952 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:47:15.946452', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:47:13.352366+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:47:14.652895+00:00', 'end_time': '2025-05-18T07:17:14.652895+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "time data '2025-05-18T06:47:14.652895+00:00' does not match format '%Y%m%dT%H%M%SZ'"}
+2025-05-18 01:47:25,563 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpujyn82vm\transcript_2025-05-18_01-47-25.txt
+2025-05-18 01:47:25,572 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:47:25.563785', 'type': 'transcript', 'timestamp': '2025-05-18_01-47-25', 'transcript': 'Test transcript logging'}
+2025-05-18 01:52:56,846 INFO: Scheduling: Pytest Action 2025-05-18T05:52:56.846399+00:00
+2025-05-18 01:52:58,265 ERROR: Calendar event creation failed: time data '2025-05-18T06:52:56.934399+00:00Z' does not match format '%Y-%m-%dT %H:%M:%SZ'
+2025-05-18 01:52:58,273 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:52:58.266668', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:52:56.846399+00:00', 'start_time': '2025-05-18T06:52:56.934399+00:00Z', 'end_time': '2025-05-18T07:22:56.934399+00:00Z', 'status': 'error', 'error': "time data '2025-05-18T06:52:56.934399+00:00Z' does not match format '%Y-%m-%dT %H:%M:%SZ'"}
+2025-05-18 01:53:04,004 ERROR: Calendar event creation failed: time data '2025-05-18T06:53:02.723843+00:00' does not match format '%Y-%m-%dT %H:%M:%SZ'
+2025-05-18 01:53:04,011 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:53:04.005049', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:53:02.723811+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:53:02.723843+00:00', 'end_time': '2025-05-18T07:23:02.723843+00:00', 'owner': 'Alice', 'status': 'error', 'error': "time data '2025-05-18T06:53:02.723843+00:00' does not match format '%Y-%m-%dT %H:%M:%SZ'"}
+2025-05-18 01:53:05,341 ERROR: Calendar event creation failed: time data '2025-05-18T06:53:04.011830+00:00' does not match format '%Y-%m-%dT %H:%M:%SZ'
+2025-05-18 01:53:05,347 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:53:05.342236', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:53:02.723811+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:53:04.011830+00:00', 'end_time': '2025-05-18T07:23:04.011830+00:00', 'owner': 'Unassigned', 'status': 'error', 'error': "time data '2025-05-18T06:53:04.011830+00:00' does not match format '%Y-%m-%dT %H:%M:%SZ'"}
+2025-05-18 01:53:14,476 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp5r5hk0nz\transcript_2025-05-18_01-53-14.txt
+2025-05-18 01:53:14,483 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:53:14.476877', 'type': 'transcript', 'timestamp': '2025-05-18_01-53-14', 'transcript': 'Test transcript logging'}
+2025-05-18 01:55:03,620 INFO: Scheduling: Pytest Action 2025-05-18T05:55:03.620155+00:00
+2025-05-18 01:55:05,073 ERROR: Calendar event creation failed: Invalid isoformat string: '2025-05-18T06:55:03.723225+00:00Z'
+2025-05-18 01:55:05,080 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:55:05.074456', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T05:55:03.620155+00:00', 'start_time': '2025-05-18T06:55:03.723225+00:00Z', 'end_time': '2025-05-18T07:25:03.723225+00:00Z', 'status': 'error', 'error': "Invalid isoformat string: '2025-05-18T06:55:03.723225+00:00Z'"}
+2025-05-18 01:55:12,233 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:55:12.225615', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 05:55:09.700180+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T06:55:09.700216+00:00', 'end_time': '2025-05-18T07:25:09.700216+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 01:55:14,680 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:55:14.673217', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 05:55:09.700180+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T06:55:12.233967+00:00', 'end_time': '2025-05-18T07:25:12.233967+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 01:55:24,066 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmptir641io\transcript_2025-05-18_01-55-24.txt
+2025-05-18 01:55:24,072 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T01:55:24.067390', 'type': 'transcript', 'timestamp': '2025-05-18_01-55-24', 'transcript': 'Test transcript logging'}
+2025-05-18 09:40:09,369 INFO: Scheduling: Pytest Action 2025-05-18T13:40:09.369383+00:00
+2025-05-18 09:40:10,813 ERROR: Calendar event creation failed: Invalid isoformat string: '2025-05-18T14:40:09.455570+00:00Z'
+2025-05-18 09:40:10,823 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:40:10.814096', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T13:40:09.369383+00:00', 'start_time': '2025-05-18T14:40:09.455570+00:00Z', 'end_time': '2025-05-18T15:10:09.455570+00:00Z', 'status': 'error', 'error': "Invalid isoformat string: '2025-05-18T14:40:09.455570+00:00Z'"}
+2025-05-18 09:40:17,825 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:40:17.818662', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 13:40:15.267076+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T14:40:15.267116+00:00', 'end_time': '2025-05-18T15:10:15.267116+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 09:40:20,215 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:40:20.208157', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 13:40:15.267076+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T14:40:17.825942+00:00', 'end_time': '2025-05-18T15:10:17.825942+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 09:40:29,629 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpdlx5iceg\transcript_2025-05-18_09-40-29.txt
+2025-05-18 09:40:29,636 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:40:29.629887', 'type': 'transcript', 'timestamp': '2025-05-18_09-40-29', 'transcript': 'Test transcript logging'}
+2025-05-18 09:42:53,868 INFO: Scheduling: Pytest Action 2025-05-18T13:42:53.868480+00:00
+2025-05-18 09:42:55,296 ERROR: Calendar event creation failed: Invalid isoformat string: '2025-05-18T14:42:53.952614+00:00Z'
+2025-05-18 09:42:55,304 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:42:55.297596', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T13:42:53.868480+00:00', 'start_time': '2025-05-18T14:42:53.952614+00:00Z', 'end_time': '2025-05-18T15:12:53.952614+00:00Z', 'status': 'error', 'error': "Invalid isoformat string: '2025-05-18T14:42:53.952614+00:00Z'"}
+2025-05-18 09:43:02,427 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:43:02.419813', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 13:42:59.885900+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T14:42:59.885931+00:00', 'end_time': '2025-05-18T15:12:59.885931+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 09:43:04,939 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:43:04.932454', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 13:42:59.885900+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T14:43:02.428423+00:00', 'end_time': '2025-05-18T15:13:02.428423+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 09:43:14,509 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpi_zqx45j\transcript_2025-05-18_09-43-14.txt
+2025-05-18 09:43:14,517 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:43:14.510345', 'type': 'transcript', 'timestamp': '2025-05-18_09-43-14', 'transcript': 'Test transcript logging'}
+2025-05-18 09:47:54,245 INFO: Scheduling: Pytest Action 2025-05-18T13:47:54.245554+00:00
+2025-05-18 09:47:55,682 ERROR: Calendar event creation failed: Invalid isoformat string: '2025-05-18T14:47:54.341409+00:00Z'
+2025-05-18 09:47:55,689 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:47:55.682760', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T13:47:54.245554+00:00', 'start_time': '2025-05-18T14:47:54.341409+00:00Z', 'end_time': '2025-05-18T15:17:54.341409+00:00Z', 'status': 'error', 'error': "Invalid isoformat string: '2025-05-18T14:47:54.341409+00:00Z'"}
+2025-05-18 09:48:02,710 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:48:02.703266', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 13:48:00.207210+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T14:48:00.207241+00:00', 'end_time': '2025-05-18T15:18:00.207241+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 09:48:05,335 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:48:05.328630', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 13:48:00.207210+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T14:48:02.710806+00:00', 'end_time': '2025-05-18T15:18:02.710806+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 09:48:15,038 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpjkwwxf8o\transcript_2025-05-18_09-48-15.txt
+2025-05-18 09:48:15,048 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:48:15.039246', 'type': 'transcript', 'timestamp': '2025-05-18_09-48-15', 'transcript': 'Test transcript logging'}
+2025-05-18 09:48:47,764 INFO: Scheduling: Pytest Action 2025-05-18T13:48:47.764522+00:00
+2025-05-18 09:48:49,317 ERROR: Calendar event creation failed: Invalid isoformat string: '2025-05-18T14:48:47.862136+00:00Z'
+2025-05-18 09:48:49,326 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:48:49.318114', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T13:48:47.764522+00:00', 'start_time': '2025-05-18T14:48:47.862136+00:00Z', 'end_time': '2025-05-18T15:18:47.862136+00:00Z', 'status': 'error', 'error': "Invalid isoformat string: '2025-05-18T14:48:47.862136+00:00Z'"}
+2025-05-18 09:48:56,476 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:48:56.469399', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 13:48:53.909761+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T14:48:53.909795+00:00', 'end_time': '2025-05-18T15:18:53.909795+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 09:48:58,798 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:48:58.791343', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 13:48:53.909761+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T14:48:56.477549+00:00', 'end_time': '2025-05-18T15:18:56.477549+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 09:49:08,799 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp0a7e28f1\transcript_2025-05-18_09-49-08.txt
+2025-05-18 09:49:08,806 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:49:08.799921', 'type': 'transcript', 'timestamp': '2025-05-18_09-49-08', 'transcript': 'Test transcript logging'}
+2025-05-18 09:50:09,126 INFO: Scheduling: Pytest Action 2025-05-18T13:50:09.126308+00:00
+2025-05-18 09:50:10,615 ERROR: Calendar event creation failed: Invalid isoformat string: '2025-05-18T14:50:09.234476+00:00Z'
+2025-05-18 09:50:10,623 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:50:10.616126', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T13:50:09.126308+00:00', 'start_time': '2025-05-18T14:50:09.234476+00:00Z', 'end_time': '2025-05-18T15:20:09.234476+00:00Z', 'status': 'error', 'error': "Invalid isoformat string: '2025-05-18T14:50:09.234476+00:00Z'"}
+2025-05-18 09:50:17,785 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:50:17.778772', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 13:50:15.227353+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T14:50:15.227394+00:00', 'end_time': '2025-05-18T15:20:15.227394+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 09:50:19,927 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:50:19.920751', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 13:50:15.227353+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T14:50:17.785944+00:00', 'end_time': '2025-05-18T15:20:17.785944+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 09:50:29,866 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpfqmmcs96\transcript_2025-05-18_09-50-29.txt
+2025-05-18 09:50:29,875 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:50:29.866971', 'type': 'transcript', 'timestamp': '2025-05-18_09-50-29', 'transcript': 'Test transcript logging'}
+2025-05-18 09:53:58,694 INFO: Scheduling: Pytest Action 2025-05-18T13:53:58.694777+00:00
+2025-05-18 09:54:00,162 ERROR: Calendar event creation failed: Invalid isoformat string: '2025-05-18T14:53:58.777084+00:00Z'
+2025-05-18 09:54:00,170 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:54:00.163057', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T13:53:58.694777+00:00', 'start_time': '2025-05-18T14:53:58.777084+00:00Z', 'end_time': '2025-05-18T15:23:58.777084+00:00Z', 'status': 'error', 'error': "Invalid isoformat string: '2025-05-18T14:53:58.777084+00:00Z'"}
+2025-05-18 09:54:07,239 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:54:07.231473', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 13:54:04.863959+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T14:54:04.863998+00:00', 'end_time': '2025-05-18T15:24:04.863998+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 09:54:09,698 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:54:09.691329', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 13:54:04.863959+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T14:54:07.240238+00:00', 'end_time': '2025-05-18T15:24:07.240238+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 09:54:18,882 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpzeehwww7\transcript_2025-05-18_09-54-18.txt
+2025-05-18 09:54:18,890 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:54:18.882960', 'type': 'transcript', 'timestamp': '2025-05-18_09-54-18', 'transcript': 'Test transcript logging'}
+2025-05-18 09:56:22,404 INFO: Scheduling: Pytest Action 2025-05-18T13:56:22.404415+00:00
+2025-05-18 09:56:23,815 ERROR: Calendar event creation failed: Invalid isoformat string: '2025-05-18T14:56:22.488857+00:00Z'
+2025-05-18 09:56:23,823 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:56:23.816194', 'type': 'calendar_event', 'title': 'Pytest Action 2025-05-18T13:56:22.404415+00:00', 'start_time': '2025-05-18T14:56:22.488857+00:00Z', 'end_time': '2025-05-18T15:26:22.488857+00:00Z', 'status': 'error', 'error': "Invalid isoformat string: '2025-05-18T14:56:22.488857+00:00Z'"}
+2025-05-18 09:56:30,780 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:56:30.773159', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 13:56:28.229047+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T14:56:28.229081+00:00', 'end_time': '2025-05-18T15:26:28.229081+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 09:56:33,093 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:56:33.086248', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 13:56:28.229047+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T14:56:30.780899+00:00', 'end_time': '2025-05-18T15:26:30.780899+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 09:56:42,882 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp4b4tx658\transcript_2025-05-18_09-56-42.txt
+2025-05-18 09:56:42,891 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:56:42.883898', 'type': 'transcript', 'timestamp': '2025-05-18_09-56-42', 'transcript': 'Test transcript logging'}
+2025-05-18 09:58:44,098 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:58:44.091615', 'type': 'calendar_event', 'title': 'Follow-up: Alice', 'description': 'Follow up with Alice 2025-05-18 13:58:41.559958+00:00\n\nOwner: Alice', 'start_time': '2025-05-18T14:58:41.559992+00:00', 'end_time': '2025-05-18T15:28:41.559992+00:00', 'owner': 'Alice', 'status': 'success', 'response': 'None'}
+2025-05-18 09:58:46,555 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:58:46.548297', 'type': 'calendar_event', 'title': 'Meeting Follow-up', 'description': 'General meeting review 2025-05-18 13:58:41.559958+00:00\n\nOwner: Unassigned', 'start_time': '2025-05-18T14:58:44.100113+00:00', 'end_time': '2025-05-18T15:28:44.100113+00:00', 'owner': 'Unassigned', 'status': 'success', 'response': 'None'}
+2025-05-18 09:58:55,989 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmphpp94xny\transcript_2025-05-18_09-58-55.txt
+2025-05-18 09:58:56,005 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:58:55.989593', 'type': 'transcript', 'timestamp': '2025-05-18_09-58-55', 'transcript': 'Test transcript logging'}
+2025-05-18 09:59:40,827 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp63i4a9op\transcript_2025-05-18_09-59-40.txt
+2025-05-18 09:59:40,835 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T09:59:40.828948', 'type': 'transcript', 'timestamp': '2025-05-18_09-59-40', 'transcript': 'Test transcript logging'}
+2025-05-18 10:05:26,916 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp8t9lghz0\transcript_2025-05-18_10-05-26.txt
+2025-05-18 10:05:26,924 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:05:26.918071', 'type': 'transcript', 'timestamp': '2025-05-18_10-05-26', 'transcript': 'Test transcript logging'}
+2025-05-18 10:13:28,808 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp4l5tws6t\transcript_2025-05-18_10-13-28.txt
+2025-05-18 10:13:28,819 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:13:28.810344', 'type': 'transcript', 'timestamp': '2025-05-18_10-13-28', 'transcript': 'Test transcript logging'}
+2025-05-18 10:22:57,514 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp5vta31_s\transcript_2025-05-18_10-22-57.txt
+2025-05-18 10:22:57,522 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:22:57.515954', 'type': 'transcript', 'timestamp': '2025-05-18_10-22-57', 'transcript': 'Test transcript logging'}
+2025-05-18 10:28:39,511 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpes4i9_fc\transcript_2025-05-18_10-28-39.txt
+2025-05-18 10:28:39,519 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:28:39.512414', 'type': 'transcript', 'timestamp': '2025-05-18_10-28-39', 'transcript': 'Test transcript logging'}
+2025-05-18 10:33:31,843 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpw3fd8mcq\transcript_2025-05-18_10-33-31.txt
+2025-05-18 10:33:31,852 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:33:31.845165', 'type': 'transcript', 'timestamp': '2025-05-18_10-33-31', 'transcript': 'Test transcript logging'}
+2025-05-18 10:42:24,712 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpcsh10lj7\transcript_2025-05-18_10-42-24.txt
+2025-05-18 10:42:24,720 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:42:24.713658', 'type': 'transcript', 'timestamp': '2025-05-18_10-42-24', 'transcript': 'Test transcript logging'}
+2025-05-18 10:49:57,498 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmprm7jfir5\transcript_2025-05-18_10-49-57.txt
+2025-05-18 10:49:57,507 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:49:57.499912', 'type': 'transcript', 'timestamp': '2025-05-18_10-49-57', 'transcript': 'Test transcript logging'}
+2025-05-18 10:53:02,625 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp0zd5cetf\transcript_2025-05-18_10-53-02.txt
+2025-05-18 10:53:02,636 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:53:02.626868', 'type': 'transcript', 'timestamp': '2025-05-18_10-53-02', 'transcript': 'Test transcript logging'}
+2025-05-18 10:58:55,855 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:58:55.854429', 'type': 'log_parse_error', 'file': 'event_log_2025-05-17.jsonl', 'line_number': 4, 'error': 'Expecting value: line 1 column 1 (char 0)', 'raw_line': 'bad json line'}
+2025-05-18 10:58:55,974 ERROR: Failed to log event: Permission denied
+2025-05-18 10:58:56,059 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:58:56.059121', 'type': 'log_parse_error', 'file': 'event_log_2025-05-17.jsonl', 'line_number': 1, 'error': 'Expecting value: line 1 column 1 (char 0)', 'raw_line': 'not a json'}
+2025-05-18 10:58:56,060 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:58:56.060006', 'type': 'log_parse_error', 'file': 'event_log_2025-05-17.jsonl', 'line_number': 3, 'error': 'Expecting value: line 1 column 1 (char 0)', 'raw_line': 'bad json again'}
+2025-05-18 10:59:06,944 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpfx3t8gs6\transcript_2025-05-18_10-59-06.txt
+2025-05-18 10:59:06,951 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T10:59:06.944516', 'type': 'transcript', 'timestamp': '2025-05-18_10-59-06', 'transcript': 'Test transcript logging'}
+2025-05-18 11:05:50,572 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp1y2yszjd\transcript_2025-05-18_11-05-50.txt
+2025-05-18 11:05:50,580 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:05:50.574030', 'type': 'transcript', 'timestamp': '2025-05-18_11-05-50', 'transcript': 'Test transcript logging'}
+2025-05-18 11:07:12,029 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpk8jvvbtk\transcript_2025-05-18_11-07-12.txt
+2025-05-18 11:07:12,038 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:07:12.031388', 'type': 'transcript', 'timestamp': '2025-05-18_11-07-12', 'transcript': 'Test transcript logging'}
+2025-05-18 11:20:00,068 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpob6etc7j\transcript_2025-05-18_11-20-00.txt
+2025-05-18 11:20:00,075 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:20:00.069827', 'type': 'transcript', 'timestamp': '2025-05-18_11-20-00', 'transcript': 'Test transcript logging'}
+2025-05-18 11:21:17,978 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp8q_hww34\transcript_2025-05-18_11-21-17.txt
+2025-05-18 11:21:17,985 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:21:17.979379', 'type': 'transcript', 'timestamp': '2025-05-18_11-21-17', 'transcript': 'Test transcript logging'}
+2025-05-18 11:26:40,983 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp_slxuovw\transcript_2025-05-18_11-26-40.txt
+2025-05-18 11:26:40,994 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:26:40.984572', 'type': 'transcript', 'timestamp': '2025-05-18_11-26-40', 'transcript': 'Test transcript logging'}
+2025-05-18 11:39:22,677 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpp75jz1mn\transcript_2025-05-18_11-39-22.txt
+2025-05-18 11:39:22,688 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:39:22.679295', 'type': 'transcript', 'timestamp': '2025-05-18_11-39-22', 'transcript': 'Test transcript logging'}
+2025-05-18 11:42:42,024 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpdsn9tfho\transcript_2025-05-18_11-42-42.txt
+2025-05-18 11:42:42,032 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:42:42.026299', 'type': 'transcript', 'timestamp': '2025-05-18_11-42-42', 'transcript': 'Test transcript logging'}
+2025-05-18 11:46:07,173 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmphf7xfbr7\transcript_2025-05-18_11-46-07.txt
+2025-05-18 11:46:07,181 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:46:07.174658', 'type': 'transcript', 'timestamp': '2025-05-18_11-46-07', 'transcript': 'Test transcript logging'}
+2025-05-18 11:49:41,126 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpqn6nergg\transcript_2025-05-18_11-49-41.txt
+2025-05-18 11:49:41,136 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:49:41.127966', 'type': 'transcript', 'timestamp': '2025-05-18_11-49-41', 'transcript': 'Test transcript logging'}
+2025-05-18 11:56:40,395 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp5u1ybhy4\transcript_2025-05-18_11-56-40.txt
+2025-05-18 11:56:40,402 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T11:56:40.396673', 'type': 'transcript', 'timestamp': '2025-05-18_11-56-40', 'transcript': 'Test transcript logging'}
+2025-05-18 12:01:20,615 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpi0wy44b2\transcript_2025-05-18_12-01-20.txt
+2025-05-18 12:01:20,624 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:01:20.617626', 'type': 'transcript', 'timestamp': '2025-05-18_12-01-20', 'transcript': 'Test transcript logging'}
+2025-05-18 12:06:03,666 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp95pkzbq3\transcript_2025-05-18_12-06-03.txt
+2025-05-18 12:06:03,673 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:06:03.667524', 'type': 'transcript', 'timestamp': '2025-05-18_12-06-03', 'transcript': 'Test transcript logging'}
+2025-05-18 12:06:42,632 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmptuo3683p\transcript_2025-05-18_12-06-42.txt
+2025-05-18 12:06:42,639 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:06:42.633483', 'type': 'transcript', 'timestamp': '2025-05-18_12-06-42', 'transcript': 'Test transcript logging'}
+2025-05-18 12:10:11,185 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpgernuwtd\transcript_2025-05-18_12-10-11.txt
+2025-05-18 12:10:11,195 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:10:11.186518', 'type': 'transcript', 'timestamp': '2025-05-18_12-10-11', 'transcript': 'Test transcript logging'}
+2025-05-18 12:20:49,026 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp0kub_qrs\transcript_2025-05-18_12-20-49.txt
+2025-05-18 12:20:49,034 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:20:49.027957', 'type': 'transcript', 'timestamp': '2025-05-18_12-20-49', 'transcript': 'Test transcript logging'}
+2025-05-18 12:23:39,479 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp2s7ibxt_\transcript_2025-05-18_12-23-39.txt
+2025-05-18 12:23:39,488 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:23:39.481443', 'type': 'transcript', 'timestamp': '2025-05-18_12-23-39', 'transcript': 'Test transcript logging'}
+2025-05-18 12:25:11,566 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmps6rgstgm\transcript_2025-05-18_12-25-11.txt
+2025-05-18 12:25:11,574 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:25:11.567394', 'type': 'transcript', 'timestamp': '2025-05-18_12-25-11', 'transcript': 'Test transcript logging'}
+2025-05-18 12:28:11,384 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpno0a9_gv\transcript_2025-05-18_12-28-11.txt
+2025-05-18 12:28:11,394 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:28:11.385446', 'type': 'transcript', 'timestamp': '2025-05-18_12-28-11', 'transcript': 'Test transcript logging'}
+2025-05-18 12:33:36,791 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp67lkgw9a\transcript_2025-05-18_12-33-36.txt
+2025-05-18 12:33:36,801 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:33:36.793579', 'type': 'transcript', 'timestamp': '2025-05-18_12-33-36', 'transcript': 'Test transcript logging'}
+2025-05-18 12:34:38,013 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmppsa44avs\transcript_2025-05-18_12-34-38.txt
+2025-05-18 12:34:38,021 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:34:38.014885', 'type': 'transcript', 'timestamp': '2025-05-18_12-34-38', 'transcript': 'Test transcript logging'}
+2025-05-18 12:51:56,496 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpbm6eh41a\transcript_2025-05-18_12-51-56.txt
+2025-05-18 12:51:56,511 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:51:56.503643', 'type': 'transcript', 'timestamp': '2025-05-18_12-51-56', 'transcript': 'Test transcript logging'}
+2025-05-18 12:57:14,387 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp6g_vxrku\transcript_2025-05-18_12-57-14.txt
+2025-05-18 12:57:14,396 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T12:57:14.389120', 'type': 'transcript', 'timestamp': '2025-05-18_12-57-14', 'transcript': 'Test transcript logging'}
+2025-05-18 13:08:55,191 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp_7r03rm0\transcript_2025-05-18_13-08-55.txt
+2025-05-18 13:08:55,206 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T13:08:55.195509', 'type': 'transcript', 'timestamp': '2025-05-18_13-08-55', 'transcript': 'Test transcript logging'}
+2025-05-18 13:13:55,877 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp0dm4qd54\transcript_2025-05-18_13-13-55.txt
+2025-05-18 13:13:55,890 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T13:13:55.881373', 'type': 'transcript', 'timestamp': '2025-05-18_13-13-55', 'transcript': 'Test transcript logging'}
+2025-05-18 13:21:06,095 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp55xhtdgw\transcript_2025-05-18_13-21-06.txt
+2025-05-18 13:21:06,104 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T13:21:06.096258', 'type': 'transcript', 'timestamp': '2025-05-18_13-21-06', 'transcript': 'Test transcript logging'}
+2025-05-18 13:27:20,422 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpfu2qdocq\transcript_2025-05-18_13-27-20.txt
+2025-05-18 13:27:20,430 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T13:27:20.423119', 'type': 'transcript', 'timestamp': '2025-05-18_13-27-20', 'transcript': 'Test transcript logging'}
+2025-05-18 13:31:15,830 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpiyuhruwk\transcript_2025-05-18_13-31-15.txt
+2025-05-18 13:31:15,837 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T13:31:15.831405', 'type': 'transcript', 'timestamp': '2025-05-18_13-31-15', 'transcript': 'Test transcript logging'}
+2025-05-18 13:46:17,426 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpm3104hbo\transcript_2025-05-18_13-46-17.txt
+2025-05-18 13:46:17,434 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T13:46:17.427936', 'type': 'transcript', 'timestamp': '2025-05-18_13-46-17', 'transcript': 'Test transcript logging'}
+2025-05-18 13:56:23,610 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp_g9uzx6d\transcript_2025-05-18_13-56-23.txt
+2025-05-18 13:56:23,618 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T13:56:23.611559', 'type': 'transcript', 'timestamp': '2025-05-18_13-56-23', 'transcript': 'Test transcript logging'}
+2025-05-18 14:02:14,128 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpddiypfdq\transcript_2025-05-18_14-02-14.txt
+2025-05-18 14:02:14,138 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T14:02:14.130829', 'type': 'transcript', 'timestamp': '2025-05-18_14-02-14', 'transcript': 'Test transcript logging'}
+2025-05-18 14:05:48,632 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp660fpu65\transcript_2025-05-18_14-05-48.txt
+2025-05-18 14:05:48,640 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T14:05:48.633763', 'type': 'transcript', 'timestamp': '2025-05-18_14-05-48', 'transcript': 'Test transcript logging'}
+2025-05-18 14:08:28,310 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp71mhh0aa\transcript_2025-05-18_14-08-28.txt
+2025-05-18 14:08:28,319 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T14:08:28.312124', 'type': 'transcript', 'timestamp': '2025-05-18_14-08-28', 'transcript': 'Test transcript logging'}
+2025-05-18 14:28:03,940 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmp0clw7r9_\transcript_2025-05-18_14-28-03.txt
+2025-05-18 14:28:03,957 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T14:28:03.948533', 'type': 'transcript', 'timestamp': '2025-05-18_14-28-03', 'transcript': 'Test transcript logging'}
+2025-05-18 14:30:46,548 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpnucp0mf5\transcript_2025-05-18_14-30-46.txt
+2025-05-18 14:30:46,555 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T14:30:46.549404', 'type': 'transcript', 'timestamp': '2025-05-18_14-30-46', 'transcript': 'Test transcript logging'}

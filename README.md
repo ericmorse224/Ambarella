@@ -166,3 +166,43 @@ With body:
 
 MIT License. Contributions welcome!
 
+📅 Self-Hosted Calendar Integration (Nextcloud)
+You can connect your personal or work calendar using a self-hosted Nextcloud server. This lets you keep all your meeting action items and events private, with no need for Google or Microsoft accounts.
+
+How It Works
+Meeting action items and follow-ups are added directly to your private Nextcloud calendar.
+
+You’ll see these as events/reminders in your Nextcloud web interface and in any calendar app connected to your Nextcloud account (mobile, desktop, etc).
+
+What You Need
+A Nextcloud account (ask your IT admin or set up your own on your computer, server, or Raspberry Pi).
+
+The Calendar app enabled in Nextcloud (this is usually available by default).
+
+Your calendar’s CalDAV link.
+
+Go to the Calendar app in Nextcloud.
+
+Open the settings or info menu for your calendar.
+
+Copy the CalDAV link (it will look like https://your-domain/remote.php/dav/calendars/yourusername/personal/).
+
+How to Connect
+In this app, open the settings or calendar integration area.
+
+Paste your CalDAV link, Nextcloud username, and password (or app password if you use two-factor authentication).
+
+Save your settings.
+
+How You’ll Use It
+When a meeting is processed and action items are detected, those items will appear in your Nextcloud calendar as events or reminders.
+
+You can see and manage these events on:
+
+The Nextcloud web interface
+
+Any calendar app you use that is connected to your Nextcloud account (iOS, Android, Outlook, Thunderbird, etc).
+
+Privacy
+All your events stay on your own server—nothing is sent to Google, Microsoft, or any third-party service.
+

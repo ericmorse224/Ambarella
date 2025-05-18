@@ -182,9 +182,9 @@ test('handleFileChange resets state properly', () => {
 test('handleUpload does nothing if no file is selected', async () => {
     render(<App />);
     const button = screen.getByRole('button', { name: /transcribe audio/i });
-    expect(button).not.toBeDisabled();
+    expect(button).toBeDisabled();
     fireEvent.click(button);
-    expect(button).not.toBeDisabled();
+    expect(button).toBeDisabled();
     // Don't check for transcript text, since the mock always returns a transcript
 });
 
@@ -214,7 +214,7 @@ test('handleUpload sends audio and updates UI', async () => {
 
 test('handleFileChange does nothing when file is null', () => {
     render(<App />);
-    const fileInput = screen.getByTestId("audio-upload"); 
+    const fileInput = screen.getByTestId("audio-upload");
     fireEvent.change(fileInput, { target: { files: null } });
     expect(screen.getByText(/selected file:/i)).toHaveTextContent('None');
 });

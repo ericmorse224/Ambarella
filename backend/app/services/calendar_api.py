@@ -1,8 +1,6 @@
 from flask import Blueprint, request, jsonify
 from .calendar_integration import create_calendar_event
-from datetime import datetime, timedelta
-import requests
-from app.utils.zoho_utils import make_authorized_request
+from datetime import datetime, timedelta, timezone  # added timezone import
 
 calendar_api = Blueprint('calendar_api', __name__)
 
@@ -36,6 +34,7 @@ def schedule_actions():
             title = action.get('text', 'Untitled Action')
             owner = action.get('owner', 'Unassigned')
             start = action['datetime']
+            # Simple default: schedule for 1 hour
             end = (datetime.fromisoformat(start) + timedelta(hours=1)).isoformat()
 
             response = create_calendar_event(title, owner, start, end)
@@ -45,7 +44,6 @@ def schedule_actions():
 
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
-
 
 @calendar_api.route('/create-event', methods=['POST'])
 def create_event():
@@ -65,45 +63,14 @@ def create_event():
         return jsonify({'error': str(e)}), 500
 
 def generate_event_data_from_action(action_text):
-    # Dummy time window for simplicity
-    from datetime import datetime, timedelta
-    now = datetime.utcnow()
+    now = datetime.now(timezone.utc)
     start_time = now + timedelta(days=1)
     end_time = start_time + timedelta(hours=1)
-
+    start = start_time.strftime('%Y-%m-%dT%H:%M')
+    end = end_time.strftime('%Y-%m-%dT%H:%M')
     return {
         "title": action_text[:60],
         "description": "Auto-created from meeting action item.",
-        "start_time": start_time.isoformat() + "Z",
-        "end_time": end_time.isoformat() + "Z",
+        "start_time": start,
+        "end_time": end,
     }
-
-def create_calendar_event(title, description, start_time, end_time):
-    endpoint = "/calendar/v2/calendars/primary/events"
-    payload = {
-        "event_title": title,
-        "location": "",
-        "description": description,
-        "all_day": False,
-        "start_time": start_time,
-        "end_time": end_time,
-        "timezone": "UTC"
-    }
-
-    response = make_authorized_request(endpoint, method="POST", payload=payload)
-    try:
-        data = response.json()
-    except Exception:
-        raise Exception(f"Zoho calendar event creation failed: {response}")
-
-    if not isinstance(data, dict) or "error" in data:
-        raise Exception(f"Zoho calendar event creation failed: {data}")
-    print(f"DEBUG: response={data}, type={type(data)}")
-    return data
-
-def get_user_profile():
-    endpoint = "/calendar/v2/users/me"
-    response = make_authorized_request(endpoint)
-    if not response.ok:
-        raise Exception(f"Zoho user info failed: {response.text}")
-    return response.json()

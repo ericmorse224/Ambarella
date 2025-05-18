@@ -5176,3 +5176,11 @@ werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The dat
 2025-05-18 16:55:22,380 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:55:22.373266', 'type': 'transcript', 'timestamp': '2025-05-18_16-55-22', 'transcript': 'Test transcript logging'}
 2025-05-18 16:56:24,220 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpugvispfp\transcript_2025-05-18_16-56-24.txt
 2025-05-18 16:56:24,229 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T16:56:24.221924', 'type': 'transcript', 'timestamp': '2025-05-18_16-56-24', 'transcript': 'Test transcript logging'}
+2025-05-18 17:05:34,172 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpn2mdr1am\transcript_2025-05-18_17-05-34.txt
+2025-05-18 17:05:34,182 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:05:34.174115', 'type': 'transcript', 'timestamp': '2025-05-18_17-05-34', 'transcript': 'Test transcript logging'}
+2025-05-18 17:06:20,880 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpznc6reo6\transcript_2025-05-18_17-06-20.txt
+2025-05-18 17:06:20,888 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:06:20.881577', 'type': 'transcript', 'timestamp': '2025-05-18_17-06-20', 'transcript': 'Test transcript logging'}
+2025-05-18 17:09:08,995 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpdcpr_ziq\transcript_2025-05-18_17-09-08.txt
+2025-05-18 17:09:09,006 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:09:08.996670', 'type': 'transcript', 'timestamp': '2025-05-18_17-09-08', 'transcript': 'Test transcript logging'}
+2025-05-18 17:14:02,806 INFO: Transcript logged to C:\Users\bandi\AppData\Local\Temp\tmpfb0hiqq1\transcript_2025-05-18_17-14-02.txt
+2025-05-18 17:14:02,815 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T17:14:02.808139', 'type': 'transcript', 'timestamp': '2025-05-18_17-14-02', 'transcript': 'Test transcript logging'}

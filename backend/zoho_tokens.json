@@ -1,9 +1,0 @@
-{
-  "access_token": "1000.1a55f685e90f363ef074dca14aec9965.5597cceb32d7118fe862a63a707a72f1",
-  "refresh_token": "1000.f6999e19291279172fdd8c7e8752f3e7.bcc211f07db6069da7e8087fa11fad34",
-  "scope": "ZohoMeeting.meeting.ALL",
-  "api_domain": "https://www.zohoapis.com",
-  "token_type": "Bearer",
-  "expires_in": 3600
-}
-

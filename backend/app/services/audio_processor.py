@@ -1,19 +1,55 @@
+"""
+audio_processor.py
+
+Audio processing utilities for the AI Meeting Summarizer.
+
+Created by Eric Morse
+Date: 2024-05-18
+
+Functions include:
+- Audio file quality checks
+- Audio property extraction (duration, sample rate, channels, bitrate, RMS volume, silence ratio)
+- Conversion to mono 16kHz WAV
+- Silence trimming
+
+Relies on ffmpeg/ffprobe and standard Python libraries.
+"""
+
 import subprocess
 import os
 from app.utils.logger import logger
 
+# Directory to store uploaded audio files
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+# Supported audio formats for processing
 SUPPORTED_FORMATS = {'.wav', '.mp3', '.m4a', '.aac', '.flac', '.ogg'}
 
+
 def is_supported_format(path: str) -> bool:
+    """
+    Check if the audio file has a supported extension.
+
+    Args:
+        path (str): Path to audio file.
+
+    Returns:
+        bool: True if supported, else False.
+    """
     _, ext = os.path.splitext(path)
     return ext.lower() in SUPPORTED_FORMATS
 
+
 def get_audio_duration(path: str) -> float:
     """
-    Returns duration of audio in seconds or -1 on error.
+    Get the duration of the audio file in seconds.
+
+    Args:
+        path (str): Path to audio file.
+
+    Returns:
+        float: Duration in seconds, or -1 if duration cannot be determined.
     """
     try:
         result = subprocess.run([
@@ -26,9 +62,16 @@ def get_audio_duration(path: str) -> float:
         logger.warning(f"Failed to get duration for {path}: {e}")
         return -1
 
+
 def get_sample_rate_channels(path: str):
     """
-    Returns sample rate and number of channels or (0, 0) on error.
+    Get the sample rate (Hz) and number of channels in the audio file.
+
+    Args:
+        path (str): Path to audio file.
+
+    Returns:
+        Tuple[int, int]: (sample_rate, channels), or (0, 0) on error.
     """
     try:
         result = subprocess.run([
@@ -45,9 +88,16 @@ def get_sample_rate_channels(path: str):
         logger.warning(f"Failed to get sample rate/channels for {path}: {e}")
         return 0, 0
 
+
 def get_bitrate(path: str) -> int:
     """
-    Returns bitrate in bps or 0 on error.
+    Get the bitrate of the audio file in bits per second (bps).
+
+    Args:
+        path (str): Path to audio file.
+
+    Returns:
+        int: Bitrate in bps, or 0 if not available.
     """
     try:
         result = subprocess.run([
@@ -61,10 +111,16 @@ def get_bitrate(path: str) -> int:
         logger.warning(f"Failed to get bitrate for {path}: {e}")
         return 0
 
+
 def get_rms_volume(path: str) -> float | None:
     """
-    Uses ffmpeg's volumedetect filter to get mean RMS volume in dB.
-    Returns dB float or None if failed.
+    Get the mean RMS volume (dB) of the audio using ffmpeg's volumedetect.
+
+    Args:
+        path (str): Path to audio file.
+
+    Returns:
+        float | None: Mean volume in dBFS, or None if not available.
     """
     try:
         proc = subprocess.run([
@@ -73,7 +129,6 @@ def get_rms_volume(path: str) -> float | None:
         lines = proc.stderr.splitlines()
         for line in lines:
             if "mean_volume:" in line:
-                # line example: [Parsed_volumedetect_0 @ 000001f0c0a4e840] mean_volume: -26.0 dB
                 parts = line.strip().split()
                 for i, part in enumerate(parts):
                     if part == "mean_volume:" and i + 1 < len(parts):
@@ -87,13 +142,20 @@ def get_rms_volume(path: str) -> float | None:
         logger.warning(f"Failed to get RMS volume for {path}: {e}")
         return None
 
+
 def get_silence_ratio(path: str, silence_threshold_db: float = -50.0) -> float:
     """
-    Estimate ratio of silence in audio by counting silent segments using ffmpeg's silencedetect.
-    Returns ratio 0.0-1.0 or 1.0 if error.
+    Estimate the ratio of silence in the audio file using ffmpeg's silencedetect.
+
+    Args:
+        path (str): Path to audio file.
+        silence_threshold_db (float): Silence threshold in dBFS.
+
+    Returns:
+        float: Ratio between 0.0 (no silence) and 1.0 (all silence).
+               Returns 1.0 on error or unknown duration.
     """
     try:
-        # Run ffmpeg silencedetect filter
         proc = subprocess.run([
             "ffmpeg", "-i", path,
             "-af", f"silencedetect=noise={silence_threshold_db}dB:d=0.5",
@@ -101,7 +163,6 @@ def get_silence_ratio(path: str, silence_threshold_db: float = -50.0) -> float:
         ], stderr=subprocess.PIPE, stdout=subprocess.PIPE, text=True, check=True)
         output = proc.stderr
 
-        # Parse silence start/end times
         silence_durations = []
         current_start = None
         for line in output.splitlines():
@@ -124,6 +185,7 @@ def get_silence_ratio(path: str, silence_threshold_db: float = -50.0) -> float:
         logger.warning(f"Failed to estimate silence ratio for {path}: {e}")
         return 1.0
 
+
 def check_audio_quality(
     path: str,
     min_duration: float = 2.0,
@@ -137,16 +199,16 @@ def check_audio_quality(
     Runs a set of audio quality checks using ffmpeg and returns (ok, reason).
 
     Args:
-        path: Path to audio file.
-        min_duration: Minimum allowed duration in seconds.
-        max_duration: Maximum allowed duration in seconds.
-        min_sample_rate: Minimum sample rate in Hz.
-        min_bitrate: Minimum bitrate in bps.
-        min_rms_db: Minimum average volume in dBFS.
-        max_silence_ratio: Maximum allowed ratio of silence.
+        path (str): Path to audio file.
+        min_duration (float): Minimum allowed duration in seconds.
+        max_duration (float): Maximum allowed duration in seconds.
+        min_sample_rate (int): Minimum sample rate in Hz.
+        min_bitrate (int): Minimum bitrate in bps.
+        min_rms_db (float): Minimum allowed average volume in dBFS.
+        max_silence_ratio (float): Maximum allowed silence ratio.
 
     Returns:
-        Tuple[bool, str]: (True, "OK") if passes; (False, reason) otherwise.
+        Tuple[bool, str]: (True, "OK") if all checks pass, otherwise (False, reason).
     """
     if not os.path.isfile(path):
         return False, "File does not exist"
@@ -184,7 +246,12 @@ def convert_to_wav(input_path: str, output_path: str) -> None:
     """
     Convert input audio file to mono 16kHz WAV using ffmpeg.
 
-    Raises subprocess.CalledProcessError on failure.
+    Args:
+        input_path (str): Source audio file path.
+        output_path (str): Destination .wav file path.
+
+    Raises:
+        subprocess.CalledProcessError: If conversion fails.
     """
     logger.info(f"Converting {input_path} to WAV {output_path}")
     subprocess.run([
@@ -194,16 +261,23 @@ def convert_to_wav(input_path: str, output_path: str) -> None:
 
 def trim_silence(input_path: str, output_path: str) -> bool:
     """
-    Trim silence from beginning and end of audio using ffmpeg silenceremove filter.
+    Trim silence from beginning and end of audio using ffmpeg's silenceremove filter.
 
-    Returns True on success, False on failure.
+    Args:
+        input_path (str): Source audio file path.
+        output_path (str): Destination trimmed audio file path.
+
+    Returns:
+        bool: True if trimming succeeded, False otherwise.
     """
     logger.info(f"Trimming silence from {input_path}")
     try:
         subprocess.run([
             "ffmpeg", "-y", "-i", input_path,
-            "-af", ("silenceremove=start_periods=1:start_duration=0.5:start_threshold=-50dB:"
-                    "stop_periods=1:stop_duration=0.5:stop_threshold=-50dB"),
+            "-af", (
+                "silenceremove=start_periods=1:start_duration=0.5:start_threshold=-50dB:"
+                "stop_periods=1:stop_duration=0.5:stop_threshold=-50dB"
+            ),
             output_path
         ], check=True)
         return True

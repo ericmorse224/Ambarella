@@ -1,24 +1,39 @@
-backend/
-├── run.py                → Flask app launcher
-├── app/
-│   ├── __init__.py       → Registers all route blueprints
-│   ├── routes/
-│   │   ├── audio_routes.py      → /process-audio
-│   │   ├── json_routes.py       → /process-json, /AB-testing
-│   │   └── zoho_routes.py       → /zoho/oauth, /create-event
-│   ├── services/
-│   │   ├── audio_processor.py       → ffmpeg helpers
-│   │   ├── calendar_api.py          → low-level event creation
-│   │   ├── calendar_integration.py  → NLP → calendar time parsing
-│   │   ├── llm_utils.py             → OpenAI prompt & response
-│   │   ├── meeting_scheduler.py     → Zoho Meeting creation
-│   │   └── nlp_analysis.py          → analyze_transcript abstraction
-│   ├── utils/
-│   │   ├── entity_utils.py      → extract/assign owners
-│   │   ├── logger.py            → console + rotating file logs
-│   │   ├── logging_utils.py     → log_transcript_to_file()
-│   │   └── zoho_utils.py        → token mgmt, API calls
-├── transcripts/           → saved transcript logs
-├── logs/                  → server logs
-├── uploads/               → temp audio
-├── tests/                 → optional unit tests
+import matplotlib.pyplot as plt
+
+structure = [
+    ("backend/", 0),
+    ("├── run.py", 1),
+    ("├── app/", 1),
+    ("│   ├── __init__.py", 2),
+    ("│   ├── routes/", 2),
+    ("│   │   ├── audio_routes.py", 3),
+    ("│   │   ├── json_routes.py", 3),
+    ("│   │   └── zoho_routes.py", 3),
+    ("│   ├── services/", 2),
+    ("│   │   ├── audio_processor.py", 3),
+    ("│   │   ├── calendar_api.py", 3),
+    ("│   │   ├── calendar_integration.py", 3),
+    ("│   │   ├── llm_utils.py", 3),
+    ("│   │   └── nlp_analysis.py", 3),
+    ("│   └── utils/", 2),
+    ("│       ├── entity_utils.py", 3),
+    ("│       ├── logger.py", 3),
+    ("│       ├── logging_utils.py", 3),
+    ("│       ├── nextcloud_utils.py", 3),
+    ("│       └── zoho_utils.py", 3),
+    ("├── transcripts/", 1),
+    ("├── logs/", 1),
+    ("├── uploads/", 1),
+    ("└── tests/", 1)
+]
+
+fig, ax = plt.subplots(figsize=(10, 8))
+ax.axis('off')
+y = len(structure) * 0.6
+for line, level in structure:
+    ax.text(level * 0.7, y, line, fontsize=15, family='monospace')
+    y -= 0.8
+
+plt.subplots_adjust(left=0.03, right=0.97, top=0.98, bottom=0.02)
+plt.savefig("backend_structure_updated.png", bbox_inches="tight", dpi=220)
+plt.show()

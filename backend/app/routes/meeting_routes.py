@@ -1,3 +1,20 @@
+"""
+meeting_routes.py
+
+Flask Blueprint for meeting-related dashboard routes in the
+AI Meeting Summarizer project.
+
+Created by Eric Morse
+Date: 2024-05-18
+
+Features:
+- API endpoint to retrieve all 'meeting_meta' event log entries.
+- Graceful handling of missing directories, parse errors, and file errors.
+- Logs parsing errors and file read issues as structured events for auditing.
+
+Dependencies: Flask, os, json, app.utils.logging_utils
+"""
+
 from flask import Blueprint, jsonify
 import os
 import json
@@ -9,8 +26,19 @@ dashboard_bp = Blueprint('dashboard', __name__)
 def get_meeting_meta_logs():
     """
     Returns all 'meeting_meta' event log entries as a JSON array, sorted newest first.
-    Handles missing log directory and bad/malformed log lines gracefully.
-    Also returns the number of skipped lines (parse errors) and logs them as error events.
+
+    - Handles missing log directory by returning empty logs.
+    - Handles malformed log lines by counting them, skipping, and logging as error events.
+    - Handles file read errors by skipping files and logging as file-level error events.
+    - For each error, logs a structured error event in the log.
+
+    Returns:
+        JSON object:
+        {
+            "logs": [ ... ],              # list of meeting_meta event log dicts
+            "skipped_lines": int,         # number of lines skipped due to parse errors
+            "skipped_files": [ ... ]      # list of files that could not be parsed or opened
+        }
     """
     logs = []
     directory = "event_logs"

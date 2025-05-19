@@ -1,4 +1,22 @@
-# nextcloud_utils.py
+"""
+nextcloud_utils.py
+
+Nextcloud CalDAV integration utilities for the AI Meeting Summarizer.
+
+Created by Eric Morse
+Date: 2024-05-18
+
+Features:
+- Loads Nextcloud credentials from a local secret file.
+- Creates calendar events in the user's Nextcloud calendar via CalDAV.
+- Designed for secure, programmatic event management.
+
+Dependencies:
+    - caldav
+    - Python standard library (os, json, datetime)
+    - Secret file: ~/.app_secrets/env.json
+"""
+
 import os
 import json
 from caldav import DAVClient
@@ -6,8 +24,14 @@ from datetime import datetime
 
 def load_nextcloud_secrets():
     """
-    Loads Nextcloud CalDAV credentials from ~/.app_secrets/env.json
-    Returns: (url, username, password)
+    Load Nextcloud CalDAV credentials from ~/.app_secrets/env.json.
+
+    Returns:
+        tuple: (url, username, password)
+
+    Raises:
+        FileNotFoundError: If the secrets file does not exist.
+        KeyError: If any of the required fields are missing in the secrets file.
     """
     secrets_path = os.path.expanduser("~/.app_secrets/env.json")
     with open(secrets_path, "r") as f:
@@ -18,12 +42,21 @@ def load_nextcloud_secrets():
         secrets["NEXTCLOUD_PASSWORD"]
     )
 
-from datetime import datetime
-
 def create_calendar_event(title, description, start_time, end_time):
     """
-    Creates an event in the user's Nextcloud calendar.
-    start_time, end_time are expected to be datetime objects in UTC.
+    Create an event in the user's Nextcloud calendar.
+
+    Args:
+        title (str): Event title.
+        description (str): Event description/notes.
+        start_time (datetime|str): Event start (UTC datetime or ISO 8601 string).
+        end_time (datetime|str): Event end (UTC datetime or ISO 8601 string).
+
+    Returns:
+        str: Event UID (unique identifier).
+
+    Raises:
+        Exception: If calendar is not found or event creation fails.
     """
     url, username, password = load_nextcloud_secrets()
     client = DAVClient(url=url, username=username, password=password)
@@ -31,9 +64,9 @@ def create_calendar_event(title, description, start_time, end_time):
     calendars = principal.calendars()
     if not calendars:
         raise Exception("No calendars found for this user.")
-    calendar = calendars[0]  # Default to first calendar
+    calendar = calendars[0]  # Default to first available calendar
 
-    # Ensure datetime objects, if strings, parse first (optional)
+    # Ensure start_time and end_time are datetime objects
     if isinstance(start_time, str):
         start_time = datetime.fromisoformat(start_time)
     if isinstance(end_time, str):

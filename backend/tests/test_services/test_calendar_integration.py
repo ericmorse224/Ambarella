@@ -46,16 +46,6 @@ def test_extract_event_times_with_invalid_date():
     assert start.endswith("Z")
     assert end.endswith("Z")
 
-@pytest.mark.skip("No longer auto-scheduling")
-def test_auto_schedule_actions_and_verify_nextcloud():
-    now = datetime.now(timezone.utc)
-    unique_title = f"Pytest Action {now.isoformat()}"
-    actions = [unique_title]
-    ci.auto_schedule_actions(actions)
-    start, _ = ci.extract_event_times(unique_title)
-    found = find_event_in_nextcloud(unique_title, start)
-    assert found, f"Event '{unique_title}' not found in Nextcloud"
-
 def test_extract_people():
     transcript = "Alice and Bob will handle the budget. Charlie will lead."
     entities = extract_entities(transcript)
@@ -126,3 +116,15 @@ def test_audio_to_nextcloud_event_integration():
         assert matched, f"Event '{title}' not found in Nextcloud for action: {action}"
 
     print("All events from audio file successfully created and verified in Nextcloud.")
+
+def test_create_calendar_events_handles_empty(monkeypatch):
+    # Should not raise error for empty input
+    ci.create_calendar_events([])
+
+def test_create_calendar_events_handles_error(monkeypatch):
+    def bad_create(*a, **kw): raise Exception("Fail!")
+    monkeypatch.setattr(ci, "create_calendar_event", bad_create)
+    actions = [{"owner": "Alice", "text": "Do thing"}]
+    # Should not raise, should just handle error internally
+    ci.create_calendar_events(actions)
+    # Optionally, assert on log output or an error counter if you have one

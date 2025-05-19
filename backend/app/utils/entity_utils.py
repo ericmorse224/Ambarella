@@ -1,13 +1,40 @@
+"""
+entity_utils.py
+
+Entity extraction and assignment utilities for the AI Meeting Summarizer.
+
+Created by Eric Morse
+Date: 2024-05-18
+
+Features:
+- Extract PERSON entities (including titles) from text using NLTK.
+- Fallback extraction for probable people names.
+- Normalize and clean person names.
+- Assign actions to people based on entity detection.
+- Assign owner to each action, handling ambiguity and POS tagging.
+
+Dependencies: re, nltk, typing
+"""
+
 import re
 import nltk
 from typing import Optional, Tuple, List, Dict, Any
 
+# Supported common name prefixes (titles)
 TITLE_PREFIXES = {"Dr.", "Mr.", "Mrs.", "Ms.", "Miss", "Prof.", "Sir", "Madam"}
 
 def normalize_name(name: str) -> str:
     """
     Remove common titles from a name and convert to title case.
-    Example: "Dr. Bob" -> "Bob"
+
+    Example:
+        "Dr. Bob" -> "Bob"
+
+    Args:
+        name (str): Input name.
+
+    Returns:
+        str: Name with title removed, title case applied.
     """
     name_no_title = re.sub(r'\b(Mr|Ms|Mrs|Dr|Prof|Sir|Madam)\.? ', '', name, flags=re.I)
     return name_no_title.title()
@@ -15,6 +42,12 @@ def normalize_name(name: str) -> str:
 def clean_name(name: str) -> str:
     """
     Strip known titles from the start of a name, preserve rest as-is.
+
+    Args:
+        name (str): Input name.
+
+    Returns:
+        str: Name with prefix/title stripped.
     """
     for title in TITLE_PREFIXES:
         if name.startswith(title):
@@ -23,8 +56,13 @@ def clean_name(name: str) -> str:
 
 def extract_entities(text: str) -> List[Dict[str, Any]]:
     """
-    Extract named person entities from text using NLTK, including common title prefixes.
-    Returns list of entities with text and entity_type 'PERSON'.
+    Extract named PERSON entities from text using NLTK, including common title prefixes.
+
+    Args:
+        text (str): The text to process.
+
+    Returns:
+        List[dict]: List of entities with 'text' and 'entity_type' == 'PERSON'.
     """
     tokens = nltk.word_tokenize(text)
     pos_tags = nltk.pos_tag(tokens)
@@ -47,7 +85,6 @@ def extract_entities(text: str) -> List[Dict[str, Any]]:
                     break
             entity_text = " ".join(person_tokens)
             # Prevent adding only a title as an entity
-            # Only add if there is at least one non-title token
             non_title_tokens = [t for t in person_tokens if t.lower().rstrip('.') not in {x.lower().rstrip('.') for x in TITLE_PREFIXES}]
             if len(non_title_tokens) > 0:
                 entities.append({"text": entity_text, "entity_type": "PERSON"})
@@ -57,7 +94,6 @@ def extract_entities(text: str) -> List[Dict[str, Any]]:
 
     # Supplement with probable people if none or some names missing
     probable_people = extract_probable_people(text)
-    # Add probable people as PERSON if not already in entities
     existing_names = set(e['text'].lower() for e in entities)
     for p in probable_people:
         if p.lower() not in existing_names:
@@ -70,10 +106,10 @@ def extract_people_from_entities(entities: List[Dict[str, Any]]) -> List[str]:
     Extract unique person names from entity list, clean titles and normalize casing.
 
     Args:
-        entities: List of entity dicts from extract_entities.
+        entities (List[dict]): List of entity dicts from extract_entities.
 
     Returns:
-        List of unique cleaned and normalized person names.
+        List[str]: Unique cleaned and normalized person names.
     """
     cleaned_people = set()
     for e in entities:
@@ -89,10 +125,10 @@ def extract_probable_people(text: str) -> List[str]:
     and filtering out common non-name words.
 
     Args:
-        text: input string
+        text (str): Input string.
 
     Returns:
-        List of probable person names.
+        List[str]: Probable person names (best effort).
     """
     common_words = {
         "The", "This", "That", "He", "She", "It", "They", "We", "You", "I",
@@ -108,11 +144,11 @@ def assign_actions_to_people(actions: List[str], people: List[str]) -> List[Dict
     If no person matches, assign 'Unassigned'.
 
     Args:
-        actions: list of action strings
-        people: list of normalized person names
+        actions (List[str]): List of action strings.
+        people (List[str]): List of normalized person names.
 
     Returns:
-        List of dicts with keys 'text' and 'owner'
+        List[dict]: List of dicts with keys 'text' and 'owner'.
     """
     assigned = []
     for action in actions:
@@ -128,15 +164,16 @@ def assign_owner(
     """
     Assigns an owner to an action based on extracted person entities.
 
-    Parameters:
-    - action: the original action text.
-    - entities: list of extracted entities (dicts with 'text' and 'entity_type').
-    - last_mentioned: optional last mentioned owner to prefer.
+    Args:
+        action (str): The original action text.
+        entities (List[dict]): List of extracted entities (dicts with 'text' and 'entity_type').
+        last_mentioned (Optional[str]): Last mentioned owner to prefer (if any).
 
     Returns:
-    - owner: assigned owner name (string, normalized with title stripped).
-    - modified_action: action text (unchanged).
-    - ambiguous: True if multiple owners found, else False.
+        tuple: (owner, modified_action, ambiguous)
+            owner (str): Assigned owner name (normalized, title stripped).
+            modified_action (str): Action text (unchanged).
+            ambiguous (bool): True if multiple owners found, else False.
     """
     # Extract and normalize PERSON entities
     people = []

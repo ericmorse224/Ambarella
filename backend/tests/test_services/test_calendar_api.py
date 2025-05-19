@@ -9,7 +9,7 @@ if project_root not in sys.path:
 import pytest
 from caldav import DAVClient
 import json
-from app.services.calendar_api import create_calendar_event, create_event_payload
+from app.services.calendar_api import create_calendar_event, create_event_payload, generate_event_data_from_action
 from tests.test_services.test_nextcloud_client import get_nextcloud_client
 import re
 
@@ -183,3 +183,101 @@ def test_create_calendar_event_and_verify_in_nextcloud():
             break
 
     assert found, f"Event with title '{title}' not found in Nextcloud calendar!"
+
+    
+def test_create_event_payload_missing_fields():
+    payload = create_event_payload(None, None, None, None)
+    assert payload["title"].startswith("Meeting with")
+    assert payload["agenda"] == ""
+    assert payload["start_time"] == ""
+    assert payload["end_time"] == ""
+
+def test_create_calendar_event_invalid_dates():
+    with pytest.raises(ValueError):
+        create_calendar_event("Title", "Desc", "bad_time", "bad_time")
+
+def test_create_calendar_event_missing_fields():
+    # Should handle missing or empty fields gracefully, or raise
+    with pytest.raises(Exception):
+        create_calendar_event(None, None, None, None)
+
+import json
+
+def test_create_event_api_success(client, monkeypatch):
+    def mock_create(title, description, start_time, end_time):
+        return {"title": title, "description": description, "start_time": start_time, "end_time": end_time}
+    # Patch the function used in the route
+    from app.services import calendar_api
+    monkeypatch.setattr(calendar_api, "create_calendar_event", mock_create)
+    payload = {
+        "title": "API Event",
+        "description": "Created via API",
+        "start_time": "2025-06-05T09:00:00",
+        "end_time": "2025-06-05T10:00:00"
+    }
+    resp = client.post('/create-event', data=json.dumps(payload), content_type='application/json')
+    data = resp.get_json()
+    assert resp.status_code == 200
+    assert data["message"] == "Event created"
+    assert data["event"]["title"] == "API Event"
+
+def test_create_event_api_missing_fields(client):
+    # Missing required fields
+    payload = {"title": "API Event"}
+    resp = client.post('/create-event', data=json.dumps(payload), content_type='application/json')
+    assert resp.status_code == 400
+    assert "Missing required fields" in resp.get_json()["error"]
+
+def test_create_event_api_internal_error(client, monkeypatch):
+    def raise_error(*a, **k):
+        raise Exception("Test error")
+    from app.services import calendar_api
+    monkeypatch.setattr(calendar_api, "create_calendar_event", raise_error)
+    payload = {
+        "title": "API Event",
+        "description": "Created via API",
+        "start_time": "2025-06-05T09:00:00",
+        "end_time": "2025-06-05T10:00:00"
+    }
+    resp = client.post('/create-event', data=json.dumps(payload), content_type='application/json')
+    assert resp.status_code == 500
+    assert "Test error" in resp.get_json()["error"]
+
+def test_schedule_actions_api_success(client, monkeypatch):
+    def mock_create(title, owner, start, end):
+        return {"title": title, "owner": owner, "start_time": start, "end_time": end}
+    from app.services import calendar_api
+    monkeypatch.setattr(calendar_api, "create_calendar_event", mock_create)
+    actions = [
+        {"include": True, "datetime": "2025-06-05T09:00:00", "text": "Discuss", "owner": "Alice"},
+        {"include": False, "datetime": "2025-06-05T10:00:00", "text": "Skip", "owner": "Bob"},
+        {"include": True, "datetime": "2025-06-05T11:00:00", "text": "Review", "owner": "Charlie"}
+    ]
+    resp = client.post('/api/schedule-actions', data=json.dumps({"actions": actions}), content_type='application/json')
+    data = resp.get_json()
+    assert resp.status_code == 200
+    assert data["success"]
+    assert len(data["scheduled"]) == 2  # Only the ones with include==True
+
+def test_schedule_actions_api_internal_error(client, monkeypatch):
+    def raise_error(*a, **k):
+        raise Exception("Test error")
+    from app.services import calendar_api
+    monkeypatch.setattr(calendar_api, "create_calendar_event", raise_error)
+    actions = [
+        {"include": True, "datetime": "2025-06-05T09:00:00", "text": "Discuss", "owner": "Alice"}
+    ]
+    resp = client.post('/api/schedule-actions', data=json.dumps({"actions": actions}), content_type='application/json')
+    data = resp.get_json()
+    assert resp.status_code == 500
+    assert not data["success"]
+    assert "Test error" in data["error"]
+
+def test_generate_event_data_from_action():
+    action_text = "Finalize project plan"
+    data = generate_event_data_from_action(action_text)
+    assert data["title"].startswith("Finalize project plan")
+    assert "description" in data
+    assert "start_time" in data
+    assert "end_time" in data
+    assert data["description"].startswith("Auto-created")

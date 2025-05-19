@@ -14,8 +14,8 @@ function AudioUploader() {
 
   const uploadAudio = async () => {
     if (!audioFile) return;
-    if (audioFile.size > 50 * 1024 * 1024) {
-        alert("File too large. Max is 50MB");
+    if (audioFile.size > 25 * 1024 * 1024) {
+        alert("File too large. Max is 25MB");
         return;
     }
 
@@ -47,7 +47,7 @@ function AudioUploader() {
 
   const summarizeTranscript = async (text) => {
     try {
-        const res = await fetch('/api/process-json', {
+        const res = await fetch('http://localhost:5000/process-json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,8 +68,12 @@ function AudioUploader() {
     return (
         <div className="p-4 max-w-2xl mx-auto space-y-6">
             <h2 className="text-xl font-semibold">Upload Meeting Audio</h2>
-
+            <label htmlFor="audio-upload" className="block font-medium mb-1">
+                Upload Audio
+            </label>
             <input
+                id="audio-upload"
+                name="audio"
                 type="file"
                 accept="audio/*"
                 onChange={handleFileChange}

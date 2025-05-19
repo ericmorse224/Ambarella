@@ -5,6 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.21.4",
+    "fetch-blob": "^4.0.0",
+    "formdata-node": "^6.0.3",
+    "node-fetch": "^3.3.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "^5.0.1"
@@ -25,9 +28,11 @@
     "build": "react-scripts build",
     "test": "vitest",
     "eject": "react-scripts eject",
-    "test:watch": "vitest --watch"
+    "test:watch": "vitest --watch",
+    "test:unit": "vitest run src/tests/unit",
+    "test:int": "vitest run src/tests/integration"
   },
-  "author": "Your Name",
+  "author": "Eric Morse",
   "license": "MIT",
   "keywords": [
     "react",

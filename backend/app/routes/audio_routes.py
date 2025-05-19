@@ -78,6 +78,9 @@ def process_audio():
     upload_start = time.time()
     try:
         file = request.files.get('audio')
+        print("audio_file:", file)
+        print("audio_file.mimetype:", getattr(file, "mimetype", None))
+        print("audio_file.filename:", getattr(file, "filename", None))
         if not file or not file.content_type.startswith('audio/'):
             return jsonify({"error": "Invalid file or missing."}), 400
 

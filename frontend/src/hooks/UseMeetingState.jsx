@@ -16,10 +16,10 @@ const useMeetingState = () => {
         setUploadAttempts(prev => prev + 1);
         try {
             const formData = new FormData();
-            formData.append('file', file);
+            formData.append('audio', file);
 
             // Use the endpoint your tests expect
-            const response = await axios.post('/api/transcribe', formData);
+            const response = await axios.post('http://localhost:5000/process-audio', formData);
             const { transcript } = response.data;
             setTranscript(transcript);
             return true;
@@ -38,7 +38,7 @@ const useMeetingState = () => {
         setIsLoading(true);
         setError(false);
         try {
-            const response = await axios.post('/api/process', { transcript });
+            const response = await axios.post('http://localhost:5000/process-json', { transcript });
             const { summary, actions, decisions } = response.data;
             setSummary(summary);
             setActions(actions);

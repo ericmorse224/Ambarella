@@ -1,3 +1,4 @@
+
 # 🛠️ Project Setup Instructions: AI Meeting Summarizer
 
 This document provides step-by-step instructions to install and run the AI Meeting Summarizer project on **Windows**.
@@ -8,11 +9,34 @@ This document provides step-by-step instructions to install and run the AI Meeti
 
 ```
 ai-meeting-summarizer/
-├── backend/        # Python Flask API with NLP
-├── frontend/       # React web dashboard
-├── setup.bat       # Windows setup script (runs everything)
-├── README.md       # Project overview
-└── setup_instructions.md  # This file
+├── backend/
+│   ├── run.py
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── routes/
+│   │   │   ├── audio_routes.py
+│   │   │   ├── json_routes.py
+│   │   │   └── zoho_routes.py
+│   │   ├── services/
+│   │   │   ├── audio_processor.py
+│   │   │   ├── calendar_api.py
+│   │   │   ├── calendar_integration.py
+│   │   │   ├── llm_utils.py
+│   │   │   └── nlp_analysis.py
+│   │   └── utils/
+│   │       ├── entity_utils.py
+│   │       ├── logger.py
+│   │       ├── logging_utils.py
+│   │       ├── nextcloud_utils.py
+│   │       └── zoho_utils.py
+│   ├── transcripts/
+│   ├── logs/
+│   ├── uploads/
+│   └── tests/
+├── frontend/
+├── setup.bat
+├── README.md
+└── setup_instructions.md
 ```
 
 ---
@@ -21,9 +45,9 @@ ai-meeting-summarizer/
 
 Before getting started, make sure you have the following installed:
 
-* [Python 3.9+](https://www.python.org/downloads/)
-* [Node.js + npm](https://nodejs.org/)
-* [Git](https://git-scm.com/download/win)
+- [Python 3.9+](https://www.python.org/downloads/)
+- [Node.js + npm](https://nodejs.org/)
+- [Git](https://git-scm.com/download/win)
 
 ---
 
@@ -37,22 +61,32 @@ setup.bat
 
 This will:
 
-* Create a Python virtual environment and activate it
-* Install backend dependencies
-* Download NLTK tokenizer data
-* Install frontend packages via npm
+- Create a Python virtual environment and activate it
+- Install backend dependencies
+- Download NLTK tokenizer data
+- Install frontend packages via npm
 
 ---
 
-## 🧪 2. Sample Data
+## 🔑 2. Configure Nextcloud Integration
 
-A test file is provided at:
+To use Nextcloud calendar features, create a file with your credentials:
 
+**Location:**  
+`C:\Users\YOUR_USERNAME\.app_secrets\env.json`  
+or  
+`~/.app_secrets/env.json` on Linux/macOS
+
+**Format:**
+```json
+{
+  "NEXTCLOUD_URL": "https://yourdomain/remote.php/dav",
+  "NEXTCLOUD_USERNAME": "your_username",
+  "NEXTCLOUD_PASSWORD": "your_password_or_app_password"
+}
 ```
-backend/meeting_data/sample_meeting.json
-```
 
-Use it to test the `/process-json` endpoint.
+- Use an [app password](https://docs.nextcloud.com/server/latest/user_manual/en/security/app_passwords.html) if you have 2FA enabled.
 
 ---
 
@@ -104,23 +138,35 @@ With JSON body:
 
 Response will include:
 
-* Summary
-* Extracted action items
-* Decisions
+- Summary
+- Extracted action items
+- Decisions
+
+---
+
+## 🛠️ Troubleshooting
+
+- If Nextcloud calendar integration fails:
+  - Double-check your CalDAV URL, username, and password/app-password in `env.json`
+  - Make sure your calendar exists and is accessible
+  - Check backend logs: `backend/logs/server.log`
+
+- If Python or npm commands fail:
+  - Ensure you are in the correct folder (`backend` or `frontend`)
+  - Ensure your virtual environment is activated for backend commands
 
 ---
 
 ## ❓ Need Help?
 
-For any issues, double-check:
-
-* Python and npm versions
-* That you're in the correct folder before running commands
-* Flask is running in one terminal, React in another
+- See the [README.md](./README.md) for API usage and advanced configuration.
+- For issues, double-check:
+    - Python and npm versions
+    - That you're in the correct folder before running commands
+    - Flask is running in one terminal, React in another
 
 Feel free to reach out to the maintainer or consult the README for updates.
 
 ---
 
 Happy coding! 🎉
-

@@ -63,3 +63,48 @@ def test_create_event_with_string_times():
     description = "String time event"
     uid = nextcloud_utils.create_calendar_event(title, description, now_str, end_str)
     assert "meeting-summarizer" in uid
+
+def test_create_calendar_event_no_calendars(monkeypatch):
+    class DummyPrincipal:
+        def calendars(self):
+            return []
+    class DummyClient:
+        def principal(self):
+            return DummyPrincipal()
+    # Patch DAVClient to our dummy
+    monkeypatch.setattr(nextcloud_utils, "DAVClient", lambda *a, **kw: DummyClient())
+    monkeypatch.setattr(nextcloud_utils, "load_nextcloud_secrets", lambda: ("url", "user", "pw"))
+    with pytest.raises(Exception, match="No calendars found for this user."):
+        nextcloud_utils.create_calendar_event("title", "desc", "2024-01-01T00:00:00", "2024-01-01T01:00:00")
+
+def test_create_calendar_event_invalid_times(monkeypatch):
+    class DummyCalendar:
+        def add_event(self, ical):
+            return
+    class DummyPrincipal:
+        def calendars(self):
+            return [DummyCalendar()]
+    class DummyClient:
+        def principal(self):
+            return DummyPrincipal()
+    monkeypatch.setattr(nextcloud_utils, "DAVClient", lambda *a, **kw: DummyClient())
+    monkeypatch.setattr(nextcloud_utils, "load_nextcloud_secrets", lambda: ("url", "user", "pw"))
+    # Bad format string
+    with pytest.raises(ValueError):
+        nextcloud_utils.create_calendar_event("title", "desc", "notadate", "notadate")
+
+def test_create_calendar_event_add_event_exception(monkeypatch):
+    class DummyCalendar:
+        def add_event(self, ical):
+            raise RuntimeError("CalDAV error!")
+    class DummyPrincipal:
+        def calendars(self):
+            return [DummyCalendar()]
+    class DummyClient:
+        def principal(self):
+            return DummyPrincipal()
+    monkeypatch.setattr(nextcloud_utils, "DAVClient", lambda *a, **kw: DummyClient())
+    monkeypatch.setattr(nextcloud_utils, "load_nextcloud_secrets", lambda: ("url", "user", "pw"))
+    import pytest
+    with pytest.raises(RuntimeError, match="CalDAV error!"):
+        nextcloud_utils.create_calendar_event("title", "desc", "2024-01-01T00:00:00", "2024-01-01T01:00:00")

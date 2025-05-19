@@ -2,6 +2,7 @@ import sys
 import os
 import pytest
 import re
+import nltk
 
 # Add project root to sys.path for imports
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -127,3 +128,31 @@ def test_extract_people_basic():
     # Expect Alice and Bob case-insensitive
     assert "alice" in [p.lower() for p in normalized_people]
     assert "bob" in [p.lower() for p in normalized_people]
+
+def test_assign_owner_no_person():
+    action = "Wash the car"
+    entities = [{"text": "meeting", "entity_type": "ORG"}]  # No PERSON entity
+    owner, mod_action, ambiguous = assign_owner(action, entities)
+    assert owner == "Someone"
+    assert ambiguous is True
+
+def test_assign_owner_owner_is_verb(monkeypatch):
+    action = "Go shopping"
+    entities = [{"text": "Go", "entity_type": "PERSON"}]
+    # Monkeypatch NLTK to tag "Go" as a verb
+    monkeypatch.setattr(nltk, "pos_tag", lambda words: [("Go", "VB")])
+    owner, mod_action, ambiguous = assign_owner(action, entities)
+    assert owner == "Someone"
+
+def test_assign_owner_ambiguous(monkeypatch):
+    action = "Frank and Alice need to work"
+    entities = [
+        {"text": "Frank", "entity_type": "PERSON"},
+        {"text": "Alice", "entity_type": "PERSON"}
+    ]
+    # Patch pos_tag to not tag as verb (simulate names)
+    monkeypatch.setattr(nltk, "pos_tag", lambda words: [(w, "NNP") for w in words])
+    owner, mod_action, ambiguous = assign_owner(action, entities, last_mentioned="Nonexistent")
+    assert owner == "Frank"  # Falls back to first in list
+    assert ambiguous is True
+

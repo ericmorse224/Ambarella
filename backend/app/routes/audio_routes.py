@@ -1,25 +1,78 @@
+"""
+audio_routes.py
+
+Flask Blueprint routes for audio upload, quality analysis,
+transcription, and analytics in the AI Meeting Summarizer.
+
+Created by Eric Morse
+Date: 2024-05-18
+
+Features:
+- Upload and validate audio files (type, size, basic metadata).
+- Analyze audio quality (duration, sample rate, bitrate, RMS, silence).
+- Convert to mono 16kHz WAV and trim silence.
+- Transcribe using OpenAI Whisper model.
+- Log all uploads (success and failure) as structured events.
+- Robust error handling and temp file cleanup.
+
+Dependencies: Flask, whisper, app.utils.logger, app.utils.logging_utils,
+app.services.audio_processor
+"""
+
 from flask import Blueprint, request, jsonify
 import os
 from datetime import datetime, timezone, timedelta
 import time
 from app.utils.logger import logger
 from app.utils.logging_utils import log_transcript_to_file, log_event
-from app.services.audio_processor import check_audio_quality, convert_to_wav, trim_silence, get_audio_duration, get_sample_rate_channels, get_bitrate
+from app.services.audio_processor import (
+    check_audio_quality, convert_to_wav, trim_silence,
+    get_audio_duration, get_sample_rate_channels, get_bitrate
+)
 import whisper
 
+# Load OpenAI Whisper model (base)
 whisper_model = whisper.load_model("base")
+
+# Flask Blueprint for audio endpoints
 audio_bp = Blueprint('audio', __name__)
+
+# Directory to store uploads (for temporary files)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def get_client_ip():
-    # Optionally use request headers for X-Forwarded-For in production/reverse proxy
+    """
+    Determine the client IP address, optionally supporting reverse proxy headers.
+
+    Returns:
+        str: Client IP address.
+    """
     return request.headers.get('X-Forwarded-For', request.remote_addr)
 
 @audio_bp.route('/process-audio', methods=['POST'])
 def process_audio():
     """
-    Accepts audio upload, checks quality, logs detailed analytics/events, and returns transcript.
+    Handle audio upload, run quality checks, process for transcription,
+    log all analytics/events, and return the transcript (with entities placeholder).
+
+    Workflow:
+        1. Accept file upload (POST).
+        2. Check file type and size.
+        3. Save file as WAV for processing.
+        4. Analyze audio quality (duration, sample rate, bitrate, RMS, silence).
+        5. Reject/return error if fails quality check (with structured event log).
+        6. Convert and trim audio using ffmpeg.
+        7. Transcribe using Whisper.
+        8. Log transcript and success analytics.
+        9. Clean up temporary files.
+        10. Return JSON with transcript (and entities placeholder).
+
+    Returns:
+        200: {'transcript': str, 'entities': list}
+        400: {"error": "..."} (invalid, quality fail, or missing file)
+        413: {"error": "..."} (file too large)
+        500: {"error": "..."} (unexpected server error)
     """
     original_path = converted_path = trimmed_path = None
     upload_start = time.time()
@@ -31,7 +84,7 @@ def process_audio():
         file.seek(0, os.SEEK_END)
         reported_size = file.tell()
         if reported_size > 25 * 1024 * 1024:
-            return jsonify({"error": "File too large! Max 25MB allowed."}), 400
+            return jsonify({"error": "File too large! Max 25MB allowed."}), 413
         file.seek(0)
 
         original_path = "original_audio.wav"

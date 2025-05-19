@@ -1,20 +1,24 @@
+
 # 📋 AI Meeting Summarizer + Action Tracker + Decision Log
 
-This is a full-stack AI-powered meeting summarization tool that:
+This is a full-stack AI-powered meeting summarization tool:
 
-* Transcribes audio or parses meeting JSON
-* Extracts summaries, action items, and decisions
-* Displays results on a clean React dashboard
+- **Transcribes meeting audio**
+- **Extracts summaries, action items, and decisions**
+- **Creates calendar events (Nextcloud CalDAV)**
+- **Displays results on a clean React dashboard**
 
 ---
 
 ## 🚀 Features
 
-* 🎙️ **Audio Transcription** using Deepgram API
-* 🧠 **NLP Summarization** with Sumy + NLTK
-* ✅ **Action Item & Decision Extraction**
-* 📅 **Calendar Metadata Parsing** from JSON
-* 🌐 **React Dashboard** for meeting insights
+- 🎙️ **Audio Transcription** (OpenAI Whisper)
+- 🧠 **NLP Summarization** (NLTK, Sumy)
+- ✅ **Action Item & Decision Extraction**
+- 📅 **Nextcloud Calendar Integration** (self-hosted, private)
+- 🌐 **React Dashboard** (Vite, Tailwind CSS)
+- 📤 **REST API** (JSON and audio)
+- 🔒 **No Google/Microsoft lock-in!**
 
 ---
 
@@ -22,51 +26,79 @@ This is a full-stack AI-powered meeting summarization tool that:
 
 ### Backend
 
-* Python 3.9+
-* Flask
-* NLTK
-* Sumy
-* Deepgram SDK
+- Python 3.9+
+- Flask (REST API)
+- NLTK
+- Sumy
+- Whisper (OpenAI)
+- caldav (for Nextcloud calendar)
 
 ### Frontend
 
-* React + Vite
-* Tailwind CSS (optional styling)
+- React + Vite
+- Tailwind CSS
 
 ---
 
-## 📁 Project Structure
+## 📁 Backend Directory Structure
 
 ```
-ai-meeting-summarizer/
-├── backend/        # Flask app (API + NLP)
-├── frontend/       # React app
-├── setup.bat       # One-click setup for Windows
-├── setup_instructions.md
-├── Dockerfile      # Backend Docker image
-├── docker-compose.yml
-└── README.md
+backend/
+├── run.py
+├── app/
+│   ├── __init__.py
+│   ├── routes/
+│   │   ├── audio_routes.py
+│   │   ├── json_routes.py
+│   │   └── zoho_routes.py
+│   ├── services/
+│   │   ├── audio_processor.py
+│   │   ├── calendar_api.py
+│   │   ├── calendar_integration.py
+│   │   ├── llm_utils.py
+│   │   └── nlp_analysis.py
+│   └── utils/
+│       ├── entity_utils.py
+│       ├── logger.py
+│       ├── logging_utils.py
+│       ├── nextcloud_utils.py
+│       └── zoho_utils.py
+├── transcripts/
+├── logs/
+├── uploads/
+├── tests/
 ```
+
+- `routes/`: Flask Blueprints for main API endpoints (audio, JSON, Zoho).
+- `services/`: Audio/NLP/Calendar business logic.
+- `utils/`: Entity extraction, logging, Nextcloud and Zoho integrations.
+- `logs/`, `uploads/`, `transcripts/`: App data storage.
+
+> **Note:** `meeting_scheduler.py` has been removed (refactored into other modules).  
+> `nextcloud_utils.py` provides all Nextcloud calendar integration utilities.
 
 ---
 
-## ⚙️ Setup Instructions
+## ⚙️ Quick Setup
 
-For full installation steps, see [setup\_instructions.md](./setup_instructions.md).
+**Full steps:** see [setup_instructions.md](./setup_instructions.md).
 
-Quick start:
-
+#### 1. (Windows) Run setup script  
 ```bash
-# 1. Run setup script (Windows only)
 ./setup.bat
+```
 
-# 2. Start backend
+#### 2. Start backend server  
+```bash
 cd backend
-venv\Scripts\activate
+venv\Scriptsctivate
 python run.py
+```
 
-# 3. Start frontend
+#### 3. Start frontend dev server  
+```bash
 cd frontend
+npm install
 npm run dev
 ```
 
@@ -74,70 +106,156 @@ npm run dev
 
 ## 🐳 Docker Deployment
 
-Build and run both frontend and backend services with Docker Compose:
-
-### 1. Create `Dockerfile` in `backend/`:
-
-```Dockerfile
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
-CMD ["python", "run.py"]
-```
-
-### 2. Create `docker-compose.yml` in root:
-
-```yaml
-version: '3.8'
-services:
-  backend:
-    build: ./backend
-    ports:
-      - "5000:5000"
-
-  frontend:
-    working_dir: /app
-    image: node:18-alpine
-    volumes:
-      - ./frontend:/app
-    ports:
-      - "5173:5173"
-    command: sh -c "npm install && npm run dev"
-```
-
-### 3. Run containers:
-
+**Run everything in Docker:**
 ```bash
 docker-compose up --build
 ```
-
-Visit:
-
-* Backend: [http://localhost:5000](http://localhost:5000)
-* Frontend: [http://localhost:5173](http://localhost:5173)
+- Backend: [http://localhost:5000](http://localhost:5000)
+- Frontend: [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 📤 Example Input
+## 🔑 Environment & Secrets
 
-Send a POST request to:
+### Backend requires:
+- **Nextcloud credentials** (`~/.app_secrets/env.json`)
+    ```json
+    {
+      "NEXTCLOUD_URL": "https://yourdomain/remote.php/dav",
+      "NEXTCLOUD_USERNAME": "your_username",
+      "NEXTCLOUD_PASSWORD": "your_password_or_app_password"
+    }
+    ```
+- These are used for secure calendar event creation.
+- **.env file**: Backend can use a `.env` for other secrets (API keys, etc).
+
+---
+
+## 📅 Nextcloud Calendar Integration
+
+**Self-hosted, privacy-first. No Google or Microsoft required.**
+
+### How It Works
+
+- **Action items from meetings become events in your private Nextcloud calendar.**
+- Events are visible in Nextcloud web UI or any CalDAV-compatible calendar app (iOS, Android, Outlook, Thunderbird).
+
+### What You Need
+
+- A running [Nextcloud](https://nextcloud.com/) instance (self-hosted, VPS, or company server).
+- The "Calendar" app enabled in Nextcloud.
+- Your CalDAV calendar link.
+
+### How to Find Your CalDAV Link
+
+1. Open the Calendar app in Nextcloud.
+2. Go to calendar settings/info.
+3. Copy the CalDAV link.  
+   Example:  
+   ```
+   https://your-domain/remote.php/dav/calendars/yourusername/personal/
+   ```
+
+### Setup: Provide Credentials to the App
+
+- Place your CalDAV link, Nextcloud username, and password/app-password in `~/.app_secrets/env.json` (see above).
+- **App password is recommended** if using two-factor authentication.
+- Restart backend after updating credentials.
+
+### Troubleshooting
+
+- If you get `No calendars found for this user`:
+    - Check the CalDAV URL in `env.json`
+    - Make sure your Nextcloud calendar is created and the URL is correct
+    - Test login in a desktop CalDAV client (Thunderbird, Outlook, etc)
+- For calendar creation errors, check backend logs in `backend/logs/server.log`
+
+### Privacy
+
+- **All data and events stay on your server.**
+- Nothing is sent to Google, Microsoft, or third parties.
+
+---
+
+## 📤 API Usage Examples
+
+### Transcribe Audio
+
+```
+POST http://localhost:5000/process-audio
+Content-Type: multipart/form-data
+(audio file as 'audio' field)
+```
+
+**Response:**
+```json
+{
+  "transcript": "Meeting discussion ...",
+  "entities": []
+}
+```
+
+---
+
+### NLP Summarization
 
 ```
 POST http://localhost:5000/process-json
+Content-Type: application/json
+{
+  "transcript": "Full meeting transcript here",
+  "meeting_id": "optional-meeting-id"
+}
 ```
 
-With body:
-
+**Response:**
 ```json
 {
-  "transcript": [
-    { "speaker": "Alice", "text": "We decided to ship the product next week." },
-    { "speaker": "Bob", "text": "I'll write the release notes and handle deployment." }
+  "summary": [...],
+  "actions": [...],
+  "decisions": [...],
+  "entities": {...},
+  "event_logs": [...],  // all events related to this meeting_id
+  "warnings": [...],
+  "pipeline_version": "v1.4"
+}
+```
+
+---
+
+### Feedback Endpoint
+
+```
+POST http://localhost:5000/feedback
+Content-Type: application/json
+{
+  "meeting_id": "...",
+  "user": "...",
+  "score": 5,
+  "comments": "Great summary"
+}
+```
+---
+
+### Schedule Actions / Calendar Events
+
+```
+POST http://localhost:5000/api/schedule-actions
+Content-Type: application/json
+{
+  "actions": [
+    {
+      "include": true,
+      "datetime": "YYYY-MM-DDTHH:MM",
+      "text": "Owner will do something",
+      "owner": "Owner Name"
+    },
+    ...
   ]
 }
 ```
+
+**Creates events in Nextcloud for each included action.**
 
 ---
 
@@ -153,12 +271,13 @@ With body:
 
 ---
 
-## 📌 To-Do / Roadmap
+## 📌 Roadmap
 
-* [ ] Upload audio from frontend
-* [ ] Speaker diarization (from transcript)
-* [ ] User authentication
-* [ ] Calendar integration (Google/Microsoft API)
+- [ ] Audio upload from frontend
+- [ ] Speaker diarization
+- [ ] User authentication
+- [x] **Calendar integration (Nextcloud)**
+- [ ] Google/Microsoft Calendar (optional)
 
 ---
 
@@ -166,43 +285,14 @@ With body:
 
 MIT License. Contributions welcome!
 
-📅 Self-Hosted Calendar Integration (Nextcloud)
-You can connect your personal or work calendar using a self-hosted Nextcloud server. This lets you keep all your meeting action items and events private, with no need for Google or Microsoft accounts.
+---
 
-How It Works
-Meeting action items and follow-ups are added directly to your private Nextcloud calendar.
+## 🙋‍♂️ Questions or Issues?
 
-You’ll see these as events/reminders in your Nextcloud web interface and in any calendar app connected to your Nextcloud account (mobile, desktop, etc).
+- Check backend logs in `backend/logs/server.log` for error details.
+- Open an issue or PR on GitHub.
+- For Nextcloud questions, see the [Nextcloud documentation](https://docs.nextcloud.com/).
 
-What You Need
-A Nextcloud account (ask your IT admin or set up your own on your computer, server, or Raspberry Pi).
+---
 
-The Calendar app enabled in Nextcloud (this is usually available by default).
-
-Your calendar’s CalDAV link.
-
-Go to the Calendar app in Nextcloud.
-
-Open the settings or info menu for your calendar.
-
-Copy the CalDAV link (it will look like https://your-domain/remote.php/dav/calendars/yourusername/personal/).
-
-How to Connect
-In this app, open the settings or calendar integration area.
-
-Paste your CalDAV link, Nextcloud username, and password (or app password if you use two-factor authentication).
-
-Save your settings.
-
-How You’ll Use It
-When a meeting is processed and action items are detected, those items will appear in your Nextcloud calendar as events or reminders.
-
-You can see and manage these events on:
-
-The Nextcloud web interface
-
-Any calendar app you use that is connected to your Nextcloud account (iOS, Android, Outlook, Thunderbird, etc).
-
-Privacy
-All your events stay on your own server—nothing is sent to Google, Microsoft, or any third-party service.
-
+**Enjoy private, AI-powered meeting management—on your own terms!**

@@ -1,3 +1,20 @@
+"""
+json_routes.py
+
+Flask Blueprint routes for JSON-based NLP, feedback, and analytics endpoints
+in the AI Meeting Summarizer.
+
+Created by Eric Morse
+Date: 2024-05-18
+
+Features:
+- /process-json: NLP analysis of meeting transcripts, with event log retrieval.
+- /feedback: Accepts and logs user feedback on a meeting.
+- Utility to fetch per-meeting event logs for auditability and traceability.
+
+Dependencies: Flask, app.services.nlp_analysis, app.utils.logging_utils, os, json
+"""
+
 from flask import Blueprint, request, jsonify
 from app.services.nlp_analysis import analyze_transcript
 from app.utils.logging_utils import log_event
@@ -7,6 +24,15 @@ import json
 json_bp = Blueprint('json', __name__)
 
 def get_event_logs_for_meeting(meeting_id):
+    """
+    Retrieve all event log entries associated with a given meeting ID.
+
+    Args:
+        meeting_id (str): Unique meeting identifier.
+
+    Returns:
+        list: List of event log dictionaries for the meeting.
+    """
     directory = "event_logs"
     events = []
     if not meeting_id or not os.path.isdir(directory):
@@ -25,12 +51,31 @@ def get_event_logs_for_meeting(meeting_id):
 
 @json_bp.route('/process-json', methods=['POST'])
 def process_json():
+    """
+    Accept and analyze a meeting transcript using NLP.
+
+    Expects:
+        Content-Type: application/json
+        JSON body:
+            {
+                "transcript": "...",
+                "level": "short"|"detailed" (optional),
+                "meeting_id": "unique-id" (optional)
+            }
+
+    Returns:
+        200: NLP analysis result (with summary, actions, decisions, etc).
+        400: JSON error (missing transcript or malformed JSON)
+        415: Invalid content type
+        500: NLP error
+    """
     if not request.is_json:
         return jsonify({"error": "Invalid content type, must be application/json"}), 415
     try:
         data = request.get_json(force=True)
     except Exception:
         return jsonify({"error": "Malformed JSON"}), 400
+
     transcript = data.get("transcript")
     level = data.get("level", "short")
     meeting_id = data.get("meeting_id")
@@ -51,7 +96,21 @@ def process_json():
 def feedback():
     """
     Accepts user feedback about an analysis and logs it.
-    Expects JSON: {"meeting_id": ..., "user": ..., "score": ..., "comments": ...}
+
+    Expects:
+        Content-Type: application/json
+        JSON body:
+            {
+                "meeting_id": ...,
+                "user": ...,
+                "score": ...,
+                "comments": ...
+            }
+
+    Returns:
+        200: {"success": True} (feedback logged)
+        400: {"success": False, "error": "..."} (bad input)
+        415: {"error": "..."} (invalid content type)
     """
     if not request.is_json:
         return jsonify({"error": "Invalid content type"}), 415

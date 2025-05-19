@@ -1,6 +1,9 @@
 import nltk
 import os
 import pytest
+from app import create_app
+import warnings
+warnings.filterwarnings("ignore", message="FP16 is not supported on CPU; using FP32 instead")
 
 @pytest.fixture(scope='session', autouse=True)
 def setup_nltk_data():
@@ -16,3 +19,10 @@ def setup_nltk_data():
 @pytest.fixture(scope='session')
 def test_audio_file():
     return "tests/sample_audio.wav"
+
+@pytest.fixture
+def client():
+    app = create_app()
+    app.config['TESTING'] = True
+    with app.test_client() as client:
+        yield client

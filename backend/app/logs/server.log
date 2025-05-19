@@ -7746,3 +7746,1325 @@ werkzeug.exceptions.RequestEntityTooLarge: 413 Request Entity Too Large: The dat
 2025-05-18 23:07:43,372 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T23:07:43.372052', 'type': 'meeting_meta', 'participants': ['bob', 'alice'], 'duration': 33, 'filename': 'audio.wav', 'meeting_id': 'mid1'}
 2025-05-18 23:07:43,374 INFO: Event logged to event_logs\event_log_2025-05-18.jsonl: {'logged_at': '2025-05-18T23:07:43.373429', 'type': 'analytics', 'event': 'eventName', 'data': {'foo': 'bar'}}
 2025-05-18 23:07:43,379 ERROR: Failed to log transcript: fail open
+2025-05-19 10:56:22,302 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 10:56:22,403 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T10:56:22.400025', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T14:56:22.398289+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 11:04:02,413 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 11:04:02,522 INFO: Trimming silence from converted_audio.wav
+2025-05-19 11:04:04,431 INFO: Transcript logged to transcripts\transcript_2025-05-19_11-04-04.txt
+2025-05-19 11:04:04,436 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T11:04:04.432053', 'type': 'transcript', 'timestamp': '2025-05-19_11-04-04', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 11:04:04,436 INFO: Transcription completed.
+2025-05-19 11:04:04,440 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T11:04:04.437253', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T15:04:02.412982+00:00', 'user_agent': 'curl/8.12.1', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.82, 'processing_time_sec': 2.97}
+2025-05-19 11:05:45,814 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 11:05:45,918 INFO: Trimming silence from converted_audio.wav
+2025-05-19 11:05:47,409 INFO: Transcript logged to transcripts\transcript_2025-05-19_11-05-47.txt
+2025-05-19 11:05:47,411 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T11:05:47.409366', 'type': 'transcript', 'timestamp': '2025-05-19_11-05-47', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 11:05:47,412 INFO: Transcription completed.
+2025-05-19 11:05:47,415 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T11:05:47.412606', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T15:05:45.814041+00:00', 'user_agent': 'curl/8.12.1', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.4, 'processing_time_sec': 2.36}
+2025-05-19 11:59:19,787 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 11:59:19,895 INFO: Trimming silence from converted_audio.wav
+2025-05-19 11:59:22,435 INFO: Transcript logged to transcripts\transcript_2025-05-19_11-59-22.txt
+2025-05-19 11:59:22,441 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T11:59:22.435791', 'type': 'transcript', 'timestamp': '2025-05-19_11-59-22', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 11:59:22,441 INFO: Transcription completed.
+2025-05-19 11:59:22,445 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T11:59:22.441655', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T15:59:19.787754+00:00', 'user_agent': 'curl/8.12.1', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 2.45, 'processing_time_sec': 3.61}
+2025-05-19 12:07:45,915 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:07:45,917 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:07:45,997 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:07:45,998 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:07:46,079 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:07:46,080 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:07:46,163 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:07:46,163 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:07:46,164 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 12:07:46,164 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 12:07:46,171 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:07:46.165222', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T16:07:46.164345+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 12:07:46,174 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:07:46.165307', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T16:07:46.164530+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 12:08:13,372 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 12:08:13,489 INFO: Trimming silence from converted_audio.wav
+2025-05-19 12:08:15,387 INFO: Transcript logged to transcripts\transcript_2025-05-19_12-08-15.txt
+2025-05-19 12:08:15,392 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:08:15.388446', 'type': 'transcript', 'timestamp': '2025-05-19_12-08-15', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 12:08:15,392 INFO: Transcription completed.
+2025-05-19 12:08:15,396 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:08:15.392910', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T16:08:13.372952+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'All Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.78, 'processing_time_sec': 2.93}
+2025-05-19 12:09:07,332 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:09:07,399 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:09:07,447 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:09:07,513 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:09:07,573 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:09:07,659 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:09:07,683 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:09:07,684 WARNING: Audio rejected: Sample rate too low: 0 Hz
+2025-05-19 12:09:07,690 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:09:07.685690', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T16:09:07.684760+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Sample rate too low: 0 Hz', 'outcome': 'failure'}
+2025-05-19 12:09:07,805 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:09:07,806 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 12:09:07,812 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:09:07.806853', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T16:09:07.806007+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 12:10:19,026 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 12:10:19,153 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 12:10:19,157 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 12:10:19,184 INFO: Trimming silence from converted_audio.wav
+2025-05-19 12:10:19,302 WARNING: Silence trimming failed: Command '['ffmpeg', '-y', '-i', 'converted_audio.wav', '-af', 'silenceremove=start_periods=1:start_duration=0.5:start_threshold=-50dB:stop_periods=1:stop_duration=0.5:stop_threshold=-50dB', 'trimmed_audio.wav']' returned non-zero exit status 3199971767.
+2025-05-19 12:10:19,314 INFO: Trimming silence from converted_audio.wav
+2025-05-19 12:10:19,319 INFO: Trimming silence from converted_audio.wav
+2025-05-19 12:10:23,636 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 12:10:23,697 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:10:23.691546', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:10:23.690584+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 12:10:26,050 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 12:10:26,073 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:10:26.067327', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:10:26.066827+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 12:10:27,921 INFO: Transcript logged to transcripts\transcript_2025-05-19_12-10-27.txt
+2025-05-19 12:10:27,926 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:10:27.922196', 'type': 'transcript', 'timestamp': '2025-05-19_12-10-27', 'transcript': ' Really needs to watch dishes, barb needs to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 12:10:27,926 INFO: Transcription completed.
+2025-05-19 12:10:27,930 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:10:27.926581', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T16:10:19.026153+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 17, 'transcribe_time_sec': 8.62, 'processing_time_sec': 10.14}
+2025-05-19 12:12:51,598 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:12:51,665 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:12:51,728 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:12:51,804 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:12:51,805 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 12:12:51,809 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:12:51.805716', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T16:12:51.804998+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 12:13:09,517 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:13:09,588 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:13:09,650 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:13:09,729 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:13:09,730 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 12:13:09,734 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:13:09.731557', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T16:13:09.730457+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 12:14:00,047 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 12:14:00,094 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:14:00.091106', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:14:00.090816+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 12:14:09,823 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:14:09,846 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:14:09,946 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:14:09,969 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:14:10,069 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:14:10,086 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:14:10,186 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:14:10,187 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 12:14:10,193 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:14:10.188429', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T16:14:10.187271+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 12:14:10,201 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 12:14:10,202 WARNING: Audio rejected: Audio too silent (100.0% silence)
+2025-05-19 12:14:10,207 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:14:10.203357', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T16:14:10.202376+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Audio too silent (100.0% silence)', 'outcome': 'failure'}
+2025-05-19 12:14:26,924 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 12:14:26,931 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:14:26.927367', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:14:26.927051+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 12:36:25,784 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 12:36:25,793 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:36:25.787484', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:36:25.786960+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 12:36:26,025 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 12:36:26,033 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:36:26.028830', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:36:26.028414+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 12:36:43,542 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 12:36:43,562 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:36:43.558905', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:36:43.558647+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 12:45:53,542 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 12:45:53,549 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:45:53.545001', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:45:53.544226+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 12:46:41,477 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 12:46:41,484 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:46:41.479237', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:46:41.478605+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 12:47:27,457 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 12:47:27,466 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:47:27.459342', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:47:27.458825+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 12:47:27,840 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 12:47:27,847 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:47:27.841759', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:47:27.841304+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 12:47:44,899 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 12:47:44,909 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T12:47:44.903721', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T16:47:44.903121+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 13:11:13,523 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:11:13,531 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:11:13.525336', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:11:13.524583+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:11:13,950 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:11:13,957 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:11:13.951880', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:11:13.951286+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:11:31,064 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 13:11:31,076 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:11:31.072136', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:11:31.071826+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 13:23:42,901 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:23:42,914 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:23:42.904434', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:23:42.903792+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:23:43,371 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:23:43,378 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:23:43.372872', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:23:43.372249+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:24:01,311 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 13:24:01,319 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:24:01.315303', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:24:01.314713+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 13:25:36,674 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:25:36,682 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:25:36.676363', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:25:36.675752+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:32:57,129 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:32:57,137 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:32:57.130995', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:32:57.130151+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:33:14,715 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:33:14,719 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:33:14.716349', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:33:14.716062+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:37:09,951 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:37:09,957 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:37:09.952559', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:37:09.952072+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:37:10,290 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:37:10,299 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:37:10.292565', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:37:10.291994+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:37:28,167 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 13:37:28,174 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:37:28.169818', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:37:28.169500+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 13:45:05,738 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:45:05,756 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:45:05.740653', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:45:05.740046+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:45:05,923 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 84, in process_audio
+    print(f"Audio file size: {os.path.getsize(final_path)} bytes")
+                                              ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'final_path' where it is not associated with a value
+2025-05-19 13:45:05,931 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:45:05.925377', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:45:05.924763+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'error': "cannot access local variable 'final_path' where it is not associated with a value", 'outcome': 'exception'}
+2025-05-19 13:45:23,310 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 13:45:23,317 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:45:23.313096', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:45:23.312548+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 13:47:56,476 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:47:56,477 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:47:56,577 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:47:56,579 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:47:56,680 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:47:56,689 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:47:56,790 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:47:56,791 WARNING: Audio rejected: Sample rate too low: 0 Hz
+2025-05-19 13:47:56,799 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:47:56,800 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 13:47:56,802 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:47:56.792744', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:47:56.791801+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Sample rate too low: 0 Hz', 'outcome': 'failure'}
+2025-05-19 13:47:56,808 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:47:56.801666', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:47:56.800366+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 13:48:14,132 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 13:48:14,153 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:48:14.149072', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:48:14.148731+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 13:53:41,778 WARNING: Failed to get RMS volume for original_audio.wav: Command '['ffmpeg', '-i', 'original_audio.wav', '-af', 'volumedetect', '-f', 'null', '-']' returned non-zero exit status 3199971767.
+2025-05-19 13:53:41,820 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:53:41,881 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:53:41,921 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:53:41,984 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:53:42,025 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:53:42,089 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:53:42,089 WARNING: Audio rejected: Audio too quiet (mean volume None dB)
+2025-05-19 13:53:42,096 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:53:42.090778', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:53:42.089880+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Audio too quiet (mean volume None dB)', 'outcome': 'failure'}
+2025-05-19 13:53:42,142 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:53:42,143 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 13:53:42,150 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:53:42.144366', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:53:42.143455+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 13:53:58,694 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 13:53:58,702 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:53:58.697671', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:53:58.697199+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 13:57:55,685 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:57:55,745 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:57:55,806 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:57:55,865 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:57:55,866 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 13:57:55,870 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:57:55.867078', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:57:55.866437+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 13:58:17,212 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:58:17,217 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:58:17,323 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:58:17,324 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:58:17,432 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:58:17,437 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:58:17,552 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:58:17,552 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:58:17,553 WARNING: Audio rejected: Bitrate too low: 0 bps
+2025-05-19 13:58:17,553 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 13:58:17,560 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:58:17.554662', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:58:17.553188+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Bitrate too low: 0 bps', 'outcome': 'failure'}
+2025-05-19 13:58:17,565 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:58:17.554836', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:58:17.553652+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 13:58:34,660 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 13:58:34,666 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:58:34.662432', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:58:34.662141+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 13:59:15,487 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:59:15,536 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:59:15,624 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:59:15,651 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:59:15,741 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:59:15,776 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:59:15,880 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:59:15,881 WARNING: Audio rejected: Bitrate too low: 0 bps
+2025-05-19 13:59:15,886 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 13:59:15,895 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 13:59:15,895 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:59:15.883071', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:59:15.881881+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Bitrate too low: 0 bps', 'outcome': 'failure'}
+2025-05-19 13:59:15,903 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:59:15.896437', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T17:59:15.895226+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 13:59:32,716 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 13:59:32,725 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T13:59:32.720035', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T17:59:32.719411+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 14:07:48,592 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 14:07:48,612 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T14:07:48.597202', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T18:07:48.596546+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 16:04:03,071 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:04:03,116 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:04:03,176 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:04:03,229 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:04:03,284 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:04:03,326 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:04:03,382 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:04:03,383 WARNING: Audio rejected: Bitrate too low: 0 bps
+2025-05-19 16:04:03,394 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:04:03.384344', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T20:04:03.383104+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Bitrate too low: 0 bps', 'outcome': 'failure'}
+2025-05-19 16:04:03,439 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:04:03,440 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 16:04:03,448 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:04:03.441514', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T20:04:03.440594+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 16:04:17,097 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 16:04:17,113 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:04:17.106474', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:04:17.103485+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 16:29:08,640 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 16:29:08,646 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 16:29:08,670 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 16:29:08,759 INFO: Trimming silence from converted_audio.wav
+2025-05-19 16:29:08,767 INFO: Trimming silence from converted_audio.wav
+2025-05-19 16:29:08,787 INFO: Trimming silence from converted_audio.wav
+2025-05-19 16:29:13,156 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 169, in forward
+    x = x + self.cross_attn(self.cross_attn_ln(x), xa, kv_cache=kv_cache)[0]
+            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 109, in forward
+    v = kv_cache[self.value]
+        ~~~~~~~~^^^^^^^^^^^^
+KeyError: Linear(in_features=512, out_features=512, bias=True)
+2025-05-19 16:29:13,182 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:29:13.170452', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:29:13.170006+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'error': 'Linear(in_features=512, out_features=512, bias=True)', 'outcome': 'exception'}
+2025-05-19 16:29:13,200 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 169, in forward
+    x = x + self.cross_attn(self.cross_attn_ln(x), xa, kv_cache=kv_cache)[0]
+            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 109, in forward
+    v = kv_cache[self.value]
+        ~~~~~~~~^^^^^^^^^^^^
+KeyError: Linear(in_features=512, out_features=512, bias=True)
+2025-05-19 16:29:13,215 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:29:13.209115', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:29:13.208185+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'error': 'Linear(in_features=512, out_features=512, bias=True)', 'outcome': 'exception'}
+2025-05-19 16:29:14,533 INFO: Transcript logged to transcripts\transcript_2025-05-19_16-29-14.txt
+2025-05-19 16:29:14,538 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:29:14.534140', 'type': 'transcript', 'timestamp': '2025-05-19_16-29-14', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 16:29:14,538 INFO: Transcription completed.
+2025-05-19 16:29:14,543 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:29:14.538962', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T20:29:08.640133+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 5.64, 'processing_time_sec': 6.93}
+2025-05-19 16:35:21,465 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:35:21,553 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:35:21,619 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:35:21,680 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:35:21,681 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 16:35:21,685 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:35:21.682137', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T20:35:21.681463+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 16:35:35,431 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 16:35:35,439 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:35:35.434549', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:35:35.433970+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 16:40:11,642 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:40:11,743 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:40:11,830 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:40:11,908 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:40:11,908 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 16:40:11,916 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:40:11.909597', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T20:40:11.908830+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 16:40:26,405 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 16:40:26,412 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:40:26.407802', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:40:26.407471+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 16:48:20,554 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:48:20,618 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:48:20,680 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:48:20,743 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:48:20,744 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 16:48:20,748 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:48:20.745018', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T20:48:20.744426+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 16:48:35,356 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 16:48:35,365 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:48:35.360608', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:48:35.360063+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}

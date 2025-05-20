@@ -1,4 +1,25 @@
+/**
+ * SummaryPanel.jsx
+ * Author: Eric Morse
+ * Date: May 11th, 2025
+ *
+ * Description:
+ *   This React component renders a summary section for meeting summaries.
+ *   - Displays a list of summary points (bulleted).
+ *   - Provides a button to download the summary as a text file.
+ * 
+ * Props:
+ *   - summary (Array of string): The summary items to display.
+ *   - onDownload (function): Handler for downloading the summary. 
+ *     Called with the joined summary text and filename when download is clicked.
+ * 
+ * Usage:
+ *   <SummaryPanel summary={['Point 1', 'Point 2']} onDownload={handleDownload} />
+ * 
+ * If the summary array is empty, the component renders nothing.
+ */
 export default function SummaryPanel({ summary, onDownload }) {
+    // If there are no summary items, render nothing
     if (!summary.length) return null;
     return (
         <div>

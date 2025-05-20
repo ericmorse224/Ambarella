@@ -1,7 +1,25 @@
+/**
+ * CalendarEventForm.jsx
+ * Author: Eric Morse
+ * Date: May 11th, 2025
+ *
+ * This React component provides a form for creating calendar events.
+ * It is designed to work with a Nextcloud backend, sending event details
+ * to an API endpoint for event creation. It supports live validation, error handling,
+ * loading state, and success messages.
+ */
+
 import React, { useState } from "react";
 import axios from "axios";
 
+/**
+ * CalendarEventForm component for creating a new calendar event.
+ * - Uses controlled form state.
+ * - Shows loading, success, and error states.
+ * - Sends event details to /api/nextcloud/create-event via POST.
+ */
 const CalendarEventForm = () => {
+    // State for form fields
     const [form, setForm] = useState({
         title: "",
         description: "",
@@ -9,23 +27,36 @@ const CalendarEventForm = () => {
         time: "",
         participant: "",
     });
+    // State for success message
     const [message, setMessage] = useState("");
+    // State for error message
     const [error, setError] = useState("");
+    // State for loading indicator
     const [loading, setLoading] = useState(false);
 
+    /**
+     * handleChange updates form state on user input.
+     * It also clears error and success messages.
+     * @param {React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>} e
+     */
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
         setError("");
         setMessage("");
     };
 
+    /**
+     * handleSubmit sends form data to the backend API.
+     * Handles success, error, and loading states.
+     * @param {React.FormEvent} e
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         setMessage("");
         setError("");
         try {
-            // Replace with your backend endpoint for Nextcloud event creation
+            // API call to backend endpoint for Nextcloud event creation
             const res = await axios.post("/api/nextcloud/create-event", {
                 ...form,
             });
@@ -38,6 +69,7 @@ const CalendarEventForm = () => {
                 participant: "",
             });
         } catch (err) {
+            // Error handling: Display API error, network error, or generic error
             if (err.response?.data?.error) {
                 setError(err.response.data.error);
             } else if (err.message) {
@@ -50,6 +82,7 @@ const CalendarEventForm = () => {
         }
     };
 
+    // Render the event creation form UI
     return (
         <div className="bg-white p-4 rounded shadow-md max-w-lg mx-auto">
             <h2 className="text-xl font-semibold mb-4">Create Calendar Event</h2>

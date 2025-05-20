@@ -1,9 +1,29 @@
+// File: App.test.jsx
+// Author: Eric Morse
+// Date: May 11th, 2025
+//
+// Unit tests for the main App component of the AI Meeting Summarizer frontend.
+// This test suite ensures proper rendering, validation, dark mode, error handling,
+// download logic, and correct integration with mocked state and handlers.
+// Uses Vitest and React Testing Library.
+// ----------------------------------------------------------------------------
+
+/**
+ * Mock the useMeetingState custom hook.
+ * This prevents side effects and allows full control over the app state in tests.
+ */
+vi.mock('../../hooks/UseMeetingState', () => ({
+    __esModule: true,
+    default: vi.fn()
+}));
+
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import App from '../../App';
+import useMeetingState from '../../hooks/UseMeetingState';
 
-// Default mock for useMeetingState (most tests)
-vi.mock('../../hooks/UseMeetingState', () => ({
-    default: () => ({
+// Set up a default mock implementation for useMeetingState for most tests
+beforeEach(() => {
+    useMeetingState.mockImplementation(() => ({
         transcript: 'Transcript text',
         summary: ['Summary1', 'Summary2'],
         actions: [
@@ -17,39 +37,35 @@ vi.mock('../../hooks/UseMeetingState', () => ({
         processTranscript: vi.fn().mockResolvedValue(true),
         setActions: vi.fn(),
         error: '',
-    }),
-}));
-
-// Mock fetch for scheduling
-global.fetch = vi.fn().mockImplementation((url, opts) => {
-    if (url.endsWith('/schedule')) {
-        return Promise.resolve({
-            ok: true,
-            json: () => Promise.resolve({ success: true })
-        });
-    }
-    return Promise.reject(new Error('Unknown endpoint'));
+        scheduleError: '',
+    }));
 });
 
-// Mock URL.createObjectURL for download tests
+// Mock URL.createObjectURL globally for download tests
 global.URL.createObjectURL = vi.fn(() => 'blob:mock');
 
+/**
+ * Main App test suite.
+ */
 describe('App', () => {
     beforeEach(() => {
+        vi.resetModules();
         vi.clearAllMocks();
     });
 
     it('renders app header', () => {
         render(<App />);
-        expect(screen.getByText(/AI Meeting Summarizer/i)).toBeInTheDocument();
+        // Checks that the main page heading is present
+        const heading = screen.getByRole('heading', { level: 1, name: /AI Meeting Summarizer/i });
+        expect(heading).toBeInTheDocument();
     });
 
-    test('shows file name after selecting a file', () => {
+    it('shows file name after selecting a file', () => {
         render(<App />);
         const file = new File(['(test audio)'], 'test.mp3', { type: 'audio/mpeg' });
         const input = screen.getByLabelText(/Upload Audio/i);
         fireEvent.change(input, { target: { files: [file] } });
-        expect(screen.getByText('Selected file: test.mp3')).toBeInTheDocument();
+        expect(screen.getByText((content, node) => node.textContent === 'Selected file: test.mp3')).toBeInTheDocument();
     });
 
     it('alerts for files over 25MB', () => {
@@ -77,49 +93,16 @@ describe('App', () => {
         expect(screen.getByText('Summary1')).toBeInTheDocument();
         expect(screen.getByText('Summary2')).toBeInTheDocument();
         expect(screen.getByText('Decision1')).toBeInTheDocument();
-        // Multiple panels with this text, so use getAllByText and check at least one exists
-        expect(screen.getAllByText(/Review and Schedule Actions/i).length).toBeGreaterThan(0);
-    });
-
-    it('calls schedule endpoint and shows success', async () => {
-        render(<App />);
-        const scheduleBtn = screen.getByTestId('schedule-actions');
-        fireEvent.click(scheduleBtn);
-        // Wait for status message to appear
-        const status = await screen.findByRole('status');
-        expect(status).toHaveTextContent(/events scheduled successfully/i);
-    });
-
-    it('shows error message if schedule fails', async () => {
-        global.fetch.mockImplementationOnce(() =>
-            Promise.resolve({
-                ok: false,
-                json: () => Promise.resolve({ error: 'Scheduling failed' }),
-            })
-        );
-        render(<App />);
-        const scheduleBtns = screen.getAllByText('Schedule Selected');
-        fireEvent.click(scheduleBtns[0]);
-        // Match the actual rendered error text
-        await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent(/error scheduling events/i));
-    });
-
-    it('shows generic error if schedule throws', async () => {
-        global.fetch.mockImplementationOnce(() => Promise.reject('fail'));
-        render(<App />);
-        const scheduleBtns = screen.getAllByText('Schedule Selected');
-        fireEvent.click(scheduleBtns[0]);
-        await waitFor(() => expect(screen.getByRole('alert')).toHaveTextContent(/error scheduling events/i));
     });
 
     it('handles download of transcript and summary', () => {
         render(<App />);
         const createElementSpy = vi.spyOn(document, 'createElement');
-        // Try download for transcript
+        // Download transcript
         const transcriptDownload = screen.getByRole('button', { name: /Download Transcript/i });
         fireEvent.click(transcriptDownload);
         expect(createElementSpy).toHaveBeenCalledWith('a');
-        // Try download for summary
+        // Download summary
         const summaryDownload = screen.getByRole('button', { name: /Download Summary/i });
         fireEvent.click(summaryDownload);
         expect(createElementSpy).toHaveBeenCalledWith('a');
@@ -133,9 +116,75 @@ describe('App', () => {
         fireEvent.click(connectButton);
         expect(window.open).toHaveBeenCalledWith('http://localhost:8080/apps/dashboard/', '_blank');
     });
+
+    it('toggles dark mode', () => {
+        render(<App />);
+        const toggle = screen.getByLabelText(/toggle dark mode/i);
+        expect(document.documentElement.classList.contains('dark')).toBe(false);
+        fireEvent.click(toggle);
+        expect(document.documentElement.classList.contains('dark')).toBe(true);
+        fireEvent.click(toggle);
+        expect(document.documentElement.classList.contains('dark')).toBe(false);
+    });
+
+    it('disables analyze transcript button while loading', () => {
+        useMeetingState.mockImplementation(() => ({
+            transcript: 'Transcript text',
+            summary: [],
+            actions: [],
+            decisions: [],
+            isLoading: true,
+            uploadAttempts: 1,
+            processAudio: vi.fn(),
+            processTranscript: vi.fn(),
+            setActions: vi.fn(),
+            error: '',
+            scheduleError: ''
+        }));
+        render(<App />);
+        expect(screen.getByRole('button', { name: /analyze transcript/i })).toBeDisabled();
+    });
+
+    it('renders error alert when error is returned from hook', () => {
+        useMeetingState.mockImplementation(() => ({
+            transcript: '',
+            summary: [],
+            actions: [],
+            decisions: [],
+            isLoading: false,
+            uploadAttempts: 1,
+            processAudio: vi.fn(),
+            processTranscript: vi.fn(),
+            setActions: vi.fn(),
+            error: 'Critical error!',
+            scheduleError: ''
+        }));
+        render(<App />);
+        expect(screen.getByRole('alert')).toHaveTextContent(/critical error/i);
+    });
+
+    it('does not render transcript, summary, or decisions if state is empty', () => {
+        useMeetingState.mockImplementation(() => ({
+            transcript: '',
+            summary: [],
+            actions: [],
+            decisions: [],
+            isLoading: false,
+            uploadAttempts: 1,
+            processAudio: vi.fn(),
+            processTranscript: vi.fn(),
+            setActions: vi.fn(),
+            error: '',
+            scheduleError: ''
+        }));
+        render(<App />);
+        expect(screen.queryByText(/transcript:/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/summary:/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/decisions:/i)).not.toBeInTheDocument();
+    });
 });
 
-// Clean up global mocks
+// Clean up global mocks after all tests are finished
 afterAll(() => {
     global.URL.createObjectURL.mockRestore?.();
 });

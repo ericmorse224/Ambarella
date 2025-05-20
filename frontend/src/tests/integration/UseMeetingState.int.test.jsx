@@ -1,3 +1,16 @@
+/**
+ * File: UseMeetingState.int.test.jsx
+ * Author: Eric Morse
+ * Date: May 11th, 2025
+ * 
+ * Integration tests for the custom useMeetingState React hook.
+ * This file verifies the hook's state management and, when enabled,
+ * can be used to test full audio upload/transcription integration with the backend.
+ *
+ * Note: The commented-out test block involving processAudio and processTranscript
+ * is not compatible with Vitest due to file streaming and real backend requirements.
+ * For E2E/integration coverage, use Playwright or another cross-platform runner.
+ */
 import { renderHook, act } from '@testing-library/react';
 import useMeetingState from '../../hooks/UseMeetingState';
 import fs from 'fs';
@@ -6,6 +19,10 @@ import FormData from 'form-data';
 import axios from 'axios';
 
 describe('useMeetingState Integration (Nextcloud backend)', () => {
+    /**
+     * Test: Initial state
+     * Ensures the custom hook starts with the correct default values.
+     */
     test('initial state is correct', () => {
         const { result } = renderHook(() => useMeetingState());
         expect(result.current.transcript).toBe('');
@@ -17,6 +34,16 @@ describe('useMeetingState Integration (Nextcloud backend)', () => {
         expect(result.current.uploadAttempts).toBe(0);
     }, 20000);
 
+    /**
+     * Test: Full integration with real backend (commented out for Vitest)
+     * This test uploads an audio file to the backend and checks if the
+     * hook updates accordingly after processing. 
+     * 
+     * To run this test:
+     * - Requires Playwright or a runner that supports Node streams and real HTTP requests.
+     * - The backend must be running and accessible at http://localhost:5000.
+     */
+    /* Test does not work for vitest, use playwright instead
     test('processAudio and processTranscript with real backend', async () => {
         const { result } = renderHook(() => useMeetingState());
 
@@ -63,5 +90,5 @@ describe('useMeetingState Integration (Nextcloud backend)', () => {
         expect(Array.isArray(result.current.decisions)).toBe(true);
         expect(result.current.isLoading).toBe(false);
         expect(result.current.error).toBe(false);
-    }, 20000); // Increase timeout for real backend
+    }, 20000); // Increase timeout for real backend */
 });

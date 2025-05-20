@@ -17,8 +17,6 @@ __pycache__
 frontend/tests/__pycache__/
 backend/tests/__pycache__/
 ./test-results
-./public
-./src
 backend/.coverage
 frontend/.coverage
 backend/app/logs/server.log
@@ -34,8 +32,6 @@ backend/app/logs/server.log
 .env.development.local
 .env.test.local
 .env.production.local
-/public
-/src
 /node_modules
 READMEforREACT.md
 npm-debug.log*

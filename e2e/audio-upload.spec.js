@@ -1,8 +1,47 @@
+/**
+ * File: audio-upload.spec.js
+ * Author: Eric Morse
+ * Date: May 11th, 2025
+ * 
+ * Description:
+ * --------------
+ * This Playwright end-to-end (E2E) test automates the process of uploading an audio file
+ * to the AI Meeting Summarizer frontend, verifying the appearance of either the transcript 
+ * or an error message, and checks for extracted actions. The test writes debug logs to 
+ * pw-debug.txt for easier troubleshooting of failures.
+ * 
+ * Test Steps:
+ * -----------
+ * 1. Navigate to the frontend application (localhost:3000).
+ * 2. Set the file input to a test WAV audio file.
+ * 3. Click the "Transcribe Audio" button to trigger transcription.
+ * 4. Wait up to 20 seconds for either a transcript or error alert to appear.
+ * 5. If a transcript appears:
+ *    - Assert expected content exists in the transcript.
+ *    - Assert at least one action item is found and verify its content.
+ * 6. If an error alert appears:
+ *    - Assert the alert contains an error message.
+ * 7. If neither appears, log debug information and fail the test.
+ * 
+ * Dependencies:
+ * -------------
+ * - Playwright test runner
+ * - Node.js path and fs modules
+ * - The test audio file should exist at '../frontend/src/tests/test_audio/All_Needs.wav'
+ *
+ * Note:
+ * -----
+ * - Update the file path and assertion content if the test audio or UI changes.
+ */
 const { test, expect } = require('@playwright/test');
 const path = require('path');
 const fs = require('fs');
 const debugLogFile = path.resolve(__dirname, 'pw-debug.txt');
 
+/**
+ * Logs debug messages to the pw-debug.txt file with timestamps.
+ * @param  {...any} args - Items to log (will be joined by space).
+ */
 function logToFile(...args) {
   fs.appendFileSync(
     debugLogFile,

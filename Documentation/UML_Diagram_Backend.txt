@@ -1,0 +1,87 @@
++--------------------------+
+|      FlaskApp (app)      |
++--------------------------+
+| - routes:                |
+|    /audio/process        |
+|    /json/process         |
+|    /meeting/schedule     |
+|    ...                   |
++--------------------------+
+| + run()                  |
++--------------------------+
+      /|\
+       |
+       | uses
+       v
++----------------------------+
+| AudioProcessor             |    <service>
++----------------------------+
+| + convert_to_wav()         |
+| + trim_silence()           |
+| + validate_audio_file()    |
++----------------------------+
+
++----------------------------+
+| NLPAnalysis                |    <service>
++----------------------------+
+| + extract_actions()        |
+| + extract_decisions()      |
+| + extract_people()         |
+| + generate_summary()       |
++----------------------------+
+
++----------------------------+
+| CalendarAPI                |    <service>
++----------------------------+
+| + create_event()           |
+| + get_events()             |
+| + update_event()           |
+| + delete_event()           |
++----------------------------+
+
++----------------------------+
+| CalendarIntegration        |    <service>
++----------------------------+
+| + schedule_meeting()       |
+| + suggest_event_times()    |
+| + parse_action_for_event() |
++----------------------------+
+
++----------------------------+
+| NextcloudUtils             |    <utils>
++----------------------------+
+| + connect()                |
+| + create_event()           |
+| + fetch_events()           |
++----------------------------+
+
++----------------------------+
+| EntityUtils                |    <utils>
++----------------------------+
+| + extract_people_from_entities() |
++----------------------------+
+
++----------------------------+
+| Logger / LoggingUtils      |    <utils>
++----------------------------+
+| + log_info()               |
+| + log_error()              |
++----------------------------+
+
++----------------------------+
+| app.routes.audio_routes    |    <route>
++----------------------------+
+| + process_audio()          |
++----------------------------+
+
++----------------------------+
+| app.routes.json_routes     |    <route>
++----------------------------+
+| + process_json()           |
++----------------------------+
+
++----------------------------+
+| app.routes.meeting_routes  |    <route>
++----------------------------+
+| + schedule_meeting()       |
++----------------------------+

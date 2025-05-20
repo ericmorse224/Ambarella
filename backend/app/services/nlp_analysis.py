@@ -21,7 +21,9 @@ import re
 import nltk
 from app.utils.entity_utils import extract_entities, extract_people_from_entities
 
+# List of key phrases and verbs that signal an action item.
 ACTION_PHRASES = [
+    # Verbs and signal phrases
     "do", "update", "review", "send", "create", "schedule", "call", "organize",
     "finish", "complete", "start", "plan", "set", "book", "email", "write",
     "check", "fix", "prepare", "assign", "approve", "submit", "remind",
@@ -32,16 +34,18 @@ ACTION_PHRASES = [
     "build", "support", "update", "assign", "confirm", "document", "provide",
     "should", "will", "must", "needs to", "has to", "to", "shall"
 ]
+
+# List of common first names (male, female, unisex) for basic name/entity matching.
 EXPECTED_NAMES = [
-    # Additional common male names
-    "Adam", "Alex", "Andrew", "Anthony", "Ben", "Brian", "Charles", "Chris",
+    # Male names
+    "Adam", "Andrew", "Anthony", "Ben", "Brian", "Charles", "Chris",
     "Daniel", "David", "Edward", "Ethan", "Gary", "Jack", "James", "Jason",
     "Jeff", "Joe", "Jonathan", "Joseph", "Josh", "Kevin", "Mark", "Matt",
     "Michael", "Mike", "Nick", "Paul", "Peter", "Richard", "Robert", "Ryan",
     "Sam", "Samuel", "Scott", "Sean", "Steve", "Steven", "Thomas", "Tim",
     "Timothy", "Tom", "Tyler", "Will", "William", "Zach", "Zachary",
     "Fred", "Eric", "John", "Bob", "Carol", "Dave", "Frank", "Aaron", "George", "Greg",
-    # Additional common female names
+    # Female names
     "Abby", "Amanda", "Amy", "Angela", "Ashley", "Barbara", "Brenda", "Brittany",
     "Caitlin", "Catherine", "Charlotte", "Christina", "Claire", "Courtney",
     "Diana", "Elizabeth", "Emily", "Emma", "Grace", "Hannah", "Heather", "Isabella",
@@ -50,11 +54,21 @@ EXPECTED_NAMES = [
     "Megan", "Michelle", "Natalie", "Nicole", "Olivia", "Pam", "Patricia", "Rachel",
     "Rebecca", "Samantha", "Sara", "Sarah", "Shannon", "Stephanie", "Susan", "Tara",
     "Taylor", "Victoria", "Wendy", "Alice",  "Erin",  "Susie", "Jane", 
-    # Some gender-neutral/unisex names
+    # Gender-neutral/unisex names
     "Alex", "Casey", "Charlie", "Drew", "Jamie", "Jordan", "Morgan", "Riley", "Robin", "Taylor"
 ]
 
 def robust_sent_tokenize(text):
+    """
+    Tokenizes a block of text into sentences, with a fallback to punctuation splitting
+    if NLTK's tokenizer yields only one sentence.
+
+    Args:
+        text (str): The text to tokenize.
+
+    Returns:
+        list of str: List of sentences.
+    """
     sentences = nltk.sent_tokenize(text)
     if len(sentences) <= 1:
         sentences = re.split(r'[.,;]\s*', text)
@@ -62,12 +76,30 @@ def robust_sent_tokenize(text):
     return sentences
 
 def find_people_in_sentence(sentence):
-    # Only return names from EXPECTED_NAMES that appear in sentence
+    """
+    Finds likely person names in a sentence by matching against EXPECTED_NAMES.
+
+    Args:
+        sentence (str): The sentence to search.
+
+    Returns:
+        list of str: Names found in the sentence.
+    """
     tokens = re.findall(r'\b[A-Z][a-z]+\b', sentence)
     people = [t for t in tokens if t in EXPECTED_NAMES]
     return people
 
 def split_actions_within_sentence(sentence, people):
+    """
+    Splits a sentence with multiple people/entities into separate action items.
+
+    Args:
+        sentence (str): The sentence containing potential multiple actions.
+        people (list of str): People detected in the sentence.
+
+    Returns:
+        list of dict: List of extracted action dicts, each with text and owner.
+    """
     actions = []
     if len(people) > 1:
         pattern = r'\b(' + '|'.join(re.escape(name) for name in people) + r')\b'

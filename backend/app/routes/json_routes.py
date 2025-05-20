@@ -14,7 +14,7 @@ Features:
 
 Dependencies: Flask, app.services.nlp_analysis, app.utils.logging_utils, os, json
 """
-
+from werkzeug.exceptions import BadRequest
 from flask import Blueprint, request, jsonify
 from app.services.nlp_analysis import analyze_transcript
 from app.utils.logging_utils import log_event
@@ -22,9 +22,13 @@ import os
 import json
 from datetime import datetime
 
+# Create a Blueprint for JSON routes
 json_bp = Blueprint('json', __name__)
 
 def log_process_json(data, error=None):
+    """
+    Utility to log the payload and errors for /process-json requests.
+    """
     log_path = os.path.join(os.path.dirname(__file__), "process_json.log")
     with open(log_path, "a", encoding="utf-8") as f:
         timestamp = datetime.now().isoformat()
@@ -82,10 +86,15 @@ def process_json():
     if not request.is_json:
         return jsonify({"error": "Invalid content type, must be application/json"}), 415
     try:
-        data = request.get_json(force=True)
+        # Parse JSON and handle malformed JSON as BadRequest (400)
+        try:
+            data = request.get_json(force=True)
+        except Exception as e:
+            log_process_json(getattr(data, 'data', None), error=str(e)) 
+            return jsonify({"error": "Malformed JSON"}), 400
         log_process_json(data)
     except Exception as e:
-        log_process_json(getattr(data, 'data', None), error=str(e)) 
+        log_process_json(getattr(request, 'data', None), error=str(e))
         return jsonify({"error": "Malformed JSON"}), 400
 
     transcript = data.get("transcript")
@@ -101,6 +110,9 @@ def process_json():
         result["event_logs"] = event_logs
         result["meeting_id"] = meeting_id
         return jsonify(result), 200
+    except BadRequest as e:
+
+        return jsonify({"error": "Invalid JSON body"}), 400
     except Exception as e:
         log_process_json(getattr(request, 'data', None), error=str(e)) 
         print("Error in /process-json:", e)

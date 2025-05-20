@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 /**
- * ReviewPanel component for reviewing and scheduling action items.
+ * ReviewPanel component for reviewing and scheduling action items with duration.
  *
  * @param {Object[]} actions - Array of action objects.
  * @param {Function} setActions - Function to update actions.
@@ -11,14 +11,15 @@ const ReviewPanel = ({ actions, setActions }) => {
     const [scheduleStatus, setScheduleStatus] = useState(""); // "", "success", "error"
     const [loading, setLoading] = useState(false);
 
-    // Ensure all actions have include, owner, date, and time fields (avoid uncontrolled input warning)
+    // Ensure all actions have include, owner, date, time, duration fields (avoid uncontrolled input warning)
     React.useEffect(() => {
         const updated = actions.map(a => ({
             ...a,
             include: a.include !== undefined ? a.include : true,
             owner: a.owner || "",
             date: a.date || "",
-            time: a.time || ""
+            time: a.time || "",
+            duration: a.duration || 60
         }));
         if (JSON.stringify(updated) !== JSON.stringify(actions)) setActions(updated);
         // eslint-disable-next-line
@@ -35,18 +36,20 @@ const ReviewPanel = ({ actions, setActions }) => {
         setLoading(true);
         setScheduleStatus("");
         try {
-            // Only send included actions with owner, date, and time
             const toSchedule = actions
                 .filter(a => a.include && a.owner && a.date && a.time)
                 .map(a => {
-                    // Combine local date and time, convert to ISO UTC string
+                    // Combine local date and time, convert to ISO UTC string for start and end
                     const localDateTime = `${a.date}T${a.time}`;
-                    const isoString = new Date(localDateTime).toISOString();
+                    const isoStart = new Date(localDateTime);
+                    const durationMinutes = parseInt(a.duration, 10) || 60;
+                    const isoEnd = new Date(isoStart.getTime() + durationMinutes * 60000);
                     return {
-                        include: true, // Backend expects this
-                        datetime: isoString, // ISO string with correct UTC time
+                        include: true,
+                        datetime: isoStart.toISOString(),
+                        end: isoEnd.toISOString(),
                         text: a.text,
-                        owner: a.owner
+                        owner: a.owner,
                     };
                 });
 
@@ -82,7 +85,6 @@ const ReviewPanel = ({ actions, setActions }) => {
                             value={action.owner || ""}
                             onChange={e => handleActionChange(idx, "owner", e.target.value)}
                         />
-                        {/* Date and time as separate inputs, always controlled */}
                         <div className="flex gap-2 mt-1">
                             <input
                                 className="w-full p-2 border border-gray-300 rounded"
@@ -95,6 +97,17 @@ const ReviewPanel = ({ actions, setActions }) => {
                                 type="time"
                                 value={action.time || ""}
                                 onChange={e => handleActionChange(idx, "time", e.target.value)}
+                            />
+                            <input
+                                className="w-full p-2 border border-gray-300 rounded"
+                                type="number"
+                                min={5}
+                                max={480}
+                                step={5}
+                                value={action.duration || 60}
+                                onChange={e => handleActionChange(idx, "duration", e.target.value)}
+                                placeholder="Duration (minutes)"
+                                title="Duration (minutes)"
                             />
                         </div>
                         <div className="flex items-center space-x-2 mt-2">

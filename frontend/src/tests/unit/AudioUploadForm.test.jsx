@@ -1,3 +1,24 @@
+/**
+ * AudioUploadForm.test.jsx
+ * Author: Eric Morse
+ * Date: May 11th, 2025
+ *
+ * Description:
+ * ---------------
+ * Unit tests for the AudioUploadForm React component, which provides the user interface
+ * for uploading audio files to be transcribed in the AI Meeting Summarizer frontend.
+ * These tests verify that the file name is displayed correctly after a file is selected,
+ * and that the "Transcribe Audio" button is correctly disabled if no file is selected.
+ *
+ * Test Coverage:
+ * ---------------
+ * - Verifies the file name is shown after user selects a file.
+ * - Ensures the transcribe button is disabled when no file is selected.
+ *
+ * Usage:
+ * ---------------
+ * Run these tests using Vitest or Jest in your frontend test suite.
+ */
 import { render, screen, fireEvent } from '@testing-library/react';
 import AudioUploadForm from '../../components/AudioUploadForm';
 

@@ -1,3 +1,24 @@
+/**
+ * AudioUploader.test.jsx
+ * Author: Eric Morse
+ * Date: May 11th, 2025
+ * 
+ * This file contains unit tests for the AudioUploader React component.
+ * 
+ * Coverage includes:
+ *  - Rendering the input and upload button
+ *  - Handling file selection
+ *  - Validating file size and type
+ *  - Error handling for upload and transcription failures
+ *  - State updates for loading and data display (transcript, summary, actions, decisions)
+ *  - UI/UX behavior for empty and loading states
+ * 
+ * Uses: React Testing Library, Vitest/Jest, File API, mocking global.fetch and window.alert
+ * 
+ * The tests ensure robust error reporting, loading-state UI, and complete user interaction flow
+ * for the audio upload and meeting summarization pipeline.
+ */
+
 import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import AudioUploader from '../../components/AudioUploader.jsx';
 
@@ -65,6 +86,7 @@ describe('AudioUploader', () => {
             .fn()
             .mockImplementationOnce(() =>
                 Promise.resolve({
+                    ok: true,
                     json: () => Promise.resolve({ transcript: 'Transcript text' }),
                 })
             )
@@ -104,6 +126,7 @@ describe('AudioUploader', () => {
             .fn()
             .mockImplementationOnce(() =>
                 Promise.resolve({
+                    ok: true,
                     json: () => Promise.resolve({ transcript: 'Transcript text' }),
                 })
             )
@@ -117,5 +140,28 @@ describe('AudioUploader', () => {
         await waitFor(() => {
             expect(window.alert).toHaveBeenCalledWith(expect.stringMatching(/summarization failed/i));
         });
+    });
+
+    it('disables upload button while uploading', async () => {
+        render(<AudioUploader />);
+        // Set a file so upload will proceed
+        const file = new File(['test'], 'test.mp3', { type: 'audio/mpeg' });
+        const input = screen.getByLabelText(/upload audio/i);
+        fireEvent.change(input, { target: { files: [file] } });
+
+        // Spy on global fetch to return a promise that never resolves
+        global.fetch = vi.fn(() => new Promise(() => { }));
+
+        const uploadBtn = screen.getByText(/upload & transcribe/i);
+        fireEvent.click(uploadBtn);
+        // The loading state should be true, so button is disabled
+        expect(uploadBtn).toBeDisabled();
+    });
+
+    it('does not show transcript/summary/decisions when upload is empty', () => {
+        render(<AudioUploader />);
+        expect(screen.queryByText(/transcript:/i)).not.toBeInTheDocument();
+        expect(screen.queryByRole('heading', { name: /summary/i })).not.toBeInTheDocument();
+        expect(screen.queryByRole('heading', { name: /decisions/i })).not.toBeInTheDocument();
     });
 });

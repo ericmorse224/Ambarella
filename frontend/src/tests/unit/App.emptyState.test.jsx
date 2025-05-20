@@ -1,5 +1,16 @@
-// src/tests/unit/App.emptyState.test.jsx
+/**
+ * @file App.emptyState.test.jsx
+ * @author Eric Morse
+ * @date May 11th 2025
+ * @description
+ * Unit test for the App component's empty state behavior.
+ * Verifies that the summary, decisions, and review actions
+ * are not rendered when the state is empty (no transcript,
+ * no summary, no actions, no decisions).
+ */
 import { render, screen } from '@testing-library/react';
+
+// Mock the UseMeetingState hook to simulate empty state
 vi.mock('../../hooks/UseMeetingState', () => ({
     default: () => ({
         transcript: '',
@@ -16,6 +27,10 @@ vi.mock('../../hooks/UseMeetingState', () => ({
 }));
 import App from '../../App';
 
+/**
+ * Test: Ensure the app does not render summary, decisions,
+ * or review actions if the meeting state is empty.
+ */
 test('does not render summary, decisions, or actions if state is empty', () => {
     render(<App />);
     expect(screen.queryByText(/summary:/i)).not.toBeInTheDocument();

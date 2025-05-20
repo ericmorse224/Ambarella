@@ -40,6 +40,7 @@ def extract_event_times(action_text):
     return parsed_time.isoformat() + "Z", end_time.isoformat() + "Z"
 
 # Uncomment and adapt this function if you want fully automatic scheduling.
+# Functionality is not integrated into rest of the program
 # def auto_schedule_actions(actions):
 #     """
 #     Automatically schedule all provided actions as events in Nextcloud.

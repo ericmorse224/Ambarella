@@ -1,3 +1,16 @@
+/**
+ * useMeetingState.test.jsx
+ * Author: Eric Morse
+ * Date: May 11th 2025
+ *
+ * Unit tests for the useMeetingState React custom hook.
+ * This file tests all public functionality of the hook including:
+ *  - Initial state
+ *  - Audio upload and error handling
+ *  - Transcript processing and error handling
+ *  - State reset logic
+ * The tests use the React Testing Library's renderHook and act helpers, and axios is mocked for network calls.
+ */
 import { renderHook, act } from '@testing-library/react';
 import useMeetingState from '../../hooks/UseMeetingState';
 import axios from 'axios';

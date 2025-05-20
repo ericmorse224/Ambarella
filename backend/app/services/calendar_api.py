@@ -92,10 +92,22 @@ def schedule_actions():
             title = action.get('text', 'Untitled Action')
             owner = action.get('owner', 'Unassigned')
             start = action['datetime']
-            # Schedule as a one-hour event by default
-            end = (datetime.fromisoformat(start) + timedelta(hours=1)).isoformat()
+            end = action.get('end')
+            start_dt = datetime.fromisoformat(start.replace("Z", "+00:00"))
+            valid_end = None
+            if end:
+                try:
+                    end_dt = datetime.fromisoformat(end.replace("Z", "+00:00"))
+                    if end_dt > start_dt:
+                        valid_end = end  # Accept as-is (already ISO string)
+                except Exception:
+                    pass
 
-            response = create_calendar_event(title, owner, start, end)
+            if not valid_end:
+                # Default: 1 hour after start
+                valid_end = (start_dt + timedelta(hours=1)).isoformat()
+
+            response = create_calendar_event(title, owner, start, valid_end)
             results.append(response)
 
         return jsonify({"success": True, "scheduled": results}), 200

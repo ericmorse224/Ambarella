@@ -19,6 +19,9 @@ backend/tests/__pycache__/
 ./test-results
 ./public
 ./src
+backend/.coverage
+frontend/.coverage
+backend/app/logs/server.log
 # testing
 /coverage
 

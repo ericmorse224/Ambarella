@@ -114,7 +114,6 @@ def process_audio():
 
         if not ok:
             logger.warning(f"Audio rejected: {reason}")
-            # Log the failed upload as an event (with all metadata)
             log_event({
                 "type": "audio_quality_failed",
                 "timestamp": timestamp,
@@ -131,17 +130,30 @@ def process_audio():
         trim_success = trim_silence(converted_path, trimmed_path)
         final_path = trimmed_path if trim_success else converted_path
 
-        # Whisper transcription
+        # Whisper transcription (main failure point)
         transcribe_start = time.time()
-        result = whisper_model.transcribe(final_path)
-        transcript = result["text"]
+        try:
+            result = whisper_model.transcribe(final_path)
+            transcript = result["text"]
+        except Exception as whisper_error:
+            logger.exception("Whisper transcription failed")
+            log_event({
+                "type": "whisper_transcribe_exception",
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "user_agent": request.headers.get("User-Agent"),
+                "ip": get_client_ip(),
+                **file_meta,
+                "error": str(whisper_error),
+                "outcome": "exception"
+            })
+            return jsonify({"error": f"Transcription failed: {whisper_error}"}), 500
+
         transcribe_time = time.time() - transcribe_start
         transcript_length = len(transcript.split())
 
         log_transcript_to_file(transcript)
         logger.info("Transcription completed.")
 
-        # Log the successful upload with analytics
         log_event({
             "type": "audio_upload_success",
             "timestamp": timestamp,
@@ -166,10 +178,10 @@ def process_audio():
             "error": str(e),
             "outcome": "exception"
         })
+        # Always return JSON, never HTML error
         return jsonify({"error": "Unexpected server error", "details": str(e)}), 500
 
     finally:
-        # Always clean up temp audio files
         for path in filter(None, [original_path, converted_path, trimmed_path]):
             if path and os.path.exists(path):
                 try:

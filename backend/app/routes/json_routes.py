@@ -20,9 +20,19 @@ from app.services.nlp_analysis import analyze_transcript
 from app.utils.logging_utils import log_event
 import os
 import json
+from datetime import datetime
 
 json_bp = Blueprint('json', __name__)
 
+def log_process_json(data, error=None):
+    log_path = os.path.join(os.path.dirname(__file__), "process_json.log")
+    with open(log_path, "a", encoding="utf-8") as f:
+        timestamp = datetime.now().isoformat()
+        f.write(f"\n[{timestamp}] Incoming data: {repr(data)}\n")
+        if error:
+            f.write(f"[{timestamp}] ERROR: {repr(error)}\n")
+
+            
 def get_event_logs_for_meeting(meeting_id):
     """
     Retrieve all event log entries associated with a given meeting ID.
@@ -73,7 +83,9 @@ def process_json():
         return jsonify({"error": "Invalid content type, must be application/json"}), 415
     try:
         data = request.get_json(force=True)
-    except Exception:
+        log_process_json(data)
+    except Exception as e:
+        log_process_json(getattr(data, 'data', None), error=str(e)) 
         return jsonify({"error": "Malformed JSON"}), 400
 
     transcript = data.get("transcript")
@@ -90,6 +102,8 @@ def process_json():
         result["meeting_id"] = meeting_id
         return jsonify(result), 200
     except Exception as e:
+        log_process_json(getattr(request, 'data', None), error=str(e)) 
+        print("Error in /process-json:", e)
         return jsonify({"error": "NLP analysis failed", "details": str(e)}), 500
 
 @json_bp.route('/feedback', methods=['POST'])

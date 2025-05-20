@@ -36,9 +36,15 @@ export default function App() {
         setScheduleError('');
         setScheduleSuccess('');
         if (file) {
-            const audioSuccess = await processAudio(file);
-            if (audioSuccess) await processTranscript();
+            await processAudio(file);
+            // Do NOT call processTranscript here!
         }
+    };
+
+    const handleAnalyze = async () => {
+        setScheduleError('');
+        setScheduleSuccess('');
+        await processTranscript(); // Only called if transcript is non-empty
     };
 
     const handleDownload = (content, filename) => {
@@ -53,7 +59,7 @@ export default function App() {
         setScheduleError('');
         setScheduleSuccess('');
         try {
-            const response = await fetch('http://localhost:5000/schedule', {
+            const response = await fetch('http://localhost:5000/api/schedule-actions', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ actions }),
@@ -95,7 +101,19 @@ export default function App() {
                     {scheduleSuccess}
                 </p>
             )}
+            {/* Show transcript if available */}
             <TranscriptPanel transcript={transcript} onDownload={handleDownload} />
+            {/* "Analyze Transcript" button appears only when transcript exists */}
+            {transcript && transcript.length > 0 && (
+                <button
+                    className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+                    onClick={handleAnalyze}
+                    disabled={isLoading}
+                    style={{ display: 'block', margin: '16px auto' }}
+                >
+                    Analyze Transcript
+                </button>
+            )}
             <SummaryPanel summary={summary} onDownload={handleDownload} />
             <DecisionsPanel decisions={decisions} />
             {actions.length > 0 && (
@@ -104,14 +122,6 @@ export default function App() {
                     <div className="border rounded p-4 mb-4 space-y-2">
                         <ReviewPanel actions={actions} setActions={setActions} />
                     </div>
-                    <button
-                        className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
-                        onClick={handleSchedule}
-                        data-testid="schedule-actions"
-                    >
-                        Schedule Selected
-                    </button>
-
                 </div>
             )}
         </div>

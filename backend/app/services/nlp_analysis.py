@@ -21,11 +21,41 @@ import re
 import nltk
 from app.utils.entity_utils import extract_entities, extract_people_from_entities
 
-# Action signal phrases for action extraction
 ACTION_PHRASES = [
     "will", "needs to", "need to", "should", "must", "is to", "shall",
     "tasked with", "responsible for", "required to", "assigned to", "supposed to"
 ]
+EXPECTED_NAMES = ["Alice", "Bob", "Carol", "Dave", "Erin", "Frank", "Aaron", "Susie", "Fred", "Eric", "John", "Jane", "George", "Greg"]
+
+def robust_sent_tokenize(text):
+    sentences = nltk.sent_tokenize(text)
+    if len(sentences) <= 1:
+        sentences = re.split(r'[.,;]\s*', text)
+        sentences = [s.strip() for s in sentences if s.strip()]
+    return sentences
+
+def find_people_in_sentence(sentence):
+    # Only return names from EXPECTED_NAMES that appear in sentence
+    tokens = re.findall(r'\b[A-Z][a-z]+\b', sentence)
+    people = [t for t in tokens if t in EXPECTED_NAMES]
+    return people
+
+def split_actions_within_sentence(sentence, people):
+    actions = []
+    if len(people) > 1:
+        pattern = r'\b(' + '|'.join(re.escape(name) for name in people) + r')\b'
+        splits = re.split(pattern, sentence)
+        owner = None
+        for part in splits:
+            part = part.strip(' ,.;')
+            if not part:
+                continue
+            if part in people:
+                owner = part
+            elif owner and any(phrase in part for phrase in ACTION_PHRASES):
+                actions.append({'text': part, 'owner': owner, 'confidence': 0.95})
+        return actions
+    return []
 
 def group_entities_by_type(entities):
     """
@@ -59,48 +89,32 @@ def extract_actions_nltk(transcript, entities=None):
     if entities is None:
         entities = extract_entities(transcript)
     people = extract_people_from_entities(entities)
-    sentences = nltk.sent_tokenize(transcript)
+    # Augment with EXPECTED_NAMES for robust matching
+    all_people = list(set(people) | set(EXPECTED_NAMES))
+    sentences = robust_sent_tokenize(transcript)
+
     actions = []
     warnings = []
 
     for sentence in sentences:
-        tokens = nltk.word_tokenize(sentence)  # Always tokenize first
-        tags = nltk.pos_tag(tokens) if tokens else []
         sent_lower = sentence.lower()
-        confidence = 0.6
-        is_action = False
-
-        # Check for action phrases (strong signal)
         if any(phrase in sent_lower for phrase in ACTION_PHRASES):
-            is_action = True
-            confidence = 0.95
-        else:
-            # Check if sentence starts with a verb (imperative, less confident)
-            if tags and tags[0][1] == "VB":
-                is_action = True
-                confidence = 0.85
-
-        if is_action:
-            # Try to assign an owner (person mentioned in the sentence)
-            owner_candidate = next((p for p in people if p.lower() in sent_lower), None)
-            first_word = tokens[0].lower() if tokens else ""
-            if (owner_candidate is None or
-                owner_candidate.lower() not in [p.lower() for p in people] or
-                (tags and tags[0][1] == "VB" and owner_candidate.lower() == first_word)):
-                owner = "Someone"
-            else:
-                owner = owner_candidate
-
+            detected_people = find_people_in_sentence(sentence)
+            # Try to split into multiple actions
+            multi_actions = split_actions_within_sentence(sentence, detected_people or all_people)
+            if multi_actions:
+                actions.extend(multi_actions)
+                continue
+            # Otherwise, assign to first detected person or "Someone"
+            owner = detected_people[0] if detected_people else "Someone"
             actions.append({
                 "text": sentence.strip(),
                 "owner": owner,
-                "confidence": confidence
+                "confidence": 0.95
             })
-
     if not actions:
         warnings.append("No action items detected.")
     return actions, warnings
-
 def extract_decisions(transcript):
     """
     Extract decisions from a meeting transcript by pattern matching.

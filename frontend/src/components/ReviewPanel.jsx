@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { addOneHour } from "../utils/dateUtils";
 
 /**
  * ReviewPanel component for reviewing and scheduling action items.
@@ -11,6 +10,19 @@ import { addOneHour } from "../utils/dateUtils";
 const ReviewPanel = ({ actions, setActions }) => {
     const [scheduleStatus, setScheduleStatus] = useState(""); // "", "success", "error"
     const [loading, setLoading] = useState(false);
+
+    // Ensure all actions have include, owner, date, and time fields (avoid uncontrolled input warning)
+    React.useEffect(() => {
+        const updated = actions.map(a => ({
+            ...a,
+            include: a.include !== undefined ? a.include : true,
+            owner: a.owner || "",
+            date: a.date || "",
+            time: a.time || ""
+        }));
+        if (JSON.stringify(updated) !== JSON.stringify(actions)) setActions(updated);
+        // eslint-disable-next-line
+    }, []); // Run only once on mount
 
     const handleActionChange = (idx, field, value) => {
         const updated = actions.map((action, i) =>
@@ -23,20 +35,22 @@ const ReviewPanel = ({ actions, setActions }) => {
         setLoading(true);
         setScheduleStatus("");
         try {
-            // Only send included actions with owner and datetime
+            // Only send included actions with owner, date, and time
             const toSchedule = actions
-                .filter(a => a.include && a.owner && a.datetime)
+                .filter(a => a.include && a.owner && a.date && a.time)
                 .map(a => {
-                    const [datePart, timePart] = a.datetime.split("T");
+                    // Combine local date and time, convert to ISO UTC string
+                    const localDateTime = `${a.date}T${a.time}`;
+                    const isoString = new Date(localDateTime).toISOString();
                     return {
+                        include: true, // Backend expects this
+                        datetime: isoString, // ISO string with correct UTC time
                         text: a.text,
-                        owner: a.owner,
-                        start: a.datetime,
-                        end: addOneHour(datePart, timePart),
+                        owner: a.owner
                     };
                 });
 
-            const res = await axios.post("/api/schedule-actions", { actions: toSchedule });
+            const res = await axios.post("http://localhost:5000/api/schedule-actions", { actions: toSchedule });
             if (res.data && res.data.success) {
                 setScheduleStatus("success");
             } else {
@@ -65,20 +79,29 @@ const ReviewPanel = ({ actions, setActions }) => {
                             className="w-full p-2 border border-gray-300 rounded"
                             placeholder="Owner"
                             type="text"
-                            value={action.owner}
+                            value={action.owner || ""}
                             onChange={e => handleActionChange(idx, "owner", e.target.value)}
                         />
-                        <input
-                            className="w-full p-2 border border-gray-300 rounded"
-                            type="datetime-local"
-                            value={action.datetime}
-                            onChange={e => handleActionChange(idx, "datetime", e.target.value)}
-                        />
-                        <div className="flex items-center space-x-2">
+                        {/* Date and time as separate inputs, always controlled */}
+                        <div className="flex gap-2 mt-1">
+                            <input
+                                className="w-full p-2 border border-gray-300 rounded"
+                                type="date"
+                                value={action.date || ""}
+                                onChange={e => handleActionChange(idx, "date", e.target.value)}
+                            />
+                            <input
+                                className="w-full p-2 border border-gray-300 rounded"
+                                type="time"
+                                value={action.time || ""}
+                                onChange={e => handleActionChange(idx, "time", e.target.value)}
+                            />
+                        </div>
+                        <div className="flex items-center space-x-2 mt-2">
                             <input
                                 aria-label="Include this action"
                                 type="checkbox"
-                                checked={action.include}
+                                checked={action.include !== undefined ? action.include : true}
                                 onChange={e => handleActionChange(idx, "include", e.target.checked)}
                             />
                             <span>Include this action</span>

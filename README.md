@@ -1,124 +1,77 @@
 
 # 📋 AI Meeting Summarizer + Action Tracker + Decision Log
 
-This is a full-stack AI-powered meeting summarization tool:
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://python.org)
+[![React](https://img.shields.io/badge/React-19-blue)](https://react.dev/)
+[![Nextcloud](https://img.shields.io/badge/Nextcloud-Calendar-blue)](https://nextcloud.com/)
 
-- **Transcribes meeting audio**
-- **Extracts summaries, action items, and decisions**
-- **Creates calendar events (Nextcloud CalDAV)**
-- **Displays results on a clean React dashboard**
+## Why use this tool?
 
----
-
-## 🚀 Features
-
-- 🎙️ **Audio Transcription** (OpenAI Whisper)
-- 🧠 **NLP Summarization** (NLTK, Sumy)
-- ✅ **Action Item & Decision Extraction**
-- 📅 **Nextcloud Calendar Integration** (self-hosted, private)
-- 🌐 **React Dashboard** (Vite, Tailwind CSS)
-- 📤 **REST API** (JSON and audio)
-- 🔒 **No Google/Microsoft lock-in!**
+**Automate your meeting notes and actions—privately!**  
+No more scrambling to remember who promised what. This full-stack, AI-powered solution securely transcribes meeting audio, generates smart summaries, extracts action items and decisions, and allows you to schedule follow-ups in your **own** Nextcloud calendar.  
+_Your data stays on your infrastructure—never sent to Google or Microsoft._
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 Features
 
-### Backend
-
-- Python 3.9+
-- Flask (REST API)
-- NLTK
-- Sumy
-- Whisper (OpenAI)
-- caldav (for Nextcloud calendar)
-
-### Frontend
-
-- React + Vite
-- Tailwind CSS
+- 🎙️ **Audio Transcription:** Uses Whisper for accurate, fast meeting transcription.
+- 🧠 **Automatic Summarization:** Get concise meeting summaries with NLTK & Sumy.
+- ✅ **Action Item & Decision Extraction:** AI highlights “who will do what, by when.”
+- 📅 **Nextcloud Calendar Integration:** Seamlessly turns action items into private calendar events.
+- 🌐 **Modern React Dashboard:** Fast, responsive UI with Vite & Tailwind CSS.
+- 📤 **RESTful API:** For audio and JSON transcript processing.
+- 🧪 **Full Testing Coverage:** Vitest + Playwright.
+- 🔒 **Zero Vendor Lock-in:** No Google, no Microsoft, no cloud lock.
 
 ---
 
-## 📁 Backend Directory Structure
+## 🚀 Quick Start
 
-```
-backend/
-├── run.py
-├── app/
-│   ├── __init__.py
-│   ├── routes/
-│   │   ├── audio_routes.py
-│   │   ├── json_routes.py
-│   │   └── zoho_routes.py
-│   ├── services/
-│   │   ├── audio_processor.py
-│   │   ├── calendar_api.py
-│   │   ├── calendar_integration.py
-│   │   ├── llm_utils.py
-│   │   └── nlp_analysis.py
-│   └── utils/
-│       ├── entity_utils.py
-│       ├── logger.py
-│       ├── logging_utils.py
-│       ├── nextcloud_utils.py
-│       └── zoho_utils.py
-├── transcripts/
-├── logs/
-├── uploads/
-├── tests/
-```
+> **Full details:** See [`setup_instructions.md`](./setup_instructions.md).
 
-- `routes/`: Flask Blueprints for main API endpoints (audio, JSON, Zoho).
-- `services/`: Audio/NLP/Calendar business logic.
-- `utils/`: Entity extraction, logging, Nextcloud and Zoho integrations.
-- `logs/`, `uploads/`, `transcripts/`: App data storage.
+### 1. Clone the repository
 
-> **Note:** `meeting_scheduler.py` has been removed (refactored into other modules).  
-> `nextcloud_utils.py` provides all Nextcloud calendar integration utilities.
-
----
-
-## ⚙️ Quick Setup
-
-**Full steps:** see [setup_instructions.md](./setup_instructions.md).
-
-#### 1. (Windows) Run setup script  
 ```bash
-./setup.bat
+git clone https://github.com/emorse224/meeting-summary-dashboard.git
 ```
 
-#### 2. Start backend server  
+### 2. Backend setup (Python 3.9+)
+
 ```bash
 cd backend
-venv\Scriptsctivate
+python -m venv venv
+venv\Scriptsctivate         # On Windows
+source venv/bin/activate     # On Mac/Linux
+pip install -r requirements.txt
 python run.py
 ```
 
-#### 3. Start frontend dev server  
+### 3. Frontend setup (React 19)
+
 ```bash
 cd frontend
 npm install
-npm run dev
+npm start
 ```
+- Frontend runs at [http://localhost:3000](http://localhost:3000)
+- Backend runs at [http://localhost:5000](http://localhost:5000)
 
----
+### 4. Docker (optional, all-in-one)
 
-## 🐳 Docker Deployment
-
-**Run everything in Docker:**
 ```bash
 docker-compose up --build
 ```
-- Backend: [http://localhost:5000](http://localhost:5000)
 - Frontend: [http://localhost:5173](http://localhost:5173)
+- Backend: [http://localhost:5000](http://localhost:5000)
 
 ---
 
 ## 🔑 Environment & Secrets
 
-### Backend requires:
-- **Nextcloud credentials** (`~/.app_secrets/env.json`)
+- **Backend:** Place your Nextcloud credentials in `~/.app_secrets/env.json`:
+
     ```json
     {
       "NEXTCLOUD_URL": "https://yourdomain/remote.php/dav",
@@ -126,54 +79,18 @@ docker-compose up --build
       "NEXTCLOUD_PASSWORD": "your_password_or_app_password"
     }
     ```
-- These are used for secure calendar event creation.
-- **.env file**: Backend can use a `.env` for other secrets (API keys, etc).
+- Use app passwords if you have Nextcloud 2FA.
+- `.env` file for Whisper, Nexcloud, etc.
 
 ---
 
 ## 📅 Nextcloud Calendar Integration
 
-**Self-hosted, privacy-first. No Google or Microsoft required.**
+**Your actions, your calendar, your privacy.**
 
-### How It Works
-
-- **Action items from meetings become events in your private Nextcloud calendar.**
-- Events are visible in Nextcloud web UI or any CalDAV-compatible calendar app (iOS, Android, Outlook, Thunderbird).
-
-### What You Need
-
-- A running [Nextcloud](https://nextcloud.com/) instance (self-hosted, VPS, or company server).
-- The "Calendar" app enabled in Nextcloud.
-- Your CalDAV calendar link.
-
-### How to Find Your CalDAV Link
-
-1. Open the Calendar app in Nextcloud.
-2. Go to calendar settings/info.
-3. Copy the CalDAV link.  
-   Example:  
-   ```
-   https://your-domain/remote.php/dav/calendars/yourusername/personal/
-   ```
-
-### Setup: Provide Credentials to the App
-
-- Place your CalDAV link, Nextcloud username, and password/app-password in `~/.app_secrets/env.json` (see above).
-- **App password is recommended** if using two-factor authentication.
-- Restart backend after updating credentials.
-
-### Troubleshooting
-
-- If you get `No calendars found for this user`:
-    - Check the CalDAV URL in `env.json`
-    - Make sure your Nextcloud calendar is created and the URL is correct
-    - Test login in a desktop CalDAV client (Thunderbird, Outlook, etc)
-- For calendar creation errors, check backend logs in `backend/logs/server.log`
-
-### Privacy
-
-- **All data and events stay on your server.**
-- Nothing is sent to Google, Microsoft, or third parties.
+- Action items auto-create private calendar events.
+- Works with any CalDAV-compatible client (iOS, Android, Outlook, Thunderbird).
+- Setup: Find your CalDAV link (Nextcloud Calendar > Settings > Info), add to `env.json`, restart backend.
 
 ---
 
@@ -181,66 +98,32 @@ docker-compose up --build
 
 ### Transcribe Audio
 
-```
-POST http://localhost:5000/process-audio
+```http
+POST /process-audio
 Content-Type: multipart/form-data
 (audio file as 'audio' field)
 ```
-
 **Response:**
 ```json
-{
-  "transcript": "Meeting discussion ...",
-  "entities": []
-}
+{ "transcript": "...", "entities": [] }
 ```
 
----
+### Summarize Transcript
 
-### NLP Summarization
-
-```
-POST http://localhost:5000/process-json
+```http
+POST /process-json
 Content-Type: application/json
-{
-  "transcript": "Full meeting transcript here",
-  "meeting_id": "optional-meeting-id"
-}
+{ "transcript": "...", "entities": [] }
 ```
-
 **Response:**
 ```json
-{
-  "summary": [...],
-  "actions": [...],
-  "decisions": [...],
-  "entities": {...},
-  "event_logs": [...],  // all events related to this meeting_id
-  "warnings": [...],
-  "pipeline_version": "v1.4"
-}
+{ "summary": [...], "actions": [...], "decisions": [...] }
 ```
 
----
+### Schedule Actions
 
-### Feedback Endpoint
-
-```
-POST http://localhost:5000/feedback
-Content-Type: application/json
-{
-  "meeting_id": "...",
-  "user": "...",
-  "score": 5,
-  "comments": "Great summary"
-}
-```
----
-
-### Schedule Actions / Calendar Events
-
-```
-POST http://localhost:5000/api/schedule-actions
+```http
+POST /api/schedule-actions
 Content-Type: application/json
 {
   "actions": [
@@ -249,50 +132,113 @@ Content-Type: application/json
       "datetime": "YYYY-MM-DDTHH:MM",
       "text": "Owner will do something",
       "owner": "Owner Name"
-    },
-    ...
+    }
   ]
 }
 ```
 
-**Creates events in Nextcloud for each included action.**
+---
+
+## 🗂️ Project Structure
+
+<details>
+<summary>Click to expand</summary>
+
+### Frontend
+
+```
+frontend/
+  public/
+  src/
+    App.jsx
+    components/
+      AudioUploadForm.jsx
+      CalendarEventForm.jsx
+      DecisionsPanel.jsx
+      ErrorBoundary.jsx
+      NextcloudConnect.jsx
+      ReviewPanel.jsx
+      SummaryPanel.jsx
+      TranscriptPanel.jsx
+    hooks/
+      UseMeetingState.jsx
+    utils/
+      dateUtils.js
+    tests/
+      unit/
+      integration/
+      e2e/
+    index.js
+    index.css
+    setupTests.js
+  tailwind.config.js
+  postcss.config.js
+  vite.config.js
+  package.json
+```
+
+### Backend
+
+```
+backend/
+  run.py
+  app/
+    __init__.py
+    routes/
+      audio_routes.py
+      json_routes.py
+    services/
+      audio_processor.py
+      calendar_integration.py
+      llm_utils.py
+      nlp_analysis.py
+    utils/
+      entity_utils.py
+      logger.py
+      logging_utils.py
+      nextcloud_utils.py
+  transcripts/
+  logs/
+  uploads/
+  tests/
+```
+
+</details>
 
 ---
 
-## 📈 Output Example
+## 🧪 Testing & Coverage
 
-```json
-{
-  "summary": ["We decided to ship the product next week."],
-  "actions": ["I'll write the release notes and handle deployment."],
-  "decisions": ["We decided to ship the product next week."]
-}
-```
+- **Vitest** for frontend/unit/integration
+- **Playwright** for end-to-end
+- Coverage >95%
+- Run all tests:
+  ```bash
+  npm test
+  ```
 
 ---
 
 ## 📌 Roadmap
 
-- [ ] Audio upload from frontend
-- [ ] Speaker diarization
+- [ ] Speaker diarization (who spoke when)
 - [ ] User authentication
-- [x] **Calendar integration (Nextcloud)**
-- [ ] Google/Microsoft Calendar (optional)
+- [ ] Google/Microsoft Calendar support (optional)
 
 ---
 
 ## 📝 License
 
-MIT License. Contributions welcome!
+This project is licensed under [GNU GPLv3](LICENSE).
 
 ---
 
-## 🙋‍♂️ Questions or Issues?
+## 🙋‍♂️ Support & Questions
 
-- Check backend logs in `backend/logs/server.log` for error details.
-- Open an issue or PR on GitHub.
-- For Nextcloud questions, see the [Nextcloud documentation](https://docs.nextcloud.com/).
+- Check backend logs at `backend/logs/server.log`
+- [Open an issue](https://github.com/emorse224/meeting-summary-dashboard/issues) or submit a PR
+- Nextcloud help: [Nextcloud Docs](https://docs.nextcloud.com/)
 
 ---
 
-**Enjoy private, AI-powered meeting management—on your own terms!**
+**Enjoy secure, private, AI-powered meeting management!**

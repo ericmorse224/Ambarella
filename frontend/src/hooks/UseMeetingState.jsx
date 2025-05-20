@@ -18,7 +18,6 @@ const useMeetingState = () => {
             const formData = new FormData();
             formData.append('audio', file);
 
-            // Use the endpoint your tests expect
             const response = await axios.post('http://localhost:5000/process-audio', formData);
             const { transcript } = response.data;
             setTranscript(transcript);
@@ -35,23 +34,35 @@ const useMeetingState = () => {
     }, []);
 
     const processTranscript = useCallback(async () => {
+        console.log("DEBUG transcript value:", transcript, "|", typeof transcript, "|", transcript.length);
+        if (!transcript || typeof transcript !== 'string' || transcript.length === 0) {
+            setError('Transcript is missing or invalid.');
+            return;
+        }
         setIsLoading(true);
         setError(false);
         try {
-            const response = await axios.post('http://localhost:5000/process-json', { transcript });
+            const response = await axios.post(
+                'http://localhost:5000/process-json',
+                { transcript, entities: [] },  // Always send entities
+                { headers: { 'Content-Type': 'application/json' } }
+            );
             const { summary, actions, decisions } = response.data;
             setSummary(summary);
             setActions(actions);
             setDecisions(decisions);
         } catch (err) {
             setError(
-                err.response?.data?.message || 'Error processing transcript'
+                err.response?.data?.error ||
+                err.response?.data?.message ||
+                'Error processing transcript'
             );
             console.error('Error processing transcript:', err);
         } finally {
             setIsLoading(false);
         }
     }, [transcript]);
+
 
     const resetTranscript = useCallback(() => {
         setTranscript('');
@@ -67,6 +78,7 @@ const useMeetingState = () => {
         setTranscript,
         summary,
         actions,
+        setActions,
         decisions,
         isLoading,
         error,
@@ -79,4 +91,3 @@ const useMeetingState = () => {
 };
 
 export default useMeetingState;
-

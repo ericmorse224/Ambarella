@@ -1,69 +1,82 @@
 import React, { useState } from 'react';
-
 function AudioUploader() {
-  const [audioFile, setAudioFile] = useState(null);
-  const [transcript, setTranscript] = useState('');
-  const [summary, setSummary] = useState([]);
-  const [actions, setActions] = useState([]);
-  const [decisions, setDecisions] = useState([]);
-  const [loading, setLoading] = useState(false);
+    const [audioFile, setAudioFile] = useState(null);
+    const [transcript, setTranscript] = useState('');
+    const [summary, setSummary] = useState([]);
+    const [actions, setActions] = useState([]);
+    const [decisions, setDecisions] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(''); // NEW
 
-  const handleFileChange = (e) => {
-    setAudioFile(e.target.files[0]);
-  };
+    const handleFileChange = (e) => {
+        setAudioFile(e.target.files[0]);
+        setError('');
+    };
 
-  const uploadAudio = async () => {
-    if (!audioFile) return;
-    if (audioFile.size > 25 * 1024 * 1024) {
-        alert("File too large. Max is 25MB");
-        return;
-    }
+    const uploadAudio = async () => {
+        setError('');
+        if (!audioFile) return;
+        if (audioFile.size > 25 * 1024 * 1024) {
+            setError("File too large. Max is 25MB");
+            return;
+        }
+        setLoading(true);
+        const formData = new FormData();
+        formData.append('audio', audioFile);
 
-    setLoading(true);
+        try {
+            const res = await fetch('http://localhost:5000/process-audio', {
+                method: 'POST',
+                body: formData,
+            });
 
-    const formData = new FormData();
-    formData.append('audio', audioFile);
+            // Check for 500 error (non-2xx status)
+            if (!res.ok) {
+                const errData = await res.json().catch(() => ({}));
+                setError(errData.error || "Transcription failed (server error)");
+                setLoading(false);
+                return;
+            }
 
-    try {
-      const res = await fetch('http://localhost:5000/process-audio', {
-        method: 'POST',
-        body: formData,
-      });
+            const data = await res.json();
+            if (data.transcript) {
+                setTranscript(data.transcript);
+                await summarizeTranscript(data.transcript);
+            } else {
+                setError(data.error || 'Transcription failed');
+            }
+        } catch (err) {
+            setError('Upload failed.');
+        }
+        setLoading(false);
+    };
 
-      const data = await res.json();
-      if (data.transcript) {
-        setTranscript(data.transcript);
-        await summarizeTranscript(data.transcript);
-      } else {
-        alert('Transcription failed');
-      }
-    } catch (err) {
-        console.error('Upload failed:', err);
-        alert('Upload failed.');
-    }
 
-    setLoading(false);
-  };
+    const summarizeTranscript = async (text) => {
+        if (!text || typeof text !== "string" || !text.trim()) {
+            setError("Transcript is missing or invalid.");
+            return;
+        }
+        try {
+            console.log('===POSTING TO /process-json===', JSON.stringify({ transcript: text }));
+            const res = await fetch('http://localhost:5000/process-json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ transcript: text }),
+            });
+            const data = await res.json();
+            console.log('===SUMMARY DATA RECEIVED===', data);
+            setSummary(data.summary || []);
+            setActions(data.actions || []);
+            setDecisions(data.decisions || []);
+        } catch (err) {
+            console.error('Summarization failed', err);
+            setError('Summarization failed');
+        }
+    };
 
-  const summarizeTranscript = async (text) => {
-    try {
-        const res = await fetch('http://localhost:5000/process-json', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ transcript: text }),
-      });
-
-      const data = await res.json();
-      setSummary(data.summary || []);
-      setActions(data.actions || []);
-      setDecisions(data.decisions || []);
-    } catch (err) {
-      console.error(err);
-      alert('Summarization failed');
-    }
-  };
 
     return (
         <div className="p-4 max-w-2xl mx-auto space-y-6">
@@ -87,6 +100,13 @@ function AudioUploader() {
             >
                 {loading ? 'Processing...' : 'Upload & Transcribe'}
             </button>
+
+            {/* Error Message */}
+            {error && (
+                <p className="mt-2 text-red-600 text-center" role="alert">
+                    {error}
+                </p>
+            )}
 
             {transcript && (
                 <section>

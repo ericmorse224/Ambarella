@@ -9068,3 +9068,1238 @@ Traceback (most recent call last):
     raise ClientDisconnected()
 werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
 2025-05-19 16:48:35,365 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:48:35.360608', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:48:35.360063+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 16:51:36,187 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:51:36,274 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:51:36,358 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:51:36,435 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:51:36,436 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 16:51:36,441 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:51:36.437023', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T20:51:36.436008+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 16:51:50,672 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 16:51:50,680 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:51:50.675350', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:51:50.674966+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 16:54:05,671 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:54:05,763 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:54:05,851 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:54:05,968 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:54:05,969 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 16:54:05,974 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:54:05.970063', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T20:54:05.969360+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 16:54:20,391 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 16:54:20,398 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:54:20.394264', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:54:20.393902+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 16:57:49,575 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:57:49,657 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:57:49,733 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:57:49,797 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 16:57:49,798 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 16:57:49,803 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:57:49.798958', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T20:57:49.798285+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 16:58:08,123 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 16:58:08,130 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T16:58:08.125978', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T20:58:08.125686+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 17:01:10,063 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:01:10,139 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:01:10,204 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:01:10,267 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:01:10,267 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 17:01:10,272 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:01:10.268299', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T21:01:10.267746+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 17:01:28,680 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 17:01:28,687 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:01:28.683312', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T21:01:28.682963+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 17:03:31,313 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:03:31,393 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:03:31,477 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:03:31,557 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:03:31,558 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 17:03:31,564 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:03:31.559180', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T21:03:31.558456+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 17:03:50,470 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 17:03:50,478 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:03:50.473605', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T21:03:50.473226+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 17:06:20,886 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:06:20,969 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:06:21,052 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:06:21,126 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:06:21,127 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 17:06:21,133 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:06:21.128616', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T21:06:21.127660+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 17:06:40,363 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 542, in readinto
+    out_size = self._stream.readinto(temp_b)
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 544, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 17:06:40,371 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:06:40.366243', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T21:06:40.365883+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 17:07:27,055 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:07:27,153 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:07:27,283 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:07:27,372 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:07:27,378 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 17:07:27,385 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:07:27.379657', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T21:07:27.373067+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 17:07:51,720 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 533, in readinto
+    out_size: int | None = self._stream.readinto(b)
+                           ~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 535, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 17:07:51,736 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:07:51.730720', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T21:07:51.730387+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 17:08:56,989 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:08:57,086 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:08:58,918 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-08-58.txt
+2025-05-19 17:08:58,923 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:08:58.918907', 'type': 'transcript', 'timestamp': '2025-05-19_17-08-58', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 17:08:58,923 INFO: Transcription completed.
+2025-05-19 17:08:58,928 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:08:58.924160', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:08:56.989178+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'All Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.74, 'processing_time_sec': 2.73}
+2025-05-19 17:14:52,431 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:14:52,534 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:14:54,222 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-14-54.txt
+2025-05-19 17:14:54,226 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:14:54.222760', 'type': 'transcript', 'timestamp': '2025-05-19_17-14-54', 'transcript': ' George, pre on the next meeting, Fred Run for his president, and Susie, just saved the day.'}
+2025-05-19 17:14:54,227 INFO: Transcription completed.
+2025-05-19 17:14:54,231 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:14:54.227472', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:14:52.431507+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Test2.wav', 'content_type': 'audio/wav', 'reported_size': 1378642, 'duration': 7.18, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536091, 'outcome': 'success', 'transcript_length': 17, 'transcribe_time_sec': 1.61, 'processing_time_sec': 2.59}
+2025-05-19 17:19:50,014 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:19:50,098 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:19:50,178 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:19:50,264 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:19:50,265 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 17:19:50,270 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:19:50.265594', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T21:19:50.264997+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 17:20:14,624 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 533, in readinto
+    out_size: int | None = self._stream.readinto(b)
+                           ~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 535, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 17:20:14,631 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:20:14.626935', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T21:20:14.626475+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 17:21:59,001 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:21:59,098 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:21:59,188 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:21:59,279 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:21:59,280 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 17:21:59,286 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:21:59.281484', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T21:21:59.280666+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 17:22:23,098 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 533, in readinto
+    out_size: int | None = self._stream.readinto(b)
+                           ~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 535, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 17:22:23,105 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:22:23.101241', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T21:22:23.100827+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 17:25:58,380 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:25:58,478 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:25:58,579 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:25:58,651 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 17:25:58,651 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 17:25:58,656 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:25:58.652318', 'type': 'audio_quality_failed', 'timestamp': '2025-05-19T21:25:58.651643+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 17:26:23,118 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 533, in readinto
+    out_size: int | None = self._stream.readinto(b)
+                           ~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 535, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 17:26:23,127 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:26:23.122202', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T21:26:23.121617+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}
+2025-05-19 17:27:17,155 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:27:17,254 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:27:19,085 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-27-19.txt
+2025-05-19 17:27:19,089 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:27:19.086098', 'type': 'transcript', 'timestamp': '2025-05-19_17-27-19', 'transcript': ' George, pre on the next meeting, Fred Run for his president, and Susie, just saved the day.'}
+2025-05-19 17:27:19,089 INFO: Transcription completed.
+2025-05-19 17:27:19,094 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:27:19.090313', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:27:17.155339+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Test2.wav', 'content_type': 'audio/wav', 'reported_size': 1378642, 'duration': 7.18, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536091, 'outcome': 'success', 'transcript_length': 17, 'transcribe_time_sec': 1.75, 'processing_time_sec': 2.77}
+2025-05-19 17:27:57,741 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:27:57,838 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:27:59,477 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-27-59.txt
+2025-05-19 17:27:59,481 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:27:59.477745', 'type': 'transcript', 'timestamp': '2025-05-19_17-27-59', 'transcript': ' to watch dishes, bar means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 17:27:59,481 INFO: Transcription completed.
+2025-05-19 17:27:59,486 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:27:59.482332', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:27:57.741463+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'All Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 1.56, 'processing_time_sec': 2.52}
+2025-05-19 17:28:53,317 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:28:53,447 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:28:53,485 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:28:53,501 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:28:53,622 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:28:53,650 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:28:58,260 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 17:28:58,275 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:28:58.269512', 'type': 'audio_route_exception', 'timestamp': '2025-05-19T21:28:58.269003+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 17:28:59,303 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-28-59.txt
+2025-05-19 17:28:59,309 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:28:59.304602', 'type': 'transcript', 'timestamp': '2025-05-19_17-28-59', 'transcript': ''}
+2025-05-19 17:28:59,309 INFO: Transcription completed.
+2025-05-19 17:28:59,315 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:28:59.310390', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:28:53.485113+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 0, 'transcribe_time_sec': 5.47, 'processing_time_sec': 6.81}
+2025-05-19 17:28:59,522 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-28-59.txt
+2025-05-19 17:28:59,529 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:28:59.523242', 'type': 'transcript', 'timestamp': '2025-05-19_17-28-59', 'transcript': ' to watch dishes, barbombs,nince the brushes teeth, frank needs to do do do something interesting.'}
+2025-05-19 17:28:59,529 INFO: Transcription completed.
+2025-05-19 17:28:59,534 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:28:59.530285', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:28:53.317088+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 5.94, 'processing_time_sec': 7.21}
+2025-05-19 17:49:43,457 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:49:43,458 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:49:43,539 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:49:43,568 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:49:43,579 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:49:43,674 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:49:47,007 ERROR: Whisper transcription failed
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 17:49:47,030 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:49:47.025172', 'type': 'whisper_transcribe_exception', 'timestamp': '2025-05-19T21:49:47.024694+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 17:49:47,359 ERROR: Whisper transcription failed
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 17:49:47,371 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:49:47.365426', 'type': 'whisper_transcribe_exception', 'timestamp': '2025-05-19T21:49:47.363713+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 17:49:48,650 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-49-48.txt
+2025-05-19 17:49:48,655 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:49:48.651311', 'type': 'transcript', 'timestamp': '2025-05-19_17-49-48', 'transcript': ' to watch the dishes, barb needs to brush his teeth, Frank needs to...'}
+2025-05-19 17:49:48,655 INFO: Transcription completed.
+2025-05-19 17:49:48,660 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:49:48.656022', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:49:43.458327+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 13, 'transcribe_time_sec': 4.97, 'processing_time_sec': 6.16}
+2025-05-19 17:53:04,513 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:53:04,608 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:53:04,621 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:53:04,630 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:53:04,741 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:53:04,752 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:53:07,680 ERROR: Whisper transcription failed
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 17:53:07,691 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:53:07.684753', 'type': 'whisper_transcribe_exception', 'timestamp': '2025-05-19T21:53:07.684180+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 17:53:07,929 ERROR: Whisper transcription failed
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 17:53:07,940 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:53:07.934061', 'type': 'whisper_transcribe_exception', 'timestamp': '2025-05-19T21:53:07.933624+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 17:53:09,212 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-53-09.txt
+2025-05-19 17:53:09,217 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:53:09.213105', 'type': 'transcript', 'timestamp': '2025-05-19_17-53-09', 'transcript': ' to watch dishes, barb means to brush his teeth, Frank needs to do something interesting.'}
+2025-05-19 17:53:09,217 INFO: Transcription completed.
+2025-05-19 17:53:09,222 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:53:09.218363', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:53:04.513275+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 4.5, 'processing_time_sec': 5.65}
+2025-05-19 17:54:50,590 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:54:50,691 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:54:50,697 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:54:50,718 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:54:50,836 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:54:50,837 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:54:54,118 ERROR: Whisper transcription failed
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 17:54:54,131 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:54:54.124177', 'type': 'whisper_transcribe_exception', 'timestamp': '2025-05-19T21:54:54.123745+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 17:54:54,480 ERROR: Whisper transcription failed
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 17:54:54,490 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:54:54.484984', 'type': 'whisper_transcribe_exception', 'timestamp': '2025-05-19T21:54:54.484281+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 17:54:55,556 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-54-55.txt
+2025-05-19 17:54:55,561 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:54:55.556912', 'type': 'transcript', 'timestamp': '2025-05-19_17-54-55', 'transcript': ' to watch the dishes, bye.'}
+2025-05-19 17:54:55,561 INFO: Transcription completed.
+2025-05-19 17:54:55,566 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:54:55.561935', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:54:50.589975+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 5, 'transcribe_time_sec': 4.72, 'processing_time_sec': 6.04}
+2025-05-19 17:56:56,949 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:56:57,003 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:56:57,083 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:56:57,124 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:56:57,143 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:56:57,293 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:57:02,975 ERROR: Whisper transcription failed
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 136, in process_audio
+    result = whisper_model.transcribe(final_path)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 295, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\transcribe.py", line 201, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 824, in decode
+    result = DecodingTask(model, options).run(mel)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\utils\_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 737, in run
+    tokens, sum_logprobs, no_speech_probs = self._main_loop(audio_features, tokens)
+                                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 687, in _main_loop
+    logits = self.inference.logits(tokens, audio_features)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\decoding.py", line 163, in logits
+    return self.model.decoder(tokens, audio_features, kv_cache=self.kv_cache)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 242, in forward
+    x = block(x, xa, mask=self.mask, kv_cache=kv_cache)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 167, in forward
+    x = x + self.attn(self.attn_ln(x), mask=mask, kv_cache=kv_cache)[0]
+            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1751, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\torch\nn\modules\module.py", line 1762, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 111, in forward
+    wv, qk = self.qkv_attention(q, k, v, mask)
+             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\whisper\model.py", line 119, in qkv_attention
+    q = q.view(*q.shape[:2], self.n_head, -1).permute(0, 2, 1, 3)
+        ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous
+2025-05-19 17:57:02,996 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:57:02.989034', 'type': 'whisper_transcribe_exception', 'timestamp': '2025-05-19T21:57:02.988318+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'error': 'cannot reshape tensor of 0 elements into shape [1, 0, 8, -1] because the unspecified dimension size -1 can be any value and is ambiguous', 'outcome': 'exception'}
+2025-05-19 17:57:03,793 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-57-03.txt
+2025-05-19 17:57:03,801 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:57:03.794429', 'type': 'transcript', 'timestamp': '2025-05-19_17-57-03', 'transcript': ''}
+2025-05-19 17:57:03,801 INFO: Transcription completed.
+2025-05-19 17:57:03,807 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:57:03.802317', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:56:56.949807+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 0, 'transcribe_time_sec': 6.61, 'processing_time_sec': 7.87}
+2025-05-19 17:57:03,939 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-57-03.txt
+2025-05-19 17:57:03,945 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:57:03.940106', 'type': 'transcript', 'timestamp': '2025-05-19_17-57-03', 'transcript': ' to watch dishes, bombings to do something something interesting something interesting something interesting. something interesting.'}
+2025-05-19 17:57:03,946 INFO: Transcription completed.
+2025-05-19 17:57:03,952 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:57:03.946556', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:56:57.003558+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/136.0.7103.25 Safari/537.36', 'ip': '127.0.0.1', 'filename': 'All_Needs.wav', 'content_type': 'audio/wav', 'reported_size': 1188562, 'duration': 6.19, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536105, 'outcome': 'success', 'transcript_length': 15, 'transcribe_time_sec': 6.69, 'processing_time_sec': 8.02}
+2025-05-19 17:57:30,716 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 17:57:30,837 INFO: Trimming silence from converted_audio.wav
+2025-05-19 17:57:32,662 INFO: Transcript logged to transcripts\transcript_2025-05-19_17-57-32.txt
+2025-05-19 17:57:32,667 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:57:32.662955', 'type': 'transcript', 'timestamp': '2025-05-19_17-57-32', 'transcript': ' George, pre on the next meeting, Fred Run for his president, and Susie, just saved the day.'}
+2025-05-19 17:57:32,667 INFO: Transcription completed.
+2025-05-19 17:57:32,672 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T17:57:32.668035', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T21:57:30.716770+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Test2.wav', 'content_type': 'audio/wav', 'reported_size': 1378642, 'duration': 7.18, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536091, 'outcome': 'success', 'transcript_length': 17, 'transcribe_time_sec': 1.73, 'processing_time_sec': 2.93}
+2025-05-19 18:03:49,022 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:03:49,121 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:03:51,071 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-03-51.txt
+2025-05-19 18:03:51,076 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:03:51.072049', 'type': 'transcript', 'timestamp': '2025-05-19_18-03-51', 'transcript': ' George, pre on the next meeting, Fred Run for his president, and Susie, just saved the day.'}
+2025-05-19 18:03:51,076 INFO: Transcription completed.
+2025-05-19 18:03:51,080 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:03:51.076835', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:03:49.022439+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Test2.wav', 'content_type': 'audio/wav', 'reported_size': 1378642, 'duration': 7.18, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536091, 'outcome': 'success', 'transcript_length': 17, 'transcribe_time_sec': 1.87, 'processing_time_sec': 2.82}
+2025-05-19 18:04:13,231 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:04:13,329 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:04:14,960 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-04-14.txt
+2025-05-19 18:04:14,964 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:04:14.960850', 'type': 'transcript', 'timestamp': '2025-05-19_18-04-14', 'transcript': ' George, pre on the next meeting, Fred Run for his president, and Susie, just saved the day.'}
+2025-05-19 18:04:14,965 INFO: Transcription completed.
+2025-05-19 18:04:14,969 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:04:14.965372', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:04:13.231407+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Test2.wav', 'content_type': 'audio/wav', 'reported_size': 1378642, 'duration': 7.18, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536091, 'outcome': 'success', 'transcript_length': 17, 'transcribe_time_sec': 1.55, 'processing_time_sec': 2.51}
+2025-05-19 18:09:21,915 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:09:22,012 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:09:23,922 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-09-23.txt
+2025-05-19 18:09:23,927 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:09:23.923410', 'type': 'transcript', 'timestamp': '2025-05-19_18-09-23', 'transcript': ' George, pre on the next meeting, Fred Run for his president, and Susie, just saved the day.'}
+2025-05-19 18:09:23,927 INFO: Transcription completed.
+2025-05-19 18:09:23,932 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:09:23.928128', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:09:21.914983+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Test2.wav', 'content_type': 'audio/wav', 'reported_size': 1378642, 'duration': 7.18, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536091, 'outcome': 'success', 'transcript_length': 17, 'transcribe_time_sec': 1.83, 'processing_time_sec': 2.79}
+2025-05-19 18:11:23,917 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:11:24,022 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:11:26,330 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-11-26.txt
+2025-05-19 18:11:26,334 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:11:26.331041', 'type': 'transcript', 'timestamp': '2025-05-19_18-11-26', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 18:11:26,335 INFO: Transcription completed.
+2025-05-19 18:11:26,338 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:11:26.335385', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:11:23.917534+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.21, 'processing_time_sec': 3.21}
+2025-05-19 18:18:21,731 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:18:21,832 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:18:24,410 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-18-24.txt
+2025-05-19 18:18:24,415 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:18:24.411039', 'type': 'transcript', 'timestamp': '2025-05-19_18-18-24', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 18:18:24,415 INFO: Transcription completed.
+2025-05-19 18:18:24,418 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:18:24.415533', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:18:21.731215+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.46, 'processing_time_sec': 3.53}
+2025-05-19 18:36:56,842 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:36:56,947 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:36:59,631 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-36-59.txt
+2025-05-19 18:36:59,635 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:36:59.631737', 'type': 'transcript', 'timestamp': '2025-05-19_18-36-59', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 18:36:59,635 INFO: Transcription completed.
+2025-05-19 18:36:59,640 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:36:59.636376', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:36:56.842004+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.59, 'processing_time_sec': 3.59}
+2025-05-19 18:46:49,268 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:46:49,371 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:46:51,749 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-46-51.txt
+2025-05-19 18:46:51,754 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:46:51.749861', 'type': 'transcript', 'timestamp': '2025-05-19_18-46-51', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 18:46:51,754 INFO: Transcription completed.
+2025-05-19 18:46:51,760 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:46:51.755391', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:46:49.268196+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.29, 'processing_time_sec': 3.28}
+2025-05-19 18:49:02,309 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:49:02,444 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:49:04,905 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-49-04.txt
+2025-05-19 18:49:04,909 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:49:04.905698', 'type': 'transcript', 'timestamp': '2025-05-19_18-49-04', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 18:49:04,910 INFO: Transcription completed.
+2025-05-19 18:49:04,914 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:49:04.910525', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:49:02.309715+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.37, 'processing_time_sec': 3.49}
+2025-05-19 18:55:51,050 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:55:51,150 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:55:53,610 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-55-53.txt
+2025-05-19 18:55:53,615 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:55:53.610586', 'type': 'transcript', 'timestamp': '2025-05-19_18-55-53', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 18:55:53,615 INFO: Transcription completed.
+2025-05-19 18:55:53,620 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:55:53.615873', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:55:51.049967+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.37, 'processing_time_sec': 3.4}
+2025-05-19 18:57:50,276 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:57:50,379 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:57:52,998 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-57-52.txt
+2025-05-19 18:57:53,002 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:57:52.998840', 'type': 'transcript', 'timestamp': '2025-05-19_18-57-52', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 18:57:53,003 INFO: Transcription completed.
+2025-05-19 18:57:53,007 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:57:53.003491', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:57:50.276910+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.53, 'processing_time_sec': 3.53}
+2025-05-19 18:58:34,212 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 18:58:34,313 INFO: Trimming silence from converted_audio.wav
+2025-05-19 18:58:36,681 INFO: Transcript logged to transcripts\transcript_2025-05-19_18-58-36.txt
+2025-05-19 18:58:36,686 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:58:36.682126', 'type': 'transcript', 'timestamp': '2025-05-19_18-58-36', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 18:58:36,686 INFO: Transcription completed.
+2025-05-19 18:58:36,690 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T18:58:36.686640', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T22:58:34.212309+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.29, 'processing_time_sec': 3.28}
+2025-05-19 19:08:26,754 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 19:08:26,859 INFO: Trimming silence from converted_audio.wav
+2025-05-19 19:08:29,171 INFO: Transcript logged to transcripts\transcript_2025-05-19_19-08-29.txt
+2025-05-19 19:08:29,175 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:08:29.171969', 'type': 'transcript', 'timestamp': '2025-05-19_19-08-29', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 19:08:29,175 INFO: Transcription completed.
+2025-05-19 19:08:29,179 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:08:29.175952', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T23:08:26.754569+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.22, 'processing_time_sec': 3.22}
+2025-05-19 19:16:01,257 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 19:16:01,370 INFO: Trimming silence from converted_audio.wav
+2025-05-19 19:16:03,828 INFO: Transcript logged to transcripts\transcript_2025-05-19_19-16-03.txt
+2025-05-19 19:16:03,832 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:16:03.828516', 'type': 'transcript', 'timestamp': '2025-05-19_19-16-03', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 19:16:03,832 INFO: Transcription completed.
+2025-05-19 19:16:03,836 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:16:03.832799', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T23:16:01.257891+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.37, 'processing_time_sec': 3.39}
+2025-05-19 19:27:09,408 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 19:27:09,520 INFO: Trimming silence from converted_audio.wav
+2025-05-19 19:27:12,307 INFO: Transcript logged to transcripts\transcript_2025-05-19_19-27-12.txt
+2025-05-19 19:27:12,312 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:27:12.308234', 'type': 'transcript', 'timestamp': '2025-05-19_19-27-12', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 19:27:12,313 INFO: Transcription completed.
+2025-05-19 19:27:12,317 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:27:12.313386', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T23:27:09.408704+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.7, 'processing_time_sec': 3.79}
+2025-05-19 19:50:42,553 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 19:50:42,656 INFO: Trimming silence from converted_audio.wav
+2025-05-19 19:50:45,225 INFO: Transcript logged to transcripts\transcript_2025-05-19_19-50-45.txt
+2025-05-19 19:50:45,230 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:50:45.226175', 'type': 'transcript', 'timestamp': '2025-05-19_19-50-45', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 19:50:45,230 INFO: Transcription completed.
+2025-05-19 19:50:45,235 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:50:45.231132', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T23:50:42.553432+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.47, 'processing_time_sec': 3.49}
+2025-05-19 19:52:26,410 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 19:52:26,508 INFO: Trimming silence from converted_audio.wav
+2025-05-19 19:52:28,998 INFO: Transcript logged to transcripts\transcript_2025-05-19_19-52-28.txt
+2025-05-19 19:52:29,002 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:52:28.998938', 'type': 'transcript', 'timestamp': '2025-05-19_19-52-28', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 19:52:29,003 INFO: Transcription completed.
+2025-05-19 19:52:29,007 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:52:29.003328', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T23:52:26.410265+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.4, 'processing_time_sec': 3.4}
+2025-05-19 19:53:39,468 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 19:53:39,583 INFO: Trimming silence from converted_audio.wav
+2025-05-19 19:53:42,244 INFO: Transcript logged to transcripts\transcript_2025-05-19_19-53-42.txt
+2025-05-19 19:53:42,249 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:53:42.244930', 'type': 'transcript', 'timestamp': '2025-05-19_19-53-42', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 19:53:42,249 INFO: Transcription completed.
+2025-05-19 19:53:42,254 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:53:42.250254', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T23:53:39.468696+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.56, 'processing_time_sec': 3.7}
+2025-05-19 19:55:11,841 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 19:55:11,949 INFO: Trimming silence from converted_audio.wav
+2025-05-19 19:55:14,507 INFO: Transcript logged to transcripts\transcript_2025-05-19_19-55-14.txt
+2025-05-19 19:55:14,511 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:55:14.508021', 'type': 'transcript', 'timestamp': '2025-05-19_19-55-14', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 19:55:14,512 INFO: Transcription completed.
+2025-05-19 19:55:14,516 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:55:14.512476', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T23:55:11.841500+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.47, 'processing_time_sec': 3.54}
+2025-05-19 19:59:25,235 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 19:59:25,340 INFO: Trimming silence from converted_audio.wav
+2025-05-19 19:59:27,776 INFO: Transcript logged to transcripts\transcript_2025-05-19_19-59-27.txt
+2025-05-19 19:59:27,789 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:59:27.776645', 'type': 'transcript', 'timestamp': '2025-05-19_19-59-27', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 19:59:27,789 INFO: Transcription completed.
+2025-05-19 19:59:27,793 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T19:59:27.790044', 'type': 'audio_upload_success', 'timestamp': '2025-05-19T23:59:25.235504+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.35, 'processing_time_sec': 3.38}
+2025-05-19 20:00:29,410 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 20:00:29,517 INFO: Trimming silence from converted_audio.wav
+2025-05-19 20:00:31,923 INFO: Transcript logged to transcripts\transcript_2025-05-19_20-00-31.txt
+2025-05-19 20:00:31,927 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:00:31.923824', 'type': 'transcript', 'timestamp': '2025-05-19_20-00-31', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 20:00:31,927 INFO: Transcription completed.
+2025-05-19 20:00:31,932 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:00:31.928344', 'type': 'audio_upload_success', 'timestamp': '2025-05-20T00:00:29.410586+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.32, 'processing_time_sec': 3.33}
+2025-05-19 20:01:37,337 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 20:01:37,439 INFO: Trimming silence from converted_audio.wav
+2025-05-19 20:01:39,758 INFO: Transcript logged to transcripts\transcript_2025-05-19_20-01-39.txt
+2025-05-19 20:01:39,762 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:01:39.759207', 'type': 'transcript', 'timestamp': '2025-05-19_20-01-39', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 20:01:39,762 INFO: Transcription completed.
+2025-05-19 20:01:39,766 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:01:39.762974', 'type': 'audio_upload_success', 'timestamp': '2025-05-20T00:01:37.337452+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.23, 'processing_time_sec': 3.25}
+2025-05-19 20:07:43,634 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 20:07:43,745 INFO: Trimming silence from converted_audio.wav
+2025-05-19 20:07:46,401 INFO: Transcript logged to transcripts\transcript_2025-05-19_20-07-46.txt
+2025-05-19 20:07:46,406 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:07:46.402287', 'type': 'transcript', 'timestamp': '2025-05-19_20-07-46', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 20:07:46,406 INFO: Transcription completed.
+2025-05-19 20:07:46,410 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:07:46.407052', 'type': 'audio_upload_success', 'timestamp': '2025-05-20T00:07:43.634198+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.57, 'processing_time_sec': 3.58}
+2025-05-19 20:08:27,088 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 20:08:27,187 INFO: Trimming silence from converted_audio.wav
+2025-05-19 20:08:29,601 INFO: Transcript logged to transcripts\transcript_2025-05-19_20-08-29.txt
+2025-05-19 20:08:29,606 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:08:29.602098', 'type': 'transcript', 'timestamp': '2025-05-19_20-08-29', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 20:08:29,606 INFO: Transcription completed.
+2025-05-19 20:08:29,610 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:08:29.606692', 'type': 'audio_upload_success', 'timestamp': '2025-05-20T00:08:27.087943+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.32, 'processing_time_sec': 3.44}
+2025-05-19 20:09:19,007 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 20:09:19,112 INFO: Trimming silence from converted_audio.wav
+2025-05-19 20:09:21,471 INFO: Transcript logged to transcripts\transcript_2025-05-19_20-09-21.txt
+2025-05-19 20:09:21,475 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:09:21.471980', 'type': 'transcript', 'timestamp': '2025-05-19_20-09-21', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 20:09:21,475 INFO: Transcription completed.
+2025-05-19 20:09:21,479 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:09:21.476208', 'type': 'audio_upload_success', 'timestamp': '2025-05-20T00:09:19.007538+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.27, 'processing_time_sec': 3.3}
+2025-05-19 20:12:29,797 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 20:12:29,906 INFO: Trimming silence from converted_audio.wav
+2025-05-19 20:12:32,230 INFO: Transcript logged to transcripts\transcript_2025-05-19_20-12-32.txt
+2025-05-19 20:12:32,234 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:12:32.230906', 'type': 'transcript', 'timestamp': '2025-05-19_20-12-32', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 20:12:32,234 INFO: Transcription completed.
+2025-05-19 20:12:32,238 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:12:32.235118', 'type': 'audio_upload_success', 'timestamp': '2025-05-20T00:12:29.797545+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.23, 'processing_time_sec': 3.26}
+2025-05-19 20:16:48,490 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 20:16:48,588 INFO: Trimming silence from converted_audio.wav
+2025-05-19 20:16:50,934 INFO: Transcript logged to transcripts\transcript_2025-05-19_20-16-50.txt
+2025-05-19 20:16:50,938 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:16:50.935045', 'type': 'transcript', 'timestamp': '2025-05-19_20-16-50', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 20:16:50,939 INFO: Transcription completed.
+2025-05-19 20:16:50,943 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:16:50.939472', 'type': 'audio_upload_success', 'timestamp': '2025-05-20T00:16:48.489959+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.26, 'processing_time_sec': 3.29}
+2025-05-19 20:22:33,297 INFO: Converting original_audio.wav to WAV converted_audio.wav
+2025-05-19 20:22:33,399 INFO: Trimming silence from converted_audio.wav
+2025-05-19 20:22:35,713 INFO: Transcript logged to transcripts\transcript_2025-05-19_20-22-35.txt
+2025-05-19 20:22:35,717 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:22:35.713898', 'type': 'transcript', 'timestamp': '2025-05-19_20-22-35', 'transcript': ' Also premiered on the meeting slides, Bob needs to book the conference, Carol will send out the calendar invites. Dave should print the agenda, Aaron is assigned to take notes, Frank must order lunch for a team.'}
+2025-05-19 20:22:35,717 INFO: Transcription completed.
+2025-05-19 20:22:35,722 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:22:35.718259', 'type': 'audio_upload_success', 'timestamp': '2025-05-20T00:22:33.297671+00:00', 'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0', 'ip': '127.0.0.1', 'filename': 'Actions_Test.wav', 'content_type': 'audio/wav', 'reported_size': 2269522, 'duration': 11.82, 'sample_rate': 48000, 'channels': 2, 'bitrate': 1536055, 'outcome': 'success', 'transcript_length': 37, 'transcribe_time_sec': 2.23, 'processing_time_sec': 3.22}
+2025-05-19 20:25:54,652 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 20:25:54,800 WARNING: Failed to get duration for original_audio.wav: Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 20:25:55,026 WARNING: Failed to get sample rate/channels for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'stream=sample_rate,channels', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 20:25:55,214 WARNING: Failed to get bitrate for original_audio.wav: Command '['ffprobe', '-v', 'error', '-select_streams', 'a:0', '-show_entries', 'format=bit_rate', '-of', 'default=noprint_wrappers=1:nokey=1', 'original_audio.wav']' returned non-zero exit status 1.
+2025-05-19 20:25:55,224 WARNING: Audio rejected: Unable to determine audio duration
+2025-05-19 20:25:55,244 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:25:55.232550', 'type': 'audio_quality_failed', 'timestamp': '2025-05-20T00:25:55.224634+00:00', 'user_agent': 'Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/16.7.0', 'ip': '127.0.0.1', 'filename': 'test.wav', 'content_type': 'audio/wav', 'reported_size': 18, 'duration': -1, 'sample_rate': 0, 'channels': 0, 'bitrate': 0, 'reason': 'Unable to determine audio duration', 'outcome': 'failure'}
+2025-05-19 20:26:18,995 ERROR: Unhandled error in /process-audio
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 533, in readinto
+    out_size: int | None = self._stream.readinto(b)
+                           ~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\bandi\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\app\routes\audio_routes.py", line 80, in process_audio
+    file = request.files.get('audio')
+           ^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\utils.py", line 107, in __get__
+    value = self.fget(obj)  # type: ignore
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 497, in files
+    self._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\flask\wrappers.py", line 198, in _load_form_data
+    super()._load_form_data()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wrappers\request.py", line 271, in _load_form_data
+    data = parser.parse(
+        self._get_stream_for_parsing(),
+    ...<2 lines>...
+        self.mimetype_params,
+    )
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 242, in parse
+    return parse_func(stream, mimetype, content_length, options)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 267, in _parse_multipart
+    form, files = parser.parse(stream, boundary, content_length)
+                  ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 368, in parse
+    for data in _chunk_iter(stream.read, self.buffer_size):
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\formparser.py", line 423, in _chunk_iter
+    data = read(size)
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 535, in readinto
+    self.on_disconnect(error=e)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\bandi\meeting-summary-dashboard\backend\venv\Lib\site-packages\werkzeug\wsgi.py", line 499, in on_disconnect
+    raise ClientDisconnected()
+werkzeug.exceptions.ClientDisconnected: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2025-05-19 20:26:19,040 INFO: Event logged to event_logs\event_log_2025-05-19.jsonl: {'logged_at': '2025-05-19T20:26:19.035849', 'type': 'audio_route_exception', 'timestamp': '2025-05-20T00:26:19.035442+00:00', 'user_agent': 'node', 'ip': '127.0.0.1', 'error': '400 Bad Request: The browser (or proxy) sent a request that this server could not understand.', 'outcome': 'exception'}

@@ -8,6 +8,7 @@ from app.services.calendar_api import calendar_api
 
 def create_app():
     app = Flask(__name__)
+    print(app.url_map)
 
     # Enable CORS for frontend
     CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})

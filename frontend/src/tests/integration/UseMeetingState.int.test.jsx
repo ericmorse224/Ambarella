@@ -50,3 +50,18 @@ describe('useMeetingState Integration (Nextcloud backend)', () => {
 
         expect(result.current.transcript).not.toBe('');
         expect(result.current.isLoading).toBe(false);
+        expect(result.current.uploadAttempts).toBe(1);
+        expect(result.current.error).toBe(false);
+
+        // Step 2: processTranscript
+        await act(async () => {
+            await result.current.processTranscript();
+        });
+
+        expect(Array.isArray(result.current.summary)).toBe(true);
+        expect(Array.isArray(result.current.actions)).toBe(true);
+        expect(Array.isArray(result.current.decisions)).toBe(true);
+        expect(result.current.isLoading).toBe(false);
+        expect(result.current.error).toBe(false);
+    }, 20000); // Increase timeout for real backend
+});

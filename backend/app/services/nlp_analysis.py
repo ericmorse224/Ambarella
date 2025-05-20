@@ -22,10 +22,37 @@ import nltk
 from app.utils.entity_utils import extract_entities, extract_people_from_entities
 
 ACTION_PHRASES = [
-    "will", "needs to", "need to", "should", "must", "is to", "shall",
-    "tasked with", "responsible for", "required to", "assigned to", "supposed to"
+    "do", "update", "review", "send", "create", "schedule", "call", "organize",
+    "finish", "complete", "start", "plan", "set", "book", "email", "write",
+    "check", "fix", "prepare", "assign", "approve", "submit", "remind",
+    "arrange", "finalize", "read", "meet", "discuss", "follow", "report",
+    "address", "order", "clean", "install", "deploy", "analyze", "collect",
+    "help", "join", "follow up", "present", "gather", "share", "investigate",
+    "coordinate", "implement", "test", "organize", "begin", "finish",
+    "build", "support", "update", "assign", "confirm", "document", "provide",
+    "should", "will", "must", "needs to", "has to", "to", "shall"
 ]
-EXPECTED_NAMES = ["Alice", "Bob", "Carol", "Dave", "Erin", "Frank", "Aaron", "Susie", "Fred", "Eric", "John", "Jane", "George", "Greg"]
+EXPECTED_NAMES = [
+    # Additional common male names
+    "Adam", "Alex", "Andrew", "Anthony", "Ben", "Brian", "Charles", "Chris",
+    "Daniel", "David", "Edward", "Ethan", "Gary", "Jack", "James", "Jason",
+    "Jeff", "Joe", "Jonathan", "Joseph", "Josh", "Kevin", "Mark", "Matt",
+    "Michael", "Mike", "Nick", "Paul", "Peter", "Richard", "Robert", "Ryan",
+    "Sam", "Samuel", "Scott", "Sean", "Steve", "Steven", "Thomas", "Tim",
+    "Timothy", "Tom", "Tyler", "Will", "William", "Zach", "Zachary",
+    "Fred", "Eric", "John", "Bob", "Carol", "Dave", "Frank", "Aaron", "George", "Greg",
+    # Additional common female names
+    "Abby", "Amanda", "Amy", "Angela", "Ashley", "Barbara", "Brenda", "Brittany",
+    "Caitlin", "Catherine", "Charlotte", "Christina", "Claire", "Courtney",
+    "Diana", "Elizabeth", "Emily", "Emma", "Grace", "Hannah", "Heather", "Isabella",
+    "Jessica", "Jill", "Julia", "Julie", "Kaitlyn", "Karen", "Katherine", "Katie",
+    "Kelly", "Kim", "Kimberly", "Laura", "Lauren", "Lily", "Linda", "Lisa", "Madison",
+    "Megan", "Michelle", "Natalie", "Nicole", "Olivia", "Pam", "Patricia", "Rachel",
+    "Rebecca", "Samantha", "Sara", "Sarah", "Shannon", "Stephanie", "Susan", "Tara",
+    "Taylor", "Victoria", "Wendy", "Alice",  "Erin",  "Susie", "Jane", 
+    # Some gender-neutral/unisex names
+    "Alex", "Casey", "Charlie", "Drew", "Jamie", "Jordan", "Morgan", "Riley", "Robin", "Taylor"
+]
 
 def robust_sent_tokenize(text):
     sentences = nltk.sent_tokenize(text)

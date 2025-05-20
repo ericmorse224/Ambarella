@@ -1,10 +1,11 @@
-// src/components/SummaryPanel.jsx
 export default function SummaryPanel({ summary, onDownload }) {
     if (!summary.length) return null;
     return (
         <div>
-            <h2 className="text-lg font-bold mt-4">Summary:</h2>
-            <ul className="list-disc list-inside text-sm">
+            <h2 className="text-lg font-bold mt-4 dark:text-white">
+                Summary:
+            </h2>
+            <ul className="list-disc list-inside text-sm dark:text-gray-100">
                 {summary.map((s, i) => <li key={i}>{s}</li>)}
             </ul>
             <button
